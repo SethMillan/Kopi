@@ -1,0 +1,15 @@
+/* styles-index */
+
+/* Aqui ira la parte del carrusel */
+.Kopi{
+display: flex;
+height: 98vh;
+background-color: black;
+}
+
+.Encabezado{
+height: 20%;
+width: 100%;
+overflow: auto;
+background-color: blue;
+}
