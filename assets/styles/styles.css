@@ -1,15 +1,36 @@
 /* styles-index */
 
 /* Aqui ira la parte del carrusel */
-.Kopi{
+.kopi{
 display: flex;
 height: 98vh;
 background-color: black;
 }
 
-.Encabezado{
+/* logo y los botones */
+.encabezado{
 height: 20%;
 width: 100%;
 overflow: auto;
 background-color: blue;
+}
+
+/* Tueste_TextoResumido */
+.tueste{
+display: flex;
+height: 50vh;
+background-color: yellowgreen;
+}
+
+/* Tipos de tuestes */
+.tueste_tipós{
+display: flex;
+height: 100vh;
+background-color: violet;
+}
+
+.historia{
+display: flex;
+height: 100vh;
+background-color: chocolate;
 }
