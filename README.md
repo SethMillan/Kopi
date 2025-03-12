@@ -14,5 +14,3 @@ Seth
 - Home 
 - Carrito
 
-Extras
-- Pago
