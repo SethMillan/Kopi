@@ -23,3 +23,6 @@ Seth
 19/03/2025 yo digo que si jala.
 
 prueba 2.0
+
+
+chipi chapa
