@@ -20,4 +20,4 @@ Seth
 
 
 ### Fecha de entrega de los avances de proyecto
-19/03/2025 
+19/03/2025 apoco si tilin
