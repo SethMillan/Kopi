@@ -14,3 +14,7 @@ Seth
 - Home 
 - Carrito
 
+
+### Formato para los Commit
+![Imagen_commit](assets/img/md/formato_pull.jpg)
+
