@@ -1,0 +1,183 @@
+/* styles-index */
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Aqui ira la parte del carrusel */
+  .kopi {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-image: url('/assets/img/background_coffe.png');
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    position: relative;
+    
+    .difuminado {
+      height: 100vh;
+      width: 100%;
+      background-color: #160503C2;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    /* Barra de navegación */
+    nav.encabezado {
+      color: #FFF;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 30px 40px;
+      gap: 20px;
+      
+      .home {
+        text-align: center;
+        font-family: Fredoka, sans-serif;
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.35px;
+        margin-top: -8px;
+        text-decoration: none;
+        color: #FFF;
+      }
+      
+      .btnMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 55px;
+        color: #FFF;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.09px;
+        .linea {
+            width: 53px;
+            height: 2px;
+            flex-shrink: 0;
+            stroke-width: 2px;
+            background-color: #FFF;
+        }
+        @media (max-width: 670px) {
+            display: none;
+          }
+      }
+      
+      .btnFindKopi {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        color: #FFF;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.1px;
+      }
+      
+      .btnLogin{
+        border: #FFF solid;
+        padding: 7px;
+        border-radius: 64px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #FFF;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.09px;
+        width: 92px;
+        height: 39px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 960px) {
+            display: none;
+          }
+      }
+      
+      .btnRegister {
+        border-radius: 64px;
+        border: 1px solid #FFF;
+        background: #FFF;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #160503;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.09px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 92px;
+        height: 39px;
+        padding: 7px;
+        @media (max-width: 960px) {
+            display: none;
+          }
+        
+      }
+      .material-symbols-outlined {
+        margin-left: 20px;
+        cursor: pointer;
+      }
+      #shopping_cart{
+        @media (max-width: 960px) {
+            display: none;
+          }
+      }
+      #menu{
+        @media(min-width: 961px){
+            display: none;
+        }
+      }
+    }
+    
+    .contenido {
+      flex-grow: 1;
+      z-index: 2;
+    }
+  }
+  
+  /* Secciones */
+  .tueste {
+    display: flex;
+    height: 100vh;
+    background-color: yellowgreen;
+  }
+  
+  .tueste_tipós {
+    display: flex;
+    height: 100vh;
+    background-color: violet;
+  }
+  
+  .historia {
+    display: flex;
+    height: 100vh;
+    background-color: chocolate;
+  }
