@@ -33,7 +33,8 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 20px 40px;
+      padding: 30px 40px;
+      gap: 20px;
       
       .home {
         text-align: center;
@@ -43,7 +44,7 @@
         font-weight: 600;
         line-height: normal;
         letter-spacing: 0.35px;
-      
+        margin-top: -8px;
         text-decoration: none;
         color: #FFF;
       }
@@ -52,33 +53,107 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-left: auto;
         cursor: pointer;
-        
+        margin-left: 55px;
+        color: #FFF;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.09px;
         .linea {
-          width: 30px;
-          height: 2px;
-          background-color: #FFF;
-          margin: 5px 0;
+            width: 53px;
+            height: 2px;
+            flex-shrink: 0;
+            stroke-width: 2px;
+            background-color: #FFF;
         }
+        @media (max-width: 670px) {
+            display: none;
+          }
       }
       
       .btnFindKopi {
+        margin-left: auto;
         display: flex;
         align-items: center;
         gap: 5px;
-        margin-left: 20px;
         cursor: pointer;
+        color: #FFF;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.1px;
       }
       
-      .btnLogin, .btnRegister {
+      .btnLogin{
+        border: #FFF solid;
+        padding: 7px;
+        border-radius: 64px;
         margin-left: 20px;
         cursor: pointer;
+        color: #FFF;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.09px;
+        width: 92px;
+        height: 39px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 960px) {
+            display: none;
+          }
       }
       
+      .btnRegister {
+        border-radius: 64px;
+        border: 1px solid #FFF;
+        background: #FFF;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #160503;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.09px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 92px;
+        height: 39px;
+        padding: 7px;
+        @media (max-width: 960px) {
+            display: none;
+          }
+        
+      }
       .material-symbols-outlined {
         margin-left: 20px;
         cursor: pointer;
+      }
+      #shopping_cart{
+        @media (max-width: 960px) {
+            display: none;
+          }
+      }
+      #menu{
+        @media(min-width: 961px){
+            display: none;
+        }
       }
     }
     
