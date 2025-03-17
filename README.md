@@ -3,17 +3,17 @@
 **Repartición de las paginas**
 
 Efren
-- Login: 
-    - Se encontro que no esta bien algunos margenes (estaba trabajando con un sum del 80%, voy a desayunar-almorzar ahorita lo agrego)
-- Registro
+- [ ] Login: 
+    - [x] Se encontro que no esta bien algunos margenes (estaba trabajando con un sum del 80%, voy a desayunar-almorzar ahorita lo agrego)
+- [ ] Registro
 
 Oscar
-- Pasarela de pago
-- Recompensas
+- [ ] Pasarela de pago
+- [ ] Recompensas
 
 Seth
-- Home 
-- Carrito
+- [ ] Home 
+- [ ] Carrito
 
 
 ### Formato para los Commit
