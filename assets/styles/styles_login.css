@@ -31,13 +31,23 @@
     border-radius: 64px;
   }
 
-    .decoracion{
+  .decoracion{
       margin-top: 130px; 
       width: 337px;
       height: 320px;
       flex-shrink: 0;
       fill: #160503;
-   }
+  }
+
+  .coffe_image{
+    position: absolute;
+    margin-right: 300px;
+    margin-top: 28px;
+    width: 359px;
+    height: 415px;
+    flex-shrink: 0;
+    aspect-ratio: 37/45;
+  }
 
 /* Lado derecho */
  .derecha{
