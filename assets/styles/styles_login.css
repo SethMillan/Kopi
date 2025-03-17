@@ -91,17 +91,29 @@
 
 /* Lado derecho */
  .derecha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 54.85%;
   height: 100vh;
   flex-shrink: 0;
   background-color: #160503;
   }
 
-  .text_login{
+  .text_derecha{
+    display: block;
+    width: 80vh;
+    height: 90vh;
+    border-color: #E5E7EB;
+    border: 5px solid white; 
+    }
+
+   .text_login{
     /* Layout */
     width: 172px;
     height: 49px;
     flex-shrink: 0;
+    
 
     /* Typograpy */
     color: #FFF;
@@ -113,5 +125,32 @@
     letter-spacing: 0.24px;
   }
 
+  .newCount{
+    display: flex;
+    height: 4vh;
+    width: 38vh;
+    gap: 20px;
+    margin-top: 2vh;
+  }
+
+  .text_count, .text_Signup{
+    letter-spacing: 0.08px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+  }
+
+  .text_count{
+    color: #FFF;
+  }
+
+  .text_Signup{
+    color: #9F5524;
+  }
+
+  .text_Signup:hover{
+    color: #b9642a;
+    cursor: pointer;
+  }
 
 
