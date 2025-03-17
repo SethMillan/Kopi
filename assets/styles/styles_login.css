@@ -1,0 +1,23 @@
+ body{
+    display: flex;
+    justify-content: space-between; /* Separa los elementos hacia los extremos */
+    align-items: center; /* Centra verticalmente dentro del contenedor */
+    height: 20vh;
+    background-color: wheat;
+    padding: 0 20px; /* Opcional: añade espacio a los lados */
+  }
+
+ 
+.izquierda, .derecha{
+     width: 94vh;
+}
+.izquierda{
+    height: 90vh;
+    background-color: rgb(126, 77, 13);
+  }
+
+ .derecha{
+    height: 90vh;
+    background-color: black;
+  }
+        
