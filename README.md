@@ -3,7 +3,8 @@
 **Repartición de las paginas**
 
 Efren
-- Login
+- Login: 
+    - Se encontro que no esta bien algunos margenes (estaba trabajando con un sum del 80%, voy a desayunar-almorzar ahorita lo agrego)
 - Registro
 
 Oscar
