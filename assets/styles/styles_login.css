@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 38.15%;
+    width: 45.15%;
     height: 100vh;
     flex-shrink: 0;
     background-color: #9F5524;
@@ -91,7 +91,7 @@
 
 /* Lado derecho */
  .derecha{
-  width: 61.85%;
+  width: 54.85%;
   height: 100vh;
   flex-shrink: 0;
   background-color: #160503;
