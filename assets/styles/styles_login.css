@@ -41,13 +41,53 @@
 
   .coffe_image{
     position: absolute;
-    margin-right: 300px;
-    margin-top: 28px;
-    width: 359px;
-    height: 415px;
+    margin-left: 30px;
+    margin-top: 115px;
+    width: 280px;
+    height: 330px;
     flex-shrink: 0;
     aspect-ratio: 37/45;
   }
+
+  .text_cartelera{
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 310px;
+ 
+    flex-shrink: 0;
+  
+    color: #160503;
+    text-align: center;
+    font-family: Fredoka, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+     }
+
+    .text_cartelera_Kopi{
+      position: absolute;
+      margin-top: 240px;
+      margin-left: 310px;
+      flex-shrink: 0;
+
+      color: #160503;
+      text-align: center;
+      font-family: Fredoka, sans-serif;
+      font-size: 110px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+     }
+
+     .coffe_kopi{
+      position: absolute;
+      width: 90px;
+      height: 102.126px;
+      margin-left: 360px;
+      margin-top: 263px;
+      flex-shrink: 0;
+      }
 
 /* Lado derecho */
  .derecha{
@@ -72,3 +112,6 @@
     line-height: normal;
     letter-spacing: 0.24px;
   }
+
+
+
