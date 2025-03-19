@@ -20,6 +20,7 @@
     height: 100vh;
     flex-shrink: 0;
     background-color: #9F5524;
+    overflow: hidden;
   }
   
   .grano1, .grano2, .grano3, .grano4{
@@ -36,13 +37,13 @@
   }
 
   .grano3{
-    margin-top: 90vh;
+    margin-top: 89.4vh;
     margin-right: 70vh;
   }
 
   .grano4{
-    margin-left: 78vh;
-    margin-top: 90vh;
+    margin-left: 80vh;
+    margin-top: 87.5vh;
   }
   .cartelera{
     overflow: hidden;
@@ -127,17 +128,16 @@
     margin-top: 02vh;
     width: 80vh;
     height: 90vh;
-    border-color: #E5E7EB;
     }
 
    .text_login{
     /* Layout */
+    margin-left: 24px;
     font-family: 'Open Sans';
     width: 172px;
     height: 49px;
     flex-shrink: 0;
     
-
     /* Typograpy */
     color: #FFF;
     font-family: "Open Sans";
@@ -149,6 +149,7 @@
   }
 
   .newCount{
+    margin-left: 28px;
     display: flex;
     height: 4vh;
     width: 38vh;
@@ -178,32 +179,41 @@
 
   .placeholder_texto{
     display: flex;
+    height: 24px;
     width: 80vh;
-    gap: 47vh;
+    gap: 40vh;
   }
+
+  .username_email{
+    margin-bottom: 10px;
+  }
+
 
   .placeholder_1, .placeholder_2{
     display: flex;
-    min-width: 80vh;
+    min-width: 70vh;
     min-height: 40px;
     padding: var(--sds-size-space-300) var(--sds-size-space-400);
     align-items: center;
-    align-self: stretch;
+    align-self: center;
 
     border-radius: 12px;
     border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
     background: #362625;
     
     /* Typografia */
-    font-family: Roboto;
+    font-weight: 100;
+    font-family: 'Open Sans' ;
     color: #FFF;
+    padding-left: 8px;
   }
 
-  .box_placeholder1, .box_placeholder2{
+  .box_placeholder1, .box_placeholder2{    
     margin-top: 40px;
+    margin-left: 30px;
     width: 75vh;
     height: 10vh;
-  }
+   }
 
   .ojoAndHolder{
     display: flex;
@@ -212,7 +222,7 @@
   .ojo{
     position: absolute;
     margin-top: 8px;
-    margin-left: 75vh;
+    margin-left: 64vh;
   }
 
   .ojo:hover{
@@ -249,7 +259,7 @@
 
   .box_separador{
     gap: 3vh;
-    margin-top: 50px;
+    margin-top: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -283,12 +293,13 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    gap: 10px;
     border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
   }
 
   .google{
     border-radius: 16px;
-    background: #FFF;
+    background: #ffffff;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08), 0px 2px 3px 0px rgba(0, 0, 0, 0.17);
 
     color: rgba(0, 0, 0, 0.54);
@@ -313,7 +324,7 @@
   }
 
   .botones_login{
-    margin-top: 30px;
+    margin-top: 40px;
     gap: 10vh;
     align-items: center;
     justify-content: center;
@@ -327,6 +338,6 @@
   }
 
   .google:hover{
-    background: #d8d0d0;
+    box-shadow: 0px 1px 5px rgba(255, 255, 255, 0.3);
     cursor:pointer;
   }
