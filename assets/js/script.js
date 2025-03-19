@@ -21,4 +21,16 @@ var swiper = new Swiper('.swiper', {
       }
       
   });
+
   
+  document.addEventListener("DOMContentLoaded", function () {
+    // Botón Login
+    document.getElementById("loginButton").addEventListener("click", function () {
+        window.location.href = "pages/login.html"; // Redirige a la página de login
+    });
+
+    // Botón Join
+    document.getElementById("joinButton").addEventListener("click", function () {
+        window.location.href = "pages/join.html"; // Redirige a la página de registro (asegúrate de que esta página exista)
+    });
+});

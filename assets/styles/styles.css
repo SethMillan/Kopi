@@ -122,6 +122,10 @@
     display: none;
   }
 }
+.kopi nav.encabezado .btnLogin a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Usa el color del texto padre */
+}
 .kopi nav.encabezado .btnRegister {
   border-radius: 64px;
   border: 1px solid #FFF;
@@ -147,6 +151,10 @@
   .kopi nav.encabezado .btnRegister {
     display: none;
   }
+}
+.kopi nav.encabezado .btnRegister a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Usa el color del texto padre */
 }
 .kopi nav.encabezado .material-symbols-outlined {
   margin-left: 20px;
