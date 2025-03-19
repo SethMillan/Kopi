@@ -1,13 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compras | Kopi</title>
+    <link rel="stylesheet" href="../assets/styles/styles_buy.css"> <!-- Enlaza el archivo CSS -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    
+    <div class="container">
+        <!-- Resumen del pedido -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <!-- Detalles del producto -->
+            <div class="product-details">
+                <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                <div class="product-info">
+                    <p><strong>Product:</strong></p>
+                    <p>Kopi-Organico</p>
+                    <p>Qty: 2</p>
+                </div>
+                <p class="price">$49.80</p>
+            </div>
+
+
+            <!-- Resumen de precios -->
+            <div class="price-summary">
+                <p>Subtotal: $188</p>
+                <p>Taxes and Fees: $10</p>
+                <h3>Total: $198</h3>
+            </div>
+        </div>
+
+        <!-- Detalles de pago -->
+        <div class="payment-details">
+            <h2>Payment details</h2>
+            <form id="payment-form">
+                <!-- Grupo para Country y Zip Code -->
+                <div class="input-group">
+                    <div>
+                        <label for="country">Country</label>
+                        <select id="country">
+                            <option>Mexico</option>
+                            <option>USA</option>
+                            <option>Colombia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip" required>
+                    </div>
+                </div>
+
+                <!-- Name of card y credit card number -->
+                <label for="card-name">Name on Card</label>
+                <input type="text" id="card-name" required>
+
+                <label for="card-number">Credit Card Number</label>
+                <input type="text" id="card-number" required>
+
+                <!-- Date y CVC/CVV -->
+                <div class="input-group">
+                    <div>
+                        <label for="exp-date">Expiration Date</label>
+                        <input type="text" id="exp-date" class="narrow-input" required>
+                    </div>
+                    <div>
+                        <label for="cvc">CVC/CVV</label>
+                        <input type="text" id="cvc" required>
+                    </div>
+                </div>
+
+                <!-- Botón de pago -->
+                <button type="submit">Pay</button>
+            </form>
+
+            <!-- APple pay -->
+            <div class="fast-pay">
+                <div id="paypal-button-container"></div>
+                <button id="apple-pay-button">
+                    <i class="fab fa-apple-pay"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/buy_script.js"></script>
 </body>
 </html>
- 
-!
