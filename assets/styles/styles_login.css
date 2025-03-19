@@ -164,16 +164,19 @@
     font-weight: 100;
   }
 
-  .text_count, .username_email, .placeholder_password, .forgot_your_p{
+  .text_count, .username_email, .placeholder_password{
     color: #FFF;
   }
 
+  .forgot_your_p{
+    color: #ada9a9;
+  }
   .text_Signup{
     color: #9F5524;
   }
 
   .text_Signup:hover{
-    font-weight: 300;
+    color: #b96329;
     cursor: pointer;
   }
 
@@ -230,7 +233,7 @@
   }
 
   .forgot_your_p:hover{
-   font-weight: 300;
+   color: #FFF;
    cursor: pointer;
   }
 
