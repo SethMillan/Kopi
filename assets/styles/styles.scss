@@ -118,6 +118,11 @@
         @media (max-width: 960px) {
             display: none;
           }
+          a{
+            text-decoration: none; /* Quita el subrayado */
+            color: inherit; /* Usa el color del texto padre */
+
+          }
       }
       
       .btnRegister {
@@ -142,6 +147,11 @@
         padding: 7px;
         @media (max-width: 960px) {
             display: none;
+          }
+          a{
+            text-decoration: none; /* Quita el subrayado */
+            color: inherit; /* Usa el color del texto padre */
+
           }
         
       }
