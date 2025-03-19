@@ -231,6 +231,10 @@ input::placeholder {
         display: flex;
     }
 
+    .ojo2:hover , .ojo3:hover{
+        cursor: pointer;
+    }
+
     .botones_login2{
         margin-top: 08px;
         gap: 40px;
