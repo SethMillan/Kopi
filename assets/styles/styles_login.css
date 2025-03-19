@@ -3,7 +3,7 @@
   margin: 0;
 }
  
-  .login{
+  .mainBox{
     display: flex;
     background-color: yellow;
     width: 100%;
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45.15%;
+    width: 100.6vh;
     height: 100vh;
     flex-shrink: 0;
     background-color: #9F5524;
@@ -29,7 +29,7 @@
 
   .grano1{
     margin-bottom: 80vh;
-    margin-right: 80vh;
+    margin-right: 90vh;
   }
 
   .grano2{
@@ -42,7 +42,7 @@
   }
 
   .grano4{
-    margin-left: 80vh;
+    margin-left: 90vh;
     margin-top: 87.5vh;
   }
   .cartelera{
@@ -117,7 +117,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 54.85%;
+  width: 50%;
   height: 100vh;
   flex-shrink: 0;
   background-color: #160503;
@@ -132,7 +132,7 @@
 
    .text_login{
     /* Layout */
-    margin-left: 24px;
+    margin-left: 70px;
     font-family: 'Open Sans';
     width: 172px;
     height: 49px;
@@ -149,7 +149,7 @@
   }
 
   .newCount{
-    margin-left: 28px;
+    margin-left: 70px;
     display: flex;
     height: 4vh;
     width: 38vh;
@@ -165,7 +165,7 @@
   }
 
   .text_count, .username_email, .placeholder_password, .forgot_your_p{
-    color: #FFF;
+    color: #ada9a9;
   }
 
   .text_Signup{
@@ -173,7 +173,7 @@
   }
 
   .text_Signup:hover{
-    font-weight: 300;
+    color: #b96329;
     cursor: pointer;
   }
 
@@ -181,7 +181,7 @@
     display: flex;
     height: 24px;
     width: 80vh;
-    gap: 40vh;
+    gap: 30vh;
   }
 
   .username_email{
@@ -191,7 +191,7 @@
 
   .placeholder_1, .placeholder_2{
     display: flex;
-    min-width: 70vh;
+    min-width: 60vh;
     min-height: 40px;
     padding: var(--sds-size-space-300) var(--sds-size-space-400);
     align-items: center;
@@ -210,7 +210,7 @@
 
   .box_placeholder1, .box_placeholder2{    
     margin-top: 40px;
-    margin-left: 30px;
+    margin-left: 70px;
     width: 75vh;
     height: 10vh;
    }
@@ -222,7 +222,7 @@
   .ojo{
     position: absolute;
     margin-top: 8px;
-    margin-left: 64vh;
+    margin-left: 55vh;
   }
 
   .ojo:hover{
@@ -230,7 +230,7 @@
   }
 
   .forgot_your_p:hover{
-   font-weight: 300;
+   color: #FFF;
    cursor: pointer;
   }
 
@@ -269,7 +269,7 @@
   .s1, .s2{
     margin-top: 10px;
     height: 1px;
-    width: 160px;
+    width: 110px;
     align-self: stretch;
     background: #9F5524;
   }
@@ -287,7 +287,7 @@
 
   .google, .facebook{
     display: flex;
-    width: 196px;
+    width: 180px;
     height: 54px;
     padding: 0px 32px 0px 31px;
     justify-content: center;
@@ -325,7 +325,7 @@
 
   .botones_login{
     margin-top: 40px;
-    gap: 10vh;
+    gap: 4vh;
     align-items: center;
     justify-content: center;
     width: 80vh;
