@@ -2,6 +2,9 @@
 .nuew_user{
     display: none; /* Usa block con el js */
     justify-content: center;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     width: 50vw;
     height: 100vh;
     flex-shrink: 0;
@@ -10,7 +13,7 @@
 
     .contenedor{
      display: block;
-     width: 80vh;
+     width: 520px;
      height: 99vh;
     }
 
@@ -19,12 +22,13 @@
     font-family: 'Open Sans';
     width:  70vh;
     height: 49px;
+    margin-top: 50px;
     flex-shrink: 0;
   
     /* Typograpy */
     color: #FFF;
     font-family: "Open Sans";
-    font-size: 48px;
+    font-size: 38px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -33,7 +37,7 @@
 
     .return_login{
      display: flex;
-     margin-top: 15px;
+     margin-top: 4px;
      gap: 20px;
      width: 70vh;
      height: 49ox;
@@ -79,7 +83,7 @@
     display: flex;
     width: 70vh;
     height: 04vh;
-    gap: 25px;
+    gap: 20px;
     }
 
 /* Aplica estilos al input */
@@ -103,7 +107,7 @@
     min-height: 40px;
 }
 .input_grande{
-    min-width: 76vh;
+    min-width: 510px;
     min-height: 40px;
 }
 
@@ -149,8 +153,8 @@ input::placeholder {
 
 .button_create{
     display: flex;
-    margin-left: 14vh;
-    margin-top: 2vh;
+    margin-left: 80px;
+    margin-top: 14px;
     background-color: #9F5524;
     color: #FFF;
   
@@ -172,12 +176,20 @@ input::placeholder {
 
     .box_separador2{
         gap: 3vh;
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 79vh;
+        width: 520px;
     }
+
+    .s1, .s2{
+        margin-top: 10px;
+        height: 1px;
+        width: 110px;
+        align-self: stretch;
+        background: #9F5524;
+      }
 
     input[type="checkbox"] {
         appearance: none;
@@ -204,17 +216,26 @@ input::placeholder {
     
     .ojo2{
         position: absolute;
-        margin-left: 70vh;
-        margin-top: -04.6vh;
+        margin-left: 480px;
+        margin-top: -30px;
       }
     
     .ojo3{
         position: absolute;
-        margin-left: 70vh;
-        margin-top: 01.3vh;
+        margin-left: 480px;
+        margin-top: 8px;
     }
     .ojoholder{
         height: auto;
         width: auto;
+        display: flex;
+    }
+
+    .botones_login2{
+        margin-top: 08px;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
         display: flex;
     }
