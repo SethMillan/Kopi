@@ -7,6 +7,9 @@
 
 /* Aqui ira la parte del carrusel */
 .kopi {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
   display: flex;
   height: 100vh;
   width: 100%;
@@ -49,6 +52,9 @@
   color: #FFF;
 }
 .kopi nav.encabezado .btnMenu {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,6 +82,9 @@
   }
 }
 .kopi nav.encabezado .btnFindKopi {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -97,6 +106,9 @@
   }
 }
 .kopi nav.encabezado .btnLogin {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
   border: #FFF solid;
   padding: 7px;
   border-radius: 64px;
@@ -127,6 +139,9 @@
   color: inherit; /* Usa el color del texto padre */
 }
 .kopi nav.encabezado .btnRegister {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
   border-radius: 64px;
   border: 1px solid #FFF;
   background: #FFF;
@@ -157,6 +172,9 @@
   color: inherit; /* Usa el color del texto padre */
 }
 .kopi nav.encabezado .material-symbols-outlined {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
   margin-left: 20px;
   cursor: pointer;
 }
@@ -164,6 +182,11 @@
   .kopi nav.encabezado #shopping_cart {
     display: none;
   }
+}
+.kopi nav.encabezado #menu {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Evita la selección de texto */
 }
 @media (min-width: 961px) {
   .kopi nav.encabezado #menu {
