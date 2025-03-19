@@ -23,14 +23,13 @@ var swiper = new Swiper('.swiper', {
   });
 
   
-  document.addEventListener("DOMContentLoaded", function () {
-    // Botón Login
-    document.getElementById("loginButton").addEventListener("click", function () {
-        window.location.href = "pages/login.html"; // Redirige a la página de login
+  document.addEventListener("DOMContentLoaded", function(){
+    var buyButtons = document.querySelectorAll(".btn_buy");
+    
+    buyButtons.forEach(function(button) {
+      button.addEventListener("click", function () {
+        window.location.href = "pages/buy.html";
+      });
     });
-
-    // Botón Join
-    document.getElementById("joinButton").addEventListener("click", function () {
-        window.location.href = "pages/join.html"; // Redirige a la página de registro (asegúrate de que esta página exista)
-    });
-});
+  });
+  
