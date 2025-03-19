@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //Mostrar el nuevo usuario
         document.querySelectorAll(".nuew_user").forEach(element => {
-            element.style.display = "block";
+            element.style.display = "flex";
         });
     });
 });
