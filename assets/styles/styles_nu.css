@@ -2,7 +2,6 @@
 .nuew_user{
     display: none; /* Usa block con el js */
     justify-content: center;
-    align-items: center;
     width: 50%;
     height: 100vh;
     flex-shrink: 0;
@@ -12,8 +11,7 @@
     .contenedor{
      display: block;
      width: 80vh;
-     height: 80vh;
-     border: 2px solid #fff;  /* Grosor, estilo y color */
+     height: 99vh;
     }
 
     .text_createAcount{
@@ -109,10 +107,9 @@
     min-height: 40px;
 }
 
-/* Solo afecta el texto del placeholder */
 input::placeholder { 
-    color: rgba(255, 255, 255, 0.7); /* Color más tenue */
-    font-style: 'Open Sans'; /* Opcional */
+    color: rgba(255, 255, 255, 0.7); 
+    font-style: 'Open Sans'; 
 }
 
 .tx_email, .tx_epassword, .tx_epassword{
@@ -124,3 +121,60 @@ input::placeholder {
     font-weight: 100;
     color: #FFF;
 }
+
+.terminos_condiciones{
+    gap: 10px;
+    margin-top: 10px;
+    display: flex;
+    height: 20px;
+    width: 80vh;
+}
+
+.text_agree, .text_termsCond{
+    letter-spacing: 0.08px;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 100;
+    color: #FFF;
+    
+}
+
+.text_agree{
+    color: #FFF;
+}
+
+.text_termsCond{
+    color: #9F5524;
+}
+
+.button_create{
+    display: flex;
+    margin-left: 14vh;
+    margin-top: 2vh;
+    background-color: #9F5524;
+    color: #FFF;
+  
+    padding: 10px 130px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+  
+    border-radius: 30px;
+    border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
+    
+    }
+  
+    .button_create:hover{
+      background-color: #b46129;
+      cursor: pointer;
+    }
+
+    .box_separador2{
+        gap: 3vh;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 79vh;
+    }
