@@ -6,6 +6,8 @@
   
   /* Aqui ira la parte del carrusel */
   .kopi {
+    user-select: none; /* Evita la selección de texto */
+
     display: flex;
     height: 100vh;
     width: 100%;
@@ -50,6 +52,8 @@
       }
       
       .btnMenu {
+        user-select: none; /* Evita la selección de texto */
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -76,6 +80,8 @@
       }
       
       .btnFindKopi {
+        user-select: none; /* Evita la selección de texto */
+
         margin-left: auto;
         display: flex;
         align-items: center;
@@ -96,6 +102,8 @@
       }
       
       .btnLogin{
+        user-select: none; /* Evita la selección de texto */
+
         border: #FFF solid;
         padding: 7px;
         border-radius: 64px;
@@ -126,6 +134,8 @@
       }
       
       .btnRegister {
+        user-select: none; /* Evita la selección de texto */
+
         border-radius: 64px;
         border: 1px solid #FFF;
         background: #FFF;
@@ -156,6 +166,8 @@
         
       }
       .material-symbols-outlined {
+        user-select: none; /* Evita la selección de texto */
+
         margin-left: 20px;
         cursor: pointer;
       }
@@ -165,6 +177,7 @@
           }
       }
       #menu{
+        user-select: none; /* Evita la selección de texto */
         @media(min-width: 961px){
             display: none;
         }

@@ -2,21 +2,23 @@
   padding: 0;
   margin: 0;
 }
- 
+ html,body, .mainBox{
+  width: 100%;
+  height: 100%;
+ }
   .mainBox{
     display: flex;
     background-color: yellow;
-    width: 100%;
-    height: 100vh;
+  
   }
- 
 
   /* Lado izquierdo */
 .izquierda{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100.6vh;
+    width: 50vw;
     height: 100vh;
     flex-shrink: 0;
     background-color: #9F5524;
@@ -26,25 +28,23 @@
   .grano1, .grano2, .grano3, .grano4{
     position: absolute;
   }
-
   .grano1{
-    margin-bottom: 80vh;
-    margin-right: 90vh;
+    top: 0px;
+    left: 0px;
   }
-
   .grano2{
-    margin-left: 63.1vh;
+    top: 135px;
+    left: 530px;
   }
-
   .grano3{
-    margin-top: 89.4vh;
-    margin-right: 70vh;
+    bottom: 0;
+    left: 10px;
+  }
+  .grano4{
+    right: 48.8vw;
+    bottom: 0;
   }
 
-  .grano4{
-    margin-left: 90vh;
-    margin-top: 87.5vh;
-  }
   .cartelera{
     overflow: hidden;
     display: flex;
@@ -114,13 +114,14 @@
 
 /* Lado derecho */
  .derecha{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
   height: 100vh;
-  flex-shrink: 0;
   background-color: #160503;
+
   }
 
   .text_derecha{
@@ -128,6 +129,7 @@
     margin-top: 02vh;
     width: 80vh;
     height: 90vh;
+    padding-top: 80px;
     }
 
    .text_login{
@@ -153,8 +155,8 @@
     display: flex;
     height: 4vh;
     width: 38vh;
-    gap: 20px;
-    margin-top: 2vh;
+    gap: 10px;
+    margin-top: 3vh;
   }
 
   .text_count, .text_Signup, .username_email, .placeholder_password, .forgot_your_p{
@@ -180,8 +182,9 @@
   .placeholder_texto{
     display: flex;
     height: 24px;
-    width: 80vh;
-    gap: 30vh;
+    align-items: center;
+    width: 400px;
+    justify-content: space-between;
   }
 
   .username_email{
@@ -190,12 +193,9 @@
 
 
   .placeholder_1, .placeholder_2{
-    display: flex;
-    min-width: 60vh;
+    width: 400px;
     min-height: 40px;
     padding: var(--sds-size-space-300) var(--sds-size-space-400);
-    align-items: center;
-    align-self: center;
 
     border-radius: 12px;
     border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
@@ -208,21 +208,25 @@
     padding-left: 8px;
   }
 
+  .conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+  }
   .box_placeholder1, .box_placeholder2{    
-    margin-top: 40px;
-    margin-left: 70px;
-    width: 75vh;
-    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    align-items: start;
+    
    }
 
-  .ojoAndHolder{
-    display: flex;
-  }
-
+  
   .ojo{
-    position: absolute;
-    margin-top: 8px;
-    margin-left: 55vh;
+    position: relative;
+    left: 370px;
+    bottom: 32px;
   }
 
   .ojo:hover{
@@ -234,22 +238,20 @@
    cursor: pointer;
   }
 
-  .button_sing{
+
+.btn_SignIn{
   display: flex;
-  margin-left: 18vh;
-  margin-top: 5vh;
+  align-items: center;
+  justify-content: center;
+}
+  .button_sing{
   background-color: #9F5524;
   color: #FFF;
-
-  padding: 10px 130px;
-  justify-content: center;
-  align-items: center;
+  padding: 12px;
+  width: 180px;
   gap: 8px;
-  flex: 1 0 0;
-
   border-radius: 30px;
   border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
-  
   }
 
   .button_sing:hover{
@@ -259,7 +261,7 @@
 
   .box_separador{
     gap: 3vh;
-    margin-top: 90px;
+    margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;

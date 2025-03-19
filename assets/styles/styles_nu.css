@@ -2,7 +2,7 @@
 .nuew_user{
     display: none; /* Usa block con el js */
     justify-content: center;
-    width: 50%;
+    width: 50vw;
     height: 100vh;
     flex-shrink: 0;
     background-color: #160503;
