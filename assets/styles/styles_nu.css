@@ -202,5 +202,19 @@ input::placeholder {
         left: 4px;
     }
     
-
+    .ojo2{
+        position: absolute;
+        margin-left: 70vh;
+        margin-top: -04.6vh;
+      }
     
+    .ojo3{
+        position: absolute;
+        margin-left: 70vh;
+        margin-top: 01.3vh;
+    }
+    .ojoholder{
+        height: auto;
+        width: auto;
+        display: flex;
+    }

@@ -3,10 +3,10 @@
 **Repartición de las paginas**
 
 Efren
-- [ ] Login: 
+- [x] Login: 
     - [x] Se encontro que no esta bien algunos margenes (estaba trabajando con un sum del 80%, voy a desayunar-almorzar ahorita lo agrego)
     - [ ] Mejorar la documentación del login.css
-- [ ] Registro
+- [x] Registro
 
 Oscar
 - [ ] Pasarela de pago
