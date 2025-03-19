@@ -46,7 +46,7 @@
         }
 
         .text_haveAcount{
-         color: #FFF;
+         color: #ada9a9;
          }
 
         .text_logIn{
@@ -71,7 +71,7 @@
         font-family: 'Open Sans';
         font-size: 13px;
         font-weight: 100;
-        color: #FFF;
+        color: #ada9a9;
         }
         
 
@@ -94,7 +94,7 @@
     /* Tipografía */
     font-weight: 100;
     font-family: 'Open Sans';
-    color: #FFF;
+    color: #ada9a9;
     padding-left: 8px;
 }
 
@@ -119,7 +119,7 @@ input::placeholder {
     font-family: 'Open Sans';
     font-size: 13px;
     font-weight: 100;
-    color: #FFF;
+    color: #ada9a9;
 }
 
 .terminos_condiciones{
@@ -135,12 +135,12 @@ input::placeholder {
     font-family: 'Open Sans';
     font-size: 13px;
     font-weight: 100;
-    color: #FFF;
+    color: #ada9a9;
     
 }
 
 .text_agree{
-    color: #FFF;
+    color: #ada9a9;
 }
 
 .text_termsCond{
@@ -178,3 +178,29 @@ input::placeholder {
         justify-content: center;
         width: 79vh;
     }
+
+    input[type="checkbox"] {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background-color: #5c5151;
+        position: relative;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    
+    input[type="checkbox"]:checked {
+        background-color: #b46129;
+        border-color: black;
+    }
+    
+    input[type="checkbox"]:checked::before {
+        content: "✔";
+        color: white;
+        font-size: 14px;
+        position: absolute;
+        left: 4px;
+    }
+    
+
+    
