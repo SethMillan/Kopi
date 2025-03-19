@@ -268,10 +268,10 @@
     width: 79vh;
   }
 
-  .s1, .s2{
+  .s3, .s4{
     margin-top: 10px;
     height: 1px;
-    width: 110px;
+    width: 180px;
     align-self: stretch;
     background: #9F5524;
   }
