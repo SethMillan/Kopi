@@ -1,47 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Check URL parameters to see if we need to show registration form
     const urlParams = new URLSearchParams(window.location.search);
     const showParam = urlParams.get('show');
     
-    // If URL parameter is 'register', show registration form
+    // si el URL tiene como nombre 'register', mostrar el registro
     if (showParam === 'register') {
-        // Hide login
+        // Ocultar login
         document.querySelectorAll(".derecha").forEach(element => {
             element.style.display = "none";
         });
         
-        // Show registration
+        // Mostrar registro
         document.querySelectorAll(".nuew_user").forEach(element => {
             element.style.display = "flex";
         });
     }
     
-    // Event handler for signup link
+    // Para mostrar el crear usuario con Sig up
     const signupElement = document.querySelector(".text_Signup");
     if (signupElement) {
         signupElement.addEventListener("click", function () {
-            // Hide login
+            // Mostrar login
             document.querySelectorAll(".derecha").forEach(element => {
                 element.style.display = "none";
             });
             
-            // Show registration
+            // Ocultar registro
             document.querySelectorAll(".nuew_user").forEach(element => {
                 element.style.display = "flex";
             });
         });
     }
     
-    // Event handler for login link
+    // Para mostrar el login con Log in
     const loginElement = document.querySelector(".text_logIn");
     if (loginElement) {
         loginElement.addEventListener("click", function () {
-            // Show login
+            // Mostrar login
             document.querySelectorAll(".derecha").forEach(element => {
                 element.style.display = "flex";
             });
             
-            // Hide registration
+            // Ocultar registro
             document.querySelectorAll(".nuew_user").forEach(element => {
                 element.style.display = "none";
             });
