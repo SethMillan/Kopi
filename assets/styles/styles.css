@@ -9,7 +9,8 @@
 .kopi {
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; /* Evita la selección de texto */
+  user-select: none;
+  /* Evita la selección de texto */
   display: flex;
   height: 100vh;
   width: 100%;
@@ -19,7 +20,6 @@
   background-position: center;
   flex-direction: column;
   position: relative;
-  /* Barra de navegación */
 }
 .kopi .difuminado {
   height: 100vh;
@@ -53,8 +53,9 @@
 }
 .kopi nav.encabezado .btnMenu {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,8 +84,9 @@
 }
 .kopi nav.encabezado .btnFindKopi {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -107,21 +109,21 @@
 }
 .kopi nav.encabezado .btnLogin {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
-  border: #FFF solid;
-  padding: 7px;
-  border-radius: 64px;
-  margin-left: 20px;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
   cursor: pointer;
   color: #FFF;
   text-align: center;
   font-family: "Open Sans";
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.09px;
+  border: #FFF solid;
+  padding: 7px;
+  border-radius: 64px;
+  margin-left: 20px;
   width: 92px;
   height: 39px;
   flex-shrink: 0;
@@ -129,32 +131,35 @@
   justify-content: center;
   align-items: center;
 }
+.kopi nav.encabezado .btnLogin a {
+  text-decoration: none;
+  /* Quita el subrayado */
+  color: inherit;
+  /* Usa el color del texto padre */
+}
 @media (max-width: 960px) {
   .kopi nav.encabezado .btnLogin {
     display: none;
   }
 }
-.kopi nav.encabezado .btnLogin a {
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit; /* Usa el color del texto padre */
-}
 .kopi nav.encabezado .btnRegister {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
-  border-radius: 64px;
-  border: 1px solid #FFF;
-  background: #FFF;
-  margin-left: 20px;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
   cursor: pointer;
-  color: #160503;
+  color: #FFF;
   text-align: center;
   font-family: "Open Sans";
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.09px;
+  border-radius: 64px;
+  border: 1px solid #FFF;
+  background: #FFF;
+  margin-left: 20px;
+  color: #160503;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,19 +167,22 @@
   height: 39px;
   padding: 7px;
 }
+.kopi nav.encabezado .btnRegister a {
+  text-decoration: none;
+  /* Quita el subrayado */
+  color: inherit;
+  /* Usa el color del texto padre */
+}
 @media (max-width: 960px) {
   .kopi nav.encabezado .btnRegister {
     display: none;
   }
 }
-.kopi nav.encabezado .btnRegister a {
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit; /* Usa el color del texto padre */
-}
 .kopi nav.encabezado .material-symbols-outlined {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
   margin-left: 20px;
   cursor: pointer;
 }
@@ -185,8 +193,9 @@
 }
 .kopi nav.encabezado #menu {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
 }
 @media (min-width: 961px) {
   .kopi nav.encabezado #menu {
@@ -202,7 +211,8 @@
 .kopi .contenido .swiper {
   z-index: 3;
   margin: 0 auto;
-  max-width: 1250px; /* ajusta según tu preferencia */
+  max-width: 1250px;
+  /* ajusta según tu preferencia */
   overflow: visible;
   position: relative;
   /* Flecha izquierda a la izquierda */
@@ -217,7 +227,8 @@
   flex-direction: column;
   align-items: center;
   z-index: 3;
-  width: auto; /* o auto, si prefieres que Swiper maneje el ancho */
+  width: auto;
+  /* o auto, si prefieres que Swiper maneje el ancho */
   height: 446px;
 }
 .kopi .contenido .swiper .swiper-pagination-bullet {
@@ -228,13 +239,15 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  background-color: rgba(0, 0, 0, 0.2); /* Ejemplo de fondo semitransparente */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Ejemplo de fondo semitransparente */
   border-radius: 50%;
   position: absolute;
   top: 45%;
   transform: translateY(-50%);
   cursor: pointer;
-  z-index: 10; /* Para que aparezcan por encima de las slides */
+  z-index: 10;
+  /* Para que aparezcan por encima de las slides */
 }
 .kopi .contenido .swiper .swiper-button-prev {
   position: absolute;
@@ -268,39 +281,39 @@
 }
 .kopi .contenido .card-coffe .card-1 .bubles1 {
   position: absolute;
+  border-radius: 50%;
+  background-color: #9F5524;
   left: 33px;
   top: 279px;
   width: 220px;
   height: 220px;
-  border-radius: 50%;
-  background-color: #9F5524;
 }
 .kopi .contenido .card-coffe .card-1 .bubles2 {
   position: absolute;
+  border-radius: 50%;
+  background-color: #9F5524;
   left: 134px;
   top: 58px;
   width: 241px;
   height: 241px;
-  border-radius: 50%;
-  background-color: #9F5524;
 }
 .kopi .contenido .card-coffe .card-1 .bubles3 {
   position: absolute;
+  border-radius: 50%;
+  background-color: #9F5524;
   left: 166px;
   top: 262px;
   width: 178px;
   height: 177px;
-  border-radius: 50%;
-  background-color: #9F5524;
 }
 .kopi .contenido .card-coffe .card-1 .bubles4 {
   position: absolute;
+  border-radius: 50%;
+  background-color: #9F5524;
   top: 133px;
   left: 20px;
   width: 178px;
   height: 177px;
-  border-radius: 50%;
-  background-color: #9F5524;
 }
 .kopi .contenido .card-coffe .card-1 p {
   position: absolute;
@@ -498,8 +511,9 @@
   line-height: normal;
   letter-spacing: 0.11px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
   position: relative;
   bottom: -24px;
   left: 88px;
@@ -514,21 +528,407 @@
   top: -2px;
 }
 
-/* Secciones */
-.tueste {
+/* Secciones  */
+.content {
+  position: absolute;
+  width: 100%;
+  height: 2304px;
+  flex-shrink: 0;
+  background: rgba(235, 236, 240, 0.99);
   display: flex;
-  height: 100vh;
-  background-color: yellowgreen;
+  flex-direction: column;
+  align-items: center;
 }
 
-.tueste_tipós {
+.contact-view {
+  width: 98%;
+  margin-top: 20px;
+  height: 500px;
+  border-radius: 32px;
+  background: #160503;
   display: flex;
-  height: 100vh;
-  background-color: violet;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-view .txt_destacado {
+  position: relative;
+  left: 98.77px;
+  color: #F2AF2A;
+  font-family: Fredoka;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 70%;
+  letter-spacing: 0.27px;
+}
+.contact-view .txt_secundario {
+  position: relative;
+  left: 110.77px;
+  padding-top: 8px;
+  color: #FFF;
+  width: 70%;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.11px;
+}
+.contact-view img {
+  position: absolute;
+  top: 64.26px;
+  right: 110.64px;
+  width: 459px;
+  height: 287px;
+  flex-shrink: 0;
+  aspect-ratio: 459/287;
+}
+.contact-view .social_media {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
+  color: #FFF;
+  gap: 60px;
+}
+.contact-view .social_media .circle {
+  stroke-width: 2px;
+  stroke: #FFF;
+  border: solid 2px;
+  width: 35.519px;
+  height: 35.519px;
+  flex-shrink: 0;
+  border-radius: 360%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.contact-view .social_media .circle img {
+  position: inherit;
+  width: 20.469px;
+  height: 20.469px;
+  flex-shrink: 0;
+  aspect-ratio: 20.47/20.47;
+}
+.contact-view .social_media .circle:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px 5px rgba(248, 248, 248, 0.203);
 }
 
-.historia {
+.news-view .txt-content {
   display: flex;
-  height: 100vh;
-  background-color: chocolate;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 105px;
+}
+.news-view .txt-content .title {
+  color: #160503;
+  font-family: "Open Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.16px;
+}
+.news-view .txt-content .description {
+  padding-top: 26px;
+  color: rgba(22, 5, 3, 0.76);
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.09px;
+}
+.news-view .card-group {
+  display: flex;
+  padding-top: 83px;
+  gap: 60px;
+}
+.news-view .new-card {
+  display: inline-flex;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 12px;
+  background: #FFF;
+  flex-direction: column;
+}
+.news-view .new-card img {
+  width: 256px;
+  height: 173px;
+  border-radius: 12px;
+  background: lightgray 50%/cover no-repeat;
+}
+.news-view .new-card .texto .title {
+  padding-top: 24px;
+  color: #000;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.news-view .new-card .texto .description {
+  width: 256px;
+  color: #666;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-bottom: 24px;
+}
+.news-view .new-card .btn-Learn-More {
+  cursor: pointer;
+  display: flex;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  border: 1px solid #3C3C43;
+  background: rgba(22, 5, 3, 0.88);
+}
+.news-view .new-card .btn-Learn-More p {
+  color: #FFF;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 8px 10px 8px 8px;
+  transition: text-shadow 0.3s ease-in-out;
+}
+.news-view .new-card .btn-Learn-More:hover p {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3529411765), 0 0 10px rgba(255, 255, 255, 0.4156862745), 0 0 15px rgba(255, 255, 255, 0.462745098), 0 0 20px #160503, 0 0 30px #160503, 0 0 40px #160503, 0 0 55px #160503, 0 0 75px #160503;
+}
+
+.testimonials-view {
+  padding-top: 108px;
+}
+.testimonials-view .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+.testimonials-view .text .title {
+  color: #160503;
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: "Open Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.testimonials-view .text .description {
+  text-align: center;
+  justify-content: center;
+  color: rgba(22, 5, 3, 0.76);
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.09px;
+}
+
+.testimonials-view {
+  padding-top: 108px;
+  width: 100%;
+  margin: 0 auto;
+}
+.testimonials-view .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  margin-bottom: 60px;
+}
+.testimonials-view .text .title {
+  color: #160503;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.testimonials-view .text .description {
+  color: rgba(22, 5, 3, 0.76);
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.09px;
+}
+.testimonials-view .carrusel {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  padding: 20px 0 60px;
+  overflow: hidden;
+}
+.testimonials-view .carrusel-reverse {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  padding: 20px 0 60px;
+  overflow: hidden;
+}
+.testimonials-view .testimonial-swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.testimonials-view .testimonial-swiper-reverse {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.testimonials-view .swiper-wrapper {
+  align-items: stretch;
+}
+.testimonials-view .swiper-slide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.testimonials-view .testimonial-card {
+  background-color: #160503;
+  color: #FFF;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.testimonials-view .testimonial-card-white {
+  background-color: #ffffff;
+  color: #160503;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.testimonials-view .testimonial-content {
+  margin-bottom: 0px;
+  font-size: 15px;
+  line-height: 1.6;
+  flex-grow: 1;
+  font-family: "Open Sans";
+}
+.testimonials-view .author-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.testimonials-view .author-info .author-details {
+  display: flex;
+  flex-direction: column;
+}
+.testimonials-view .author-info .author-details .author-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-family: "Open Sans";
+}
+.testimonials-view .author-info .author-details .author-position {
+  font-size: 14px;
+  opacity: 0.8;
+  font-family: "Open Sans";
+}
+.testimonials-view .author-info .author-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ccc;
+}
+.testimonials-view .author-info .author-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.testimonials-view .swiper-pagination {
+  position: relative;
+  bottom: -30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.testimonials-view .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 0.5;
+  margin: 0;
+}
+.testimonials-view .swiper-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #9F5524;
+}
+.testimonials-view .swiper-button-next,
+.testimonials-view .swiper-button-prev {
+  color: #FFF;
+  background-color: rgba(159, 85, 36, 0.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonials-view .swiper-button-next:after,
+.testimonials-view .swiper-button-prev:after {
+  font-size: 16px;
+}
+.testimonials-view .swiper-button-next {
+  right: 10px;
+}
+.testimonials-view .swiper-button-prev {
+  left: 10px;
+}
+@media (max-width: 768px) {
+  .testimonials-view {
+    padding: 60px 15px;
+  }
+  .testimonials-view .testimonial-swiper .swiper-button-next,
+  .testimonials-view .testimonial-swiper .swiper-button-prev {
+    display: none;
+  }
+  .testimonials-view .testimonial-swiper .testimonial-card {
+    padding: 20px;
+  }
+  .testimonials-view .testimonial-swiper-reverse .swiper-button-next,
+  .testimonials-view .testimonial-swiper-reverse .swiper-button-prev {
+    display: none;
+  }
+  .testimonials-view .testimonial-swiper-reverse .testimonial-card {
+    padding: 20px;
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -108,9 +108,16 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   }
   
-  .popup .btn:hover {
-    background: #d27130;
+  .text_count {
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit; /* Mantiene el color del texto según su contexto */
+}
+
+  .btnRegister{
+    height: 30px;
+    background-color: #ffffff;
   }
+=======
 
 .popup>img {
     width: 100px;
