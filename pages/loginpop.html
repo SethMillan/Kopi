@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+            <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+            
+    <link rel="stylesheet" href="../assets/styles/styles_pop.css">
+</head>
+<body>
+    
+    <div class="container">
+        <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+
+        <!-- Popup -->
+
+    <div class="popup" id="popup">
+             <h1 class="Login">Login</h1>
+             <a href="login.html?show=register" class="text_count">Don't have an account?</a>
+           
+             <h3 class="username_email">Username/Email</h3>
+            <Input placeholder="" type="text" class="placeholder_1" id="lg_email"/>
+             
+            <div class="div_pas">
+                <h3 class="pw">Password</h3>
+                <h3 class="pw2">Forgot your password?</h3>
+            </div>
+
+            <Input placeholder="" type="password" class="placeholder_2" id="lg_ps"/>
+
+            <button type="button" class="btn" onclick="closePopup()">Ok</button>
+
+            <!-- separador -->
+            <div class="box_separador">
+                <div class="s1"></div>
+                <div class="tx_separador">Or sign in with</div>
+                <div class="s2"></div>
+            </div>
+            <!-- fin separador -->
+            
+            
+            <!-- botones google y facebook -->
+            <div class="botones_login">
+            <button class="google">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M23.04 12.2615C23.04 11.446 22.9668 10.6619 22.8309 9.90918H12V14.3576H18.1891C17.9225 15.7951 17.1123 17.013 15.8943 17.8285V20.714H19.6109C21.7855 18.7119 23.04 15.7637 23.04 12.2615Z" fill="#4285F4"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23.5001C15.105 23.5001 17.7081 22.4703 19.6109 20.7139L15.8943 17.8285C14.8645 18.5185 13.5472 18.9262 12 18.9262C9.00474 18.9262 6.46951 16.9032 5.56519 14.1851H1.72314V17.1646C3.61542 20.923 7.50451 23.5001 12 23.5001Z" fill="#34A853"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56523 14.185C5.33523 13.495 5.20455 12.7579 5.20455 12C5.20455 11.242 5.33523 10.505 5.56523 9.81499V6.83545H1.72318C0.944318 8.38795 0.5 10.1443 0.5 12C0.5 13.8557 0.944318 15.612 1.72318 17.1645L5.56523 14.185Z" fill="#FBBC05"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.07386C13.6884 5.07386 15.2043 5.65409 16.3961 6.79364L19.6945 3.49523C17.7029 1.63955 15.0997 0.5 12 0.5C7.50451 0.5 3.61542 3.07705 1.72314 6.83545L5.56519 9.815C6.46951 7.09682 9.00474 5.07386 12 5.07386Z" fill="#EA4335"/>
+            </svg>
+              Google
+            </button>
+            <button class="facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <rect width="24" height="24" transform="translate(0 0.5)" fill="#1877F2"/>
+            <path d="M23.5 12.5699C23.5 6.2186 18.3513 1.06988 12 1.06988C5.64872 1.06988 0.5 6.2186 0.5 12.5699C0.5 18.3099 4.70538 23.0674 10.2031 23.9302V15.8941H7.2832V12.5699H10.2031V10.0363C10.2031 7.1541 11.92 5.56207 14.5468 5.56207C15.805 5.56207 17.1211 5.78668 17.1211 5.78668V8.61675H15.671C14.2424 8.61675 13.7969 9.50322 13.7969 10.4127V12.5699H16.9863L16.4765 15.8941H13.7969V23.9302C19.2946 23.0674 23.5 18.3099 23.5 12.5699Z" fill="white"/>
+            </svg>
+            Facebook
+            </button>
+        
+      </div>
+
+    <script>
+        // JavaScript para abrir y cerrar el popup
+        function openPopup() {
+            document.getElementById('popup').classList.add('open-popup');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('open-popup');
+        }
+    </script>
+
+</body>
+</html>
