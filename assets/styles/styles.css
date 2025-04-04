@@ -8,8 +8,8 @@
 /* Aqui ira la parte del carrusel */
 .kopi {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* Evita la selección de texto */
+  -moz-user-select: none;
+  user-select: none; /* Evita la selección de texto */
   display: flex;
   height: 100vh;
   width: 100%;

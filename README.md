@@ -7,14 +7,21 @@ Efren
     - [x] Se encontro que no esta bien algunos margenes (estaba trabajando con un sum del 80%, voy a desayunar-almorzar ahorita lo agrego)
     - [ ] Mejorar la documentación del login.css
 - [x] Registro
+- [ ] login emergente
+- [ ] Conectividad con PHP 
+    - [ ] Login
+    - [ ] Registro
 
 Oscar
-- [ ] Pasarela de pago
+- [x] Pasarela de pago
 - [ ] Recompensas
 
 Seth
 - [ ] Home 
 - [ ] Carrito
+
+Pendientes
+- [ ] Find your Kopi 
 
 
 ### Formato para los Commit
@@ -22,12 +29,4 @@ Seth
 
 
 ### Fecha de entrega de los avances de proyecto
-19/03/2025 yo digo que si jala.
-
-prueba 2.0
-
-GeraPorno, danos la categoria del dia.
-
-
-
-asdasdasdasd
+04/04/2025 
