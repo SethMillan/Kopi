@@ -18,7 +18,7 @@ function crearUsuario($datos, $conn) {
         $password = $datos['password'];
         
         // Verificar si el email ya existe
-        $stmt = $conn->prepare("SELECT id FROM usuario WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id FROM cliente WHERE email = ?");
         if (!$stmt) {
             $error = "Error en la preparación de la consulta: " . $conn->error;
             error_log($error);
@@ -41,7 +41,7 @@ function crearUsuario($datos, $conn) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         
         // Ahora si pa dentro mi loco, ingrese a la bd
-        $stmt = $conn->prepare("INSERT INTO usuario (Nombre, lastName, email, passw) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO usuario (nombre, lastName, email, passw) VALUES (?, ?, ?, ?)");
         if (!$stmt) {
             $error = "Error en la preparación de la inserción: " . $conn->error;
             error_log($error);
@@ -83,7 +83,7 @@ function procesarLogin($datos, $conn) {
         $password = $datos['password'];
         
         // Consultar la base de datos
-        $stmt = $conn->prepare("SELECT id, Nombre, lastName, email, passw FROM usuario WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, nombre, lastName, email, passw FROM cliente WHERE email = ?");
         
         if (!$stmt) {
             $error = "Error en la preparación de la consulta: " . $conn->error;
