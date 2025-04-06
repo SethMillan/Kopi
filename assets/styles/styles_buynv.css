@@ -383,6 +383,10 @@ button {
     display: block; 
 }
 
+a {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
 button:hover {
     background-color: #fff; 
 }
