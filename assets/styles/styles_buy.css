@@ -288,16 +288,61 @@ input:focus, select:focus {
 
 .checkboxDiv {
   display: flex;
-  height: 120px;
-  width: auto;
   align-items: center;
+  height: 120px;
 }
 
-.miCheckbox {
-  width: 20px;       /* Tamaño base */
-  height: 20px;      /* Tamaño base */
-  cursor: pointer;
+.styledCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
 }
+
+.styledCheckbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #fff;
+  border: 2px solid #c8a97e;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.styledCheckbox input:checked + .checkmark {
+  background-color: #5d7dc0;
+  border-color: #5d7dc0;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.styledCheckbox input:checked + .checkmark:after {
+  display: block;
+}
+
+.styledCheckbox .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 
 .opciones{
   display: flex;
