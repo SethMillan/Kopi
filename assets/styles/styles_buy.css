@@ -7,6 +7,181 @@ body {
     padding: 0;
 }
 
+.kopi nav.encabezado {
+    background-color: #160503;
+    color: #FFF;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px 40px;
+    gap: 20px;
+  }
+  .kopi nav.encabezado .home {
+    text-align: center;
+    font-family: Fredoka, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    margin-top: -8px;
+    text-decoration: none;
+    color: #FFF;
+  }
+  .kopi nav.encabezado .btnMenu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+  }
+  .kopi nav.encabezado .btnMenu .linea {
+    width: 53px;
+    height: 2px;
+    flex-shrink: 0;
+    stroke-width: 2px;
+    background-color: #FFF;
+  }
+  @media (max-width: 670px) {
+    .kopi nav.encabezado .btnMenu {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado .btnFindKopi {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    padding-right: 70px;
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado .btnFindKopi {
+      padding-right: 0px;
+    }
+  }
+  .kopi nav.encabezado .btnLogin {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    border: #FFF solid;
+    padding: 7px;
+    border-radius: 64px;
+    margin-left: 20px;
+    width: 92px;
+    height: 39px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .kopi nav.encabezado .btnLogin a {
+    text-decoration: none;
+    /* Quita el subrayado */
+    color: inherit;
+    /* Usa el color del texto padre */
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado .btnLogin {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado .btnRegister {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    border-radius: 64px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    margin-left: 20px;
+    color: #160503;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 92px;
+    height: 39px;
+    padding: 7px;
+  }
+  .kopi nav.encabezado .btnRegister a {
+    text-decoration: none;
+    /* Quita el subrayado */
+    color: inherit;
+    /* Usa el color del texto padre */
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado .btnRegister {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado .material-symbols-outlined {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado #shopping_cart {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado #menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+  }
+  @media (min-width: 961px) {
+    .kopi nav.encabezado #menu {
+      display: none;
+    }
+  }
+
 .container {
     display: flex;
     justify-content: space-around;
