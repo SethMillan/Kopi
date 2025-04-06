@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras | Kopi</title>
+    <link rel="stylesheet" href="../assets/styles/styles_buy.css"> <!-- Enlaza el archivo CSS -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+</head>
+<body>
+
+    <!-- Encabezado -->
+
+    <div class="kopi">
+    <nav class="encabezado">
+        <a href="/" class="home">Kopi</a>
+        <div class="btnMenu">
+            <div class="linea"></div>
+            <p>MENU</p>
+            <div class="linea"></div>
+        </div>
+        <div class="btnFindKopi">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>Find your Kopi</p>
+        </div>
+        <div class="btnLogin">
+            <a href="login.html">
+                <p>Login</p>
+            </a>
+        </div>
+        <div class="btnRegister"><a href="login.html?show=register">
+                <p>Join</p>
+            </a></div>
+        <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+        <span class="material-symbols-outlined" id="menu">menu</span>
+    </nav>
+
+    <div class="container">
+        <!-- Resumen del pedido -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <!-- Detalles del producto -->
+            <div class="product-details">
+                <div class="checkboxDiv">
+                <input type="checkbox" class="miCheckbox">
+                </div>
+                
+                <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                <div class="product-info">
+                    <p><strong>Product:</strong></p>
+                    <p>Kopi-Organico</p>
+                    <p>Qty: 2</p>
+
+                    <div class="opciones">
+                        <div class="cantidad">
+                           <p>-</p>
+                           <p>1</p>
+                           <p>+</p> 
+                        </div>
+                        <p>Eliminar</p>
+                        <p>Guardar para mas tarde</p>
+                        <p>Ver productos similares</p>
+                        <p>Compartir</p>
+                    </div>
+                </div>
+      
+                <p class="price">$49.80</p>
+            </div>
+            
+        </div>
+
+        <!-- Detalles de pago -->
+        <div class="payment-details">
+            
+            <!-- Resumen de precios -->
+            <div class="price-summary">
+                <p>Subtotal: $188</p>
+                <p>Taxes and Fees: $10</p>
+                <h3>Total: $198</h3>
+                <button>Proceder a pagar</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/buy_script.js"></script>
+    
+</body>
+
+
+</html>

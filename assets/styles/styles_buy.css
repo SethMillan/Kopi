@@ -193,7 +193,7 @@ body {
     background: #612f0e;
     padding: 20px;
     border-radius: 8px;
-    width: 45%;
+    width: 75%;
 }
 
 /* Estilos para los detalles del producto */
@@ -213,6 +213,7 @@ body {
 }
 
 .product-info {
+  padding-left: 6px;
     flex: 1; 
 }
 
@@ -229,10 +230,10 @@ body {
 
 /* precios */
 .price-summary {
-    background-color: #271509; 
+    background-color: #422410; 
     padding: 15px; 
     border-radius: 10px; 
-    margin-top: 20px; 
+    margin-top: -20px; 
     color: white; 
     font-family: Arial, sans-serif; 
 }
@@ -251,10 +252,8 @@ body {
 
 /* detalles de pago */
 .payment-details {
-    background: #160503;
     padding: 20px;
-    border-radius: 8px;
-    width: 45%;
+    width: 25%;
 }
 
 form label {
@@ -287,6 +286,50 @@ input:focus, select:focus {
     outline: none; 
 }
 
+.checkboxDiv {
+  display: flex;
+  height: 120px;
+  width: auto;
+  align-items: center;
+}
+
+.miCheckbox {
+  width: 20px;       /* Tamaño base */
+  height: 20px;      /* Tamaño base */
+  cursor: pointer;
+}
+
+.opciones{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  gap: 20px;
+  line-height: 20px;
+}
+
+.opciones .cantidad{
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 104px;
+  box-sizing: border-box;
+  border-color: var(--__dChmGopC1TxpMXs, #cecece8a);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 100px;
+  overflow: hidden;  
+  gap: 20px;
+}
+
+.opciones p{
+  cursor: pointer;
+}
+
+.opciones p:hover{
+  color: #a6763e;
+ }
+
 /* Estilo para el botón */
 button {
     width: 50%;
@@ -294,8 +337,9 @@ button {
     margin-bottom: 10px;
     border-radius: 15px;
     border: none;
-    background-color: #47220f; 
-    color: white; 
+    background-color: #e2e2e2; 
+    font-weight: 700;
+    color: #160503;
     font-size: 16px;
     cursor: pointer;
     margin: 0 auto; 
@@ -303,7 +347,7 @@ button {
 }
 
 button:hover {
-    background-color: #813b18; 
+    background-color: #fff; 
 }
 
 /* Country + Zip Code, Exp Date + CVC  */
