@@ -15,28 +15,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 30px 40px;
+    padding: 35px 40px;
     gap: 20px;
   }
   .kopi nav.encabezado .home {
-    text-align: center;
+     text-align: center;
     font-family: Fredoka, sans-serif;
     font-size: 70px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.35px;
-    margin-top: -8px;
+    margin-top: -28px;
     text-decoration: none;
     color: #FFF;
   }
+
+
   .kopi nav.encabezado .btnMenu {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
     /* Evita la selección de texto */
     display: flex;
-    margin-top: 20px;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
@@ -48,8 +49,8 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    letter-spacing: px;
-  }
+    letter-spacing: 0.09px;
+   }
   .kopi nav.encabezado .btnMenu .linea {
     width: 53px;
     height: 2px;
@@ -83,6 +84,7 @@ body {
     line-height: normal;
     letter-spacing: 0.1px;
     padding-right: 70px;
+    margin-top: -24px;
   }
   @media (max-width: 960px) {
     .kopi nav.encabezado .btnFindKopi {
@@ -112,6 +114,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -20px;
   }
   .kopi nav.encabezado .btnLogin a {
     text-decoration: none;
@@ -148,6 +151,7 @@ body {
     width: 92px;
     height: 39px;
     padding: 7px;
+    margin-top: -20px;
   }
   .kopi nav.encabezado .btnRegister a {
     text-decoration: none;
@@ -167,7 +171,9 @@ body {
     /* Evita la selección de texto */
     margin-left: 20px;
     cursor: pointer;
+    
   }
+  
   @media (max-width: 960px) {
     .kopi nav.encabezado #shopping_cart {
       display: none;
@@ -183,6 +189,10 @@ body {
     .kopi nav.encabezado #menu {
       display: none;
     }
+  }
+
+  #shopping_cart{
+    margin-top:  -25px;
   }
 
 .container {
