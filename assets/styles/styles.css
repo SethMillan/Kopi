@@ -5,6 +5,16 @@
   margin: 0;
 }
 
+a {
+  background: none; /* Elimina el fondo */
+  border: none; /* Quita cualquier borde */
+  text-decoration: none; /* Quita el subrayado */
+  padding: 0; /* Quita el relleno */
+  margin: 0; /* Quita el margen */
+  color: inherit; /* Hereda el color del elemento padre */
+  font: inherit; /* Hereda la fuente del elemento padre */
+}
+
 /* Aqui ira la parte del carrusel */
 .kopi {
   -webkit-user-select: none;
@@ -51,13 +61,6 @@
   text-decoration: none;
   color: #FFF;
 }
-
-.btnCart a {
-  text-decoration: none; /* Elimina el subrayado */
-  color: inherit; /* Hereda el color del contenedor, evitando que se ponga morado */
-}
-
- 
 .kopi nav.encabezado .btnMenu {
   -webkit-user-select: none;
   -moz-user-select: none;
