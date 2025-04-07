@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Kopi</title>
+    <link rel="stylesheet" href="../assets/styles/styles_menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <!-- ESTA PARTE ES EL NAVEGADOR-->
+    <div class="difuminado"></div>
+
+    <nav class="encabezado">
+        <a href="/" class="home">Kopi</a>
+        <div class="btnMenu">
+            <div class="linea"></div>
+            <p>MENU</p>
+            <div class="linea"></div>
+        </div>
+        <div class="btnFindKopi">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>Find your Kopi</p>
+        </div>
+        <div class="btnLogin">
+            <a href="login.html">
+                <p>Login</p>
+            </a>
+        </div>
+             
+        <div class="btnRegister">
+            <a href="login.html?show=register">
+                <p>Join</p>
+            </a>
+        </div>
+        
+        <div class="btnCart">
+            <a href="buynv.html">
+                <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+            </a>
+        </div>  
+
+        <span class="material-symbols-outlined" id="menu">menu</span>
+    </nav>
+    <!-- AQUI EMPIEZA EL CONTENIDO DEL MENU -->
+    <main class="menu-content">
+        <h1 class="menu-title">Our Menu</h1>
+        
+        <div class="menu-categories">
+            <button class="category-button active">All</button>
+            <button class="category-button">Coffee</button>
+            <button class="category-button">Tea</button>
+            <button class="category-button">Pastries</button>
+            <button class="category-button">Bags</button>
+        </div>
+        
+        <div class="menu-items">
+            <!-- Sample Menu Item -->
+            <div class="menu-item">
+                <img src="../assets/img/menu/dalgona-coffee.jpg" alt="Coffee" class="menu-item-image">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Cappuccino</h3>
+                    <p class="menu-item-description">Espresso with steamed milk and a deep layer of foam.</p>
+                    <p class="menu-item-price">$4.50</p>
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="../assets/img/menu/cafe_2.webp" alt="Coffee" class="menu-item-image">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Flat White</h3>
+                    <p class="menu-item-description">Rich espresso with velvety steamed milk.</p>
+                    <p class="menu-item-price">$4.95</p>
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="../assets/img/menu/cafe.jpg" alt="Coffee" class="menu-item-image">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Cold Brew</h3>
+                    <p class="menu-item-description">Slow-steeped coffee served cold for a smooth finish.</p>
+                    <p class="menu-item-price">$5.25</p>
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="../assets/img/menu/cafe_3.avif" alt="Pastry" class="menu-item-image">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Chocolate Croissant</h3>
+                    <p class="menu-item-description">Buttery croissant filled with rich chocolate.</p>
+                    <p class="menu-item-price">$3.75</p>
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple script to handle category selection
+        document.querySelectorAll('.category-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.category-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                
+                
+            });
+        });
+    </script>
+</body>
+</html>
