@@ -55,6 +55,11 @@
     gap: 20px;
   }
   
+  a {
+    text-decoration: none;
+}
+
+
   nav.encabezado .home {
     text-align: center;
     font-family: Fredoka, sans-serif;
