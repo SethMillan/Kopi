@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*
+.fredoka-<uniquifier> {
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }*/
+
+
+
+#contenedor1 {
+    background-color: #160503;
+    width: 100%;
+    height: 5rem;
+}
+
+.contComun {
+    color: #ddd;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+.contIzq {
+    float: left;
+    left: 3rem;
+    /*Espacio entre borde izquierdo*/
+}
+
+.contDer {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1rem;
+    float: right;
+    width: 10%;
+    right: 5rem;
+    /*Espacio entre borde derecho*/
+}
+
+#kopi {
+    font-family: "Fredoka", sans-serif;
+    font-size: 3rem;
+
+    width: 10%;
+}
+
+#menu {
+    font-size:  medium;
+
+    text-decoration-line: overline underline;
+    width: 10%;
+}
+
+.contenedor2 {
+    background-image: url(Imagenes/m1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 44.5rem;
+
+}
+
+.contComun2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#a1 {
+    color: #ffffff;
+    font-family: "Fredoka", sans-serif;
+    font-size: 30px;
+    background-color: rgba(16, 05, 03, 0.93);
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+
+#a2 {
+    background-color: rgba(16, 05, 03, 0.93);
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+#a3 {
+    background-color: rgba(16, 05, 03, 0.93);
+    width: 50%;
+    height: 50%;
+    font-weight: 500;
+
+}
+
+#e1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.75rem;
+    width: 100%;
+    height: 50%;
+    background-color: #D9D9D9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#e2 {
+    width: 100%;
+    height: 50%;
+    display: block;
+}
+
+.padre-verde-blanco {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor3 {
+    background-color: #513533;
+    width: 100%;
+    height: 45rem;
+    overflow: auto;
+}
+
+.contComun3 {
+    float: left;
+    width: 33.33%;
+    height: 68%;
+}
+
+/*
+#g1 {
+    background-color: brown;
+}
+
+#g2 {
+    background-color: rgb(165, 42, 142);
+}
+
+#g3 {
+    background-color: rgb(19, 126, 18);
+}*/
+
+.im1 {
+    width: 50%;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.t1 {
+    font-family: "Fredoka", sans-serif;
+    color: #DE7A16;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0 auto 10px;
+    margin-top: 0; 
+}
+.t2{
+    font-family: "Open Sans", sans-serif;
+    color: #5b5656;
+    text-align: center;
+    font-size: 22px;
+    font-weight:  600;
+    margin-top: 0; 
+}
+.mostaza{
+    color: #DE7A16;
+}
+.canjear {
+    background-color: #d32f2f;
+    width: 100%;
+    height: 32%;
+    clear: both; /* Esto es crucial para que aparezca debajo */
+   
+ 
+    box-sizing: border-box;
+}
+
+div.contenedor4 {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #513533;
+    overflow: hidden;
+}
+
+div.contenedor4 div {
+    width: 33%;
+    float: left;
+    text-align: center;
+    
+    
+}
+
+.cuadroInput {
+    display: flex;
+    margin-bottom: 20px;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    left: 33rem;
+}
+
+#codigoCupon {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+    outline: none;
+}
+
+#botonCanjear {
+    padding: 10px 15px;
+    background-color: #9F5524;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    width: 30%;
+}
+
+#botonCanjear:hover {
+    background-color: #5d2c0b;
+}
+
+#mensaje {
+    color: #d32f2f;
+    text-align: left;
+    font-weight: bold;
+    min-height: 20px;
+    position: relative;
+    left: 34rem;
+    height: 2rem;
+    align-items: end;
+}
+ 
+.barraBaja{
+    background-color: #d32f2f;
+    width: 100%;
+    height: 10rem;
+}

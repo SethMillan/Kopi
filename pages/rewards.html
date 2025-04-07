@@ -1,11 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premios | Kopi</title>
+    <title>Kopi - Beneficios</title>
+    <link rel="stylesheet" href="styles_rewards.css">
+
 </head>
+
 <body>
-    
+
+    <div ID="contenedor1"> <!--Barra de navegacion superior-->
+        <div class="contIzq contComun" id="kopi"><strong>Kopi</strong></div>
+        <div class="contIzq contComun" id="menu"><b id="dd">MENU</b></div>
+
+        <div class="contDer contComun"><button>Carrito</button></div>
+        <div class="contDer contComun">
+            <p>Heil, Hitler</p>
+        </div>
+        <div class="contDer contComun">
+            <p>220 pts</p>
+        </div>
+        <div class="contDer contComun"><button>Find your Kopi</button></div>
+
+    </div> <!-- Fin de barra de navegacion superior-->
+
+    <div class="contenedor2"> <!-- Contenido principal-->
+        <div class="contComun2" id="a1">
+            <h1>No te pierdas<br>nuestros</h1>
+        </div>
+        <div class="contComun2" id="a2"><img src="Imagenes/m2.png" alt=""></div>
+        <div class="contComun2 padre-verde-blanco" id="a3">
+            <div class="padre-verde-blanco" id="e1">
+                <p>+ Cupones + Beneficios<br>+ Experiencias</p>
+            </div>
+            <div id="e2"></div>
+
+        </div>
+
+    </div> <!-- Fin de Contenido principal-->
+
+
+    <div class="contenedor3"> <!-- Inicia Contenido Secundario-->
+
+        <div class="contComun3" id="g1"> <!-- Columna 1-->
+            <img class="im1" src="Imagenes/cafeStore.png" width="500rem">
+            <p class="t1">Compra</p>
+            <p class="t2">
+                <span class="mostaza">Gana puntos</span>
+                en cualquiera<br>
+                de nuestras sucursales al<br>
+                momento de realizar una<br>
+                compra
+            </p>
+        </div><!-- Fin columna 1-->
+
+        <div class="contComun3" id="g2"><!-- Columna 2-->
+            <img class="im1" src="Imagenes/Gana.png">
+            <p class="t1">Gana</p>
+            <p class="t2">
+                <span class="mostaza">Gana puntos</span>
+                por cada<br>
+                compra de nuestros<br>
+                productos
+            </p>
+        </div><!-- Fin columna 2-->
+
+        <div class="contComun3" id="g3"> <!-- Columna 3-->
+            <img class="im1" src="Imagenes/Disfruta.png">
+            <p class="t1">Disfruta</p>
+            <p class="t2">
+                <span class="mostaza">Canjea los puntos</span>
+                con los<br>
+                puntos podras disfrutar de<br>
+                increibles recompensas en<br>
+                nuestros productos
+            </p>
+        </div> <!-- Fin columna 3-->
+
+        <div class="canjear"><!-- Inicio columna 4-->
+ <div class="contenedor4">
+
+        <h2 class="t1">Canjear</h2>
+
+        <div class="cuadroInput">
+            <input type="text" id="codigoCupon" placeholder="Ingresa tu código" maxlength="10">
+            <button id="botonCanjear">Canjear</button>
+        </div>
+
+        <div id="mensaje"></div>
+
+    </div>
+        </div><!-- Fin columna 4-->
+
+    </div><!-- Finaliza Contenido secundario-->
+
+    <div class="barraBaja">
+<p style="text-align: center; font-size: 3rem;">La barra de abajo</p>
+    </div>
+
+    <script src="rewards_script.js"></script>
 </body>
+
 </html>
