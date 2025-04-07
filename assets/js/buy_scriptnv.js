@@ -25,4 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
             label.textContent = count;
         }
     });
+
+    // Activar animación de las líneas y el texto "MENU"
+    const lineas = document.querySelectorAll('.kopi nav.encabezado .btnMenu .linea');
+    const menuText = document.querySelector('.menu-text');
+
+    // Añadir las clases de animación
+    lineas.forEach(linea => {
+        linea.classList.add('linea-animation');
+    });
+
+    menuText.classList.add('menu-text-animation');
 });

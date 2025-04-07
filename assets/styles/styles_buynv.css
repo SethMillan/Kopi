@@ -36,6 +36,7 @@ body {
     user-select: none;
     /* Evita la selección de texto */
     display: flex;
+    margin-top: 20px;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
@@ -47,11 +48,13 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    letter-spacing: 0.09px;
+    letter-spacing: px;
   }
   .kopi nav.encabezado .btnMenu .linea {
     width: 53px;
     height: 2px;
+    margin-bottom: -20px;
+    margin-top: -20px;
     flex-shrink: 0;
     stroke-width: 2px;
     background-color: #FFF;
