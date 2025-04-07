@@ -173,7 +173,11 @@ body {
     cursor: pointer;
     
   }
-  
+  a:visited {
+    color: inherit; /* Hereda el color del elemento o pon el color que prefieras */
+    text-decoration: none; /* Si también quieres quitar el subrayado */
+}
+
   @media (max-width: 960px) {
     .kopi nav.encabezado #shopping_cart {
       display: none;

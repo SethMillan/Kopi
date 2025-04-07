@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var buyButtons = document.querySelectorAll(".btn_buy");
   buyButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-      window.location.href = "pages/buy.html";
+      window.location.href = "pages/buynv.html";
     });
   });
 });
