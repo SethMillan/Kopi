@@ -1,0 +1,393 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c1b10;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.kopi nav.encabezado {
+    background-color: #160503;
+    color: #FFF;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px 40px;
+    gap: 20px;
+  }
+  .kopi nav.encabezado .home {
+    text-align: center;
+    font-family: Fredoka, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    margin-top: -8px;
+    text-decoration: none;
+    color: #FFF;
+  }
+  .kopi nav.encabezado .btnMenu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+  }
+  .kopi nav.encabezado .btnMenu .linea {
+    width: 53px;
+    height: 2px;
+    flex-shrink: 0;
+    stroke-width: 2px;
+    background-color: #FFF;
+  }
+  @media (max-width: 670px) {
+    .kopi nav.encabezado .btnMenu {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado .btnFindKopi {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    padding-right: 70px;
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado .btnFindKopi {
+      padding-right: 0px;
+    }
+  }
+  .kopi nav.encabezado .btnLogin {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    border: #FFF solid;
+    padding: 7px;
+    border-radius: 64px;
+    margin-left: 20px;
+    width: 92px;
+    height: 39px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .kopi nav.encabezado .btnLogin a {
+    text-decoration: none;
+    /* Quita el subrayado */
+    color: inherit;
+    /* Usa el color del texto padre */
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado .btnLogin {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado .btnRegister {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    border-radius: 64px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    margin-left: 20px;
+    color: #160503;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 92px;
+    height: 39px;
+    padding: 7px;
+  }
+  .kopi nav.encabezado .btnRegister a {
+    text-decoration: none;
+    /* Quita el subrayado */
+    color: inherit;
+    /* Usa el color del texto padre */
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado .btnRegister {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado .material-symbols-outlined {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  @media (max-width: 960px) {
+    .kopi nav.encabezado #shopping_cart {
+      display: none;
+    }
+  }
+  .kopi nav.encabezado #menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+  }
+  @media (min-width: 961px) {
+    .kopi nav.encabezado #menu {
+      display: none;
+    }
+  }
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Estilos para el resumen del pedido */
+.order-summary {
+    background: #612f0e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 75%;
+}
+
+.s3{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 1px;
+  width: 99%;
+  align-self: stretch;
+  background: #ffffff;
+}
+
+/* Estilos para los detalles del producto */
+.product-details {
+    background-color: #271509;
+    padding: 15px; 
+    border-radius: 10px; 
+    margin-bottom: 10px; 
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.product-icon {
+    width: 50px; 
+    height: auto; 
+}
+
+.product-info {
+  padding-left: 6px;
+    flex: 1; 
+}
+
+.product-info p {
+    margin: 5px 0; 
+    font-size: 15px; 
+    opacity: 0.9; 
+}
+
+.preicebox{
+  display: flex;
+   align-items: flex-start;
+  height: 120px;
+}
+.price {
+  font-weight: bold;
+  font-size: 22px; 
+}
+
+/* precios */
+.price-summary {
+    background-color: #522d15; 
+    padding: 15px; 
+    border-radius: 10px; 
+    margin-top: -20px; 
+    color: white; 
+    font-family: Arial, sans-serif; 
+}
+
+.price-summary p {
+    margin: 5px 0; 
+    font-size: 15px; 
+    opacity: 0.9;
+}
+
+.price-summary h3 {
+    margin: 10px 0 0; 
+    font-size: 18px; 
+    color: #ffffff; 
+}
+
+/* detalles de pago */
+.payment-details {
+    padding: 20px;
+    width: 25%;
+  }
+
+.checkboxDiv {
+  display: flex;
+  align-items: center;
+  height: 120px;
+}
+
+.styledCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.styledCheckbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #c8a97e;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.styledCheckbox input:checked + .checkmark {
+  background-color: #5d7dc0;
+  border-color: #5d7dc0;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.styledCheckbox input:checked + .checkmark:after {
+  display: block;
+}
+
+.styledCheckbox .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+.opciones{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  gap: 20px;
+  line-height: 20px;
+}
+
+.opciones .cantidad{
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 104px;
+  box-sizing: border-box;
+  border-color: var(--__dChmGopC1TxpMXs, #cecece8a);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 100px;
+  overflow: hidden;  
+  gap: 20px;
+}
+
+.menos,
+.mas{
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+ }
+
+
+.opciones p{
+  cursor: pointer;
+}
+
+.opciones p:hover{
+  color: #a6763e;
+ }
+
+/* Estilo para el botón */
+button {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: none;
+    font-weight: 700;
+    color: #160503;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto; 
+    display: block; 
+}
+
+a {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+button:hover {
+    background-color: #fff; 
+}
+
