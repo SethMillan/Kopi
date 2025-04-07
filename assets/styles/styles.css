@@ -51,6 +51,13 @@
   text-decoration: none;
   color: #FFF;
 }
+
+.btnCart a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Hereda el color del contenedor, evitando que se ponga morado */
+}
+
+ 
 .kopi nav.encabezado .btnMenu {
   -webkit-user-select: none;
   -moz-user-select: none;
