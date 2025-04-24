@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const productDetails = document.querySelector('.product-details');
     const orderSummary = document.querySelector('.order-summary');
 
+    
+    //Muestra repetidivamente los prodcutos 
+    
     const repeatCount = 8;
 
     for (let i = 0; i < repeatCount; i++) {
@@ -26,14 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Activar animación de las líneas y el texto "MENU"
-    const lineas = document.querySelectorAll('.kopi nav.encabezado .btnMenu .linea');
-    const menuText = document.querySelector('.menu-text');
-
-    // Añadir las clases de animación
-    lineas.forEach(linea => {
-        linea.classList.add('linea-animation');
-    });
-
-    menuText.classList.add('menu-text-animation');
+  
 });
