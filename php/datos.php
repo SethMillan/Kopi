@@ -12,6 +12,27 @@ $queryCliente = "SELECT column_name, data_type
                  FROM information_schema.columns 
                  WHERE table_name = 'cliente';";
 
+$queryCategoria = "SELECT column_name, data_type 
+                FROM information_schema.columns 
+                WHERE table_name = 'categoria';";
+
+$queryProducto = "SELECT column_name, data_type 
+                 FROM information_schema.columns 
+                 WHERE table_name = 'producto';";
+
+$queryPedido = "SELECT column_name, data_type 
+                 FROM information_schema.columns 
+                 WHERE table_name = 'pedido';";
+
+$queryDPedido = "SELECT column_name, data_type 
+                 FROM information_schema.columns 
+                 WHERE table_name = 'detalle_pedido';";
+
+$queryDescuento = "SELECT column_name, data_type 
+                 FROM information_schema.columns 
+                 WHERE table_name = 'descuento';";
+
+
 $queryDatosCliente = "SELECT * FROM cliente";
 // Fin de las querys
 
@@ -19,25 +40,22 @@ $queryDatosCliente = "SELECT * FROM cliente";
 // Obtención de los resultados
 $resultTablas = pg_query($conn, $queryTablas);
 $resultCliente = pg_query($conn, $queryCliente);
+$resultCategoria = pg_query($conn, $queryCategoria);
 $resultDatosCliente = pg_query($conn, $queryDatosCliente);
+$resultProducto = pg_query($conn, $queryProducto);
+$resultPedido = pg_query($conn, $queryPedido);
+$resultDPedido = pg_query($conn, $queryDPedido);
+$resultDescuento = pg_query($conn, $queryDescuento);
+
 // Fin de resultados
 
 
 // Comprobar si llegan bien
-if (!$resultTablas) {
+if (!$resultTablas || !$queryCategoria || !$resultCliente || !$resultDatosCliente || !$resultProducto || !$resultPedido || !$resultDPedido || !$resultDescuento) {
     echo "Error al ejecutar la consulta de tablas.<br>";
     exit;
 }
 
-if (!$resultCliente) {
-    echo "Error al ejecutar la consulta de la tabla 'cliente'.<br>";
-    exit;
-}
-
-if (!$resultDatosCliente) {
-    echo "Error al obtener los datos de la tabla 'cliente'.<br>";
-    exit;
-}
 // Fin de comprobación
 
 
@@ -49,6 +67,37 @@ while ($row = pg_fetch_assoc($resultTablas)) {
 
 echo "<br><hr><br>";
 
+
+// Mostrar campos de la tabla cliente
+echo "<strong>Campos de la tabla 'categoria':</strong><br><br>";
+while ($row = pg_fetch_assoc($resultCategoria)) {
+    echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
+}
+
+echo "<br><hr><br>";
+
+ 
+// Mostrar campos de la tabla cliente
+echo "<strong>Campos de la tabla 'producto':</strong><br><br>";
+while ($row = pg_fetch_assoc($resultProducto)) {
+    echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
+}
+
+echo "<br><hr><br>";
+// Mostrar campos de la tabla cliente
+echo "<strong>Campos de la tabla 'detalle_pedido':</strong><br><br>";
+while ($row = pg_fetch_assoc($resultDPedido)) {
+    echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
+}
+
+echo "<br><hr><br>";
+// Mostrar campos de la tabla cliente
+echo "<strong>Campos de la tabla 'descuento':</strong><br><br>";
+while ($row = pg_fetch_assoc($resultDescuento)) {
+    echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
+}
+
+echo "<br><hr><br>";
 
 // Mostrar campos de la tabla cliente
 echo "<strong>Campos de la tabla 'cliente':</strong><br><br>";
