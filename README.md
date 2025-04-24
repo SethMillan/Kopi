@@ -9,11 +9,13 @@ Efren
 - [x] Registro
 - [x] login emergente
 - [x] Carrito
-- [x] Conectividad con PHP 
+- [x] Conectividad con PHP y BD
     - [x] Login
     - [x] Registro
+    - [x] Agregar las categorias a la BD
+    - [ ] Agregar los productos a la BD 
     - [ ] Cada usuario tenga su carrito propio (php y bd)
-
+ 
 Oscar
 - [x] Pasarela de pago
     - [ ] Cambiar diseño
@@ -23,8 +25,7 @@ Seth
 - [x] Home 
 - [x] Coneccion con Neon
 - [x] Menu
-- [ ] Agregar los productos a la bd
-    -  [ ] Agregar mas productos en general
+- [ ] Agregar mas productos en general
 - [ ] Las categorias del menu sean funcionales
 - [ ] Buscador para los productos
 - [ ] Conectar el login emergente con Home

@@ -52,9 +52,15 @@ function procesarLogin($datos, $conn) {
 
     if ($row = pg_fetch_assoc($result)) {
         if (password_verify($password, $row['password'])) {
-            session_start();
-            $_SESSION['usuario_nombre'] = $row['nombre'];
-            $_SESSION['usuario_apellido'] = $row['apaterno'];
+            session_start(); //Inicia la sección
+
+            //Globaliza los datos para poderlos usuar en cualquier pagina 
+            $_SESSION['cliente_id'] = $row['id'];
+            $_SESSION['cliente_nombre'] = $row['nombre'];
+            $_SESSION['cliente_apellido'] = $row['apaterno'];
+            $_SESSION['cliente_amaterno'] = $row['amaterno'];
+            $_SESSION['cliente_email'] = $row['email'];
+
             return ['success' => true, 'message' => 'Login exitoso'];
         }
     }
