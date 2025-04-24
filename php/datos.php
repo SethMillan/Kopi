@@ -16,6 +16,10 @@ $queryCategoria = "SELECT column_name, data_type
                 FROM information_schema.columns 
                 WHERE table_name = 'categoria';";
 
+$queryCarrito = "SELECT column_name, data_type 
+                FROM information_schema.columns 
+                WHERE table_name = 'carrito';";
+
 $queryProducto = "SELECT column_name, data_type 
                  FROM information_schema.columns 
                  WHERE table_name = 'producto';";
@@ -34,6 +38,9 @@ $queryDescuento = "SELECT column_name, data_type
 
 
 $queryDatosCliente = "SELECT * FROM cliente";
+
+$queryDatosCarrito = "SELECT * FROM carrito";
+
 // Fin de las querys
 
 
@@ -46,12 +53,18 @@ $resultProducto = pg_query($conn, $queryProducto);
 $resultPedido = pg_query($conn, $queryPedido);
 $resultDPedido = pg_query($conn, $queryDPedido);
 $resultDescuento = pg_query($conn, $queryDescuento);
+$resultCarrito = pg_query($conn, $queryCarrito);
+$resultDatosCarrito = pg_query($conn, $queryDatosCarrito);
+
+
 
 // Fin de resultados
 
 
 // Comprobar si llegan bien
-if (!$resultTablas || !$queryCategoria || !$resultCliente || !$resultDatosCliente || !$resultProducto || !$resultPedido || !$resultDPedido || !$resultDescuento) {
+if (!$resultTablas   || !$queryCategoria || !$resultCliente || !$resultDatosCliente || 
+    !$resultProducto || !$resultPedido || !$resultDPedido || !$resultDescuento || 
+    !$resultCarrito  || !$resultDatosCarrito) {
     echo "Error al ejecutar la consulta de tablas.<br>";
     exit;
 }
@@ -80,6 +93,14 @@ echo "<br><hr><br>";
 // Mostrar campos de la tabla cliente
 echo "<strong>Campos de la tabla 'producto':</strong><br><br>";
 while ($row = pg_fetch_assoc($resultProducto)) {
+    echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
+}
+
+echo "<br><hr><br>";
+
+// Mostrar campos de la tabla cliente
+echo "<strong>Campos de la tabla 'carrito':</strong><br><br>";
+while ($row = pg_fetch_assoc($resultCarrito)) {
     echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
 }
 
@@ -124,6 +145,23 @@ if (pg_num_rows($resultDatosCliente) === 0) {
 } else {
     // Mostrar cada fila
     while ($row = pg_fetch_assoc($resultDatosCliente)) {
+        foreach ($row as $col => $val) {
+            echo "<strong>$col:</strong> $val<br>";
+        }
+        echo "<br><hr><br>";
+    }
+}
+
+
+
+// Mostrar datos de la tabla cliente
+echo "<strong>Datos almacenados en 'carrito':</strong><br><br>";
+
+if (pg_num_rows($resultDatosCarrito) === 0) {
+    echo "La tabla 'carrito' está vacía.<br>";
+} else {
+    // Mostrar cada fila
+    while ($row = pg_fetch_assoc($resultDatosCarrito)) {
         foreach ($row as $col => $val) {
             echo "<strong>$col:</strong> $val<br>";
         }
