@@ -13,7 +13,7 @@ Efren
     - [x] Login
     - [x] Registro
     - [x] Agregar las categorias a la BD
-    - [ ] Agregar los productos a la BD 
+    - [x] Agregar los productos a la BD 
     - [ ] Cada usuario tenga su carrito propio (php y bd)
  
 Oscar
