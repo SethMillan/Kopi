@@ -7,21 +7,33 @@ Efren
     - [x] Se encontro que no esta bien algunos margenes (estaba trabajando con un sum del 80%, voy a desayunar-almorzar ahorita lo agrego)
     - [ ] Mejorar la documentación del login.css
 - [x] Registro
-- [ ] login emergente
-- [ ] Conectividad con PHP 
-    - [ ] Login
-    - [ ] Registro
+- [x] login emergente
+- [x] Carrito
+- [x] Conectividad con PHP 
+    - [x] Login
+    - [x] Registro
+    - [ ] Cada usuario tenga su carrito propio (php y bd)
 
 Oscar
 - [x] Pasarela de pago
+    - [ ] Cambiar diseño
 - [ ] Recompensas
 
 Seth
-- [ ] Home 
-- [ ] Carrito
+- [x] Home 
+- [x] Coneccion con Neon
+- [x] Menu
+- [ ] Agregar los productos a la bd
+- [ ] Conectar el login emergente con Home
+- [ ] Las categorias del menu sean funcionales
+- [ ] Buscador para los productos
 
 Pendientes
 - [ ] Find your Kopi 
+- [ ] Actualizar el encabezado para cuando el usuario este login
+- [ ] Pagina aparte para que el usuario vea sus datos
+- [ ] Agregar la IA (Chat bot)
+ 
 
 
 ### Formato para los Commit

@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+header(header: 'Content-Type: application/json');
 
 try {
     include 'db.php';
