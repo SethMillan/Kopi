@@ -24,6 +24,7 @@ Seth
 - [x] Coneccion con Neon
 - [x] Menu
 - [ ] Agregar los productos a la bd
+    -  [ ] Agregar mas productos en general
 - [ ] Conectar el login emergente con Home
 - [ ] Las categorias del menu sean funcionales
 - [ ] Buscador para los productos
