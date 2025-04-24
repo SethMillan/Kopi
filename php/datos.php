@@ -84,6 +84,14 @@ while ($row = pg_fetch_assoc($resultProducto)) {
 }
 
 echo "<br><hr><br>";
+
+// Mostrar campos de la tabla cliente
+echo "<strong>Campos de la tabla 'pedido':</strong><br><br>";
+while ($row = pg_fetch_assoc($resultPedido)) {
+    echo "🔹 <strong>" . $row['column_name'] . "</strong> (" . $row['data_type'] . ")<br>";
+}
+
+echo "<br><hr><br>";
 // Mostrar campos de la tabla cliente
 echo "<strong>Campos de la tabla 'detalle_pedido':</strong><br><br>";
 while ($row = pg_fetch_assoc($resultDPedido)) {
