@@ -6,10 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carritoTotal = document.getElementById('total');
     let precioTotal = 0;
 
-
-
-    // 👉 Hacer POST con JSON
-    fetch('http://localhost:3000/php/carrito.php', {
+     fetch('http://localhost:3000/php/carrito.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (carritoBasio) carritoBasio.style.display = 'block';
     });
 
-    // 🔄 Botones + y -
+    //  Botones + y -
     orderSummary.addEventListener('click', (e) => {
         if (e.target.classList.contains('mas') || e.target.classList.contains('menos')) {
             const container = e.target.parentElement;
