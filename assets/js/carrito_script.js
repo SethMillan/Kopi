@@ -73,6 +73,7 @@ function cargarCarrito() {
                 clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
                 let precioProducto = (producto.precio * producto.cantidad).toFixed(2);
                 clone.querySelector('.price').textContent = `$${producto.precio}`;
+                clone.querySelector('.price2').textContent = `$${precioProducto}`;
 
                 precioTotal += parseFloat(precioProducto);
 

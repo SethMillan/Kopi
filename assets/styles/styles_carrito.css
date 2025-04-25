@@ -278,14 +278,23 @@ body {
     opacity: 0.9; 
 }
 
-.preicebox{
+.pricebox {
   display: flex;
-   align-items: flex-start;
+  flex-direction: column; /* Si los quieres uno debajo del otro */
+  align-items: flex-start;
+  gap: 0px;  
   height: 120px;
 }
-.price {
+
+.price , .price2 {
   font-weight: bold;
   font-size: 22px; 
+}
+
+ .price2 {
+  color: #a6763e;
+  margin-top: -25px;
+  font-size: 15px; 
 }
 
 /* precios */
