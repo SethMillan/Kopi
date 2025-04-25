@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
              btnlogin.style.display = 'none';
              btnregister.style.display = 'none';
              btnUser.style.display = 'flex'
-             btnUser.textContent = data.nombre;
-           } else {
+             btnUser.querySelector('p').textContent = data.nombre;
+            } else {
               console.log("Usuario NO logueado");
           }
         });
