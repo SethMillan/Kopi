@@ -285,8 +285,7 @@ body {
   gap: 0px;  
   height: 120px;
 }
-
-.price , .price2 {
+ .price , .price2 {
   font-weight: bold;
   font-size: 22px; 
 }
@@ -299,6 +298,7 @@ body {
 
 /* precios */
 .price-summary {
+    font-weight: bold;
     background-color: #fff; 
     padding: 15px; 
     border-radius: 10px; 
@@ -435,7 +435,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin: 0 auto; 
-    background-color: #160503;
+    background-color: #000000;
     display: block; 
     color: #FFF;
 }
@@ -445,6 +445,6 @@ a {
 }
 
 button:hover {
-    background-color: #3a2609; 
+    background-color: #252525; 
 }
 
