@@ -32,30 +32,37 @@ function verCarrito($conn) {
 
     $clienteid = $_SESSION['cliente_id'];
 
-    $sql = "
-        SELECT 
-            p.id AS producto_id,
-            p.nombre,
-            p.precio,
-            p.imagen,
-            c.cantidad
+    // Productos en el carrito
+    $sql_carrito = "
+        SELECT c.id AS carrito_id, p.id AS producto_id, p.nombre, p.precio, p.imagen, c.cantidad
         FROM carrito c
         JOIN producto p ON c.producto_id = p.id
-        WHERE c.cliente_id = $1
+        WHERE c.cliente_id = $1 AND c.estado = 'carrito'
     ";
 
-    $result = pg_query_params($conn, $sql, [$clienteid]);
+    // Productos guardados
+    $sql_guardado = "
+        SELECT c.id AS carrito_id, p.id AS producto_id, p.nombre, p.precio, p.imagen, c.cantidad
+        FROM carrito c
+        JOIN producto p ON c.producto_id = p.id
+        WHERE c.cliente_id = $1 AND c.estado = 'guardado'
+    ";
 
-    if (!$result) {
-        return ['success' => false, 'message' => 'No se pudo obtener el carrito'];
-    }
+    $result_carrito = pg_query_params($conn, $sql_carrito, [$clienteid]);
+    $result_guardado = pg_query_params($conn, $sql_guardado, [$clienteid]);
 
     $carrito = [];
-    while ($row = pg_fetch_assoc($result)) {
+    $guardado = [];
+
+    while ($row = pg_fetch_assoc($result_carrito)) {
         $carrito[] = $row;
     }
 
-    return ['success' => true, 'carrito' => $carrito];
+    while ($row = pg_fetch_assoc($result_guardado)) {
+        $guardado[] = $row;
+    }
+
+    return ['success' => true, 'carrito' => $carrito, 'guardado' => $guardado];
 }
 
 // Buscar el ID del producto por su nombre
@@ -219,7 +226,8 @@ switch ($input['accion']) {
             break;
      case 'secion':
          secion($conn); 
-        exit;          
+        exit;
+          
     default:
         $respuesta = ['success' => false, 'message' => 'Acción no válida'];
 }
