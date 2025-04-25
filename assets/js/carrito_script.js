@@ -4,8 +4,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const carritoBasio = document.getElementById('carrito_basio');
     const carritoSubtotal = document.getElementById('subtotal');
     const carritoTotal = document.getElementById('total');
+    const btnUser = document.getElementById('usuario');
+    btnUser.style.display = 'none'
     let precioTotal = 0;
+   
 
+    //Para iniciar sección
+    function verificar_sesion(){
+        fetch('http://localhost:3000/php/carrito.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ accion: 'secion' })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.logueado) {
+             const btnlogin = document.getElementById('btnlogin');
+             const btnregister = document.getElementById('btnregister');
+             const btnUser = document.getElementById('usuario');
+
+             btnlogin.style.display = 'none';
+             btnregister.style.display = 'none';
+             btnUser.style.display = 'flex'
+             btnUser.textContent = data.nombre;
+           } else {
+              console.log("Usuario NO logueado");
+          }
+        });
+    }
+    verificar_sesion()
+    
 // Función para cargar el carrito
 function cargarCarrito() {
     fetch('http://localhost:3000/php/carrito.php', {

@@ -2,6 +2,7 @@
 header('Content-Type: application/json');
 session_start();
 
+
 try {
     include 'db.php';
 } catch (Exception $e) {
@@ -9,6 +10,21 @@ try {
     exit;
 }
 
+function secion($conn) {
+    if (isset($_SESSION['cliente_id'])) {
+        $nombre = $_SESSION['cliente_nombre'] ?? 'Usuario'; // Fallback por si no está seteado el nombre
+
+        echo json_encode([
+            'logueado' => true,
+            'nombre' => $nombre
+        ]);
+    } else {
+        echo json_encode(['logueado' => false]);
+    }
+}
+
+
+    
 function verCarrito($conn) {
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
@@ -201,7 +217,9 @@ switch ($input['accion']) {
                 $respuesta = ['success' => false, 'message' => 'Datos incompletos para actualizar'];
             }
             break;
-
+     case 'secion':
+         secion($conn); 
+        exit;          
     default:
         $respuesta = ['success' => false, 'message' => 'Acción no válida'];
 }

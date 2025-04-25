@@ -31,8 +31,30 @@ body {
     color: #FFF;
   }
 
+  .usuario{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.09px;
 
-  .kopi nav.encabezado .btnMenu {
+    width: 53px;
+    height: 2px;
+    margin-right: 40px;
+    margin-top: -50px;
+    }
+
+  .kopi  nav.encabezado .btnMenu {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -65,7 +87,7 @@ body {
       display: none;
     }
   }
-  .kopi nav.encabezado .btnFindKopi {
+  .kopi nav.encabezado .btnFindKopi  {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
