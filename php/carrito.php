@@ -8,17 +8,15 @@ try {
     echo json_encode(['success' => false, 'message' => 'Error al conectar con la base de datos']);
     exit;
 }
- 
 
 function verCarrito($conn) {
-
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
 
     $clienteid = $_SESSION['cliente_id'];
 
-     $sql = "
+    $sql = "
         SELECT 
             p.id AS producto_id,
             p.nombre,
@@ -44,21 +42,57 @@ function verCarrito($conn) {
     return ['success' => true, 'carrito' => $carrito];
 }
 
+// Buscar el ID del producto por su nombre
+function encontrarID($productoNombre, $conn) {
+    $sql = "SELECT id FROM producto WHERE nombre = $1";
+    $result = pg_query_params($conn, $sql, [$productoNombre]);
 
-function AgregarCarrito ($datos, $conn) {
-    session_start();
-    
+    if (!$result || pg_num_rows($result) == 0) {
+        return null;  // Si no se encuentra el producto
+    }
+
+    $row = pg_fetch_assoc($result);
+    return $row['id'];  // Devuelve el ID del producto
+}
+
+// Función para agregar al carrito o actualizar la cantidad
+function AgregarCarrito($producto_id, $conn) {
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
 
     $clienteid = $_SESSION['cliente_id'];
-    $producto_id = $datos['producto_id'];
+    $cantidad = 1; 
 
+    // Verificamos si el producto ya está en el carrito del cliente
+    $sql_check = "SELECT cantidad FROM carrito WHERE cliente_id = $1 AND producto_id = $2";
+    $result_check = pg_query_params($conn, $sql_check, [$clienteid, $producto_id]);
 
-    $result = pg_query_params($conn, "INSERT INTO carrito ( cliente_id, producto_id, cantidad) VALUES ($1, $2, $3)",
-    [$clienteid , $producto_id, 1]); 
+    if ($result_check && pg_num_rows($result_check) > 0) {
+        // Si ya está en el carrito, solo actualizamos la cantidad
+        $row = pg_fetch_assoc($result_check);
+        $nueva_cantidad = $row['cantidad'] + $cantidad;
 
+        // Actualizamos la cantidad en la base de datos
+        $sql_update = "UPDATE carrito SET cantidad = $1 WHERE cliente_id = $2 AND producto_id = $3";
+        $result_update = pg_query_params($conn, $sql_update, [$nueva_cantidad, $clienteid, $producto_id]);
+
+        if (!$result_update) {
+            return ['success' => false, 'message' => 'Error al actualizar la cantidad del producto'];
+        }
+
+        return ['success' => true, 'message' => 'Cantidad actualizada en el carrito'];
+    } else {
+        // Si no está en el carrito, lo agregamos
+        $sql_insert = "INSERT INTO carrito (cliente_id, producto_id, cantidad) VALUES ($1, $2, $3)";
+        $result_insert = pg_query_params($conn, $sql_insert, [$clienteid, $producto_id, $cantidad]);
+
+        if (!$result_insert) {
+            return ['success' => false, 'message' => 'Error al agregar el producto al carrito'];
+        }
+
+        return ['success' => true, 'message' => 'Producto agregado al carrito'];
+    }
 }
 
 // --- Punto de entrada principal ---
@@ -71,15 +105,25 @@ if (!$input || !isset($input['accion'])) {
 
 switch ($input['accion']) {
     case 'ver':
-        $respuesta = verCarrito(  $conn);
+        $respuesta = verCarrito($conn);
         break;
     case 'agg':
-        $respuesta = AgregarCarrito($input, $conn);
+        if (isset($input['producto_nombre'])) {
+            // Encontrar el ID del producto por su nombre
+            $producto_id = encontrarID($input['producto_nombre'], $conn);
+            if ($producto_id === null) {
+                $respuesta = ['success' => false, 'message' => 'Producto no encontrado'];
+            } else {
+                // Si se encontró el ID, agregar el producto al carrito o actualizar la cantidad
+                $respuesta = AgregarCarrito($producto_id, $conn);
+            }
+        } else {
+            $respuesta = ['success' => false, 'message' => 'Nombre del producto no recibido'];
+        }
         break;
     default:
         $respuesta = ['success' => false, 'message' => 'Acción no válida'];
 }
 
 echo json_encode($respuesta);
-
 ?>

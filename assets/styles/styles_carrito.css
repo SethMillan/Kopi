@@ -240,8 +240,9 @@ body {
 }
 
 .product-icon {
-    width: 50px; 
-    height: auto; 
+    width: 10%; 
+    height: 25%; 
+    border-radius: 30px;
 }
 
 .product-info {
