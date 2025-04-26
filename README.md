@@ -14,7 +14,12 @@ Efren
     - [x] Registro
     - [x] Agregar las categorias a la BD
     - [x] Agregar los productos a la BD 
-    - [ ] Cada usuario tenga su carrito propio (php y bd)
+    - [x] Cada usuario tenga su carrito propio (php y bd)
+        - [x] Botones en carrito funcionales
+            - [x] Eliminar
+            - [x] Guardar mas tarde
+            - [x] Agregar al carrito
+            - [ ] Ver productos similares
  
 Oscar
 - [x] Pasarela de pago
