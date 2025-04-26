@@ -71,11 +71,11 @@ function cargarCarrito() {
 
                 // Actualiza los datos del producto
                 clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
-                let precioProducto = (producto.precio * producto.cantidad).toFixed(2);
+                let precioProducto = (producto.precio * producto.cantidad).toFixed(2); // Para la cuenta
                 clone.querySelector('.price').textContent = `$${producto.precio}`;
-                clone.querySelector('.price2').textContent = `$${precioProducto}`;
+                clone.querySelector('.price2').textContent = `$${precioProducto}`; // Para el precio por cantidad
 
-                precioTotal += parseFloat(precioProducto);
+                precioTotal += parseFloat(precioProducto); // Para la cuenta
 
                 const imagenTag = clone.querySelector('img.product-icon');
                 if (imagenTag && producto.imagen) {
@@ -90,6 +90,9 @@ function cargarCarrito() {
                 orderSummary.appendChild(clone);
             });
 
+            carritoSubtotal.textContent = "Subtotal " + "$" + precioTotal;
+            carritoTotal.textContent = "Total " + "$" + (precioTotal + 10);
+
             // Ocultar mensaje de "carrito vacío"
             if (carritoBasio) carritoBasio.style.display = 'none';
 
@@ -98,17 +101,39 @@ function cargarCarrito() {
             if (carritoBasio) carritoBasio.style.display = 'block';
         }
 
-        const ha = document.createElement('h2');
-        ha.classList.add('h2Or');
-        ha.textContent = 'Guardado para mas';
-        orderSummary.appendChild(ha);
+     // Si hay productos guardados, crear los elementos
+if (data.success && data.guardado.length > 0) {
+     const ha = document.createElement('h2');
+     ha.classList.add('h2Or');
+     ha.textContent = 'Guardado para más';
+     orderSummary.appendChild(ha);
 
-        const line2 = document.createElement('div');
-        line2.classList.add('s3');
-        orderSummary.appendChild(line2);
+     const line2 = document.createElement('div');
+     line2.classList.add('s3');
+     orderSummary.appendChild(line2);
 
-        carritoSubtotal.textContent = "Subtotal " + "$" + precioTotal;
-        carritoTotal.textContent = "Total " + "$" + (precioTotal + 10);
+      data.guardado.forEach(producto => {
+        const clone = template.cloneNode(true);
+        clone.style.display = 'flex';
+
+        clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
+        let precioProducto = (producto.precio * producto.cantidad).toFixed(2);
+        clone.querySelector('.price').textContent = `$${producto.precio}`;
+        clone.querySelector('.price2').textContent = `$${precioProducto}`;
+        clone.querySelector('.guardar').textContent = `${'Agregar al carrito'}`;
+ 
+        const imagenTag = clone.querySelector('img.product-icon');
+        if (imagenTag && producto.imagen) {
+            imagenTag.src = producto.imagen;
+        }
+
+        const label = clone.querySelector('label');
+        label.textContent = producto.cantidad;
+
+        orderSummary.appendChild(clone);
+    });
+    }
+     
     })
     .catch(err => {
         console.error('Error al cargar el carrito', err);
@@ -190,6 +215,39 @@ function cargarCarrito() {
                 console.error('Error al eliminar producto', err);
             });
         } else if (e.target.classList.contains('guardar')) {
+            const producto = e.target.closest('.product-details');
+            const productoNombre = producto.querySelector('.nombre').textContent;
+
+            fetch('http://localhost:3000/php/carrito.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    accion: 'guardar',
+                    nombre: productoNombre
+                })
+            })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error('Error en la solicitud');
+                }
+            })
+            .then(data => {
+                console.log(data);  // Verifica el objeto de respuesta en la consola
+                if (data.success) {
+                    cargarCarrito();  // Recargar el carrito después de la eliminación
+                } else {
+                    alert("No se pudo guardar el producto.");
+                }
+            })
+            .catch(err => {
+                 console.error('Error al hacer la solicitud:', err);
+            });
+            
+
             console.log("guardar");
         } else if (e.target.classList.contains('similares')) {
             window.location.href = 'http://localhost:3000/pages/menu.html'; 
