@@ -175,7 +175,53 @@ function actualizarCantidad($producto_id, $cantidad, $conn) {
     return ['success' => true, 'message' => 'Cantidad actualizada en el carrito'];
 }
 
-    
+function guardar( $datos, $conn) {
+    if (!isset($_SESSION['cliente_id'])) {
+        return ['success' => false, 'message' => 'No hay sesión iniciada'];
+    }
+
+    $clienteid = $_SESSION['cliente_id'];
+    $nombre = $datos['nombre'];
+
+    // Obtener ID del producto por nombre
+    $res = pg_query_params($conn, "SELECT id FROM producto WHERE nombre = $1", [$nombre]);
+
+    if (!$res || pg_num_rows($res) === 0) {
+        return ['success' => false, 'message' => 'Producto no encontrado'];
+    }
+
+    $producto = pg_fetch_assoc($res);
+    $producto_id = $producto['id'];
+
+    $res2 = pg_query_params($conn, "SELECT estado FROM carrito WHERE cliente_id = $1 AND producto_id = $2", [$clienteid, $producto_id]);
+   
+    $producto2 = pg_fetch_assoc($res2);
+    $producto_estado = $producto2['estado'];
+
+    if($producto_estado == 'carrito') {
+
+    // Actualizamos la cantidad del producto en el carrito
+    $sql_update = "UPDATE carrito SET estado = $1 WHERE cliente_id = $2 AND producto_id = $3";
+    $result_update = pg_query_params($conn, $sql_update, ['guardado', $clienteid, $producto_id]);
+
+    if (!$result_update) {
+        return ['success' => false, 'message' => 'Error al actualizar al guardar el producto'];
+    }
+
+    return ['success' => true, 'message' => 'producto guardado correctamente'];
+
+    }else{
+        // Actualizamos la cantidad del producto en el carrito
+        $sql_update = "UPDATE carrito SET estado = $1 WHERE cliente_id = $2 AND producto_id = $3";
+        $result_update = pg_query_params($conn, $sql_update, ['carrito', $clienteid, $producto_id]);
+
+    if (!$result_update) {
+        return ['success' => false, 'message' => 'Error al mover el producto a carrito'];
+    }
+
+    return ['success' => true, 'message' => 'producto al carrito correctamente'];
+    }
+}
     
 
 
@@ -227,7 +273,15 @@ switch ($input['accion']) {
      case 'secion':
          secion($conn); 
         exit;
-          
+        case 'guardar':
+            if (isset($input['nombre'])) {
+                $respuesta = guardar($input, $conn);
+            } else {
+                $respuesta = ['success' => false, 'message' => 'Nombre del producto no recibido'];
+            }
+            echo json_encode($respuesta);
+            exit;
+        
     default:
         $respuesta = ['success' => false, 'message' => 'Acción no válida'];
 }
