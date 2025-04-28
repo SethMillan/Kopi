@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compras | Kopi</title>
-    <link rel="stylesheet" href="../assets/styles/styles_buynv.css"> <!-- Enlaza el archivo CSS -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <link rel="stylesheet" href="../assets/styles/styles_carrito.css"> <!-- Enlaza el archivo CSS -->
+    <!-- Encabezado <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://js.stripe.com/v3/"></script>
@@ -31,63 +31,71 @@
                 <span class="material-symbols-outlined">location_on</span>
                 <p>Find your Kopi</p>
             </div>
-            <div class="btnLogin">
+            <div class="btnLogin" id="btnlogin">
                 <a href="login.html">
                     <p>Login</p>
                 </a>
             </div>
-            <div class="btnRegister"><a href="login.html?show=register">
+            <div class="btnRegister" id="btnregister">
+                <a href="login.html?show=register">
                     <p>Join</p>
-                </a></div>
-            <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+                </a>
+            </div>
+            <div class="usuario" id="usuario">
+                <a href="usuario.html">
+                    <p id="nombreUsuario">Usuario</p>
+                </a>
+            </div>
+             <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
             <span class="material-symbols-outlined" id="menu">menu</span>
         </nav>
 
         <div class="container">
             <!-- Resumen del pedido -->
-            <div class="order-summary">
-                <h2 class="h2Or">Order Summary</h2>
+            <div class="order-summary" id="os">
+                <h2 class="h2Or">Carrito</h2>
                 <div class="s3"></div>
-                <!-- Detalles del producto -->
+                 <!-- Detalles del producto -->
                 <div class="product-details">
+                    <!--
                     <div class="checkboxDiv">
                         <label class="styledCheckbox">
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                    -->
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon" id="imagen">
                     <div class="product-info">
-                        <p><strong>Product:</strong></p>
-                        <p>Kopi-Organico</p>
-                        <p>Qty: 2</p>
-                        <div class="opciones">
+                        <p><strong>Producto:</strong></p>
+                        <p class="nombre">Kopi-Organico</p>
+                         <div class="opciones">
                             <div class="cantidad">
                                <p class="menos">-</p>
                                <label>1</label>
                                <p class="mas">+</p> 
                             </div>
-                            <p>Eliminar</p>
-                            <p>Guardar para mas tarde</p>
-                            <a href="menu.html">
-                                <p>Ver productos similares</p>
-                            </a>
-                            <p>Compartir</p>
+                            <p class="eliminar">Eliminar</p>
+                            <p class="guardar">Guardar para mas tarde</p>
+                            <a class="menu.html">
+                            <p class="similares">Ver productos similares</p>
                         </div>
                     </div>
                     <div class="preicebox">
-                        <p class="price">$49.80</p>
+                        <p class="price">$0.00</p>
+                        <p class="price2">$0.00</p>
                     </div>
                 </div>
-            </div>
+              </div>
+ 
 
             <!-- Detalles de pago -->
             <div class="payment-details">
                 <!-- Resumen de precios -->
                 <div class="price-summary">
-                    <p>Subtotal: $188</p>
+                    <p id="subtotal">Subtotal: $188</p>
                     <p>Taxes and Fees: $10</p>
-                    <h3>Total: $198</h3>
+                    <p id="total">Total: $198</p>
                     <a href="../pages/buy.html">
                         <button>Proceder a pagar</button>
                     </a>
@@ -97,6 +105,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../assets/js/buy_scriptnv.js"></script>
+    <script src="../assets/js/carrito_script.js"></script>
 </body>
 </html>

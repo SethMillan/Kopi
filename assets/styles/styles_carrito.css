@@ -31,8 +31,30 @@ body {
     color: #FFF;
   }
 
+  .usuario{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /* Evita la selección de texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.09px;
 
-  .kopi nav.encabezado .btnMenu {
+    width: 53px;
+    height: 2px;
+    margin-right: 40px;
+    margin-top: -80px;
+    }
+
+  .kopi  nav.encabezado .btnMenu {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -65,7 +87,7 @@ body {
       display: none;
     }
   }
-  .kopi nav.encabezado .btnFindKopi {
+  .kopi nav.encabezado .btnFindKopi  {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -240,8 +262,9 @@ body {
 }
 
 .product-icon {
-    width: 50px; 
-    height: auto; 
+    width: 10%; 
+    height: 25%; 
+    border-radius: 30px;
 }
 
 .product-info {
@@ -255,18 +278,27 @@ body {
     opacity: 0.9; 
 }
 
-.preicebox{
+.pricebox {
   display: flex;
-   align-items: flex-start;
+  flex-direction: column; /* Si los quieres uno debajo del otro */
+  align-items: flex-start;
+  gap: 0px;  
   height: 120px;
 }
-.price {
+ .price , .price2 {
   font-weight: bold;
   font-size: 22px; 
 }
 
+ .price2 {
+  color: #a6763e;
+  margin-top: -25px;
+  font-size: 15px; 
+}
+
 /* precios */
 .price-summary {
+    font-weight: bold;
     background-color: #fff; 
     padding: 15px; 
     border-radius: 10px; 
@@ -403,7 +435,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin: 0 auto; 
-    background-color: #160503;
+    background-color: #000000;
     display: block; 
     color: #FFF;
 }
@@ -413,6 +445,6 @@ a {
 }
 
 button:hover {
-    background-color: #3a2609; 
+    background-color: #252525; 
 }
 
