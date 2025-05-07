@@ -1,20 +1,16 @@
 <?php
-// Credenciales de conexión
 $host = 'ep-icy-fire-a4s4jr5h-pooler.us-east-1.aws.neon.tech';
-$dbname = 'kopi';
+$db   = 'kopi';
 $user = 'kopi_owner';
-$password = 'npg_I96AhqlJUrkZ';
+$pass = 'npg_I96AhqlJUrkZ';
+$dsn = "pgsql:host=$host;port=5432;dbname=$db;sslmode=require";
 
-// Cadena de conexión
-$connStr = "host=$host dbname=$dbname user=$user password=$password sslmode=require";
-
-// Intentar la conexión
-$conn = pg_connect($connStr);
-
-if (!$conn) {
-    echo "Error: No se pudo conectar a la base de datos.\n";
-    exit;
-} else {
-    echo "Conexión exitosa a PostgreSQL.\n";
+try {
+    $pdo = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+    echo "Conexión exitosa a Neon PostgreSQL 🚀";
+} catch (PDOException $e) {
+    echo "Error al conectar: " . $e->getMessage();
 }
 ?>
