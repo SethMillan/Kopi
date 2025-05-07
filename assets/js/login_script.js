@@ -70,13 +70,14 @@ if (botonSignIn) {
 
             // Crear objeto con datos
             const datos = {
+                accion: 'login',
                 email: correo,
                 password: password
             };
             
             console.log('Intentando login con email:', correo);
             
-             const response = await fetch('http://localhost/Kopi/php/login.php', {
+             const response = await fetch('http://localhost:3000/php/login.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -91,14 +92,13 @@ if (botonSignIn) {
             const data = await response.json();
             if (data.success) {
                  console.log('Login correcto para el usuario:', correo);
-                 window.location.href = 'http://localhost/Kopi/index.html';  
+                 window.location.href = 'http://localhost:3000/index.html';  
             } else {
                  console.error('Error en login:', data.message);
              }
 
         } catch (error) {
-            console.error('Error en el proceso de login:', error.message);
-            logError('login_error', error);
+            console.error('error en el login js', error.message);
         }
     });
 }   
@@ -111,13 +111,25 @@ if (botonSignIn) {
     
             // Obtener valores del formulario
             let nombre = document.getElementById('p_username').value;
-            let lastName = document.getElementById('p_lastName').value;
+            let lastName = document.getElementById('p_lastName').value.trim();
             let email = document.getElementById('p_email').value;
             let password = document.getElementById('p_password').value;
             let passwordConfirm = document.getElementById('p_passwordConfirm').value;
-    
+
+            // Proceso para separar los apellidos
+            let apaterno = '';
+            let amaterno = '';
+            let partes = lastName.split(' ');
+
+            if (partes.length === 1) {
+                apaterno = partes[0];
+                amaterno = '';
+            } else {
+                apaterno = partes[0];
+                amaterno = partes.slice(1).join(' '); // Si hay más de dos, junta lo demás como segundo apellido
+            }
         
-            // Contraseñas iguales
+            //Validación de los campos
             if (password !== passwordConfirm) {
                 alert('Las contraseñas no coinciden');
                 return; 
@@ -128,38 +140,41 @@ if (botonSignIn) {
                 alert('Todos los campos son obligatorios');
                 return;  
             }
-    
+             //Fin Validacion
+
             const datos = {
-                accion: 'crearUsuario',
+                accion: 'registro',
                 nombre: nombre,
-                lastName: lastName,
+                apaterno: apaterno,
+                amaterno: amaterno,
                 email: email,
                 password: password
             };
     
-             fetch('http://localhost/Kopi/php/login.php', {
+            
+             fetch('http://localhost:3000/php/login.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(datos)
             })
-            .then(response => response.json())
-            .then(data => {
-                // Manejar la respuesta del servidor
-                if (data.success) {
-                    alert(data.message); // Mensaje de éxito
-                } else {
-                    alert(data.message); // Mensaje de error
-                }
+            .then(res => res.text()) // <- ojo, primero como texto
+            .then(texto => {
+            console.log("Respuesta cruda:", texto); // así ves si viene HTML
+            const data = JSON.parse(texto); // y lo parseás tú mismo
+            if (data.success) {
+            window.location.href = "/pages/login.html"
+            } else {
+            alert("Fallo: " + data.message);
+            }
             })
             .catch(error => {
-                console.error('Error en la solicitud:', error);
-                alert('Hubo un error al procesar la solicitud.');
+            console.error("Error general:", error);
+            alert("Error en la conexión con el servidor");
             });
-    
-            // Depuración
-            console.log('Datos:', nombre, lastName, email, password, passwordConfirm);
+       
+            //console.log('Datos:\n'+ nombre + '\nApellidos ' + lastName + '\n' + email + '\n' + password + '\n' + passwordConfirm);
         });
     }
 });

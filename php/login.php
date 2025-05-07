@@ -1,167 +1,91 @@
 <?php
- header('Content-Type: application/json'); //Mandamos solo js
-
-include 'db.php';   
-
- 
-function crearUsuario($datos, $conn) {
-    try {
-        // Validar datos recibidos
-        if (!isset($datos['nombre']) || !isset($datos['lastName']) || 
-            !isset($datos['email']) || !isset($datos['password'])) {
-            return ['success' => false, 'message' => 'Datos incompletos'];
-        }
-        
-        $nombre = $datos['nombre'];
-        $lastName = $datos['lastName'];
-        $email = $datos['email'];
-        $password = $datos['password'];
-        
-        // Verificar si el email ya existe
-
-        $stmt = $conn->prepare("SELECT id FROM cliente WHERE email = ?");
-
-        if (!$stmt) {
-            $error = "Error en la preparación de la consulta: " . $conn->error;
-            error_log($error);
-            return ['success' => false, 'message' => $error];
-        }
-        
-        // Se ingresa el email que recibe
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-        
-        // Si ya existe nos dice que no no tilin
-        if ($resultado->num_rows > 0) {
-            $stmt->close();
-            return ['success' => false, 'message' => 'El email ya está registrado'];
-        }
-        $stmt->close();
-        
-        // Pa que este segura la contra sisisi
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        
-        // Ahora si pa dentro mi loco, ingrese a la bd
-
-        $stmt = $conn->prepare("INSERT INTO usuario (nombre, lastName, email, passw) VALUES (?, ?, ?, ?)");
-
-        if (!$stmt) {
-            $error = "Error en la preparación de la inserción: " . $conn->error;
-            error_log($error);
-            return ['success' => false, 'message' => $error];
-        }
-        
-        // Igual, el le insertamos los datasos
-        $stmt->bind_param("ssss", $nombre, $lastName, $email, $hash);
-        $resultado = $stmt->execute();
-        
-        // chido
-        if ($resultado) {
-            $id = $conn->insert_id;
-            $stmt->close();
-            return ['success' => true, 'message' => 'Usuario creado correctamente', 'id' => $id];
-        } else { //Me mato
-            $error = "Error al insertar usuario: " . $stmt->error;
-            error_log($error);
-            $stmt->close();
-            return ['success' => false, 'message' => $error];
-        }
-
-        // Paro por aqui no
-    } catch (Exception $e) {
-        $error = "Error en crearUsuario: " . $e->getMessage();
-        error_log($error);
-        return ['success' => false, 'message' => $error];
-    }
-}
- 
-function procesarLogin($datos, $conn) {
-    try {
-        // Validar datos recibidos
-        if (!isset($datos['email']) || !isset($datos['password'])) {
-            return ['success' => false, 'message' => 'Datos incompletos'];
-        }
-        
-        $email = $datos['email'];
-        $password = $datos['password'];
-        
-        // Consultar la base de datos
-
-        $stmt = $conn->prepare("SELECT id, nombre, lastName, email, passw FROM cliente WHERE email = ?");
-
-        
-        if (!$stmt) {
-            $error = "Error en la preparación de la consulta: " . $conn->error;
-            error_log($error);
-            return ['success' => false, 'message' => $error];
-        }
-        
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-        
-        if ($resultado->num_rows > 0) {
-            $usuario = $resultado->fetch_assoc();
-            if (password_verify($password, $usuario['passw'])) {
-                // Login exitoso
-                session_start();
-                $_SESSION['usuario_id'] = $usuario['id'];
-                $_SESSION['usuario_nombre'] = $usuario['Nombre'];
-                $_SESSION['usuario_apellido'] = $usuario['lastName'];
-                
-                return ['success' => true, 'message' => 'Login exitoso'];
-            } else {
-                // Contraseña incorrecta
-                error_log("Intento de login fallido para email: $email - Contraseña incorrecta");
-                return ['success' => false, 'message' => 'Email o contraseña incorrectos'];
-            }
-        } else {
-            // Usuario no encontrado
-            error_log("Intento de login fallido para email: $email - Usuario no encontrado");
-            return ['success' => false, 'message' => 'Email o contraseña incorrectos'];
-        }
-    } catch (Exception $e) {
-        $error = "Error en procesarLogin: " . $e->getMessage();
-        error_log($error);
-        return ['success' => false, 'message' => $error];
-    } finally {
-        // Cerrar statement si existe
-        if (isset($stmt) && $stmt) {
-            $stmt->close();
-        }
-    }
-}
+header(header: 'Content-Type: application/json');
 
 try {
-    // Recibir datos JSON del cliente
-    $datos = json_decode(file_get_contents('php://input'), true);
-    
-    if (!$datos) { //Si no se reciben bien los datos
-        echo json_encode(['success' => false, 'message' => 'No se recibieron datos']);
-    } else { // Si se reciben bien para poder determinar que vamos a ejecutar
-        
-        // Cual quieres mi buen
-
-            //Crear usuario
-        if (isset($datos['accion']) && $datos['accion'] === 'crearUsuario') {
-             $resultado = crearUsuario($datos, $conn);
-            echo json_encode($resultado);
-
-            //Login
-        } else {
-            $resultado = procesarLogin($datos, $conn);
-            echo json_encode($resultado);
-        }
-    }
+    include 'db.php';
 } catch (Exception $e) {
-    $error = "Error general: " . $e->getMessage();
-    error_log($error);
-    echo json_encode(['success' => false, 'message' => $error]);
-    
-} finally {
-    if (isset($conn) && $conn) {
-        $conn->close();     
+    echo json_encode(['success' => false, 'message' => 'Error al conectar con la base de datos']);
+    exit;
+}
+
+// Función para crear un usuario nuevo
+function crearUsuario($datos, $conn) {
+    if (!isset($datos['nombre']) || !isset($datos['apaterno']) || 
+        !isset($datos['amaterno']) || !isset($datos['email']) || 
+        !isset($datos['password'])) {
+        return ['success' => false, 'message' => 'Datos incompletos'];
+    }
+
+    $nombre = $datos['nombre'];
+    $apaterno = $datos['apaterno'];
+    $amaterno = $datos['amaterno'];
+    $email = $datos['email'];
+    $password = $datos['password'];
+
+    $result = pg_query_params($conn, "SELECT id FROM cliente WHERE email = $1", [$email]);
+    if (pg_num_rows($result) > 0) {
+        return ['success' => false, 'message' => 'El email ya está registrado'];
+    }
+
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $insert = pg_query_params($conn, "INSERT INTO cliente (nombre, apaterno, amaterno, email, password) VALUES ($1, $2, $3, $4, $5)", 
+        [$nombre, $apaterno, $amaterno, $email, $hash]);
+
+    if ($insert) {
+        return ['success' => true, 'message' => 'Usuario creado correctamente'];
+    } else {
+        return ['success' => false, 'message' => 'Error al insertar usuario'];
     }
 }
+
+// Función para iniciar sesión
+function procesarLogin($datos, $conn) {
+    if (!isset($datos['email']) || !isset($datos['password'])) {
+        return ['success' => false, 'message' => 'Datos incompletos'];
+    }
+
+    $email = $datos['email'];
+    $password = $datos['password'];
+
+    $result = pg_query_params($conn, "SELECT id, nombre, apaterno, amaterno, email, password FROM cliente WHERE email = $1", [$email]);
+
+    if ($row = pg_fetch_assoc($result)) {
+        if (password_verify($password, $row['password'])) {
+            session_start(); //Inicia la sección
+
+            //Globaliza los datos para poderlos usuar en cualquier pagina 
+            $_SESSION['cliente_id'] = $row['id'];
+            $_SESSION['cliente_nombre'] = $row['nombre'];
+            $_SESSION['cliente_apellido'] = $row['apaterno'];
+            $_SESSION['cliente_amaterno'] = $row['amaterno'];
+            $_SESSION['cliente_email'] = $row['email'];
+
+            return ['success' => true, 'message' => 'Login exitoso'];
+        }
+    }
+
+    return ['success' => false, 'message' => 'Email o contraseña incorrectos'];
+}
+
+// --- Punto de entrada principal ---
+
+$input = json_decode(file_get_contents('php://input'), true);
+if (!$input || !isset($input['accion'])) {
+    echo json_encode(['success' => false, 'message' => 'Solicitud no válida']);
+    exit;
+}
+
+switch ($input['accion']) {
+    case 'registro':
+        $respuesta = crearUsuario($input, $conn);
+        break;
+    case 'login':
+        $respuesta = procesarLogin($input, $conn);
+        break;
+    default:
+        $respuesta = ['success' => false, 'message' => 'Acción no válida'];
+}
+
+echo json_encode($respuesta);
 ?>
