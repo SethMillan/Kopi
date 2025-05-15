@@ -77,7 +77,7 @@ if (botonSignIn) {
             
             console.log('Intentando login con email:', correo);
             
-             const response = await fetch('http://localhost:3000/php/login.php', {
+             const response = await fetch(`${window.location.origin}/php/login.php`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ if (botonSignIn) {
             const data = await response.json();
             if (data.success) {
                  console.log('Login correcto para el usuario:', correo);
-                 window.location.href = 'http://localhost:3000/index.html';  
+                 window.location.href = `${window.location.origin}/index.html`;  
             } else {
                  console.error('Error en login:', data.message);
              }
@@ -152,7 +152,7 @@ if (botonSignIn) {
             };
     
             
-             fetch('http://localhost:3000/php/login.php', {
+             fetch(`${window.location.origin}/php/login.php`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
