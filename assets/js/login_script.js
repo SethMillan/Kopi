@@ -7,25 +7,26 @@ document.addEventListener("DOMContentLoaded", function () {
     function showErrorPopup(message) {
     const popup = document.getElementById('errorPopup');
     const messageEl = document.getElementById('popupMessage');
+   
     messageEl.textContent = message;
-    popup.style.display = 'flex';
+     popup.classList.add('active');
 
     // Cierra el popup al hacer clic en la X
     document.getElementById('closePopup').onclick = function() {
-        popup.style.display = 'none';
+     popup.classList.remove('active');
     };
 
 
 
     }
 
-    // Esto hace que se cierre cuando se le de click afuera 
-    window.addEventListener("click", function(event) {
+window.addEventListener("click", function(event) {
     const popup = document.getElementById('errorPopup');
     if (popup && event.target === popup) {
-    popup.style.display = 'none';
+        popup.classList.remove('active');
     }
-    });
+});
+
 
 
     // Si el URL tiene como parámetro 'show' igual a 'register', mostrar el registro
