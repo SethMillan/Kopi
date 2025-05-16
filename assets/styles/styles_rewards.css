@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 20
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -26,7 +35,7 @@ body {
 #contenedor1 {
     background-color: #160503;
     width: 100%;
-    height: 5rem;
+    height: 7.5rem;
 }
 
 .contComun {
@@ -48,22 +57,25 @@ body {
 
 .contDer {
     font-family: "Open Sans", sans-serif;
-    font-size: 1.1rem;
+    font-size: 100%;
     float: right;
     width: 10%;
     right: 5rem;
     /*Espacio entre borde derecho*/
 }
+#find {
+    width: 20%;
+}
 
 #kopi {
     font-family: "Fredoka", sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
 
     width: 10%;
 }
 
 #menu {
-    font-size:  medium;
+    font-size: medium;
 
     text-decoration-line: overline underline;
     width: 10%;
@@ -138,33 +150,34 @@ body {
 }
 
 .contenedor3 {
-    background-color: #513533;
+    background: linear-gradient(to bottom, #160503, #3f3131);
     width: 100%;
-    height: 45rem;
+    height: 55rem;
     overflow: auto;
 }
 
 .contComun3 {
     float: left;
     width: 33.33%;
-    height: 68%;
+    height: 75%;
 }
 
 /*
 #g1 {
-    background-color: brown;
+    position: relative;
+    left: 2rem;
 }
 
 #g2 {
-    background-color: rgb(165, 42, 142);
 }
 
 #g3 {
-    background-color: rgb(19, 126, 18);
+    position: relative;
+    right: 2rem;
 }*/
 
 .im1 {
-    width: 50%;
+    width: 80%;
     display: block;
     margin: 0 auto 10px;
 }
@@ -176,61 +189,71 @@ body {
     font-size: 64px;
     font-weight: bold;
     margin: 0 auto 10px;
-    margin-top: 0; 
+    margin-top: 0;
 }
-.t2{
+
+.t2 {
     font-family: "Open Sans", sans-serif;
     color: #5b5656;
     text-align: center;
     font-size: 22px;
-    font-weight:  600;
-    margin-top: 0; 
-}
-.mostaza{
-    color: #DE7A16;
-}
-.canjear {
-    background-color: #d32f2f;
-    width: 100%;
-    height: 32%;
-    clear: both; /* Esto es crucial para que aparezca debajo */
-   
- 
-    box-sizing: border-box;
+    font-weight: 600;
+    margin-top: 0;
 }
 
-div.contenedor4 {
+.mostaza {
+    color: #DE7A16;
+}
+
+.canjear {
+
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: #513533;
-    overflow: hidden;
+    height: 25%;
+    clear: both;
+    /* Esto es crucial para que aparezca debajo */
+
+
+    box-sizing: border-box;
 }
 
 div.contenedor4 div {
     width: 33%;
     float: left;
     text-align: center;
-    
-    
 }
+
+
+div.contenedor4 div {
+    width: 100%;
+    text-align: center;
+}
+
 
 .cuadroInput {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
-    overflow: auto;
+    text-align: center;
+    gap: 0;
+}
+
+.centradoCupon {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    position: relative;
-    left: 33rem;
+    width: 100%;
 }
+
 
 #codigoCupon {
     padding: 10px;
-    border: 1px solid #ddd;
+    background-color: #513533;
+    color: #ffffff;
+    border: 2.5px solid #513533;
     border-radius: 5px 0 0 5px;
-    width: 70%;
+   width: 40%;
     outline: none;
 }
 
@@ -241,7 +264,8 @@ div.contenedor4 div {
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-    width: 30%;
+    width: auto;
+    font-family: "Open Sans", sans-serif;
 }
 
 #botonCanjear:hover {
@@ -250,17 +274,37 @@ div.contenedor4 div {
 
 #mensaje {
     color: #d32f2f;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     min-height: 20px;
-    position: relative;
-    left: 34rem;
+    margin-top: 10px;
     height: 2rem;
-    align-items: end;
 }
- 
-.barraBaja{
-    background-color: #d32f2f;
+
+
+.barraBaja {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 2rem;
+    background-color: #160503;
     width: 100%;
     height: 10rem;
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+#kopi2 {
+    font-family: "Fredoka", sans-serif;
+    font-size: 4rem;
+    margin: 0;
+}
+
+#jd {
+    font-size: 1rem;
+    max-width: 70%; 
+    text-align: right;
+    margin: 0;
 }
