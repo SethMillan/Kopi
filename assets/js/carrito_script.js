@@ -176,8 +176,10 @@ if (data.success && data.guardado.length > 0) {
             })
             .then(res => res.json())
             .then(data => {
+                // Aqui debe pasar el cambio 
                 if (data.success) {
                     console.log(`Cantidad de ${productoNombre} actualizada a ${count}`);
+                    //Cuando ocurra correctamente regresarlo al estado original
                     cargarCarrito();  // Recargar el carrito después de la actualización
                 } else {
                     alert("No se pudo actualizar la cantidad del producto.");
