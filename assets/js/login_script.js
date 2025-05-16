@@ -88,10 +88,22 @@ if (botonSignIn) {
             let password = document.getElementById('lg_ps').value;
             
             // Validación básica
-            if (!correo || !password) {
-                console.error('Error: Correo o contraseña vacíos');
-                 showErrorPopup("Correo o contraseña vacíos");
+            if (!correo && !password) {
+                console.error('Error: Correo y contraseña vacíos');
+                 showErrorPopup("Correo y contraseña vacíos");
                  return;
+            }
+
+            else if  (!password) {
+                console.error('Error: Contraseña vacío');
+                 showErrorPopup("Error: Contraseña vacío");
+                 return;
+            }
+
+            else if (!correo) {
+                console.error('Error: Correo vacío');
+                showErrorPopup("Error: Correo vacío");
+                return;
             }
 
             // Crear objeto con datos
