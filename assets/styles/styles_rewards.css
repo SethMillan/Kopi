@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 20
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*
+.fredoka-<uniquifier> {
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }*/
+
+
+
+#contenedor1 {
+    background-color: #160503;
+    width: 100%;
+    height: 7.5rem;
+}
+
+.contComun {
+    color: #ddd;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+.contIzq {
+    float: left;
+    left: 3rem;
+    /*Espacio entre borde izquierdo*/
+}
+
+.contDer {
+    font-family: "Open Sans", sans-serif;
+    font-size: 100%;
+    float: right;
+    width: 10%;
+    right: 5rem;
+    /*Espacio entre borde derecho*/
+}
+#find {
+    width: 20%;
+}
+
+#kopi {
+    font-family: "Fredoka", sans-serif;
+    font-size: 4rem;
+
+    width: 10%;
+}
+
+#menu {
+    font-size: medium;
+
+    text-decoration-line: overline underline;
+    width: 10%;
+}
+
+.contenedor2 {
+    background-image: url(Imagenes/m1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 44.5rem;
+
+}
+
+.contComun2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#a1 {
+    color: #ffffff;
+    font-family: "Fredoka", sans-serif;
+    font-size: 30px;
+    background-color: rgba(16, 05, 03, 0.93);
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+
+#a2 {
+    background-color: rgba(16, 05, 03, 0.93);
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+#a3 {
+    background-color: rgba(16, 05, 03, 0.93);
+    width: 50%;
+    height: 50%;
+    font-weight: 500;
+
+}
+
+#e1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.75rem;
+    width: 100%;
+    height: 50%;
+    background-color: #D9D9D9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#e2 {
+    width: 100%;
+    height: 50%;
+    display: block;
+}
+
+.padre-verde-blanco {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor3 {
+    background: linear-gradient(to bottom, #160503, #3f3131);
+    width: 100%;
+    height: 55rem;
+    overflow: auto;
+}
+
+.contComun3 {
+    float: left;
+    width: 33.33%;
+    height: 75%;
+}
+
+/*
+#g1 {
+    position: relative;
+    left: 2rem;
+}
+
+#g2 {
+}
+
+#g3 {
+    position: relative;
+    right: 2rem;
+}*/
+
+.im1 {
+    width: 80%;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.t1 {
+    font-family: "Fredoka", sans-serif;
+    color: #DE7A16;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0 auto 10px;
+    margin-top: 0;
+}
+
+.t2 {
+    font-family: "Open Sans", sans-serif;
+    color: #5b5656;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.mostaza {
+    color: #DE7A16;
+}
+
+.canjear {
+
+    width: 100%;
+    height: 25%;
+    clear: both;
+    /* Esto es crucial para que aparezca debajo */
+
+
+    box-sizing: border-box;
+}
+
+div.contenedor4 div {
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+
+div.contenedor4 div {
+    width: 100%;
+    text-align: center;
+}
+
+
+.cuadroInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+    gap: 0;
+}
+
+.centradoCupon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+#codigoCupon {
+    padding: 10px;
+    background-color: #513533;
+    color: #ffffff;
+    border: 2.5px solid #513533;
+    border-radius: 5px 0 0 5px;
+   width: 40%;
+    outline: none;
+}
+
+#botonCanjear {
+    padding: 10px 15px;
+    background-color: #9F5524;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    width: auto;
+    font-family: "Open Sans", sans-serif;
+}
+
+#botonCanjear:hover {
+    background-color: #5d2c0b;
+}
+
+#mensaje {
+    color: #d32f2f;
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px;
+    margin-top: 10px;
+    height: 2rem;
+}
+
+
+.barraBaja {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 2rem;
+    background-color: #160503;
+    width: 100%;
+    height: 10rem;
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+#kopi2 {
+    font-family: "Fredoka", sans-serif;
+    font-size: 4rem;
+    margin: 0;
+}
+
+#jd {
+    font-size: 1rem;
+    max-width: 70%; 
+    text-align: right;
+    margin: 0;
+}
