@@ -2,6 +2,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const showParam = urlParams.get('show');
     
+
+    // Para mostrar el Popup en ventana practicamente 
+    function showErrorPopup(message) {
+    const popup = document.getElementById('errorPopup');
+    const messageEl = document.getElementById('popupMessage');
+    messageEl.textContent = message;
+    popup.style.display = 'flex';
+
+    // Cierra el popup al hacer clic en la X
+    document.getElementById('closePopup').onclick = function() {
+        popup.style.display = 'none';
+    };
+
+
+
+    }
+
+    // Esto hace que se cierre cuando se le de click afuera 
+    window.addEventListener("click", function(event) {
+    const popup = document.getElementById('errorPopup');
+    if (popup && event.target === popup) {
+    popup.style.display = 'none';
+    }
+    });
+
+
     // Si el URL tiene como parámetro 'show' igual a 'register', mostrar el registro
     if (showParam === 'register') {
         // Ocultar login
@@ -64,7 +90,7 @@ if (botonSignIn) {
             // Validación básica
             if (!correo || !password) {
                 console.error('Error: Correo o contraseña vacíos');
-                alert("Correo o contraseña vacios")
+                 showErrorPopup("Correo o contraseña vacíos");
                  return;
             }
 
@@ -131,13 +157,13 @@ if (botonSignIn) {
         
             //Validación de los campos
             if (password !== passwordConfirm) {
-                alert('Las contraseñas no coinciden');
+                showErrorPopup("Las contraseñas no coinciden");
                 return; 
             }
     
             // Campos llenos
             if (!nombre || !lastName || !email || !password) {
-                alert('Todos los campos son obligatorios');
+                showErrorPopup("Todos los campos son obligatorios");
                 return;  
             }
              //Fin Validacion
@@ -169,10 +195,11 @@ if (botonSignIn) {
             alert("Fallo: " + data.message);
             }
             })
-            .catch(error => {
-            console.error("Error general:", error);
-            alert("Error en la conexión con el servidor");
-            });
+        .catch(error => {
+           console.error("Error general:", error);
+         showErrorPopup("Error en la conexión con el servidor");
+        });
+
        
             //console.log('Datos:\n'+ nombre + '\nApellidos ' + lastName + '\n' + email + '\n' + password + '\n' + passwordConfirm);
         });
