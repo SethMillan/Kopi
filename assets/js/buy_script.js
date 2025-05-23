@@ -1,325 +1,194 @@
-// Configura Stripe con tu clave pública
-const stripe = Stripe('TU_PUBLISHABLE_KEY'); // Reemplaza con tu clave pública de Stripe
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedorProductos = document.getElementById('products-container');
+    const priceSummary = document.querySelector('.price-summary');
 
-// Crea una instancia de Elements
-const elements = stripe.elements();
-const cardElement = elements.create('card');
+    // Inicializar Stripe
+    const stripe = Stripe('TU_PUBLISHABLE_KEY'); // Reemplaza con tu clave pública de Stripe
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
 
-// Monta el elemento de la tarjeta en el div correspondiente
-cardElement.mount('#card-element');
-
-// Maneja los errores de la tarjeta
-cardElement.on('change', (event) => {
     const displayError = document.getElementById('card-errors');
-    if (event.error) {
-        displayError.textContent = event.error.message;
-    } else {
-        displayError.textContent = '';
+    const form = document.getElementById('payment-form');
+    const submitButton = document.getElementById('submit-button');
+
+    let totalAmount = 0; // Total en dólares
+
+    function actualizarTotales(precioTotal) {
+        totalAmount = precioTotal;
+        const subtotal = precioTotal.toFixed(2);
+        const impuestos = 15.00; // Fijo, o puede venir dinámico
+        const total = (precioTotal + impuestos).toFixed(2);
+
+        priceSummary.innerHTML = `
+            <p>Subtotal: $${subtotal}</p>
+            <p>Taxes and Fees: $${impuestos.toFixed(2)}</p>
+            <h3>Total: $${total}</h3>
+        `;
     }
-});
 
-// Maneja el envío del formulario
-const form = document.getElementById('payment-form');
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    // Deshabilita el botón de pago para evitar múltiples envíos
-    document.getElementById('submit-button').disabled = true;
-
-    try {
-        // Crea un PaymentIntent en el backend
-        const { clientSecret } = await fetch('/create-payment-intent', {
+    function cargarProductosPasarela() {
+        fetch('http://localhost:3000/php/carrito.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ amount: 19800 }), // El monto en centavos (198.00 USD)
-        }).then((response) => response.json());
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ accion: 'ver' })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success || data.carrito.length === 0) {
+                contenedorProductos.innerHTML = '<p>Tu carrito está vacío.</p>';
+                actualizarTotales(0);
+                return;
+            }
 
-        // Confirma el pago con Stripe
-        const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: cardElement,
-            },
+            contenedorProductos.innerHTML = '';
+            let precioTotal = 0;
+
+            data.carrito.forEach(producto => {
+                const totalProducto = producto.precio * producto.cantidad;
+                precioTotal += totalProducto;
+
+                const productoHTML = `
+                    <div class="product-details">
+                        <img src="${producto.imagen || '../assets/img/buy/borrar-removebg-preview.png'}" alt="${producto.nombre}" class="product-icon">
+                        <div class="product-info">
+                            <p><strong>Producto:</strong></p>
+                            <p>${producto.nombre}</p>
+                            <p>Qty: ${producto.cantidad}</p>
+                        </div>
+                        <p class="price">$${totalProducto.toFixed(2)}</p>
+                    </div>
+                `;
+
+                contenedorProductos.insertAdjacentHTML('beforeend', productoHTML);
+            });
+
+            actualizarTotales(precioTotal);
+        })
+        .catch(err => {
+            console.error('Error al cargar productos:', err);
+            contenedorProductos.innerHTML = '<p>Error al cargar el carrito.</p>';
+            actualizarTotales(0);
         });
-
-        if (error) {
-            // Muestra el error al usuario
-            const displayError = document.getElementById('card-errors');
-            displayError.textContent = error.message;
-            document.getElementById('submit-button').disabled = false;
-        } else {
-            // Pago exitoso
-            alert('Pago exitoso!');
-            console.log('Pago completado:', paymentIntent);
-            // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Hubo un error al procesar el pago. Inténtalo de nuevo.');
-        document.getElementById('submit-button').disabled = false;
     }
+
+    // Manejo errores en el input de la tarjeta
+    cardElement.on('change', event => {
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    // Maneja el envío del formulario de pago
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (totalAmount <= 0) {
+            alert('Tu carrito está vacío o no tiene un total válido para pagar.');
+            return;
+        }
+
+        submitButton.disabled = true;
+
+        try {
+            // Convierte total a centavos para Stripe
+            const amountInCents = Math.round((totalAmount + 15.00) * 100); // suma impuestos
+
+            // Crea PaymentIntent en backend (debes implementar esta ruta)
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: amountInCents }),
+            });
+            const { clientSecret } = await response.json();
+
+            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: { card: cardElement },
+            });
+
+            if (error) {
+                displayError.textContent = error.message;
+                submitButton.disabled = false;
+            } else {
+                alert('Pago exitoso!');
+                console.log('Pago completado:', paymentIntent);
+                // Aquí puedes redirigir o limpiar carrito, etc.
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Hubo un error al procesar el pago. Inténtalo de nuevo.');
+            submitButton.disabled = false;
+        }
+    });
+
+    // Inicializa la carga de productos al cargar la página
+    cargarProductosPasarela();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const orderSummary = document.querySelector('.order-summary');
-    const template = document.querySelector('.product-details');
-    const carritoBasio = document.getElementById('carrito_basio');
-    const carritoSubtotal = document.getElementById('subtotal');
-    const carritoTotal = document.getElementById('total');
-    const btnUser = document.getElementById('usuario');
-    btnUser.style.display = 'none'
-    let precioTotal = 0;
+    const contenedorProductos = document.getElementById('products-container'); // div donde va el listado dinámico
+    const priceSummary = document.querySelector('.price-summary'); // div del resumen de precios
 
+    function actualizarTotales(precioTotal) {
+        const subtotal = precioTotal.toFixed(2);
+        const impuestos = 15.00; // valor fijo de impuestos
+        const total = (precioTotal + impuestos).toFixed(2);
 
-    //Para iniciar sección
-    function verificar_sesion() {
-        fetch('http://localhost:3000/php/carrito.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ accion: 'secion' })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.logueado) {
-                    const btnlogin = document.getElementById('btnlogin');
-                    const btnregister = document.getElementById('btnregister');
-                    const btnUser = document.getElementById('usuario');
-
-                    btnlogin.style.display = 'none';
-                    btnregister.style.display = 'none';
-                    btnUser.style.display = 'flex'
-                    btnUser.querySelector('p').textContent = data.nombre;
-                } else {
-                    console.log("Usuario NO logueado");
-                }
-            });
+        priceSummary.innerHTML = `
+            <p>Subtotal: $${subtotal}</p>
+            <p>Taxes and Fees: $${impuestos.toFixed(2)}</p>
+            <h3>Total: $${total}</h3>
+        `;
     }
-    verificar_sesion()
 
-    // Función para cargar el carrito
-    function cargarCarrito() {
+    function cargarProductosPasarela() {
         fetch('http://localhost:3000/php/carrito.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ accion: 'ver' })
         })
-            .then(res => res.json())
-            .then(data => {
-                // Vaciar el contenedor de productos antes de recargar
-                orderSummary.innerHTML = '';
-
-                // Reinsertar las secciones estáticas (título y línea)
-                const h2 = document.createElement('h2');
-                h2.classList.add('h2Or');
-                h2.textContent = 'Carrito';
-                orderSummary.appendChild(h2);
-
-                const line = document.createElement('div');
-                line.classList.add('s3');
-                orderSummary.appendChild(line);
-
-                // Ocultar el template original desde el principio
-                template.style.display = 'none';
-                precioTotal = 0;
-
-                if (data.success && data.carrito.length > 0) {
-                    data.carrito.forEach(producto => {
-                        const clone = template.cloneNode(true);
-                        clone.style.display = 'flex'; // Mostramos el clon
-
-                        // Actualiza los datos del producto
-                        clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
-                        let precioProducto = (producto.precio * producto.cantidad).toFixed(2); // Para la cuenta
-                        clone.querySelector('.price').textContent = `$${producto.precio}`;
-                        clone.querySelector('.price2').textContent = `$${precioProducto}`; // Para el precio por cantidad
-
-                        precioTotal += parseFloat(precioProducto); // Para la cuenta
-
-                        const imagenTag = clone.querySelector('img.product-icon');
-                        if (imagenTag && producto.imagen) {
-                            imagenTag.src = producto.imagen;
-                        }
-
-                        // Establecer la cantidad en el input
-                        const label = clone.querySelector('label');
-                        label.textContent = producto.cantidad;
-
-                        // Añade el clon al DOM
-                        orderSummary.appendChild(clone);
-                    });
-
-                    carritoSubtotal.textContent = "Subtotal " + "$" + precioTotal;
-                    carritoTotal.textContent = "Total " + "$" + (precioTotal + 10);
-
-                    // Ocultar mensaje de "carrito vacío"
-                    if (carritoBasio) carritoBasio.style.display = 'none';
-
-                } else {
-                    // Mostrar mensaje de "carrito vacío"
-                    if (carritoBasio) carritoBasio.style.display = 'block';
-                }
-
-                // Si hay productos guardados, crear los elementos
-                if (data.success && data.guardado.length > 0) {
-                    const ha = document.createElement('h2');
-                    ha.classList.add('h2Or');
-                    ha.textContent = 'Guardado para más';
-                    orderSummary.appendChild(ha);
-
-                    const line2 = document.createElement('div');
-                    line2.classList.add('s3');
-                    orderSummary.appendChild(line2);
-
-                    data.guardado.forEach(producto => {
-                        const clone = template.cloneNode(true);
-                        clone.style.display = 'flex';
-
-                        clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
-                        let precioProducto = (producto.precio * producto.cantidad).toFixed(2);
-                        clone.querySelector('.price').textContent = `$${producto.precio}`;
-                        clone.querySelector('.price2').textContent = `$${precioProducto}`;
-                        clone.querySelector('.guardar').textContent = `${'Agregar al carrito'}`;
-
-                        const imagenTag = clone.querySelector('img.product-icon');
-                        if (imagenTag && producto.imagen) {
-                            imagenTag.src = producto.imagen;
-                        }
-
-                        const label = clone.querySelector('label');
-                        label.textContent = producto.cantidad;
-
-                        orderSummary.appendChild(clone);
-                    });
-                }
-
-            })
-            .catch(err => {
-                console.error('Error al cargar el carrito', err);
-                if (carritoBasio) carritoBasio.style.display = 'block';
-            });
-    }
-
-
-    // Cargar el carrito cuando se carga la página
-    cargarCarrito();
-
-
-    orderSummary.addEventListener('click', (e) => {
-        if (e.target.classList.contains('mas') || e.target.classList.contains('menos')) {
-            const container = e.target.parentElement;
-            const label = container.querySelector('label');
-            let count = parseInt(label.textContent);
-            const producto = container.closest('.product-details');
-            const productoNombre = producto.querySelector('.nombre').textContent;
-
-            if (e.target.classList.contains('mas')) {
-                count++;
-            } else if (e.target.classList.contains('menos') && count > 1) {
-                count--;
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success || data.carrito.length === 0) {
+                contenedorProductos.innerHTML = '<p>Tu carrito está vacío.</p>';
+                actualizarTotales(0);
+                return;
             }
 
-            label.textContent = count;
+            contenedorProductos.innerHTML = ''; // limpiar contenido actual
 
-            // Enviar la actualización de la cantidad al servidor
-            fetch('http://localhost:3000/php/carrito.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    accion: 'actualizar',  // Acción para actualizar la cantidad
-                    nombre: productoNombre,
-                    cantidad: count
-                })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    // Aqui debe pasar el cambio 
-                    if (data.success) {
-                        console.log(`Cantidad de ${productoNombre} actualizada a ${count}`);
-                        //Cuando ocurra correctamente regresarlo al estado original
-                        cargarCarrito();  // Recargar el carrito después de la actualización
-                    } else {
-                        alert("No se pudo actualizar la cantidad del producto.");
-                    }
-                })
-                .catch(err => {
-                    console.error('Error al actualizar producto', err);
-                });
-        } else if (e.target.classList.contains('eliminar')) {
-            const producto = e.target.closest('.product-details');
-            const productoNombre = producto.querySelector('.nombre').textContent;
+            let precioTotal = 0;
 
-            console.log(`Producto a eliminar: ${productoNombre}`);
+            data.carrito.forEach(producto => {
+                const totalProducto = producto.precio * producto.cantidad;
+                precioTotal += totalProducto;
 
-            fetch('http://localhost:3000/php/carrito.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    accion: 'eliminar',
-                    nombre: productoNombre
-                })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        producto.remove();  // Eliminar producto del DOM
-                        cargarCarrito();  // Recargar el carrito después de la eliminación
-                    } else {
-                        alert("No se pudo eliminar el producto.");
-                    }
-                })
-                .catch(err => {
-                    console.error('Error al eliminar producto', err);
-                });
-        } else if (e.target.classList.contains('guardar')) {
-            const producto = e.target.closest('.product-details');
-            const productoNombre = producto.querySelector('.nombre').textContent;
+                const productoHTML = `
+                    <div class="product-details">
+                        <img src="${producto.imagen || '../assets/img/buy/borrar-removebg-preview.png'}" alt="${producto.nombre}" class="product-icon">
+                        <div class="product-info">
+                            <p><strong>Product:</strong></p>
+                            <p>${producto.nombre}</p>
+                            <p>Qty: ${producto.cantidad}</p>
+                        </div>
+                        <p class="price">$${totalProducto.toFixed(2)}</p>
+                    </div>
+                `;
 
-            fetch('http://localhost:3000/php/carrito.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    accion: 'guardar',
-                    nombre: productoNombre
-                })
-            })
-                .then(res => {
-                    if (res.ok) {
-                        return res.json();
-                    } else {
-                        throw new Error('Error en la solicitud');
-                    }
-                })
-                .then(data => {
-                    console.log(data);  // Verifica el objeto de respuesta en la consola
-                    if (data.success) {
-                        cargarCarrito();  // Recargar el carrito después de la eliminación
-                    } else {
-                        alert("No se pudo guardar el producto.");
-                    }
-                })
-                .catch(err => {
-                    console.error('Error al hacer la solicitud:', err);
-                });
+                contenedorProductos.insertAdjacentHTML('beforeend', productoHTML);
+            });
 
+            actualizarTotales(precioTotal);
+        })
+        .catch(err => {
+            console.error('Error al cargar productos:', err);
+            contenedorProductos.innerHTML = '<p>Error al cargar el carrito.</p>';
+            actualizarTotales(0);
+        });
+    }
 
-            console.log("guardar");
-        } else if (e.target.classList.contains('similares')) {
-            window.location.href = 'http://localhost:3000/pages/menu.html';
-        } else if (e.target.classList.contains('compartir')) {
-            console.log("compartir");
-        }
-    });
+    cargarProductosPasarela();
 });
-
- 
+    
