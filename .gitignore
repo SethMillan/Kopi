@@ -1,3 +1,4 @@
 # Ignorar instaladores en menu
 assets/img/menu/*.exe
 **/db.php
+php/db.php
