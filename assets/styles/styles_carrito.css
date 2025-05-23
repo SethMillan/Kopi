@@ -1,246 +1,263 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(203, 205, 212);
-    color: white;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(203, 205, 212);
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .kopi nav.encabezado {
-    background-color: #160503;
-    color: #FFF;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 35px 40px;
-    gap: 20px;
-  }
-  .kopi nav.encabezado .home {
-     text-align: center;
-    font-family: Fredoka, sans-serif;
-    font-size: 70px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: 0.35px;
-    margin-top: -28px;
-    text-decoration: none;
-    color: #FFF;
-  }
-
-  .usuario{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    font-family: "Open Sans";
-    font-size: 18px;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.09px;
-
-    width: 53px;
-    height: 2px;
-    margin-right: 40px;
-    margin-top: -80px;
-    }
-
-  .kopi  nav.encabezado .btnMenu {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    margin-left: 55px;
-    color: #FFF;
-    text-align: center;
-    font-family: "Open Sans";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.09px;
-   }
-  .kopi nav.encabezado .btnMenu .linea {
-    width: 53px;
-    height: 2px;
-    margin-bottom: -20px;
-    margin-top: -20px;
-    flex-shrink: 0;
-    stroke-width: 2px;
-    background-color: #FFF;
-  }
-  @media (max-width: 670px) {
-    .kopi nav.encabezado .btnMenu {
-      display: none;
-    }
-  }
-  .kopi nav.encabezado .btnFindKopi  {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    font-family: "Open Sans";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.1px;
-    padding-right: 70px;
-    margin-top: -24px;
-  }
-  @media (max-width: 960px) {
-    .kopi nav.encabezado .btnFindKopi {
-      padding-right: 0px;
-    }
-  }
-  .kopi nav.encabezado .btnLogin {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.09px;
-    border: #FFF solid;
-    padding: 7px;
-    border-radius: 64px;
-    margin-left: 20px;
-    width: 92px;
-    height: 39px;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -20px;
-  }
-  .kopi nav.encabezado .btnLogin a {
-    text-decoration: none;
-    /* Quita el subrayado */
-    color: inherit;
-    /* Usa el color del texto padre */
-  }
-  @media (max-width: 960px) {
-    .kopi nav.encabezado .btnLogin {
-      display: none;
-    }
-  }
-  .kopi nav.encabezado .btnRegister {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.09px;
-    border-radius: 64px;
-    border: 1px solid #FFF;
-    background: #FFF;
-    margin-left: 20px;
-    color: #160503;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 92px;
-    height: 39px;
-    padding: 7px;
-    margin-top: -20px;
-  }
-  .kopi nav.encabezado .btnRegister a {
-    text-decoration: none;
-    /* Quita el subrayado */
-    color: inherit;
-    /* Usa el color del texto padre */
-  }
-  @media (max-width: 960px) {
-    .kopi nav.encabezado .btnRegister {
-      display: none;
-    }
-  }
-  .kopi nav.encabezado .material-symbols-outlined {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-    margin-left: 20px;
-    cursor: pointer;
-    
-  }
-  a:visited {
-    color: inherit; /* Hereda el color del elemento o pon el color que prefieras */
-    text-decoration: none; /* Si también quieres quitar el subrayado */
+  background-color: #160503;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 35px 40px;
+  gap: 20px;
 }
 
-  @media (max-width: 960px) {
-    .kopi nav.encabezado #shopping_cart {
-      display: none;
-    }
-  }
-  .kopi nav.encabezado #menu {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    /* Evita la selección de texto */
-  }
-  @media (min-width: 961px) {
-    .kopi nav.encabezado #menu {
-      display: none;
-    }
-  }
+.kopi nav.encabezado .home {
+  text-align: center;
+  font-family: Fredoka, sans-serif;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.35px;
+  margin-top: -28px;
+  text-decoration: none;
+  color: #FFF;
+}
 
-  #shopping_cart{
-    margin-top:  -25px;
+.usuario {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.09px;
+
+  width: 53px;
+  height: 2px;
+  margin-right: 40px;
+  margin-top: -80px;
+}
+
+.kopi nav.encabezado .btnMenu {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 55px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+}
+
+.kopi nav.encabezado .btnMenu .linea {
+  width: 53px;
+  height: 2px;
+  margin-bottom: -20px;
+  margin-top: -20px;
+  flex-shrink: 0;
+  stroke-width: 2px;
+  background-color: #FFF;
+}
+
+@media (max-width: 670px) {
+  .kopi nav.encabezado .btnMenu {
+    display: none;
   }
+}
+
+.kopi nav.encabezado .btnFindKopi {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  padding-right: 70px;
+  margin-top: -24px;
+}
+
+@media (max-width: 960px) {
+  .kopi nav.encabezado .btnFindKopi {
+    padding-right: 0px;
+  }
+}
+
+.kopi nav.encabezado .btnLogin {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  border: #FFF solid;
+  padding: 7px;
+  border-radius: 64px;
+  margin-left: 20px;
+  width: 92px;
+  height: 39px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.kopi nav.encabezado .btnLogin a {
+  text-decoration: none;
+  /* Quita el subrayado */
+  color: inherit;
+  /* Usa el color del texto padre */
+}
+
+@media (max-width: 960px) {
+  .kopi nav.encabezado .btnLogin {
+    display: none;
+  }
+}
+
+.kopi nav.encabezado .btnRegister {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  border-radius: 64px;
+  border: 1px solid #FFF;
+  background: #FFF;
+  margin-left: 20px;
+  color: #160503;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 92px;
+  height: 39px;
+  padding: 7px;
+  margin-top: -20px;
+}
+
+.kopi nav.encabezado .btnRegister a {
+  text-decoration: none;
+  /* Quita el subrayado */
+  color: inherit;
+  /* Usa el color del texto padre */
+}
+
+@media (max-width: 960px) {
+  .kopi nav.encabezado .btnRegister {
+    display: none;
+  }
+}
+
+.kopi nav.encabezado .material-symbols-outlined {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+  margin-left: 20px;
+  cursor: pointer;
+
+}
+
+a:visited {
+  color: inherit;
+  /* Hereda el color del elemento o pon el color que prefieras */
+  text-decoration: none;
+  /* Si también quieres quitar el subrayado */
+}
+
+@media (max-width: 960px) {
+  .kopi nav.encabezado #shopping_cart {
+    display: none;
+  }
+}
+
+.kopi nav.encabezado #menu {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Evita la selección de texto */
+}
+
+@media (min-width: 961px) {
+  .kopi nav.encabezado #menu {
+    display: none;
+  }
+}
+
+#shopping_cart {
+  margin-top: -25px;
+}
 
 .container {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
- }
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
 
 /* Estilos para el resumen del pedido */
 .order-summary {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 75%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 75%;
 }
 
 
-.h2Or{
+.h2Or {
   color: #131313;
 }
 
-.s3{
+.s3 {
   margin-top: 10px;
   margin-bottom: 10px;
   height: 1px;
@@ -251,79 +268,82 @@ body {
 
 /* Estilos para los detalles del producto en general este es el fondo donde esta todos adentro*/
 .product-details {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 15px; 
-    border-radius: 10px; 
-    margin-bottom: 10px; 
-    display: flex;
-    align-items: center;
-    gap: 15px; 
+  background-color: #ffffff;
+  color: #000000;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .product-icon {
-    width: 10%; 
-    height: 25%; 
-    border-radius: 30px;
+  width: 10%;
+  height: 25%;
+  border-radius: 30px;
 }
 
 .product-info {
   padding-left: 6px;
-    flex: 1; 
+  flex: 1;
 }
 
 .product-info p {
-    margin: 5px 0; 
-    font-size: 15px; 
-    opacity: 0.9; 
+  margin: 5px 0;
+  font-size: 15px;
+  opacity: 0.9;
 }
 
 .pricebox {
   display: flex;
-  flex-direction: column; /* Si los quieres uno debajo del otro */
+  flex-direction: column;
+  /* Si los quieres uno debajo del otro */
   align-items: flex-start;
-  gap: 0px;  
+  gap: 0px;
   height: 120px;
 }
- .price , .price2 {
+
+.price,
+.price2 {
   font-weight: bold;
-  font-size: 22px; 
+  font-size: 22px;
 }
 
- .price2 {
+.price2 {
   color: #a6763e;
   margin-top: -25px;
-  font-size: 15px; 
+  font-size: 15px;
 }
 
 /* precios */
 .price-summary {
-    font-weight: bold;
-    background-color: #fff; 
-    padding: 15px; 
-    border-radius: 10px; 
-    margin-top: -20px; 
-    color: black; 
-    font-family: Arial, sans-serif; 
+  font-weight: bold;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: -20px;
+  color: black;
+  font-family: Arial, sans-serif;
 }
 
 .price-summary p {
-    margin: 5px 0; 
-    font-size: 15px; 
-    opacity: 0.9;
+  margin: 5px 0;
+  font-size: 15px;
+  opacity: 0.9;
 }
 
 .price-summary h3 {
-    margin: 10px 0 0; 
-    font-size: 18px; 
-    color: #ffffff; 
+  margin: 10px 0 0;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 /* detalles de pago */
 .payment-details {
-    padding: 20px;
-    width: 25%;
-  }
+  padding: 20px;
+  width: 25%;
+}
 
 .checkboxDiv {
   display: flex;
@@ -357,7 +377,7 @@ body {
   transition: all 0.2s ease;
 }
 
-.styledCheckbox input:checked + .checkmark {
+.styledCheckbox input:checked+.checkmark {
   background-color: #5d7dc0;
   border-color: #5d7dc0;
 }
@@ -368,7 +388,7 @@ body {
   display: none;
 }
 
-.styledCheckbox input:checked + .checkmark:after {
+.styledCheckbox input:checked+.checkmark:after {
   display: block;
 }
 
@@ -383,7 +403,7 @@ body {
 }
 
 
-.opciones{
+.opciones {
   display: flex;
   align-items: center;
   height: 50px;
@@ -391,7 +411,7 @@ body {
   line-height: 20px;
 }
 
-.opciones .cantidad{
+.opciones .cantidad {
   display: flex;
   display: flex;
   justify-content: center;
@@ -402,54 +422,119 @@ body {
   border-style: solid;
   border-width: 3px;
   border-radius: 100px;
-  overflow: hidden;  
+  overflow: hidden;
   gap: 20px;
 }
 
 .menos,
-.mas{
+.mas {
   user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge */
- }
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+}
 
 
-.opciones p{
+.opciones p {
   cursor: pointer;
 }
 
-.opciones p:hover{
+.opciones p:hover {
   color: #a6763e;
- }
+}
 
 /* Estilo para el botón */
 button {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 15px;
-    border: none;
-    font-weight: 700;
-    color: #160503;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 auto; 
-    background-color: #000000;
-    display: block; 
-    color: #FFF;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: none;
+  font-weight: 700;
+  color: #160503;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  background-color: #000000;
+  display: block;
+  color: #FFF;
 }
 
 a {
-  text-decoration: none; /* Elimina el subrayado del enlace */
+  text-decoration: none;
+  /* Elimina el subrayado del enlace */
 }
 
 button:hover {
-    background-color: #252525; 
+  background-color: #252525;
 }
 
 .loading-overlay {
-  pointer-events: none; /* evita clicks mientras carga */
+  pointer-events: none;
+  /* evita clicks mientras carga */
   opacity: 0.5;
   transition: opacity 0.3s ease;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: hideLoader 0.1s 3s forwards;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #a6763e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animaciones */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hideLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Ocultar template inicial */
+.product-details:first-child {
+  display: none !important;
+}
+
+/* Mostrar productos cargados */
+.product-details[data-product-id] {
+  display: flex !important;
+  opacity: 0;
+  animation: fadeIn 0.5s 2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
