@@ -1348,7 +1348,10 @@ a {
   align-self: stretch;
   background: #9F5524;
 }
-
+#nombreUsuario{
+  font-family: "Open Sans";
+  font-size: 18px;
+}
 .google,
 .facebook {
   display: flex;
