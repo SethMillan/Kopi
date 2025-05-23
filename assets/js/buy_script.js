@@ -1,17 +1,110 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedorProductos = document.getElementById('products-container');
+    const priceSummary = document.querySelector('.price-summary');
 
-    // Configura Stripe con tu clave pública
+    function verificarSesion() {
+  fetch('http://localhost:3000/php/carrito.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ accion: 'secion' })
+  })
+  .then(res => res.json())
+  .then(data => {
+    const btnlogin = document.querySelector('.btnLogin'); // Cambiado a clase
+    const btnregister = document.querySelector('.btnRegister'); // Cambiado a clase
+    const btnUser = document.getElementById('usuario');
+
+    if (data.logueado) {
+      if (btnlogin) btnlogin.style.display = 'none';
+      if (btnregister) btnregister.style.display = 'none';
+      if (btnUser) {
+        btnUser.style.display = 'flex';
+        const nombreElemento = btnUser.querySelector('p');
+        if (nombreElemento) nombreElemento.textContent = data.nombre;
+      }
+    } else {
+      if (btnlogin) btnlogin.style.display = 'block';
+      if (btnregister) btnregister.style.display = 'block';
+      if (btnUser) btnUser.style.display = 'none';
+    }
+  })
+  .catch(err => console.error("Error verificando sesión:", err));
+}
+  verificarSesion();
+    // Inicializar Stripe
     const stripe = Stripe('TU_PUBLISHABLE_KEY'); // Reemplaza con tu clave pública de Stripe
-
-    // Crea una instancia de Elements
     const elements = stripe.elements();
     const cardElement = elements.create('card');
-
-    // Monta el elemento de la tarjeta en el div correspondiente
     cardElement.mount('#card-element');
 
-    // Maneja los errores de la tarjeta
-    cardElement.on('change', (event) => {
-        const displayError = document.getElementById('card-errors');
+    const displayError = document.getElementById('card-errors');
+    const form = document.getElementById('payment-form');
+    const submitButton = document.getElementById('submit-button');
+
+    let totalAmount = 0; // Total en dólares
+
+    function actualizarTotales(precioTotal) {
+        totalAmount = precioTotal;
+        const subtotal = precioTotal.toFixed(2);
+        const impuestos = 15.00; // Fijo, o puede venir dinámico
+        const total = (precioTotal + impuestos).toFixed(2);
+
+        priceSummary.innerHTML = `
+            <p>Subtotal: $${subtotal}</p>
+            <p>Taxes and Fees: $${impuestos.toFixed(2)}</p>
+            <h3>Total: $${total}</h3>
+        `;
+    }
+
+    function cargarProductosPasarela() {
+        fetch('http://localhost:3000/php/carrito.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ accion: 'ver' })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success || data.carrito.length === 0) {
+                contenedorProductos.innerHTML = '<p>Tu carrito está vacío.</p>';
+                actualizarTotales(0);
+                return;
+            }
+
+            contenedorProductos.innerHTML = '';
+            let precioTotal = 0;
+
+            data.carrito.forEach(producto => {
+                const totalProducto = producto.precio * producto.cantidad;
+                precioTotal += totalProducto;
+
+                const productoHTML = `
+                    <div class="product-details">
+                        <img src="${producto.imagen || '../assets/img/buy/borrar-removebg-preview.png'}" alt="${producto.nombre}" class="product-icon">
+                        <div class="product-info">
+                            <p><strong>Producto:</strong></p>
+                            <p>${producto.nombre}</p>
+                            <p>Qty: ${producto.cantidad}</p>
+                        </div>
+                        <p class="price">$${totalProducto.toFixed(2)}</p>
+                    </div>
+                `;
+
+                contenedorProductos.insertAdjacentHTML('beforeend', productoHTML);
+            });
+
+            actualizarTotales(precioTotal);
+        })
+        .catch(err => {
+            console.error('Error al cargar productos:', err);
+            contenedorProductos.innerHTML = '<p>Error al cargar el carrito.</p>';
+            actualizarTotales(0);
+        });
+    }
+
+    // Manejo errores en el input de la tarjeta
+    cardElement.on('change', event => {
         if (event.error) {
             displayError.textContent = event.error.message;
         } else {
@@ -19,45 +112,114 @@
         }
     });
 
-    // Maneja el envío del formulario
-    const form = document.getElementById('payment-form');
+    // Maneja el envío del formulario de pago
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        // Deshabilita el botón de pago para evitar múltiples envíos
-        document.getElementById('submit-button').disabled = true;
+        if (totalAmount <= 0) {
+            alert('Tu carrito está vacío o no tiene un total válido para pagar.');
+            return;
+        }
+
+        submitButton.disabled = true;
 
         try {
-            // Crea un PaymentIntent en el backend
-            const { clientSecret } = await fetch('/create-payment-intent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ amount: 19800 }), // El monto en centavos (198.00 USD)
-            }).then((response) => response.json());
+            // Convierte total a centavos para Stripe
+            const amountInCents = Math.round((totalAmount + 15.00) * 100); // suma impuestos
 
-            // Confirma el pago con Stripe
+            // Crea PaymentIntent en backend (debes implementar esta ruta)
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: amountInCents }),
+            });
+            const { clientSecret } = await response.json();
+
             const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: cardElement,
-                },
+                payment_method: { card: cardElement },
             });
 
             if (error) {
-                // Muestra el error al usuario
-                const displayError = document.getElementById('card-errors');
                 displayError.textContent = error.message;
-                document.getElementById('submit-button').disabled = false;
+                submitButton.disabled = false;
             } else {
-                // Pago exitoso
                 alert('Pago exitoso!');
                 console.log('Pago completado:', paymentIntent);
-                // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
+                // Aquí puedes redirigir o limpiar carrito, etc.
             }
         } catch (error) {
             console.error('Error:', error);
             alert('Hubo un error al procesar el pago. Inténtalo de nuevo.');
-            document.getElementById('submit-button').disabled = false;
+            submitButton.disabled = false;
         }
     });
+
+    // Inicializa la carga de productos al cargar la página
+    cargarProductosPasarela();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedorProductos = document.getElementById('products-container'); // div donde va el listado dinámico
+    const priceSummary = document.querySelector('.price-summary'); // div del resumen de precios
+
+    function actualizarTotales(precioTotal) {
+        const subtotal = precioTotal.toFixed(2);
+        const impuestos = 15.00; // valor fijo de impuestos
+        const total = (precioTotal + impuestos).toFixed(2);
+
+        priceSummary.innerHTML = `
+            <p>Subtotal: $${subtotal}</p>
+            <p>Taxes and Fees: $${impuestos.toFixed(2)}</p>
+            <h3>Total: $${total}</h3>
+        `;
+    }
+
+    function cargarProductosPasarela() {
+        fetch('http://localhost:3000/php/carrito.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ accion: 'ver' })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success || data.carrito.length === 0) {
+                contenedorProductos.innerHTML = '<p>Tu carrito está vacío.</p>';
+                actualizarTotales(0);
+                return;
+            }
+
+            contenedorProductos.innerHTML = ''; // limpiar contenido actual
+
+            let precioTotal = 0;
+
+            data.carrito.forEach(producto => {
+                const totalProducto = producto.precio * producto.cantidad;
+                precioTotal += totalProducto;
+
+                const productoHTML = `
+                    <div class="product-details">
+                        <img src="${producto.imagen || '../assets/img/buy/borrar-removebg-preview.png'}" alt="${producto.nombre}" class="product-icon">
+                        <div class="product-info">
+                            <p><strong>Product:</strong></p>
+                            <p>${producto.nombre}</p>
+                            <p>Qty: ${producto.cantidad}</p>
+                        </div>
+                        <p class="price">$${totalProducto.toFixed(2)}</p>
+                    </div>
+                `;
+
+                contenedorProductos.insertAdjacentHTML('beforeend', productoHTML);
+            });
+
+            actualizarTotales(precioTotal);
+        })
+        .catch(err => {
+            console.error('Error al cargar productos:', err);
+            contenedorProductos.innerHTML = '<p>Error al cargar el carrito.</p>';
+            actualizarTotales(0);
+        });
+    }
+
+    cargarProductosPasarela();
+});
+    

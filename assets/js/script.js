@@ -1,5 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Inicialización del primer swiper (coffee cards)
+
+    // Verificación de sesión y control de botones
+
+function verificarSesion() {
+  fetch('http://localhost:3000/php/carrito.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ accion: 'secion' })
+  })
+  .then(res => res.json())
+  .then(data => {
+    const btnlogin = document.querySelector('.btnLogin'); // Cambiado a clase
+    const btnregister = document.querySelector('.btnRegister'); // Cambiado a clase
+    const btnUser = document.getElementById('usuario');
+
+    if (data.logueado) {
+      if (btnlogin) btnlogin.style.display = 'none';
+      if (btnregister) btnregister.style.display = 'none';
+      if (btnUser) {
+        btnUser.style.display = 'flex';
+        const nombreElemento = btnUser.querySelector('p');
+        if (nombreElemento) nombreElemento.textContent = data.nombre;
+      }
+    } else {
+      if (btnlogin) btnlogin.style.display = 'block';
+      if (btnregister) btnregister.style.display = 'block';
+      if (btnUser) btnUser.style.display = 'none';
+    }
+  })
+  .catch(err => console.error("Error verificando sesión:", err));
+}
+  verificarSesion();
+
   var mainSwiper = new Swiper('.swiper', {
     effect: 'coverflow',
     loop: true,

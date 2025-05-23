@@ -1,30 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compras | Kopi</title>
+    <title>Pasarela de Pagos</title>
     <link rel="stylesheet" href="../assets/styles/styles_buy.css"> <!-- Enlaza el archivo CSS -->
     <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=MXN"></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AQgX9tKpLfd4nhy_aBhwba0Iypx0U5wrS900gzWRWfeoYrhVPiD_Tip3eDYFNFmphPZTtF3g8KR5hQEy"></script>
+
+            <script src="../assets/js/menu_script.js"></script>
+
 </head>
+
 <body>
+    <nav class="encabezado">
+        <a href="/" class="home">Kopi</a>
+        <div class="btnMenu">
+            <div class="linea"></div>
+            <a href="menu.html">
+                <p class="menu-text">MENU</p>
+            </a>
+            <div class="linea"></div>
+        </div>
+        <div class="btnFindKopi">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>Find your Kopi</p>
+        </div>
+        <div class="btnLogin" id="btnlogin">
+            <a href="login.html">
+                <p>Login</p>
+            </a>
+        </div>
+        <div class="btnRegister" id="btnregister">
+            <a href="login.html?show=register">
+                <p>Join</p>
+            </a>
+        </div>
+
+        <!-- <div class="usuario" id="usuario">
+                    <a href="../pages/usermenu.html">
+                        <p id="nombreUsuario">Usuario</p>
+                    </a>
+                </div> -->
+
+        <a href="../pages/carrito.html" class="material-symbols-outlined" id="shopping_cart">shopping_cart</a>
+
+
+        <span class="material-symbols-outlined" id="menu">menu</span>
+    </nav> <!-- Fin de barra de navegacion superior-->
+
+    <!-- Inicio bloque izquierdo -->
     <div class="container">
         <!-- Resumen del pedido -->
         <div class="order-summary">
-            <h2>Order Summary</h2>
-            <!-- Detalles del producto -->
-            <div class="product-details">
-                <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
-                <div class="product-info">
-                    <p><strong>Product:</strong></p>
-                    <p>Kopi-Organico</p>
-                    <p>Qty: 2</p>
-                </div>
-                <p class="price">$49.80</p>
-            </div>
+            <h2 id="og">Resumen del pedido</h2>
 
+            <!-- Contenedor con scroll -->
+            <div class="products-scroll" id="products-container">
+                <!-- Detalles del producto -->
+                <div class="product-details">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
+                    <div class="product-info">
+                        <p><strong>Product:</strong></p>
+                        <p>Kopi-Organico</p>
+                        <p>Qty: 2</p>
+                        <p>Eliminar Guardar para mas tarde Ver productos similares Compartir</p>
+                    </div>
+                    <p class="price">$49.80</p>
+                </div>
+
+                <div class="product-details">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
+                    <div class="product-info">
+                        <p><strong>Product:</strong></p>
+                        <p>Kopi-Organico</p>
+                        <p>Qty: 4</p>
+                    </div>
+                    <p class="price">$155.82</p>
+                </div>
+
+                <div class="product-details">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
+                    <div class="product-info">
+                        <p><strong>Product:</strong></p>
+                        <p>Kopi-Organico</p>
+                        <p>Qty: 7</p>
+                    </div>
+                    <p class="price">$51.87</p>
+                </div>
+
+                <div class="product-details">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
+                    <div class="product-info">
+                        <p><strong>Product:</strong></p>
+                        <p>Kopi-Organico</p>
+                        <p>Qty: 3</p>
+                    </div>
+                    <p class="price">$21.87</p>
+                </div>
+
+                <div class="product-details">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
+                    <div class="product-info">
+                        <p><strong>Product:</strong></p>
+                        <p>Kopi-Organico</p>
+                        <p>Qty: 1</p>
+                    </div>
+                    <p class="price">$64.98</p>
+                </div>
+
+            </div>
 
             <!-- Resumen de precios -->
             <div class="price-summary">
@@ -33,61 +131,97 @@
                 <h3>Total: $198</h3>
             </div>
         </div>
+        <!-- Fin bloque izquierdo -->
 
         <!-- Detalles de pago -->
         <div class="payment-details">
             <h2>Payment details</h2>
-            <form id="payment-form">
-                <!-- Grupo para Country y Zip Code -->
-                <div class="input-group">
-                    <div>
-                        <label for="country">Country</label>
-                        <select id="country">
-                            <option>Mexico</option>
-                            <option>USA</option>
-                            <option>Colombia</option>
-                        </select>
+            <div id="gt">
+                <form action="../php/registro.php" method="POST">
+
+                    <!-- Grupo para Country y Zip Code -->
+
+                    <div class="input-group">
+
+                        <div>
+                            <label for="country">Pais</label>
+                            <select id="country" name="country">
+                                <option>México</option>
+                                <option>USA</option>
+                                <option>Colombia</option>
+                            </select>
+
+                        </div>
+
+                        <div id="gg">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" required name="zip">
+                        </div>
                     </div>
-                    <div>
-                        <label for="zip">Zip Code</label>
-                        <input type="text" id="zip" required>
+
+                    <!-- Campos restantes del formulario -->
+                    <label for="card-name">Titular</label>
+                    <input type="text" id="card-name" required name="titular">
+
+                    <label for="card-number">Numero de tarjeta</label>
+                    <input type="text" id="card-number" required name="numeroDeTarjeta">
+
+                    <!-- Grupo para Expiration Date y CVC/CVV -->
+                    <div class="input-group">
+                        <div>
+                            <label for="exp-date">Expiracion</label>
+                            <input type="text" id="exp-date" class="narrow-input" required name="expiracion">
+                        </div>
+                        <div>
+                            <label for="cvc">CVC/CVV</label>
+                            <input type="text" id="cvc" required name="cvc">
+                        </div>
                     </div>
-                </div>
 
-                <!-- Name of card y credit card number -->
-                <label for="card-name">Name on Card</label>
-                <input type="text" id="card-name" required>
-
-                <label for="card-number">Credit Card Number</label>
-                <input type="text" id="card-number" required>
-
-                <!-- Date y CVC/CVV -->
-                <div class="input-group">
-                    <div>
-                        <label for="exp-date">Expiration Date</label>
-                        <input type="text" id="exp-date" class="narrow-input" required>
-                    </div>
-                    <div>
-                        <label for="cvc">CVC/CVV</label>
-                        <input type="text" id="cvc" required>
-                    </div>
-                </div>
-
-                <!-- Botón de pago -->
-                <button type="submit">Pay</button>
-            </form>
-
-            <!-- APple pay -->
+                    <!-- Botón de pago -->
+                    <button type="submit">Pay</button>
+                </form>
+            </div>
+            <!-- Métodos de pago rápido -->
             <div class="fast-pay">
                 <div id="paypal-button-container"></div>
-                <button id="apple-pay-button">
-                    <i class="fab fa-apple-pay"></i>
-                </button>
+                <div class="a1">
+                    <button class="apple-pay-button" id="applePayBtn" type="button">
+                        <i class="fab fa-apple-pay"></i>
+                    </button>
+
+                </div>
+                <div class="a2">
+                    <button class="paypal-button" id="paypalBtn" type="button">
+                        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal"
+                            style="height: 24px;" />
+                    </button>
+
+                </div>
+
             </div>
+
+
         </div>
     </div>
+    <!-- Fin del bloque derecho -->
+
 
     <!-- Scripts -->
     <script src="../assets/js/buy_script.js"></script>
+    <script>
+        document.querySelector('.paypal-button').addEventListener('click', () => {
+            window.location.href = 'paypal.html';  // Asegúrate que el archivo exista y ruta sea correcta
+        });
+    </script>
+    <script>
+        document.getElementById("applePayBtn").addEventListener("click", function (event) {
+            event.preventDefault(); // Evita comportamiento por defecto
+            event.stopPropagation(); // Evita que el clic se propague a otros botones
+            window.open("https://buy.stripe.com/test_5kA6oG2sc5sCaiY288", "_blank");
+        });
+    </script>
+    <script src="../assets/js/carrito_script.js"></script>
 </body>
+
 </html>

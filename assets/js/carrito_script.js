@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnUser.style.display = 'none'
     let precioTotal = 0;
    
+    function actualizarTotales(precioTotal) {
+    carritoSubtotal.textContent = "Subtotal $" + precioTotal.toFixed(2);
+    carritoTotal.textContent = "Total $" + (precioTotal + 15).toFixed(2); // Puedes cambiar el 10 por el costo de envío u otra lógica
+    }
 
     //Para iniciar sección
     function verificar_sesion(){
@@ -68,6 +72,7 @@ function cargarCarrito() {
             data.carrito.forEach(producto => {
                 const clone = template.cloneNode(true);
                 clone.style.display = 'flex'; // Mostramos el clon
+                ///////////////////////
 
                 // Actualiza los datos del producto
                 clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
@@ -90,8 +95,8 @@ function cargarCarrito() {
                 orderSummary.appendChild(clone);
             });
 
-            carritoSubtotal.textContent = "Subtotal " + "$" + precioTotal;
-            carritoTotal.textContent = "Total " + "$" + (precioTotal + 10);
+            actualizarTotales(precioTotal);
+
 
             // Ocultar mensaje de "carrito vacío"
             if (carritoBasio) carritoBasio.style.display = 'none';
@@ -100,6 +105,8 @@ function cargarCarrito() {
             // Mostrar mensaje de "carrito vacío"
             if (carritoBasio) carritoBasio.style.display = 'block';
         }
+
+        actualizarTotales(precioTotal);
 
      // Si hay productos guardados, crear los elementos
 if (data.success && data.guardado.length > 0) {
@@ -126,8 +133,8 @@ if (data.success && data.guardado.length > 0) {
         if (imagenTag && producto.imagen) {
             imagenTag.src = producto.imagen;
         }
-
-        const label = clone.querySelector('label');
+    
+         const label = clone.querySelector('label');
         label.textContent = producto.cantidad;
 
         orderSummary.appendChild(clone);
@@ -176,8 +183,10 @@ if (data.success && data.guardado.length > 0) {
             })
             .then(res => res.json())
             .then(data => {
+                // Aqui debe pasar el cambio 
                 if (data.success) {
                     console.log(`Cantidad de ${productoNombre} actualizada a ${count}`);
+                    //Cuando ocurra correctamente regresarlo al estado original
                     cargarCarrito();  // Recargar el carrito después de la actualización
                 } else {
                     alert("No se pudo actualizar la cantidad del producto.");
@@ -189,6 +198,7 @@ if (data.success && data.guardado.length > 0) {
         }else if (e.target.classList.contains('eliminar')) {
             const producto = e.target.closest('.product-details');
             const productoNombre = producto.querySelector('.nombre').textContent;
+            producto.classList.add('loading-overlay');
         
             console.log(`Producto a eliminar: ${productoNombre}`);
         
@@ -206,50 +216,61 @@ if (data.success && data.guardado.length > 0) {
             .then(data => {
                 if (data.success) {
                     producto.remove();  // Eliminar producto del DOM
-                    cargarCarrito();  // Recargar el carrito después de la eliminación
-                } else {
+                 } else {
                     alert("No se pudo eliminar el producto.");
                 }
             })
             .catch(err => {
                 console.error('Error al eliminar producto', err);
+            }).finally(() => {
+            // Remover clase de carga después de completar la solicitud
+            cargarCarrito();
+            producto.classList.remove('loading-overlay');
             });
-        } else if (e.target.classList.contains('guardar')) {
-            const producto = e.target.closest('.product-details');
-            const productoNombre = producto.querySelector('.nombre').textContent;
 
-            fetch('http://localhost:3000/php/carrito.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    accion: 'guardar',
-                    nombre: productoNombre
-                })
-            })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    throw new Error('Error en la solicitud');
-                }
-            })
-            .then(data => {
-                console.log(data);  // Verifica el objeto de respuesta en la consola
-                if (data.success) {
-                    cargarCarrito();  // Recargar el carrito después de la eliminación
-                } else {
-                    alert("No se pudo guardar el producto.");
-                }
-            })
-            .catch(err => {
-                 console.error('Error al hacer la solicitud:', err);
-            });
-            
+} else if (e.target.classList.contains('guardar')) {
+    const producto = e.target.closest('.product-details');
+    const productoNombre = producto.querySelector('.nombre').textContent;
 
-            console.log("guardar");
-        } else if (e.target.classList.contains('similares')) {
+    // Aplicar clase de "cargando"
+    producto.classList.add('loading-overlay');
+
+    fetch('http://localhost:3000/php/carrito.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            accion: 'guardar',
+            nombre: productoNombre
+        })
+    })
+    .then(res => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error('Error en la solicitud');
+        }
+    })
+    .then(data => {
+        console.log(data);
+        if (data.success) {
+            cargarCarrito();
+        } else {
+            alert("No se pudo guardar el producto.");
+        }
+    })
+    .catch(err => {
+        console.error('Error al hacer la solicitud:', err);
+    })
+    .finally(() => {
+        // Remover clase de carga después de completar la solicitud
+        producto.classList.remove('loading-overlay');
+    });
+
+    console.log("guardar");
+}
+ else if (e.target.classList.contains('similares')) {
             window.location.href = 'http://localhost:3000/pages/menu.html'; 
         } else if (e.target.classList.contains('compartir')) {
             console.log("compartir");

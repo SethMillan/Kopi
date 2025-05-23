@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Kopi</title>
-
         <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -45,40 +44,25 @@
     
             <!-- Derecha -->
         <div class="derecha">
-            <div class="text_derecha">
-                <div class="lg_return">         
-                <h2 class="text_login">Login</h2>
-                <div class="return_box">
-                    <a href="../index.html">
-                        <h2 class="return_home">x</h2>
-                    </a>
-                </div> 
-                </div>
-                    <div class="newCount">
-                        <h3 class="text_count">Don´t have a acount?</h3>
-                        <h3 class="text_Signup">Sign up</h3>
-                    </div> <!-- newCount -->
+            <a href="../index.html"><h2 class="return_home">x</h2> </a>
+            <h2 class="text_login">Login</h2>
+            <div class="return_box"></div>
+                     
+            <div class="newCount">
+                <h3 class="text_count">¿No tienes una cuenta?</h3>
+                <h3 class="text_Signup">Registrate</h3>
+            </div>
 
-                <!-- placeHolders y su texto -->
-                 <div class="conteiner">
-                    <div class="box_placeholder1">
-                        <h3 class="username_email";>Username/Email</h3>
-                        <Input placeholder="" type="text" class="placeholder_1" id="lg_email"/>
-                    </div>
-                    <br>
-                    <div class="box_placeholder2">
-                        <div class="placeholder_texto">
-                         <h3 class="placeholder_password">Password</h3>
-                         <h3 class="forgot_your_p">Forgot your password?</h3>
-                        </div>
-                        <Input placeholder="" type="password" class="placeholder_2" id="lg_ps"/>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="ojo">
-                            <path d="M2 12.0005C2 12.0005 5 5.00049 12 5.00049C19 5.00049 22 12.0005 22 12.0005C22 12.0005 19 19.0005 12 19.0005C5 19.0005 2 12.0005 2 12.0005Z" stroke="white" stroke-opacity="0.7" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 15.0005C13.6569 15.0005 15 13.6573 15 12.0005C15 10.3436 13.6569 9.00049 12 9.00049C10.3431 9.00049 9 10.3436 9 12.0005C9 13.6573 10.3431 15.0005 12 15.0005Z" stroke="white" stroke-opacity="0.7" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                 </div>
-                
+            <div class="box_placeholder1">
+                <h3 class="username_email";>Username/Email</h3>
+                <Input placeholder="" type="text" class="placeholder_1" id="lg_email"/>
+            </div>
+
+            <div class="box_placeholder2">
+                 <h3 class="placeholder_password">Password</h3>
+                 <Input placeholder="" type="password" class="placeholder_2" id="lg_ps"/>
+            </div>
+
 
                 <!-- fin placeHolders y su texto -->
                  <div class="btn_SignIn">
@@ -117,7 +101,10 @@
                 <!-- fin botones google y facebook -->
 
                 </div>
-            </div><!-- fin text_derecha -->
+
+            
+             <!-- Derecha -->
+
 
         </div><!-- Fin derecha -->
 
@@ -126,7 +113,6 @@
             <div class="ca">
                 <h2 class="text_createAcount">Create an acount</h2>
                  <a href="../index.html" class="return_home2">x</a>
-
             </div>
 
                 <div class="return_login">
@@ -212,5 +198,20 @@
 
     <!-- Crear nuevo usuario -->
     
+     
+    </div>
+     
+    </div>
+
+       <!-- Poopup -->
+    <div id="errorPopup">
+  <div id="background">
+    <span id="closePopup">&times;</span>
+     <div class="box_img">
+        <img src="../assets/img/coffe_bag.png" alt="perfil" />
+     </div>
+    <p id="popupMessage"></p>
+  </div>
+
 </body>
 </html>

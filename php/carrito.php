@@ -2,7 +2,6 @@
 header('Content-Type: application/json');
 session_start();
 
-
 try {
     include 'db.php';
 } catch (Exception $e) {
@@ -12,8 +11,7 @@ try {
 
 function secion($conn) {
     if (isset($_SESSION['cliente_id'])) {
-        $nombre = $_SESSION['cliente_nombre'] ?? 'Usuario'; // Fallback por si no está seteado el nombre
-
+        $nombre = $_SESSION['cliente_nombre'] ?? 'Usuario';
         echo json_encode([
             'logueado' => true,
             'nombre' => $nombre
@@ -23,8 +21,6 @@ function secion($conn) {
     }
 }
 
-
-    
 function verCarrito($conn) {
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
@@ -71,101 +67,178 @@ function encontrarID($productoNombre, $conn) {
     $result = pg_query_params($conn, $sql, [$productoNombre]);
 
     if (!$result || pg_num_rows($result) == 0) {
-        return null;  // Si no se encuentra el producto
+        return null;
     }
 
     $row = pg_fetch_assoc($result);
-    return $row['id'];  // Devuelve el ID del producto
+    return $row['id'];
 }
 
-// Función para agregar al carrito o actualizar la cantidad
+// Función mejorada para agregar al carrito con validación de stock
 function AgregarCarrito($producto_id, $conn) {
     if (!isset($_SESSION['cliente_id'])) {
-        return ['success' => false, 'message' => 'No hay sesión iniciada'];
+        // Si no hay sesión, usar carrito temporal en sesión
+        if (!isset($_SESSION['carrito_temporal'])) {
+            $_SESSION['carrito_temporal'] = [];
+        }
+        
+        // Verificar stock antes de agregar
+        $sql_stock = "SELECT stock, nombre, precio FROM producto WHERE id = $1";
+        $result_stock = pg_query_params($conn, $sql_stock, [$producto_id]);
+        
+        if (!$result_stock || pg_num_rows($result_stock) == 0) {
+            return ['success' => false, 'message' => 'Producto no encontrado'];
+        }
+        
+        $producto = pg_fetch_assoc($result_stock);
+        $stock_disponible = intval($producto['stock']);
+        
+        if ($stock_disponible <= 0) {
+            return ['success' => false, 'message' => 'Producto sin stock disponible'];
+        }
+        
+        // Verificar cantidad en carrito temporal
+        $cantidad_en_carrito = 0;
+        if (isset($_SESSION['carrito_temporal'][$producto_id])) {
+            $cantidad_en_carrito = $_SESSION['carrito_temporal'][$producto_id]['cantidad'];
+        }
+        
+        if ($cantidad_en_carrito + 1 > $stock_disponible) {
+            return ['success' => false, 'message' => "Solo hay $stock_disponible unidades disponibles"];
+        }
+        
+        // Agregar al carrito temporal
+        if (isset($_SESSION['carrito_temporal'][$producto_id])) {
+            $_SESSION['carrito_temporal'][$producto_id]['cantidad']++;
+        } else {
+            $_SESSION['carrito_temporal'][$producto_id] = [
+                'nombre' => $producto['nombre'],
+                'precio' => $producto['precio'],
+                'cantidad' => 1
+            ];
+        }
+        
+        $total_items = array_sum(array_column($_SESSION['carrito_temporal'], 'cantidad'));
+        return ['success' => true, 'message' => 'Producto agregado al carrito temporal', 'total_items' => $total_items];
     }
 
     $clienteid = $_SESSION['cliente_id'];
-    $cantidad = 1; 
+    $cantidad = 1;
 
-    // Verificamos si el producto ya está en el carrito del cliente
-    $sql_check = "SELECT cantidad FROM carrito WHERE cliente_id = $1 AND producto_id = $2";
+    // Verificar stock disponible
+    $sql_stock = "SELECT stock FROM producto WHERE id = $1";
+    $result_stock = pg_query_params($conn, $sql_stock, [$producto_id]);
+    
+    if (!$result_stock || pg_num_rows($result_stock) == 0) {
+        return ['success' => false, 'message' => 'Producto no encontrado'];
+    }
+    
+    $producto_db = pg_fetch_assoc($result_stock);
+    $stock_disponible = intval($producto_db['stock']);
+    
+    // Verificar cantidad actual en carrito
+    $sql_check = "SELECT cantidad FROM carrito WHERE cliente_id = $1 AND producto_id = $2 AND estado = 'carrito'";
     $result_check = pg_query_params($conn, $sql_check, [$clienteid, $producto_id]);
-
+    
+    $cantidad_actual = 0;
     if ($result_check && pg_num_rows($result_check) > 0) {
-        // Si ya está en el carrito, solo actualizamos la cantidad
         $row = pg_fetch_assoc($result_check);
-        $nueva_cantidad = $row['cantidad'] + $cantidad;
+        $cantidad_actual = intval($row['cantidad']);
+    }
+    
+    if ($cantidad_actual + $cantidad > $stock_disponible) {
+        return ['success' => false, 'message' => "Solo hay $stock_disponible unidades disponibles. Ya tienes $cantidad_actual en tu carrito."];
+    }
 
-        // Actualizamos la cantidad en la base de datos
-        $sql_update = "UPDATE carrito SET cantidad = $1 WHERE cliente_id = $2 AND producto_id = $3";
+    if ($cantidad_actual > 0) {
+        // Actualizar cantidad
+        $nueva_cantidad = $cantidad_actual + $cantidad;
+        $sql_update = "UPDATE carrito SET cantidad = $1 WHERE cliente_id = $2 AND producto_id = $3 AND estado = 'carrito'";
         $result_update = pg_query_params($conn, $sql_update, [$nueva_cantidad, $clienteid, $producto_id]);
 
         if (!$result_update) {
             return ['success' => false, 'message' => 'Error al actualizar la cantidad del producto'];
         }
-
-        return ['success' => true, 'message' => 'Cantidad actualizada en el carrito'];
     } else {
-        // Si no está en el carrito, lo agregamos
-        $sql_insert = "INSERT INTO carrito (cliente_id, producto_id, cantidad) VALUES ($1, $2, $3)";
+        // Insertar nuevo producto
+        $sql_insert = "INSERT INTO carrito (cliente_id, producto_id, cantidad, estado) VALUES ($1, $2, $3, 'carrito')";
         $result_insert = pg_query_params($conn, $sql_insert, [$clienteid, $producto_id, $cantidad]);
 
         if (!$result_insert) {
             return ['success' => false, 'message' => 'Error al agregar el producto al carrito'];
         }
+    }
 
-        return ['success' => true, 'message' => 'Producto agregado al carrito'];
+    // Calcular total de items en el carrito
+    $sql_total = "SELECT SUM(cantidad) as total FROM carrito WHERE cliente_id = $1 AND estado = 'carrito'";
+    $result_total = pg_query_params($conn, $sql_total, [$clienteid]);
+    $total_items = 0;
+    if ($result_total) {
+        $row = pg_fetch_assoc($result_total);
+        $total_items = intval($row['total']);
+    }
+
+    return ['success' => true, 'message' => 'Producto agregado al carrito', 'total_items' => $total_items];
+}
+
+function eliminarProducto($datos, $conn) {
+    if (!isset($_SESSION['cliente_id'])) {
+        return ['success' => false, 'message' => 'No hay sesión iniciada'];
+    }
+
+    $clienteid = $_SESSION['cliente_id'];
+    $nombre = $datos['nombre'];
+
+    // Obtener ID del producto por nombre
+    $res = pg_query_params($conn, "SELECT id FROM producto WHERE nombre = $1", [$nombre]);
+
+    if (!$res || pg_num_rows($res) === 0) {
+        return ['success' => false, 'message' => 'Producto no encontrado'];
+    }
+
+    $producto = pg_fetch_assoc($res);
+    $producto_id = $producto['id'];
+
+    // Verificar cantidad actual
+    $check = pg_query_params($conn, "SELECT cantidad FROM carrito WHERE cliente_id = $1 AND producto_id = $2 AND estado = 'carrito'", [$clienteid, $producto_id]);
+
+    if (!$check || pg_num_rows($check) === 0) {
+        return ['success' => false, 'message' => 'Producto no está en el carrito'];
+    }
+
+    // Eliminar producto completamente
+    $delete = pg_query_params($conn, "DELETE FROM carrito WHERE cliente_id = $1 AND producto_id = $2 AND estado = 'carrito'", [$clienteid, $producto_id]);
+    if ($delete) {
+        return ['success' => true, 'message' => 'Producto eliminado del carrito'];
+    } else {
+        return ['success' => false, 'message' => 'Error al eliminar el producto'];
     }
 }
-    function eliminarProducto($datos, $conn) {
-        if (!isset($_SESSION['cliente_id'])) {
-            return ['success' => false, 'message' => 'No hay sesión iniciada'];
-        }
-    
-        $clienteid = $_SESSION['cliente_id'];
-        $nombre = $datos['nombre'];
-    
-        // Obtener ID del producto por nombre
-        $res = pg_query_params($conn, "SELECT id FROM producto WHERE nombre = $1", [$nombre]);
-    
-        if (!$res || pg_num_rows($res) === 0) {
-            return ['success' => false, 'message' => 'Producto no encontrado'];
-        }
-    
-        $producto = pg_fetch_assoc($res);
-        $producto_id = $producto['id'];
-    
-        // Verificar cantidad actual
-        $check = pg_query_params($conn, "SELECT cantidad FROM carrito WHERE cliente_id = $1 AND producto_id = $2", [$clienteid, $producto_id]);
-    
-        if (!$check || pg_num_rows($check) === 0) {
-            return ['success' => false, 'message' => 'Producto no está en el carrito'];
-        }
-    
-        $data = pg_fetch_assoc($check);
-        $cantidad = (int)$data['cantidad'];
-    
-            // Eliminar producto completamente
-            $delete = pg_query_params($conn, "DELETE FROM carrito WHERE cliente_id = $1 AND producto_id = $2", [$clienteid, $producto_id]);
-            if ($delete) {
-                return ['success' => true, 'message' => 'Producto eliminado del carrito'];
-            } else {
-                return ['success' => false, 'message' => 'Error al eliminar el producto'];
-            }
-        
 
-        
-    }
-    // Función para agregar al carrito o actualizar la cantidad
 function actualizarCantidad($producto_id, $cantidad, $conn) {
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
 
     $clienteid = $_SESSION['cliente_id'];
+    
+    // Verificar stock antes de actualizar
+    $sql_stock = "SELECT stock FROM producto WHERE id = $1";
+    $result_stock = pg_query_params($conn, $sql_stock, [$producto_id]);
+    
+    if (!$result_stock || pg_num_rows($result_stock) == 0) {
+        return ['success' => false, 'message' => 'Producto no encontrado'];
+    }
+    
+    $producto_db = pg_fetch_assoc($result_stock);
+    $stock_disponible = intval($producto_db['stock']);
+    
+    if ($cantidad > $stock_disponible) {
+        return ['success' => false, 'message' => "Solo hay $stock_disponible unidades disponibles"];
+    }
 
     // Actualizamos la cantidad del producto en el carrito
-    $sql_update = "UPDATE carrito SET cantidad = $1 WHERE cliente_id = $2 AND producto_id = $3";
+    $sql_update = "UPDATE carrito SET cantidad = $1 WHERE cliente_id = $2 AND producto_id = $3 AND estado = 'carrito'";
     $result_update = pg_query_params($conn, $sql_update, [$cantidad, $clienteid, $producto_id]);
 
     if (!$result_update) {
@@ -175,7 +248,7 @@ function actualizarCantidad($producto_id, $cantidad, $conn) {
     return ['success' => true, 'message' => 'Cantidad actualizada en el carrito'];
 }
 
-function guardar( $datos, $conn) {
+function guardar($datos, $conn) {
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
@@ -199,31 +272,27 @@ function guardar( $datos, $conn) {
     $producto_estado = $producto2['estado'];
 
     if($producto_estado == 'carrito') {
+        // Mover a guardado
+        $sql_update = "UPDATE carrito SET estado = $1 WHERE cliente_id = $2 AND producto_id = $3";
+        $result_update = pg_query_params($conn, $sql_update, ['guardado', $clienteid, $producto_id]);
 
-    // Actualizamos la cantidad del producto en el carrito
-    $sql_update = "UPDATE carrito SET estado = $1 WHERE cliente_id = $2 AND producto_id = $3";
-    $result_update = pg_query_params($conn, $sql_update, ['guardado', $clienteid, $producto_id]);
+        if (!$result_update) {
+            return ['success' => false, 'message' => 'Error al guardar el producto'];
+        }
 
-    if (!$result_update) {
-        return ['success' => false, 'message' => 'Error al actualizar al guardar el producto'];
-    }
-
-    return ['success' => true, 'message' => 'producto guardado correctamente'];
-
-    }else{
-        // Actualizamos la cantidad del producto en el carrito
+        return ['success' => true, 'message' => 'Producto guardado correctamente'];
+    } else {
+        // Mover a carrito
         $sql_update = "UPDATE carrito SET estado = $1 WHERE cliente_id = $2 AND producto_id = $3";
         $result_update = pg_query_params($conn, $sql_update, ['carrito', $clienteid, $producto_id]);
 
-    if (!$result_update) {
-        return ['success' => false, 'message' => 'Error al mover el producto a carrito'];
-    }
+        if (!$result_update) {
+            return ['success' => false, 'message' => 'Error al mover el producto al carrito'];
+        }
 
-    return ['success' => true, 'message' => 'producto al carrito correctamente'];
+        return ['success' => true, 'message' => 'Producto movido al carrito correctamente'];
     }
 }
-    
-
 
 // --- Punto de entrada principal ---
 
@@ -237,50 +306,53 @@ switch ($input['accion']) {
     case 'ver':
         $respuesta = verCarrito($conn);
         break;
+        
     case 'agg':
-        if (isset($input['producto_nombre'])) {
-            // Encontrar el ID del producto por su nombre
+        // Manejar tanto producto_nombre como producto_id
+        if (isset($input['producto_id'])) {
+            $producto_id = intval($input['producto_id']);
+            $respuesta = AgregarCarrito($producto_id, $conn);
+        } elseif (isset($input['producto_nombre'])) {
             $producto_id = encontrarID($input['producto_nombre'], $conn);
             if ($producto_id === null) {
                 $respuesta = ['success' => false, 'message' => 'Producto no encontrado'];
             } else {
-                // Si se encontró el ID, agregar el producto al carrito o actualizar la cantidad
                 $respuesta = AgregarCarrito($producto_id, $conn);
             }
+        } else {
+            $respuesta = ['success' => false, 'message' => 'Identificador del producto no recibido'];
+        }
+        break;
+        
+    case 'eliminar':
+        $respuesta = eliminarProducto($input, $conn);
+        break;
+
+    case 'actualizar':
+        if (isset($input['nombre']) && isset($input['cantidad'])) {
+            $producto_id = encontrarID($input['nombre'], $conn);
+            if ($producto_id === null) {
+                $respuesta = ['success' => false, 'message' => 'Producto no encontrado'];
+            } else {
+                $cantidad = (int)$input['cantidad'];
+                $respuesta = actualizarCantidad($producto_id, $cantidad, $conn);
+            }
+        } else {
+            $respuesta = ['success' => false, 'message' => 'Datos incompletos para actualizar'];
+        }
+        break;
+        
+    case 'secion':
+        secion($conn); 
+        exit;
+        
+    case 'guardar':
+        if (isset($input['nombre'])) {
+            $respuesta = guardar($input, $conn);
         } else {
             $respuesta = ['success' => false, 'message' => 'Nombre del producto no recibido'];
         }
         break;
-    case 'eliminar':
-            $respuesta = eliminarProducto($input, $conn);
-        break;
-
-        case 'actualizar':
-            if (isset($input['nombre']) && isset($input['cantidad'])) {
-                // Encontrar el ID del producto por su nombre
-                $producto_id = encontrarID($input['nombre'], $conn);
-                if ($producto_id === null) {
-                    $respuesta = ['success' => false, 'message' => 'Producto no encontrado'];
-                } else {
-                    // Si se encontró el ID, actualizar la cantidad
-                    $cantidad = (int)$input['cantidad'];
-                    $respuesta = actualizarCantidad($producto_id, $cantidad, $conn);
-                }
-            } else {
-                $respuesta = ['success' => false, 'message' => 'Datos incompletos para actualizar'];
-            }
-            break;
-     case 'secion':
-         secion($conn); 
-        exit;
-        case 'guardar':
-            if (isset($input['nombre'])) {
-                $respuesta = guardar($input, $conn);
-            } else {
-                $respuesta = ['success' => false, 'message' => 'Nombre del producto no recibido'];
-            }
-            echo json_encode($respuesta);
-            exit;
         
     default:
         $respuesta = ['success' => false, 'message' => 'Acción no válida'];
