@@ -7,30 +7,44 @@
     <title>Da</title>
     <link rel="stylesheet" href="../assets/styles/styles_infuser.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
-    <div ID="contenedor1">
-        <div class="contIzq contComun" id="kopi"><strong>Kopi</strong></div>
-        <!-- <div class="contIzq contComun" id="menu"><b id="dd">MENU</b></div> -->
-        <a href="menu.html" class="contIzq contComun" id="menu">
-            <b id="dd">MENU</b> </a>
+     <nav class="encabezado">
+            <a href="/" class="home">Kopi</a>
+            <div class="btnMenu">
+                <div class="linea"></div>
+                <a href="menu.html"><p class="menu-text">MENU</p></a>
+                <div class="linea"></div>
+            </div>
+            <div class="btnFindKopi">
+                <span class="material-symbols-outlined">location_on</span>
+                <p>Find your Kopi</p>
+            </div>
+            <div class="btnLogin" id="btnlogin">
+                <a href="login.html">
+                    <p>Login</p>
+                </a>
+            </div>
+            <div class="btnRegister" id="btnregister">
+                <a href="login.html?show=register">
+                    <p>Join</p>
+                </a>
+            </div>
+            <!-- <div class="usuario" id="usuario">
+                <a href="../pages/usermenu.html">
+                    <p id="nombreUsuario">Usuario</p>
+                </a>
+            </div> -->
 
-        <a href="../pages/carrito.html" class="contDer contComun">
-            <p><i class="fas fa-shopping-cart"></i></p>
-        </a>
+             <a href="../pages/carrito.html" class="material-symbols-outlined" id="shopping_cart">shopping_cart</a>
+               
 
-        <div class="contDer contComun">
-            <p><strong>Hola, Oscar</strong></p>
-        </div>
-        <div class="contDer contComun">
-            <p><strong>220 pts</strong></p>
-        </div>
-        <a href="../pages/find_kopy.html" class="contDer contComun" id="find">
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Encuentra tu Kopi</strong></p>
-        </a>
-
-    </div>
+            <span class="material-symbols-outlined" id="menu">menu</span>
+        </nav>
 
     <div id="contenido">
         <div id="izquierdo">
