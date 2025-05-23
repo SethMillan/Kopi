@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="../assets/js/menu_script.js"></script>
 </head>
+
 <body>
     <!-- ESTA PARTE ES EL NAVEGADOR-->
     <div class="difuminado"></div>
@@ -41,26 +43,34 @@
                 <p>Login</p>
             </a>
         </div>
-        <div class="btnRegister" id="btnregister">
+        <div class="btnRegister">
             <a href="login.html?show=register">
                 <p>Join</p>
             </a>
         </div>
+
         <div class="usuario" id="usuario">
             <a href="../pages/usermenu.html">
                 <p id="nombreUsuario">Usuario</p>
             </a>
         </div>
+        
         <a href="../pages/carrito.html">
             <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
         </a>
+
+        <div class="btnCart">
+            <a href="carrito.html">
+                <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+            </a>
+        </div>
 
         <span class="material-symbols-outlined" id="menu">menu</span>
     </nav>> <!-- Fin de barra de navegacion superior-->
     <!-- AQUI EMPIEZA EL CONTENIDO DEL MENU -->
     <main class="menu-content">
         <h1 class="menu-title">Nuestro Menu</h1>
-        
+
         <div class="menu-categories">
             <button class="category-button active">Todo</button>
             <button class="category-button">Coffee</button>
@@ -68,7 +78,7 @@
             <button class="category-button">Pastries</button>
             <button class="category-button">Bags</button>
         </div>
-        
+
         <div class="menu-items">
             <!-- Sample Menu Item -->
             <div class="menu-item">
@@ -77,45 +87,45 @@
                     <h3 class="menu-item-title">Cappuccino</h3>
                     <p class="menu-item-description">Espresso with steamed milk and a deep layer of foam.</p>
                     <p class="menu-item-price">$54.99</p>
-                   <!-- <a href="carrito.html">-->
-                        <button class="add-to-cart">
-                            <span class="material-symbols-outlined">add_shopping_cart</span>
-                            Add to Cart
-                        </button>
-                    </a>  
+                    <!-- <a href="carrito.html">-->
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="menu-item">
                 <img src="../assets/img/menu/cafe_2.webp" alt="Coffee" class="menu-item-image">
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">Flat White</h3>
                     <p class="menu-item-description">Rich espresso with velvety steamed milk.</p>
                     <p class="menu-item-price">$62</p>
-                  <!--  <a href="carrito.html">>-->
-                        <button class="add-to-cart">
-                            <span class="material-symbols-outlined">add_shopping_cart</span>
-                            Add to Cart
-                        </button>
-                    </a>  
+                    <!--  <a href="carrito.html">>-->
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="menu-item">
                 <img src="../assets/img/menu/cafe.jpg" alt="Coffee" class="menu-item-image">
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">Cold Brew</h3>
                     <p class="menu-item-description">Slow-steeped coffee served cold for a smooth finish.</p>
                     <p class="menu-item-price">78.99</p>
-                  <!--  <a href="carrito.html">>-->
-                        <button class="add-to-cart">
-                            <span class="material-symbols-outlined">add_shopping_cart</span>
-                            Add to Cart
-                        </button>
-                    </a>  
+                    <!--  <a href="carrito.html">>-->
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                    </a>
                 </div>
             </div>
-            
+
             <div class="menu-item">
                 <img src="../assets/img/menu/cafe_3.avif" alt="Pastry" class="menu-item-image">
                 <div class="menu-item-content">
@@ -123,11 +133,11 @@
                     <p class="menu-item-description">Buttery croissant filled with rich chocolate.</p>
                     <p class="menu-item-price">49.99</p>
                     <!--<a href="carrito.html">>-->
-                        <button class="add-to-cart">
-                            <span class="material-symbols-outlined">add_shopping_cart</span>
-                            Add to Cart
-                        </button>
-                    </a>                    
+                    <button class="add-to-cart">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -141,22 +151,78 @@
                     btn.classList.remove('active');
                 });
                 button.classList.add('active');
-                
-                
+
+
             });
         });
     </script>
 
-          <!-- Poopup -->
+    <!-- Poopup -->
     <div id="errorPopup">
-  <div id="background_popup">
-    <span id="closePopup">&times;</span>
-     <div class="box_img">
-        <img src="../assets/img/bean.png" alt="perfil" />
-     </div>
-    <p id="popupMessage"></p>
-  </div>
+        <div id="background_popup">
+            <span id="closePopup">&times;</span>
 
      <script src="../assets/js/carrito_script.js"></script>
+            <p id="popupMessage"></p>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">Kopi</a>
+                    <p>Tu rincón favorito para disfrutar del mejor café, postres artesanales y un ambiente acogedor. ¡Te
+                        esperamos!</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Menú</h4>
+                    <ul>
+                        <li><a href="pages/menu.html">Cafés Calientes</a></li>
+                        <li><a href="pages/menu.html">Bebidas Frías</a></li>
+                        <li><a href="pages/menu.html">Postres</a></li>
+                        <li><a href="pages/menu.html">Bocadillos</a></li>
+                        <li><a href="pages/menu.html">Promociones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Kopi</h4>
+                    <ul>
+                        <li><a href="#">Nuestra Historia</a></li>
+                        <li><a href="#">Sucursales</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <p>Entérate de nuestras novedades y promociones en redes sociales.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V320H134.4V256h59.8V206.1c0-58.7 35.9-91.1 88.8-91.1 25.3 0 47 1.9 53.3 2.7v55.1h-32.9c-28.5 0-34 13.5-34 33.4V256h61.6l-8 64H269.4V504.5C381.3 476.8 464 376 464 256h48z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kopi Cafetería. Todos los derechos reservados.</p>
+            </div>
+        </footer>
 </body>
+
 </html>

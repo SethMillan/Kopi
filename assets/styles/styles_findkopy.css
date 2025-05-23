@@ -1,43 +1,15 @@
-  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Open Sans', Arial, sans-serif;
-            background-color: #2a2a2a;
-            color: white;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        /* Header Styles */
-        .kopi nav.encabezado {
-            background-color: #160503;
-            color: #FFF;
-            position: relative;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 35px 40px;
-            gap: 20px;
-        }
-
-        .kopi nav.encabezado .home {
-            text-align: center;
-            font-family: Fredoka, sans-serif;
-            font-size: 70px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            letter-spacing: 0.35px;
-            margin-top: -28px;
-            text-decoration: none;
-            color: #FFF;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    overflow: hidden;
+}
 
         .usuario {
             -webkit-user-select: none;
@@ -59,440 +31,385 @@
             margin-right: 40px;
            margin-top: -45px;
         }
+.container {
+    display: flex;
+    height: 100vh;
+}
 
-        .kopi nav.encabezado .btnMenu {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            margin-left: 55px;
-            color: #FFF;
-            text-align: center;
-            font-family: "Open Sans";
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 0.09px;
-        }
+.left-panel {
+    width: 50%;
+    background: linear-gradient(135deg, #2d1810 0%, #1a0f0a 100%);
+    display: flex;
+    flex-direction: column;
+}
 
-        .kopi nav.encabezado .btnMenu .linea {
-            width: 53px;
-            height: 2px;
-            margin-bottom: -20px;
-            margin-top: -20px;
-            flex-shrink: 0;
-            stroke-width: 2px;
-            background-color: #FFF;
-        }
+.search-section {
+    padding: 20px;
+}
 
-        .kopi nav.encabezado .btnFindKopi {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            color: #FFF;
-            text-align: center;
-            font-family: "Open Sans";
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            letter-spacing: 0.1px;
-            padding-right: 70px;
-            margin-top: -24px;
-        }
+.search-bar {
+    position: relative;
+    margin-bottom: 20px;
+}
 
-        .kopi nav.encabezado .btnLogin {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-            cursor: pointer;
-            color: #FFF;
-            text-align: center;
-            font-family: "Open Sans";
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 0.09px;
-            border: #FFF solid;
-            padding: 7px;
-            border-radius: 64px;
-            margin-left: 20px;
-            width: 92px;
-            height: 39px;
-            flex-shrink: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: -20px;
-        }
+.search-input {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+}
 
-        .kopi nav.encabezado .btnRegister {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-            cursor: pointer;
-            color: #FFF;
-            text-align: center;
-            font-family: "Open Sans";
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 0.09px;
-            border-radius: 64px;
-            border: 1px solid #FFF;
-            background: #FFF;
-            margin-left: 20px;
-            color: #160503;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 92px;
-            height: 39px;
-            padding: 7px;
-            margin-top: -20px;
-        }
+.search-input::placeholder {
+    color: #aaa;
+}
 
-        .btnCart {
-            margin-left: 20px;
-        }
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
 
-        .kopi nav.encabezado .material-symbols-outlined {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-            margin-left: 20px;
-            cursor: pointer;
-            font-size: 28px;
-            color: #FFF;
-        }
+.location-marker {
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b35;
+    border-radius: 50%;
+    margin-left: 10px;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+.places-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 20px;
+}
 
-        a:visited {
-            color: inherit;
-            text-decoration: none;
-        }
+.place-card {
+    background: linear-gradient(135deg, #d2691e 0%, #8b4513 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
 
-        /* Main Content */
-        .main-container {
-            display: flex;
-            height: calc(100vh - 140px);
-            position: relative;
-        }
+.place-card:hover {
+    transform: translateY(-2px);
+}
 
-        /* Sidebar */
-        .sidebar {
-            width: 400px;
-            background: rgba(42, 42, 42, 0.95);
-            padding: 30px 20px;
-            overflow-y: auto;
-            border-right: 1px solid #444;
-        }
+.place-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
 
-        .search-container {
-            position: relative;
-            margin-bottom: 30px;
-        }
+.place-address {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
 
-        .search-input {
-            width: 100%;
-            padding: 15px 50px 15px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #555;
-            border-radius: 25px;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
+.place-phone {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
 
-        .search-input:focus {
-            border-color: #ff6b35;
-            background: rgba(255, 255, 255, 0.15);
-        }
+.place-hours {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
 
-        .search-input::placeholder {
-            color: #ccc;
-        }
+.time-icon {
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
 
-        .search-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ccc;
-            font-size: 20px;
-            cursor: pointer;
-        }
+.place-rating {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
 
-        /* Store Cards */
-        .store-card {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+.place-decorative {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #ff6b35, #ffa500);
+    border-radius: 50%;
+    opacity: 0.3;
+}
 
-        .store-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-        }
+.right-panel {
+    width: 50%;
+    position: relative;
+}
 
-        .store-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-            pointer-events: none;
-        }
+#map {
+    width: 100%;
+    height: 100%;
+}
 
-        .store-name {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
+.map-marker {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
 
-        .store-address {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 1;
-        }
+.marker-orange {
+    background-color: #ff6b35;
+}
 
-        .store-hours {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
+.marker-blue {
+    background-color: #0099ff;
+}
 
-        .hours-label {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-        }
+.marker-gray {
+    background-color: #666;
+}
 
-        .store-status {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #4CAF50;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            z-index: 1;
-        }
+.subrayado {
+    display: inline-block;
+    border-bottom: 1.65px solid #8B4513;
+    padding-bottom: 4px;
+    min-width: 20rem;
+    text-align: left;
+}
 
-        .store-status.closed {
-            background: #f44336;
-        }
+.centro {
+    margin-top: -2rem;
+}
 
-        /* Map Container */
-        .map-container {
-            flex: 1;
-            position: relative;
-            background: #f0f0f0;
-        }
+.menu-link {
+    font-size: 1.2rem;
+    color: rgb(170, 170, 170);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding-bottom: 2px;
+}
 
-        .map-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #e8e8e8, #f5f5f5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
+.menu-link:hover {
+    color: #160503;
+    cursor: pointer;
+    border-bottom: 4px solid #8B4513;
+    font-size: 1.4rem;
+}
+nav.encabezado {
+    background-color: #160503;
+    color: #FFF;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 35px 40px;
+    gap: 20px;
+}
 
-        /* Simulated Map */
-        .simulated-map {
-            width: 100%;
-            height: 100%;
-            background: #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
+nav.encabezado .home {
+    text-align: center;
+    font-family: Fredoka, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    margin-top: -28px;
+    text-decoration: none;
+    color: #FFF;
+}
 
-        .map-streets {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, #ddd 1px, transparent 1px),
-                linear-gradient(180deg, #ddd 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.5;
-        }
+nav.encabezado .btnMenu {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 30px;
+    gap: 20px;
+    margin-left: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+}
 
-        .map-labels {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+nav.encabezado .btnMenu .linea {
+    width: 53px;
+    height: 2px;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    background-color: #FFF;
+}
 
-        .area-label {
-            position: absolute;
-            font-weight: 600;
-            color: #666;
-            font-size: 16px;
-            text-transform: uppercase;
-        }
+@media (max-width: 670px) {
+  nav.encabezado .btnMenu {
+    display: none;
+  }
+}
 
-        .street-label {
-            position: absolute;
-            font-size: 12px;
-            color: #999;
-            background: rgba(255,255,255,0.8);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
+nav.encabezado .btnFindKopi {
+  user-select: none;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  padding-right: 70px;
+  margin-top: -24px;
+}
 
-        /* Map Markers */
-        .map-marker {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: #ff6b35;
-            border: 3px solid white;
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
+@media (max-width: 960px) {
+  nav.encabezado .btnFindKopi {
+    padding-right: 0px;
+  }
+}
 
-        .map-marker:hover {
-            transform: rotate(-45deg) scale(1.2);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
+nav.encabezado .btnLogin {
+  user-select: none;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  border: #FFF solid;
+  padding: 7px;
+  border-radius: 64px;
+  margin-left: 20px;
+  width: 92px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
 
-        .map-marker::before {
-            content: '☕';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            font-size: 16px;
-            color: white;
-        }
+nav.encabezado .btnLogin a {
+  text-decoration: none;
+  color: inherit;
+}
 
-        /* Tooltip */
-        .marker-tooltip {
-            position: absolute;
-            bottom: 45px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(22, 5, 3, 0.95);
-            color: white;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+@media (max-width: 960px) {
+  nav.encabezado .btnLogin {
+    display: none;
+  }
+}
 
-        .marker-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 6px solid transparent;
-            border-top-color: rgba(22, 5, 3, 0.95);
-        }
+nav.encabezado .btnRegister {
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  letter-spacing: 0.09px;
+  border-radius: 64px;
+  border: 1px solid #FFF;
+  background: #FFF;
+  margin-left: 20px;
+  color: #160503;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 92px;
+  height: 39px;
+  padding: 7px;
+  margin-top: -20px;
+}
 
-        .map-marker:hover .marker-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
+nav.encabezado .btnRegister a {
+  text-decoration: none;
+  color: inherit;
+}
 
-        /* Responsive Design */
-        @media (max-width: 960px) {
-            .kopi nav.encabezado .btnFindKopi {
-                padding-right: 0px;
-            }
-            .kopi nav.encabezado .btnLogin,
-            .kopi nav.encabezado .btnRegister {
-                display: none;
-            }
-        }
+@media (max-width: 960px) {
+  nav.encabezado .btnRegister {
+    display: none;
+  }
+}
 
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                height: auto;
-            }
-            
-            .sidebar {
-                width: 100%;
-                height: 300px;
-            }
-            
-            .map-container {
-                height: 400px;
-            }
-            
-            .kopi nav.encabezado .btnMenu {
-                display: none;
-            }
-        }
+nav.encabezado .material-symbols-outlined {
+  user-select: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
 
-        /* Active states */
-        .store-card.active {
-            border: 3px solid #ff6b35;
-            transform: translateY(-3px);
-        }
+nav.encabezado #shopping_cart {
+  margin-top: -25px;
+}
 
-        .map-marker.active {
-            background: #ff4444;
-            transform: rotate(-45deg) scale(1.3);
-            z-index: 20;
-        }
+@media (max-width: 960px) {
+  nav.encabezado #shopping_cart {
+    display: none;
+  }
+}
 
-        /* Loading animation */
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
+nav.encabezado #menu {
+  user-select: none;
+}
 
-        .loading {
-            animation: pulse 2s infinite;
-        }
+@media (min-width: 961px) {
+  nav.encabezado #menu {
+    display: none;
+  }
+}
+
+.usuario {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  width: 53px;
+  height: 2px;
+  margin-right: 40px;
+  margin-top: -80px;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
