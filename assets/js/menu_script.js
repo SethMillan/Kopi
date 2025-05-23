@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createProductHTML(product) {
         const stockBadge = product.stock < 10 && product.stock > 0 ? `<span class="stock-badge low-stock">Solo ${product.stock} disponibles</span>` : '';
         const disabledClass = product.stock === 0 ? 'disabled' : '';
-        const buttonText = product.stock === 0 ? 'Sin Stock' : 'Comprame!';
+        const buttonText = product.stock === 0 ? 'Sin Stock' : 'Add to Cart';
         const buttonIcon = product.stock === 0 ? 'block' : 'add_shopping_cart';
         
         return `
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Deshabilitar el botón temporalmente
                 button.disabled = true;
-                button.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Agregando al carrito...';
+                button.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Adding...';
                 
                 try {
                     const response = await fetch('../php/carrito.php', {
@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     if (data.success) {
                         // Éxito - mostrar mensaje de confirmación
-                        button.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Listo!';
-                        button.classList.add('<success>');
+                        button.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Added!';
+                        button.classList.add('success');
                         
                         // Actualizar el contador del carrito si existe
                         updateCartCounter(data.total_items);
@@ -207,14 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Restaurar el botón después de 2 segundos
                         setTimeout(() => {
                             button.disabled = false;
-                            button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Comprame!';
+                            button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Add to Cart';
                             button.classList.remove('success');
                         }, 2000);
                     } else {
-                        throw new Error(data.message || 'WOOOPS operacion fallida D:');
+                        throw new Error(data.message || 'Failed to add to cart');
                     }
                 } catch (error) {
-                    console.error('Error agregando al carrito:', error);
+                    console.error('Error adding to cart:', error);
                     
                     // Error - mostrar mensaje específico
                     let errorMessage = 'Error';
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Restaurar el botón después de 3 segundos
                     setTimeout(() => {
                         button.disabled = false;
-                        button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Comprame!';
+                        button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Add to Cart';
                         button.classList.remove('error');
                     }, 3000);
                 }

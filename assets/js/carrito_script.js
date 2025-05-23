@@ -146,31 +146,6 @@ if (data.success && data.guardado.length > 0) {
         console.error('Error al cargar el carrito', err);
         if (carritoBasio) carritoBasio.style.display = 'block';
     });
-    // Dentro de la función cargarCarrito()
-if (data.success && data.carrito.length > 0) {
-    data.carrito.forEach(producto => {
-        const clone = template.cloneNode(true);
-        clone.removeAttribute('id'); // Eliminar posibles IDs duplicados
-        clone.dataset.productId = producto.id; // Asegurar atributo data
-        
-        // Limpiar contenido previo
-        clone.querySelector('.nombre').textContent = producto.nombre;
-        clone.querySelector('.price').textContent = `$${producto.precio.toFixed(2)}`;
-        clone.querySelector('.price2').textContent = `$${(producto.precio * producto.cantidad).toFixed(2)}`;
-        clone.querySelector('label').textContent = producto.cantidad;
-        
-        // Actualizar imagen
-        const img = clone.querySelector('img');
-        if (img && producto.imagen) {
-            img.src = producto.imagen;
-            img.style.display = 'block'; // Asegurar visibilidad
-        }
-        
-        orderSummary.appendChild(clone);
-    });
-}
-
-
 }
 
 
