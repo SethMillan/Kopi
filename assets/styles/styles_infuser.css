@@ -216,3 +216,194 @@ ul li label:hover {
     border-bottom: 4px solid #8B4513;
     font-size: 1.4rem;
 }
+nav.encabezado {
+  background-color: #160503;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 35px 40px;
+  gap: 20px;
+}
+
+nav.encabezado .home {
+  text-align: center;
+  font-family: Fredoka, sans-serif;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.35px;
+  margin-top: -28px;
+  text-decoration: none;
+  color: #FFF;
+}
+
+nav.encabezado .btnMenu {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 55px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+}
+
+nav.encabezado .btnMenu .linea {
+  width: 53px;
+  height: 2px;
+  margin-bottom: -20px;
+  margin-top: -20px;
+  background-color: #FFF;
+}
+
+@media (max-width: 670px) {
+  nav.encabezado .btnMenu {
+    display: none;
+  }
+}
+
+nav.encabezado .btnFindKopi {
+  user-select: none;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  padding-right: 70px;
+  margin-top: -24px;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado .btnFindKopi {
+    padding-right: 0px;
+  }
+}
+
+nav.encabezado .btnLogin {
+  user-select: none;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  border: #FFF solid;
+  padding: 7px;
+  border-radius: 64px;
+  margin-left: 20px;
+  width: 92px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+
+nav.encabezado .btnLogin a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado .btnLogin {
+    display: none;
+  }
+}
+
+nav.encabezado .btnRegister {
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  letter-spacing: 0.09px;
+  border-radius: 64px;
+  border: 1px solid #FFF;
+  background: #FFF;
+  margin-left: 20px;
+  color: #160503;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 92px;
+  height: 39px;
+  padding: 7px;
+  margin-top: -20px;
+}
+
+nav.encabezado .btnRegister a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado .btnRegister {
+    display: none;
+  }
+}
+
+nav.encabezado .material-symbols-outlined {
+  user-select: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+nav.encabezado #shopping_cart {
+  margin-top: -25px;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado #shopping_cart {
+    display: none;
+  }
+}
+
+nav.encabezado #menu {
+  user-select: none;
+}
+
+@media (min-width: 961px) {
+  nav.encabezado #menu {
+    display: none;
+  }
+}
+
+.usuario {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  width: 53px;
+  height: 2px;
+  margin-right: 40px;
+  margin-top: -80px;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,11 +1,5 @@
 <?php
-
-$host     = 'ep-icy-fire-a4s4jr5h-pooler.us-east-1.aws.neon.tech';
-$port     = '5432';
-$dbname   = 'kopi';
-$user     = 'kopi_owner';
-$password = 'npg_I96AhqlJUrkZ';
-$sslmode  = 'require';
+include 'db.php';
 
 try {
     // Crear conexión
