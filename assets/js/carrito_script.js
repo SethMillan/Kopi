@@ -127,8 +127,8 @@ if (data.success && data.guardado.length > 0) {
         if (imagenTag && producto.imagen) {
             imagenTag.src = producto.imagen;
         }
-
-        const label = clone.querySelector('label');
+    
+         const label = clone.querySelector('label');
         label.textContent = producto.cantidad;
 
         orderSummary.appendChild(clone);
@@ -221,7 +221,7 @@ if (data.success && data.guardado.length > 0) {
             // Remover clase de carga después de completar la solicitud
             producto.classList.remove('loading-overlay');
             });
-            
+
 } else if (e.target.classList.contains('guardar')) {
     const producto = e.target.closest('.product-details');
     const productoNombre = producto.querySelector('.nombre').textContent;
