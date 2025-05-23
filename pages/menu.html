@@ -11,6 +11,10 @@
         href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="../assets/js/menu_script.js"></script>
 </head>
 <body>
@@ -21,33 +25,38 @@
         <a href="/" class="home">Kopi</a>
         <div class="btnMenu">
             <div class="linea"></div>
-            <p>MENU</p>
+            <a href="menu.html">
+                <p class="menu-text">MENU</p>
+            </a>
             <div class="linea"></div>
         </div>
         <div class="btnFindKopi">
             <span class="material-symbols-outlined">location_on</span>
-            <p>Find your Kopi</p>
+            <a href="find_kopy.html">
+                <p>Encuentra tu kopi</p>
+            </a>
         </div>
-        <div class="btnLogin">
+        <div class="btnLogin" id="btnlogin">
             <a href="login.html">
                 <p>Login</p>
             </a>
         </div>
-             
-        <div class="btnRegister">
+        <div class="btnRegister" id="btnregister">
             <a href="login.html?show=register">
                 <p>Join</p>
             </a>
         </div>
-        
-        <div class="btnCart">
-            <a href="carrito.html">
-                <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+        <div class="usuario" id="usuario">
+            <a href="../pages/usermenu.html">
+                <p id="nombreUsuario">Usuario</p>
             </a>
-        </div>  
+        </div>
+        <a href="../pages/carrito.html">
+            <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+        </a>
 
         <span class="material-symbols-outlined" id="menu">menu</span>
-    </nav>
+    </nav>> <!-- Fin de barra de navegacion superior-->
     <!-- AQUI EMPIEZA EL CONTENIDO DEL MENU -->
     <main class="menu-content">
         <h1 class="menu-title">Nuestro Menu</h1>
@@ -148,5 +157,6 @@
     <p id="popupMessage"></p>
   </div>
 
+     <script src="../assets/js/carrito_script.js"></script>
 </body>
 </html>

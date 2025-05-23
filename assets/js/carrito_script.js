@@ -72,7 +72,7 @@ function cargarCarrito() {
             data.carrito.forEach(producto => {
                 const clone = template.cloneNode(true);
                 clone.style.display = 'flex'; // Mostramos el clon
-                
+                ///////////////////////
 
                 // Actualiza los datos del producto
                 clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
