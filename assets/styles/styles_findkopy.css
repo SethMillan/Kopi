@@ -193,13 +193,66 @@
         }
 
         /* Sidebar */
-        .sidebar {
-            width: 400px;
-            background: rgba(42, 42, 42, 0.95);
-            padding: 30px 20px;
-            overflow-y: auto;
-            border-right: 1px solid #444;
-        }
+.sidebar {
+    width: 400px;
+    background: linear-gradient(135deg, 
+        #D2691E 0%, 
+        #FF8C00 15%, 
+        #CD853F 35%, 
+        #A0522D 55%, 
+        #8B4513 75%, 
+        rgba(42, 42, 42, 0.95) 100%);
+    padding: 30px 20px;
+    overflow-y: auto;
+    border-right: 1px solid #444;
+    position: relative;
+}
+
+/* Overlay sutil para mejor legibilidad */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(22, 5, 3, 0.3); /* Color del header para coherencia */
+    pointer-events: none;
+    z-index: 1;
+}
+
+        .sidebar-subtle {
+    width: 400px;
+    background: linear-gradient(135deg, rgba(210, 105, 30, 0.3) 0%, rgba(255, 140, 0, 0.2) 50%, rgba(42, 42, 42, 0.95) 100%);
+    padding: 30px 20px;
+    overflow-y: auto;
+    border-right: 1px solid #444;
+}
+
+/* Degradado para las tarjetas individuales como en la imagen */
+.coffee-card {
+    background: linear-gradient(135deg, #D2691E 0%, #FF8C00 30%, #CD853F 70%, #8B4513 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de líneas diagonales como en la imagen */
+.coffee-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+    pointer-events: none;
+}
 
         .search-container {
             position: relative;
