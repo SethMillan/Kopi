@@ -203,52 +203,54 @@ body {
     font-size: 1.4rem;
 }
 nav.encabezado {
-  background-color: #160503;
-  color: #FFF;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 35px 40px;
-  gap: 20px;
+    background-color: #160503;
+    color: #FFF;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 35px 40px;
+    gap: 20px;
 }
 
 nav.encabezado .home {
-  text-align: center;
-  font-family: Fredoka, sans-serif;
-  font-size: 70px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 0.35px;
-  margin-top: -28px;
-  text-decoration: none;
-  color: #FFF;
+    text-align: center;
+    font-family: Fredoka, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    margin-top: -28px;
+    text-decoration: none;
+    color: #FFF;
 }
 
 nav.encabezado .btnMenu {
-  user-select: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  margin-left: 55px;
-  color: #FFF;
-  text-align: center;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.09px;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 30px;
+    gap: 20px;
+    margin-left: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
 }
 
 nav.encabezado .btnMenu .linea {
-  width: 53px;
-  height: 2px;
-  margin-bottom: -20px;
-  margin-top: -20px;
-  background-color: #FFF;
+    width: 53px;
+    height: 2px;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    background-color: #FFF;
 }
 
 @media (max-width: 670px) {
