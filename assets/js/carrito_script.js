@@ -192,6 +192,7 @@ if (data.success && data.guardado.length > 0) {
         }else if (e.target.classList.contains('eliminar')) {
             const producto = e.target.closest('.product-details');
             const productoNombre = producto.querySelector('.nombre').textContent;
+            producto.classList.add('loading-overlay');
         
             console.log(`Producto a eliminar: ${productoNombre}`);
         
@@ -216,7 +217,11 @@ if (data.success && data.guardado.length > 0) {
             })
             .catch(err => {
                 console.error('Error al eliminar producto', err);
+            }).finally(() => {
+            // Remover clase de carga después de completar la solicitud
+            producto.classList.remove('loading-overlay');
             });
+            
 } else if (e.target.classList.contains('guardar')) {
     const producto = e.target.closest('.product-details');
     const productoNombre = producto.querySelector('.nombre').textContent;
