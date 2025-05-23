@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/styles/styles_findkopy.css">
     <script src="https://js.stripe.com/v3/"></script>
     <script src="../assets/js/carrito_script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap&libraries=marker" async defer></script>
         <link
         href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     rel="stylesheet"/>
@@ -17,253 +18,183 @@
     <title>Encuentranos | Kopi</title>
 </head>
 <body>
-    <!-- Header -->
-    <div class="kopi">
-        <nav class="encabezado">
-            <a href="/" class="home">Kopi</a>
-            <div class="btnMenu">
-                <div class="linea"></div>
-                <a href="menu.html"><p class="menu-text">MENU</p></a>
-                <div class="linea"></div>
-            </div>
-            <div class="btnFindKopi">
-                <span class="material-symbols-outlined">location_on</span>
-                <p>Encuentra tu Kopi</p>
-            </div>
-            <div class="btnLogin" id="btnlogin">
-                <a href="login.html">
-                    <p>Login</p>
-                </a>
-            </div>
-            <div class="btnRegister" id="btnregister">
-                <a href="login.html?show=register">
-                    <p>Join</p>
-                </a>
-            </div>
-            <div class="usuario" id="usuario">
-                <a href="../pages/usermenu.html">
-                    <p id="nombreUsuario">efren</p>
-                </a>
-            </div>
-            <div class="btnCart">
-                <a href="carrito.html">
-                    <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
-                </a>
-            </div>  
-            <span class="material-symbols-outlined" id="menu">menu</span>
-        </nav>
-
-        <!-- Main Content -->
-        <div class="main-container">
-            <!-- Sidebar with Store List -->
-            <div class="sidebar">
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Find your Kopi" id="searchInput">
-                    <span class="material-symbols-outlined search-icon">search</span>
+   <div class="container">
+        <div class="left-panel">
+            <div class="header">
+                <div class="logo-section">
+                    <div class="logo">Kopi</div>
+                    <button class="menu-btn">MENU</button>
                 </div>
-
-                <div class="stores-list" id="storesList">
-                    <div class="store-card" data-store="plaza-americas-1">
-                        <div class="store-status">Abierto</div>
-                        <h3 class="store-name">Plaza las Américas</h3>
-                        <p class="store-address">Av. Lázaro Cárdenas</p>
-                        <p class="store-address">Col. Centro 5800</p>
-                        <p class="store-address">+52 715 166 5037</p>
-                        <div class="store-hours">
-                            <span class="hours-label">⏰</span>
-                            <span>7:00 AM a 15:00</span>
-                        </div>
+                <div class="header-right">
+                    <div class="find-kopi">
+                        <div class="location-icon"></div>
+                        <span>Find your Kopi</span>
                     </div>
-
-                    <div class="store-card" data-store="plaza-americas-2">
-                        <div class="store-status">Cerrado</div>
-                        <h3 class="store-name">Beta</h3>
-                        <p class="store-address">Av. Lázaro Cárdenas</p>
-                        <p class="store-address">Col. Centro 5800</p>
-                        <p class="store-address">+52 453 145 2316</p>
-                        <div class="store-hours">
-                            <span class="hours-label">⏰</span>
-                            <span>7:00 AM a 15:00</span>
-                        </div>
+                    <div class="auth-buttons">
+                        <button class="login-btn">Login</button>
+                        <button class="join-btn">Join</button>
                     </div>
-
-                    <div class="store-card" data-store="plaza-americas-3">
-                        <div class="store-status">Cerrado</div>
-                        <h3 class="store-name">Beta2</h3>
-                        <p class="store-address">Av. Lázaro Cárdenas</p>
-                        <p class="store-address">Col. Centro 5800</p>
-                        <p class="store-address">+52 443 130 4008</p>
-                        <div class="store-hours">
-                            <span class="hours-label">⏰</span>
-                            <span>7:00 AM a 15:00</span>
-                        </div>
-                    </div>
+                    <div class="cart-icon"></div>
                 </div>
             </div>
-
-            <!-- Map Container -->
-            <div class="map-container">
-                <div class="simulated-map">
-                    <div class="map-streets"></div>
-                    
-                    <!-- Area Labels -->
-                    <div class="map-labels">
-                        <div class="area-label" style="top: 15%; right: 15%;">ZAFIRO</div>
-                        <div class="area-label" style="top: 25%; right: 25%;">INDUSTRIAL</div>
-                        <div class="area-label" style="top: 40%; right: 30%;">MORELIA</div>
-                        <div class="area-label" style="bottom: 35%; right: 20%;">CENTRO HISTÓRICO</div>
-                        <div class="area-label" style="bottom: 35%; right: 20%; margin-top: 25px; font-size: 14px;">DE MORELIA</div>
-                        <div class="area-label" style="bottom: 15%; left: 15%;">PIPILA</div>
-                        
-                        <div class="street-label" style="top: 45%; left: 15%;">C. Guerrero</div>
-                        <div class="street-label" style="bottom: 25%; left: 20%;">C. Manuel</div>
-                        <div class="street-label" style="bottom: 20%; right: 15%;">C. Aldama</div>
-                        <div class="street-label" style="top: 35%; right: 45%; transform: rotate(90deg);">de Rayón</div>
+            
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Find your Kopi">
+                    <span class="search-icon"></span>
+                </div>
+                <div class="location-marker"></div>
+            </div>
+            
+            <div class="places-list">
+                <div class="place-card">
+                    <div class="place-rating">4.8★</div>
+                    <div class="place-title">Plaza las Américas</div>
+                    <div class="place-address">Av. Lázaro Cárdenas</div>
+                    <div class="place-address">Col. Centro 58000</div>
+                    <div class="place-phone">+716 666 3021</div>
+                    <div class="place-hours">
+                        <div class="time-icon"></div>
+                        <span>7:00 AM a 15:00</span>
                     </div>
-
-                    <!-- Map Markers -->
-                    <div class="map-marker" data-store="plaza-americas-1" style="top: 30%; left: 25%;">
-                        <div class="marker-tooltip">Plaza las Américas - Lázaro Cárdenas</div>
+                    <div class="place-decorative"></div>
+                </div>
+                
+                <div class="place-card">
+                    <div class="place-rating">4.6★</div>
+                    <div class="place-title">Plaza U</div>
+                    <div class="place-address">Av. Lázaro Cárdenas</div>
+                    <div class="place-address">Col. Centro 58000</div>
+                    <div class="place-phone">+716 666 3021</div>
+                    <div class="place-hours">
+                        <div class="time-icon"></div>
+                        <span>7:00 AM a 15:00</span>
                     </div>
-
-                    <div class="map-marker" data-store="cueva-chucho" style="top: 40%; left: 40%;">
-                        <div class="marker-tooltip">La Cueva de Chucho</div>
+                    <div class="place-decorative"></div>
+                </div>
+                
+                <div class="place-card">
+                    <div class="place-rating">4.7★</div>
+                    <div class="place-title">Plaza Andador</div>
+                    <div class="place-address">Av. Lázaro Crisanto</div>
+                    <div class="place-address">Col. Centro 58001</div>
+                    <div class="place-phone">+716 666 6021</div>
+                    <div class="place-hours">
+                        <div class="time-icon"></div>
+                        <span>7:00 AM a 15:00</span>
                     </div>
-
-                    <div class="map-marker" data-store="papeleria-lumen" style="top: 50%; left: 30%;">
-                        <div class="marker-tooltip">Papelería Lumen Santiago Tapia</div>
-                    </div>
-
-                    <div class="map-marker" data-store="mercado-artesanias" style="top: 55%; right: 25%;">
-                        <div class="marker-tooltip">Mercado de artesanías y dulces</div>
-                    </div>
-
-                    <div class="map-marker" data-store="gaspachos-guero" style="bottom: 30%; left: 45%;">
-                        <div class="marker-tooltip">Gaspachos El Güero</div>
-                    </div>
+                    <div class="place-decorative"></div>
                 </div>
             </div>
+        </div>
+        
+        <div class="right-panel">
+            <div id="map"></div>
         </div>
     </div>
 
     <script>
-        // Store data
-        const stores = [
-            {
-                id: 'plaza-americas-1',
-                name: 'Plaza las Américas',
-                address: 'Av. Lázaro Cárdenas, Col. Centro 5800',
-                phone: '+716 666 3021',
-                hours: '7:00 AM a 15:00',
-                status: 'Abierto',
-                coordinates: { top: '30%', left: '25%' }
-            },
-            {
-                id: 'cueva-chucho',
-                name: 'La Cueva de Chucho',
-                address: 'Centro Histórico de Morelia',
-                phone: '+716 555 1234',
-                hours: '8:00 AM a 18:00',
-                status: 'Abierto',
-                coordinates: { top: '40%', left: '40%' }
-            },
-            {
-                id: 'papeleria-lumen',
-                name: 'Papelería Lumen Santiago Tapia',
-                address: 'Santiago Tapia, Centro',
-                phone: '+716 555 5678',
-                hours: '9:00 AM a 17:00',
-                status: 'Abierto',
-                coordinates: { top: '50%', left: '30%' }
-            }
-        ];
+        let map;
+        let markers = [];
 
-        // DOM Elements
-        const storeCards = document.querySelectorAll('.store-card');
-        const mapMarkers = document.querySelectorAll('.map-marker');
-        const searchInput = document.getElementById('searchInput');
-
-        // Add click interactions
-        storeCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const storeId = card.dataset.store;
-                highlightStore(storeId);
+        function initMap() {
+            // Coordenadas de Morelia, Michoacán
+            const morelia = { lat: 19.7010, lng: -101.1846 };
+            
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: morelia,
+                styles: [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry.fill",
+                        "stylers": [{"color": "#f5f5f5"}]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{"color": "#666666"}]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#ffffff"}]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{"color": "#333333"}]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#ddeeff"}]
+                    }
+                ]
             });
-        });
 
-        mapMarkers.forEach(marker => {
-            marker.addEventListener('click', () => {
-                const storeId = marker.dataset.store;
-                highlightStore(storeId);
+        
+            locations.forEach(location => {
+                const marker = new google.maps.Marker({
+                    position: location.position,
+                    map: map,
+                    title: location.title,
+                    icon: {
+                        url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                            <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="18" fill="${location.color}" stroke="white" stroke-width="2"/>
+                                <text x="20" y="26" text-anchor="middle" fill="white" font-size="16" font-family="Arial">${location.icon}</text>
+                            </svg>
+                        `)}`,
+                        scaledSize: new google.maps.Size(40, 40)
+                    }
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<div style="color: black; font-weight: bold;">${location.title}</div>`
+                });
+
+                marker.addListener('click', () => {
+                    infoWindow.open(map, marker);
+                });
+
+                markers.push(marker);
             });
-        });
-
-        // Highlight function
-        function highlightStore(storeId) {
-            // Remove active class from all elements
-            storeCards.forEach(card => card.classList.remove('active'));
-            mapMarkers.forEach(marker => marker.classList.remove('active'));
-
-            // Add active class to selected elements
-            const selectedCard = document.querySelector(`.store-card[data-store="${storeId}"]`);
-            const selectedMarker = document.querySelector(`.map-marker[data-store="${storeId}"]`);
-
-            if (selectedCard) selectedCard.classList.add('active');
-            if (selectedMarker) selectedMarker.classList.add('active');
-
-            // Scroll card into view on mobile
-            if (selectedCard && window.innerWidth <= 768) {
-                selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
         }
 
-        // Search functionality
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
+        // Animaciones para las tarjetas
+        document.querySelectorAll('.place-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
+            });
             
-            storeCards.forEach(card => {
-                const storeName = card.querySelector('.store-name').textContent.toLowerCase();
-                const storeAddress = card.querySelector('.store-address').textContent.toLowerCase();
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Funcionalidad de búsqueda
+        document.querySelector('.search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.place-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.place-title').textContent.toLowerCase();
+                const address = card.querySelector('.place-address').textContent.toLowerCase();
                 
-                if (storeName.includes(searchTerm) || storeAddress.includes(searchTerm)) {
+                if (title.includes(searchTerm) || address.includes(searchTerm)) {
                     card.style.display = 'block';
-                    card.style.animation = 'none';
-                    setTimeout(() => {
-                        card.style.animation = 'pulse 0.5s ease';
-                    }, 10);
                 } else {
                     card.style.display = searchTerm === '' ? 'block' : 'none';
                 }
             });
         });
-
-        // Add loading animation on page load
-        window.addEventListener('load', () => {
-            const sidebar = document.querySelector('.sidebar');
-            const mapContainer = document.querySelector('.map-container');
-            
-            sidebar.classList.add('loading');
-            mapContainer.classList.add('loading');
-            
-            setTimeout(() => {
-                sidebar.classList.remove('loading');
-                mapContainer.classList.remove('loading');
-            }, 1500);
-        });
-
-        // Mobile menu toggle (if needed)
-        const menuIcon = document.getElementById('menu');
-        menuIcon.addEventListener('click', () => {
-            // Add mobile menu functionality here if needed
-            console.log('Mobile menu clicked');
-        });
-
-        // Auto-highlight first store on load
-        setTimeout(() => {
-            if (storeCards.length > 0) {
-                highlightStore(storeCards[0].dataset.store);
-            }
-        }, 1000);
+    </script>
+    
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 </body>
 </html>
