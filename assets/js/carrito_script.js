@@ -68,6 +68,7 @@ function cargarCarrito() {
             data.carrito.forEach(producto => {
                 const clone = template.cloneNode(true);
                 clone.style.display = 'flex'; // Mostramos el clon
+                
 
                 // Actualiza los datos del producto
                 clone.querySelector('p:nth-of-type(2)').textContent = producto.nombre;
@@ -216,42 +217,49 @@ if (data.success && data.guardado.length > 0) {
             .catch(err => {
                 console.error('Error al eliminar producto', err);
             });
-        } else if (e.target.classList.contains('guardar')) {
-            const producto = e.target.closest('.product-details');
-            const productoNombre = producto.querySelector('.nombre').textContent;
+} else if (e.target.classList.contains('guardar')) {
+    const producto = e.target.closest('.product-details');
+    const productoNombre = producto.querySelector('.nombre').textContent;
 
-            fetch('http://localhost:3000/php/carrito.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    accion: 'guardar',
-                    nombre: productoNombre
-                })
-            })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    throw new Error('Error en la solicitud');
-                }
-            })
-            .then(data => {
-                console.log(data);  // Verifica el objeto de respuesta en la consola
-                if (data.success) {
-                    cargarCarrito();  // Recargar el carrito después de la eliminación
-                } else {
-                    alert("No se pudo guardar el producto.");
-                }
-            })
-            .catch(err => {
-                 console.error('Error al hacer la solicitud:', err);
-            });
-            
+    // Aplicar clase de "cargando"
+    producto.classList.add('loading-overlay');
 
-            console.log("guardar");
-        } else if (e.target.classList.contains('similares')) {
+    fetch('http://localhost:3000/php/carrito.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            accion: 'guardar',
+            nombre: productoNombre
+        })
+    })
+    .then(res => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error('Error en la solicitud');
+        }
+    })
+    .then(data => {
+        console.log(data);
+        if (data.success) {
+            cargarCarrito();
+        } else {
+            alert("No se pudo guardar el producto.");
+        }
+    })
+    .catch(err => {
+        console.error('Error al hacer la solicitud:', err);
+    })
+    .finally(() => {
+        // Remover clase de carga después de completar la solicitud
+        producto.classList.remove('loading-overlay');
+    });
+
+    console.log("guardar");
+}
+ else if (e.target.classList.contains('similares')) {
             window.location.href = 'http://localhost:3000/pages/menu.html'; 
         } else if (e.target.classList.contains('compartir')) {
             console.log("compartir");

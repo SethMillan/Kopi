@@ -249,7 +249,7 @@ body {
   background: #131313;
 }
 
-/* Estilos para los detalles del producto */
+/* Estilos para los detalles del producto en general este es el fondo donde esta todos adentro*/
 .product-details {
     background-color: #ffffff;
     color: #000000;
@@ -448,3 +448,8 @@ button:hover {
     background-color: #252525; 
 }
 
+.loading-overlay {
+  pointer-events: none; /* evita clicks mientras carga */
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
