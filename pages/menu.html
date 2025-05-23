@@ -21,8 +21,6 @@
 
 <body>
     <!-- ESTA PARTE ES EL NAVEGADOR-->
-    <div class="difuminado"></div>
-
     <nav class="encabezado">
         <a href="/" class="home">Kopi</a>
         <div class="btnMenu">
@@ -43,23 +41,19 @@
                 <p>Login</p>
             </a>
         </div>
-        <div class="btnRegister">
+        <div class="btnRegister" id="btnregister">
             <a href="login.html?show=register">
                 <p>Join</p>
             </a>
         </div>
-
         <div class="usuario" id="usuario">
             <a href="../pages/usermenu.html">
                 <p id="nombreUsuario">Usuario</p>
             </a>
         </div>
-        
-        <div class="btnCart">
-            <a href="carrito.html">
-                <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
-            </a>
-        </div>
+        <a href="../pages/carrito.html">
+            <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+        </a>
 
         <span class="material-symbols-outlined" id="menu">menu</span>
     </nav>> <!-- Fin de barra de navegacion superior-->
@@ -219,6 +213,8 @@
                 <p>&copy; 2025 Kopi Cafetería. Todos los derechos reservados.</p>
             </div>
         </footer>
+            <script src="../assets/js/carrito_script.js"></script>
+
 </body>
 
 </html>
