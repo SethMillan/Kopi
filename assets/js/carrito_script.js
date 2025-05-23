@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnUser.style.display = 'none'
     let precioTotal = 0;
    
+    function actualizarTotales(precioTotal) {
+    carritoSubtotal.textContent = "Subtotal $" + precioTotal.toFixed(2);
+    carritoTotal.textContent = "Total $" + (precioTotal + 1).toFixed(2); // Puedes cambiar el 10 por el costo de envío u otra lógica
+    }
 
     //Para iniciar sección
     function verificar_sesion(){
@@ -91,8 +95,8 @@ function cargarCarrito() {
                 orderSummary.appendChild(clone);
             });
 
-            carritoSubtotal.textContent = "Subtotal " + "$" + precioTotal;
-            carritoTotal.textContent = "Total " + "$" + (precioTotal + 10);
+            actualizarTotales(precioTotal);
+
 
             // Ocultar mensaje de "carrito vacío"
             if (carritoBasio) carritoBasio.style.display = 'none';
@@ -101,6 +105,8 @@ function cargarCarrito() {
             // Mostrar mensaje de "carrito vacío"
             if (carritoBasio) carritoBasio.style.display = 'block';
         }
+
+        actualizarTotales(precioTotal);
 
      // Si hay productos guardados, crear los elementos
 if (data.success && data.guardado.length > 0) {
