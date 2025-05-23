@@ -12,46 +12,54 @@
 </head>
 
 <body>
-  <div ID="contenedor1">
+    <div ID="contenedor1">
         <div class="contIzq contComun" id="kopi"><strong>Kopi</strong></div>
-        <div class="contIzq contComun" id="menu"><b id="dd">MENU</b></div>
+        <!-- <div class="contIzq contComun" id="menu"><b id="dd">MENU</b></div> -->
+        <a href="menu.html" class="contIzq contComun" id="menu">
+            <b id="dd">MENU</b> </a>
 
-        <div class="contDer contComun">
+        <a href="../pages/carrito.html" class="contDer contComun">
             <p><i class="fas fa-shopping-cart"></i></p>
-        </div>
+        </a>
+
         <div class="contDer contComun">
             <p><strong>Hola, Oscar</strong></p>
         </div>
-        <div class="contDer contComun"> 
+        <div class="contDer contComun">
             <p><strong>220 pts</strong></p>
         </div>
-        <div class="contDer contComun" id="find">
+        <a href="../pages/find_kopy.html" class="contDer contComun" id="find">
             <p><i class="fas fa-map-marker-alt"></i> <strong>Encuentra tu Kopi</strong></p>
-        </div>
+        </a>
+
+    </div>
+
     </div> <!-- Fin de barra de navegacion superior-->
-    
+
     <!-- Inicio bloque izquierdo -->
     <div class="container">
         <!-- Resumen del pedido -->
         <div class="order-summary">
             <h2 id="og">Order Summary</h2>
-        
+
             <!-- Contenedor con scroll -->
-            <div class="products-scroll">
+            <div class="products-scroll" id="products-container">
                 <!-- Detalles del producto -->
                 <div class="product-details">
-                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
                     <div class="product-info">
                         <p><strong>Product:</strong></p>
                         <p>Kopi-Organico</p>
                         <p>Qty: 2</p>
-                        <p>Eliminar  Guardar para mas tarde  Ver productos similares  Compartir</p>
+                        <p>Eliminar Guardar para mas tarde Ver productos similares Compartir</p>
                     </div>
                     <p class="price">$49.80</p>
                 </div>
-        
+
                 <div class="product-details">
-                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
                     <div class="product-info">
                         <p><strong>Product:</strong></p>
                         <p>Kopi-Organico</p>
@@ -61,7 +69,8 @@
                 </div>
 
                 <div class="product-details">
-                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
                     <div class="product-info">
                         <p><strong>Product:</strong></p>
                         <p>Kopi-Organico</p>
@@ -71,7 +80,8 @@
                 </div>
 
                 <div class="product-details">
-                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
                     <div class="product-info">
                         <p><strong>Product:</strong></p>
                         <p>Kopi-Organico</p>
@@ -79,9 +89,10 @@
                     </div>
                     <p class="price">$21.87</p>
                 </div>
-        
+
                 <div class="product-details">
-                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto" class="product-icon">
+                    <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
+                        class="product-icon">
                     <div class="product-info">
                         <p><strong>Product:</strong></p>
                         <p>Kopi-Organico</p>
@@ -89,9 +100,9 @@
                     </div>
                     <p class="price">$64.98</p>
                 </div>
-                
+
             </div>
-        
+
             <!-- Resumen de precios -->
             <div class="price-summary">
                 <p>Subtotal: $188</p>
@@ -105,13 +116,14 @@
         <div class="payment-details">
             <h2>Payment details</h2>
             <div id="gt">
-                <form id="payment-form">
+                <form action="php/registro.php" method="POST">
+
                     <!-- Grupo para Country y Zip Code -->
 
                     <div class="input-group">
 
                         <div>
-                            <label for="country">Country</label>
+                            <label for="country">Pais</label>
                             <select id="country">
                                 <option>México</option>
                                 <option>USA</option>
@@ -121,26 +133,26 @@
 
                         <div id="gg">
                             <label for="zip">Zip Code</label>
-                            <input type="text" id="zip" required>
+                            <input type="text" id="zip" required name="zip">
                         </div>
                     </div>
 
                     <!-- Campos restantes del formulario -->
-                    <label for="card-name">Name on Card</label>
-                    <input type="text" id="card-name" required>
+                    <label for="card-name">Titular</label>
+                    <input type="text" id="card-name" required name="titular">
 
-                    <label for="card-number">Credit Card Number</label>
-                    <input type="text" id="card-number" required>
+                    <label for="card-number">Numero de tarjeta</label>
+                    <input type="text" id="card-number" required name="numeroDeTarjeta">
 
                     <!-- Grupo para Expiration Date y CVC/CVV -->
                     <div class="input-group">
                         <div>
-                            <label for="exp-date">Expiration Date</label>
-                            <input type="text" id="exp-date" class="narrow-input" required>
+                            <label for="exp-date">Expiracion</label>
+                            <input type="text" id="exp-date" class="narrow-input" required name="expiracion">
                         </div>
                         <div>
                             <label for="cvc">CVC/CVV</label>
-                            <input type="text" id="cvc" required>
+                            <input type="text" id="cvc" required name="cvc">
                         </div>
                     </div>
 
@@ -151,13 +163,25 @@
             <!-- Métodos de pago rápido -->
             <div class="fast-pay">
                 <div id="paypal-button-container"></div>
-                <button id="apple-pay-button">
-                    <i class="fab fa-apple-pay"></i>
-                </button>
+                <div class="a1">
+                    <button class="apple-pay-button">
+                        <i class="fab fa-apple-pay"></i>
+                    </button>
+                </div>
+                <div class="a2">
+                    <button class="paypal-button">
+                        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal"
+                            style="height: 24px;">
+                    </button>
+                </div>
+
             </div>
+
+
         </div>
     </div>
     <!-- Fin del bloque derecho -->
+
 
     <!-- Scripts -->
     <script src="../assets/js/buy_script.js"></script>
