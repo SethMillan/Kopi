@@ -133,6 +133,7 @@ if (botonSignIn) {
                  console.log('Login correcto para el usuario:', correo);
                  window.location.href = `${window.location.origin}/index.html`;  
             } else {
+                 showErrorPopup("Error en login:", data.message);
                  console.error('Error en login:', data.message);
              }
 
