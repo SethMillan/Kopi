@@ -216,8 +216,7 @@ if (data.success && data.guardado.length > 0) {
             .then(data => {
                 if (data.success) {
                     producto.remove();  // Eliminar producto del DOM
-                    cargarCarrito();  // Recargar el carrito después de la eliminación
-                } else {
+                 } else {
                     alert("No se pudo eliminar el producto.");
                 }
             })
@@ -225,6 +224,7 @@ if (data.success && data.guardado.length > 0) {
                 console.error('Error al eliminar producto', err);
             }).finally(() => {
             // Remover clase de carga después de completar la solicitud
+            cargarCarrito();
             producto.classList.remove('loading-overlay');
             });
 
