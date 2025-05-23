@@ -9,50 +9,56 @@
     <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=MXN"></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AQgX9tKpLfd4nhy_aBhwba0Iypx0U5wrS900gzWRWfeoYrhVPiD_Tip3eDYFNFmphPZTtF3g8KR5hQEy"></script>
+
 </head>
 
 <body>
-     <nav class="encabezado">
-            <a href="/" class="home">Kopi</a>
-            <div class="btnMenu">
-                <div class="linea"></div>
-                <a href="menu.html"><p class="menu-text">MENU</p></a>
-                <div class="linea"></div>
-            </div>
-            <div class="btnFindKopi">
-                <span class="material-symbols-outlined">location_on</span>
-                <p>Find your Kopi</p>
-            </div>
-            <div class="btnLogin" id="btnlogin">
-                <a href="login.html">
-                    <p>Login</p>
-                </a>
-            </div>
-            <div class="btnRegister" id="btnregister">
-                <a href="login.html?show=register">
-                    <p>Join</p>
-                </a>
-            </div>
-            <!-- <div class="usuario" id="usuario">
-                <a href="../pages/usermenu.html">
-                    <p id="nombreUsuario">Usuario</p>
-                </a>
-            </div> -->
+    <nav class="encabezado">
+        <a href="/" class="home">Kopi</a>
+        <div class="btnMenu">
+            <div class="linea"></div>
+            <a href="menu.html">
+                <p class="menu-text">MENU</p>
+            </a>
+            <div class="linea"></div>
+        </div>
+        <div class="btnFindKopi">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>Find your Kopi</p>
+        </div>
+        <div class="btnLogin" id="btnlogin">
+            <a href="login.html">
+                <p>Login</p>
+            </a>
+        </div>
+        <div class="btnRegister" id="btnregister">
+            <a href="login.html?show=register">
+                <p>Join</p>
+            </a>
+        </div>
+        <!-- <div class="usuario" id="usuario">
+                    <a href="../pages/usermenu.html">
+                        <p id="nombreUsuario">Usuario</p>
+                    </a>
+                </div> -->
 
-             <a href="../pages/carrito.html" class="material-symbols-outlined" id="shopping_cart">shopping_cart</a>
-               
+        <a href="../pages/carrito.html" class="material-symbols-outlined" id="shopping_cart">shopping_cart</a>
 
-            <span class="material-symbols-outlined" id="menu">menu</span>
-        </nav> <!-- Fin de barra de navegacion superior-->
+
+        <span class="material-symbols-outlined" id="menu">menu</span>
+    </nav> <!-- Fin de barra de navegacion superior-->
 
     <!-- Inicio bloque izquierdo -->
     <div class="container">
         <!-- Resumen del pedido -->
         <div class="order-summary">
-            <h2 id="og">Order Summary</h2>
+            <h2 id="og">Resumen del pedido</h2>
 
             <!-- Contenedor con scroll -->
             <div class="products-scroll" id="products-container">
@@ -176,15 +182,17 @@
             <div class="fast-pay">
                 <div id="paypal-button-container"></div>
                 <div class="a1">
-                    <button class="apple-pay-button">
+                    <button class="apple-pay-button" id="applePayBtn" type="button">
                         <i class="fab fa-apple-pay"></i>
                     </button>
+
                 </div>
                 <div class="a2">
-                    <button class="paypal-button">
+                    <button class="paypal-button" id="paypalBtn" type="button">
                         <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal"
-                            style="height: 24px;">
+                            style="height: 24px;" />
                     </button>
+
                 </div>
 
             </div>
@@ -197,6 +205,19 @@
 
     <!-- Scripts -->
     <script src="../assets/js/buy_script.js"></script>
+    <script>
+        document.querySelector('.paypal-button').addEventListener('click', () => {
+            window.location.href = 'paypal.html';  // Asegúrate que el archivo exista y ruta sea correcta
+        });
+    </script>
+    <script>
+        document.getElementById("applePayBtn").addEventListener("click", function (event) {
+            event.preventDefault(); // Evita comportamiento por defecto
+            event.stopPropagation(); // Evita que el clic se propague a otros botones
+            window.open("https://buy.stripe.com/test_5kA6oG2sc5sCaiY288", "_blank");
+        });
+    </script>
+
 </body>
 
 </html>

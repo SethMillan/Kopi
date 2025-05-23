@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simulación de Pago con PayPal</title>
+  <style>
+    body {
+      
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px auto;
+      max-width: 600px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #003087;
+    }
+    h3 {
+      color: #009cde;
+    }
+    #paypal-button-container {
+      margin: 30px auto;
+      width: 50%;
+      min-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Resumen del pedido</h2>
+  <h3>Total: $198.00 MXN</h3>
+
+  <div id="paypal-button-container"></div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AQgX9tKpLfd4nhy_aBhwba0Iypx0U5wrS900gzWRWfeoYrhVPiD_Tip3eDYFNFmphPZTtF3g8KR5hQEy"></script>
+  <script>
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '198.00'
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Pago simulado exitosamente por: ' + details.payer.name.given_name);
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
+</body>
+</html>
