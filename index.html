@@ -20,6 +20,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+    <script src="../assets/js/menu_script.js"></script>
     <script src="../assets/js/login_script.js"></script>
 </head>
 
@@ -43,15 +44,19 @@
                     <p>Encuentra tu Kopi</p>
                 </div>
 
-                <div type="submit" class="btnLogin" onclick="openPopup()">Entrar</div>
+                <div type="submit" class="btnLogin" id="btnLogin" onclick="openPopup()">Entrar</div>
 
                 <!-- Popup -->
-
-
-
                 <div class="btnRegister"><a href="pages/login.html?show=register">
                         <p>Registrate</p>
                     </a></div>
+
+               <div class="usuario" id="usuario" style="display: none;">
+                <a href="../pages/usermenu.html">
+                <p id="nombreUsuario">Usuario</p>
+                </a>
+
+                </div>
 
                 <div class="btnCart">
                     <a href="pages/carrito.html">
