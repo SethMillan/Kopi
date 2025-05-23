@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
    
     function actualizarTotales(precioTotal) {
     carritoSubtotal.textContent = "Subtotal $" + precioTotal.toFixed(2);
-    carritoTotal.textContent = "Total $" + (precioTotal + 1).toFixed(2); // Puedes cambiar el 10 por el costo de envío u otra lógica
+    carritoTotal.textContent = "Total $" + (precioTotal + 15).toFixed(2); // Puedes cambiar el 10 por el costo de envío u otra lógica
     }
 
     //Para iniciar sección
