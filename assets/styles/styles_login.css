@@ -135,7 +135,7 @@
 
    .text_login{
     /* Layout */
-    margin-right: 50px;
+    margin-right: 320px;
      font-family: 'Open Sans';
      
     /* Typograpy */
@@ -185,7 +185,7 @@
 
 
   .newCount{
-    margin-right: 60px;
+     margin-right: 230px;
     gap: 20px;
     display: flex;
     align-items: center;
@@ -205,6 +205,10 @@
 
   .text_count, .username_email, .placeholder_password, .forgot_your_p{
     color: #ada9a9;
+  }
+
+  .placeholder_password{
+    margin-bottom: 10px;
   }
 
   .text_Signup{
