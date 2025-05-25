@@ -133,6 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Función para cargar productos desde el servidor
     async function loadProducts() {
+        if (!document.querySelector('.menu-items')) {
+        console.log('No estamos en la página del menú, saltando loadProducts');
+        return;
+        }
         try {
             // Mostrar indicador de carga
             menuItemsContainer.innerHTML = '<div class="loading">Loading products...</div>';
@@ -164,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error loading products:', error);
             menuItemsContainer.innerHTML = `
                 <div class="error-message">
-                    <p>Error loading products. Please try again later.</p>
+                    <p>Error al cargar productos. Intenta mas tarde.</p>
                     <p class="error-details">${error.message}</p>
                 </div>
             `;
