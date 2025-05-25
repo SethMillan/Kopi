@@ -6,28 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kopi - Beneficios</title>
     <link rel="stylesheet" href="../assets/styles/styles_rewards.css">
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
 
     <div ID="contenedor1"> <!--Barra de navegacion superior-->
-        <div class="contIzq contComun" id="kopi"><strong>Kopi</strong></div>
-        <div class="contIzq contComun" id="menu"><b id="dd">MENU</b></div>
+       <a href="/index.html" class="home">
+        <div class="contIzq contComun" id="kopi"><strong>Kopi</strong></div></a>
+         <a href="menu.html"><div class="contIzq contComun" id="menu"><b id="dd">MENU</b></div></a>
 
         <div class="contDer contComun">
-             <a href="../pages/usermenu.html">
-                <p id="nombreUsuario">Usuario</p>
-            </a>
+              <a href="../pages/carrito.html">
+            <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+        </a>
         </div>
         <div class="contDer contComun">
-            <p>Hola, Efren</p>
+             <a href="../pages/usermenu.html">
+                <p id="nombreUsuario">Efren</p>
+            </a>
         </div>
         <div class="contDer contComun">
             <p>220 pts</p>
         </div>
         <div class="contDer contComun" id="find">
-            <p>Find your Kopi</p>
+            <span class="material-symbols-outlined">location_on</span>
+            <a href="find_kopy.html">
+                <p>Encuentra tu kopi</p>
+            </a>
         </div>
 
     </div> <!-- Fin de barra de navegacion superior-->
@@ -118,6 +127,8 @@
     </div>
     
     <script src="../assets/js/rewards_script.js"></script>
+              <script src="../assets/js/menu_script.js"></script>
+
 </body>
 
 </html>
