@@ -54,7 +54,9 @@
 
                 <div class="usuario" id="usuario" style="display: none;">
                     <a href="#" onclick="toggleUserMenu(event)">
-                        <div class="user-icon">👤</div>
+                        <div class="user-icon"><span class="material-symbols-outlined person" id="person">
+                                person
+                            </span></div>
                         <p id="nombreUsuario">Usuario</p>
                     </a>
                 </div>
@@ -669,14 +671,13 @@
                 </div>
             </div>
         </div>
-        wooops
-
-
-        <!-- User Menu Dropdown (al final del HTML) -->
+        <!-- User Menu Dropdown -->
         <div class="user-menu-overlay" id="userMenuOverlay" onclick="closeUserMenu()"></div>
         <div class="user-menu-dropdown" id="userMenuDropdown">
             <div class="user-menu-header">
-                <div class="user-avatar">👤</div>
+                <div class="user-avatar">
+                    <img src="assets/img/user_testimonials/user1.png" alt="" class="foto-user">
+                </div>
                 <div class="user-info">
                     <h3 id="userMenuName">Usuario</h3>
                     <p>Miembro desde 2024</p>
