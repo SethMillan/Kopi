@@ -1,10 +1,11 @@
-/* Toast Notification Styles */
+/* Toast Notification Styles - Versión corregida */
 .toast-container {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 10002;
     pointer-events: none;
+    max-width: 400px;
 }
 
 .toast {
@@ -23,8 +24,10 @@
     font-size: 14px;
     pointer-events: auto;
     transform: translateX(100%);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
+    position: relative;
+    word-wrap: break-word;
 }
 
 .toast.show {
@@ -37,24 +40,35 @@
     opacity: 0;
 }
 
+/* Tipos específicos de toast */
+.toast.toast-error,
 .toast.error {
     background: linear-gradient(135deg, #dc2626, #b91c1c);
     border-left: 4px solid #fca5a5;
 }
 
+.toast.toast-success,
 .toast.success {
     background: linear-gradient(135deg, #059669, #047857);
     border-left: 4px solid #86efac;
 }
 
+.toast.toast-warning,
 .toast.warning {
     background: linear-gradient(135deg, #d97706, #b45309);
     border-left: 4px solid #fcd34d;
 }
 
+.toast.toast-info,
+.toast.info {
+    background: linear-gradient(135deg, #0369a1, #0284c7);
+    border-left: 4px solid #7dd3fc;
+}
+
 .toast-icon {
     font-size: 24px;
     flex-shrink: 0;
+    line-height: 1;
 }
 
 .toast-content {
@@ -62,17 +76,21 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+    min-width: 0;
+    /* Permite que el texto se corte */
 }
 
 .toast-title {
     font-weight: 600;
     font-size: 15px;
+    line-height: 1.2;
 }
 
 .toast-message {
     font-weight: 400;
     opacity: 0.9;
     line-height: 1.4;
+    word-break: break-word;
 }
 
 .toast-close {
@@ -81,6 +99,8 @@
     opacity: 0.7;
     transition: opacity 0.2s ease;
     flex-shrink: 0;
+    line-height: 1;
+    user-select: none;
 }
 
 .toast-close:hover {
@@ -94,10 +114,31 @@
     height: 3px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 0 0 12px 12px;
-    animation: progress 3s linear;
+    animation: toast-progress 3s linear;
 }
 
-@keyframes progress {
-    from { width: 100%; }
-    to { width: 0%; }
+@keyframes toast-progress {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .toast-container {
+        right: 10px;
+        left: 10px;
+        top: 10px;
+        max-width: none;
+    }
+
+    .toast {
+        min-width: auto;
+        max-width: none;
+        width: 100%;
+    }
 }

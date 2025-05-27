@@ -1,0 +1,319 @@
+/* Añade esto al final de tu styles.css o en styles_pop.css */
+
+/* Estilos para el popup */
+.popup {
+    width: 360px;
+    /* antes 440px */
+    width: 440px;
+    padding: 20px;
+    padding-top: 32px;
+    padding-bottom: 28px;
+    background: #160503fb;
+    border-radius: 30px;
+    position: fixed;
+    /* Cambiado a fixed para que se mantenga al hacer scroll */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    color: #333;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 10px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1001;
+    /* Mayor que todos los demás z-index en tu proyecto */
+}
+
+.open-popup {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Overlay para fondo oscuro (opcional) */
+
+
+.popup-overlay.active {
+    display: block;
+}
+
+/* Asegurar que los inputs no hereden estilos no deseados */
+.popup input[type="text"],
+.popup input[type="password"] {
+    width: 100%;
+    /* antes 380px fijo */
+    max-width: 320px;
+    /* opcional, para que no estiren demasiado */
+    min-height: 24px;
+    /* igual ajustas la altura */
+    margin: 12px 0 0;
+
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(217, 217, 217, 0.00);
+    background: #362625;
+    font-weight: 100;
+    font-family: 'Open Sans';
+    color: #FFF;
+}
+
+/* Resetear estilos para botones dentro del popup */
+.popup .btn {
+    padding: 12px 0;
+    /* antes 10px 0 pero el ancho venía de width:100% */
+    font-size: 16px;
+
+    width: 30%;
+    color: #fff;
+    border: 0;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background: #9F5524;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.text_count {
+    text-decoration: none;
+    /* Quita el subrayado */
+    color: inherit;
+    /* Mantiene el color del texto según su contexto */
+}
+
+
+.popup>img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.div_campos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #939393;
+    padding-top: 20px;
+}
+
+.div_pas {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.div_username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+}
+
+.div_password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+}
+
+
+.popup>button {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
+    color: #fff;
+    border: 0;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    background: #9F5524;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup>button:hover {
+    background: #d27130;
+}
+
+/* */
+.pw,
+.pw2,
+.username_email {
+    margin-top: 30px;
+    letter-spacing: 0.08px;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.username_email {
+    margin-right: 220px;
+}
+
+.text_count {
+    letter-spacing: 0.08px;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 100;
+    color: #9F5524;
+}
+
+.pw2 {
+    color: #9F5524;
+}
+
+.pw2:hover {
+    color: #be662b;
+    cursor: pointer;
+}
+
+.text_count:hover {
+    color: #be662b;
+    cursor: pointer;
+}
+
+.Login {
+    color: #FFF !important;
+}
+
+.popup .text_count {
+    color: #9F5524 !important;
+}
+
+.placeholder_1,
+.placeholder_2 {
+    margin: 10px 0px 0px 0px;
+    width: 380px;
+    min-height: 40px;
+    padding: var(--sds-size-space-300) var(--sds-size-space-400);
+    border-radius: 12px;
+    border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
+    background: #362625;
+
+    /* Typografia */
+    font-weight: 100;
+    font-family: 'Open Sans';
+    color: #FFF;
+    padding-left: 8px;
+}
+
+
+
+.box_separador {
+    gap: 3vh;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tx_separador {
+    color: #9F5524;
+    text-align: right;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.08px;
+}
+
+.s1,
+.s2 {
+    margin-top: 10px;
+    height: 1px;
+    width: 100px;
+    align-self: stretch;
+    background: #9F5524;
+}
+
+#nombreUsuario {
+    font-family: "Open Sans";
+    font-size: 18px;
+}
+
+.google,
+.facebook {
+    display: flex;
+    width: 160px;
+    height: 54px;
+    padding: 0px 32px 0px 31px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    margin-right: 4px;
+    border: var(--sds-size-stroke-border) solid rgba(217, 217, 217, 0.00);
+}
+
+.google {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08), 0px 2px 3px 0px rgba(0, 0, 0, 0.17);
+    color: rgba(0, 0, 0, 0.54);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.facebook {
+    border-radius: 16px;
+    background: #1877F2;
+    color: #FFF;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.botones_login {
+    margin-top: 40px;
+    gap: 4vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.facebook:hover {
+    cursor: pointer;
+    background: #2d83f5;
+}
+
+.google:hover {
+    box-shadow: 0px 1px 5px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+
+}
+
+.popup-overlay.active {
+    display: block;
+}

@@ -20,9 +20,8 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/toast.css">
-    <script src="../assets/js/menu_script.js"></script>
-    <script src="../assets/js/login_script.js"></script>
 
+    <link rel="stylesheet" href="assets/styles/sesion.css">
 </head>
 
 <body>
@@ -691,7 +690,7 @@
                     Mi Perfil
                 </a>
 
-                <a href="../pages/orders.html" class="user-menu-item">
+                <a href="pages/pedidos.html" class="user-menu-item">
                     <span class="material-symbols-outlined">shopping_bag</span>
                     Mis Pedidos
                 </a>
@@ -730,21 +729,19 @@
     </main>
 
 
+    <!-- Al final del body, ANTES de cualquier otro script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- PRIMERO cargar sesion.js que define showToast -->
+    <script src="assets/js/sesion.js"></script>
+
+    <!-- DESPUÉS cargar los otros scripts que usan showToast -->
+    <script src="assets/js/menu_script.js"></script>
+    <script src="assets/js/login_script.js"></script>
     <script src="assets/js/script.js"></script>
+
     <script>
-        // JavaScript para abrir y cerrar el popup
-        function openPopup() {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('popup').classList.add('open-popup');
-        }
-        function closePopup() {
-            document.getElementById('overlay').classList.remove('active');
-            document.getElementById('popup').classList.remove('open-popup');
-        }
-    </script>
-    <script>
-        // Chatbot functionality
+        // Chatbot functionality (mantener como está)
         document.addEventListener('DOMContentLoaded', function () {
             const chatbotBubble = document.getElementById('chatbotBubble');
             const chatbotWindow = document.getElementById('chatbotWindow');
@@ -874,8 +871,6 @@
             }
         });
     </script>
-
-
 </body>
 
 </html>

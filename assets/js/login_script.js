@@ -117,7 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log('Intentando login con email:', correo);
 
-                const response = await fetch(`${window.location.origin}/php/login.php`, {
+                const isInPagesFolder = window.location.pathname.includes('/pages/');
+                const loginUrl = isInPagesFolder ? '../php/login.php' : 'php/login.php';
+                const response = await fetch(loginUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -132,11 +134,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 const data = await response.json();
                 if (data.success) {
                     console.log('Login correcto para el usuario:', correo);
-                    window.location.href = `${window.location.origin}/index.html`;
-                    showLoginSuccess('¡Iniciando sesión...');
+
+                    // PRIMERO mostrar el toast
+                    if (typeof showLoginSuccess === 'function') {
+                        showLoginSuccess('¡Iniciando sesión...');
+                    } else {
+                        showToast('success', 'Login Exitoso', '¡Iniciando sesión...');
+                    }
+
+                    // DESPUÉS recargar con delay
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000); // Dar tiempo para ver el toast
 
                 } else {
-                    showLoginError(data.message);
+                    if (typeof showLoginError === 'function') {
+                        showLoginError(data.message);
+                    } else {
+                        showToast('error', 'Error de Login', data.message);
+                    }
                     console.error('Error en login:', data.message);
                 }
 

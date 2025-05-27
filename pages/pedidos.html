@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pedidos | Kopi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles/pedidos.css">
+    <link rel="stylesheet" href="../assets/styles/user-menu.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="encabezado">
+        <a href="/" class="home">Kopi</a>
+        <div class="btnMenu">
+            <div class="linea"></div>
+            <a href="menu.html">
+                <p class="menu-text">MENU</p>
+            </a>
+            <div class="linea"></div>
+        </div>
+        <div class="btnFindKopi">
+            <span class="material-symbols-outlined">location_on</span>
+            <a href="find_kopy.html">
+                <p>Encuentra tu kopi</p>
+            </a>
+        </div>
+        <div class="btnLogin" id="btnlogin">
+            <a href="login.html">
+                <p>Entrar</p>
+            </a>
+        </div>
+        <div class="btnRegister">
+            <a href="login.html?show=register">
+                <p>Registrate</p>
+            </a>
+        </div>
+
+        <div class="usuario" id="usuario" style="display: none;">
+            <a href="#" onclick="toggleUserMenu(event)">
+                <div class="user-icon"><span class="material-symbols-outlined person" id="person">
+                        person
+                    </span></div>
+                <p id="nombreUsuario">Usuario</p>
+            </a>
+        </div>
+
+        <div class="btnCart">
+            <a href="carrito.html">
+                <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+            </a>
+        </div>
+
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Estadísticas -->
+        <div class="stats-section" id="statsSection">
+            <div class="stat-card">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <div class="stat-number" id="totalOrders">0</div>
+                <div class="stat-label">Total Pedidos</div>
+            </div>
+            <div class="stat-card">
+                <span class="material-symbols-outlined">payments</span>
+                <div class="stat-number" id="totalSpent">$0.00</div>
+                <div class="stat-label">Total Gastado</div>
+            </div>
+            <div class="stat-card">
+                <span class="material-symbols-outlined">check_circle</span>
+                <div class="stat-number" id="completedOrders">0</div>
+                <div class="stat-label">Entregados</div>
+            </div>
+        </div>
+
+        <!-- Sección de Pedidos -->
+        <div class="orders-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">history</span>
+                    Historial de Pedidos
+                </h2>
+                <button class="refresh-btn" onclick="loadOrders()">
+                    <span class="material-symbols-outlined">refresh</span>
+                    Actualizar
+                </button>
+            </div>
+            <div class="orders-content" id="ordersContent">
+                <div class="loading">
+                    <span class="material-symbols-outlined">hourglass_empty</span>
+                    <p>Cargando tus pedidos...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Menu Dropdown -->
+    <div class="user-menu-overlay" id="userMenuOverlay" onclick="closeUserMenu()"></div>
+    <div class="user-menu-dropdown" id="userMenuDropdown">
+        <div class="user-menu-header">
+            <div class="user-avatar">
+                <img src="../assets/img/user_testimonials/user1.png" alt="" class="foto-user">
+            </div>
+            <div class="user-info">
+                <h3 id="userMenuName">Usuario</h3>
+                <p>Miembro desde 2024</p>
+            </div>
+            <span class="material-symbols-outlined close-user-menu" onclick="closeUserMenu()">close</span>
+        </div>
+
+        <div class="user-menu-items">
+            <a href="../pages/usermenu.html" class="user-menu-item">
+                <span class="material-symbols-outlined">person</span>
+                Mi Perfil
+            </a>
+
+            <a href="pages/pedidos.html" class="user-menu-item">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                Mis Pedidos
+            </a>
+
+            <a href="../pages/rewards.html" class="user-menu-item">
+                <span class="material-symbols-outlined">star</span>
+                Mis Recompensas
+            </a>
+
+            <a href="../pages/favorites.html" class="user-menu-item">
+                <span class="material-symbols-outlined">favorite</span>
+                Favoritos
+            </a>
+
+            <div class="user-menu-separator"></div>
+
+            <a href="../pages/settings.html" class="user-menu-item">
+                <span class="material-symbols-outlined">settings</span>
+                Configuración
+            </a>
+
+            <a href="#" class="user-menu-item logout" onclick="cerrarSesion()">
+                <span class="material-symbols-outlined">logout</span>
+                Cerrar Sesión
+            </a>
+        </div>
+    </div>
+    <div id="errorPopup" class="error-popup">
+        <div class="error-popup-content">
+            <span id="closePopup" class="close-popup">&times;</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+
+    <script src="../assets/js/pedidos.js"></script>
+    <script src="../assets/js/user-menu.js"></script>
+
+</body>
+
+</html>

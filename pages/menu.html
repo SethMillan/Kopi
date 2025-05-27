@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | Kopi</title>
-    <link rel="stylesheet" href="../assets/styles/styles_menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="../assets/js/menu_script.js"></script>
+    <link rel="stylesheet" href="../assets/styles/styles_menu.css">
+    <link rel="stylesheet" href="../assets/styles/user-menu.css">
+    <link rel="stylesheet" href="../assets/styles/footer.css">
+    <link rel="stylesheet" href="../assets/styles/toast.css">
+    <link rel="stylesheet" href="../assets/styles/sesion.css">
 </head>
 
 <body>
@@ -37,31 +40,32 @@
                 <p>Encuentra tu kopi</p>
             </a>
         </div>
-        <div class="btnLogin" id="btnlogin">
-            <a href="login.html">
-                <p>Entrar</p>
-            </a>
-        </div>
+        <!--! -->
+
+        <div type="submit" class="btnLogin" id="btnLogin" onclick="openPopup()">Entrar</div>
+
         <div class="btnRegister">
             <a href="login.html?show=register">
                 <p>Registrate</p>
             </a>
         </div>
 
-        <div class="usuario" id="usuario">
-            <a href="../pages/usermenu.html">
+        <div class="usuario" id="usuario" style="display: none;">
+            <a href="#" onclick="toggleUserMenu(event)">
+                <div class="user-icon"><span class="material-symbols-outlined person" id="person">
+                        person
+                    </span></div>
                 <p id="nombreUsuario">Usuario</p>
             </a>
         </div>
-        
+
         <div class="btnCart">
             <a href="carrito.html">
                 <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
             </a>
         </div>
 
-        <span class="material-symbols-outlined" id="menu">menu</span>
-    </nav>> <!-- Fin de barra de navegacion superior-->
+    </nav> <!-- Fin de barra de navegacion superior-->
     <!-- AQUI EMPIEZA EL CONTENIDO DEL MENU -->
     <main class="menu-content">
         <h1 class="menu-title">Nuestro Menu</h1>
@@ -138,6 +142,200 @@
         </div>
     </main>
 
+
+    <!-- COPIAR EN LOS DEMAS DE AQUI PA ABAJO-->
+    <div class="popup-overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <h1 class="Login">Inicia Sesión</h1>
+        <a href="/pages/login.html?show=register" class="text_count">¿No tienes una cuenta?</a>
+        <div class="div_campos">
+            <div class="div_username">
+                <h3 class="username_email">Usuario / Correo</h3>
+                <input placeholder="" type="text" class="placeholder_1" id="lg_email" />
+            </div>
+            <div class="div_password">
+                <div class="div_pas">
+                    <h3 class="pw">Contraseña</h3>
+                    <h3 class="pw2">¿La olvidaste?</h3>
+                </div>
+                <Input placeholder="" type="password" class="placeholder_2" id="lg_ps" />
+            </div>
+        </div>
+        <button type="button" class="btn" onclick="closePopup()" id="button_sing">Iniciar Sesión</button>
+
+
+        <!-- separador -->
+        <div class="box_separador">
+            <div class="s1"></div>
+            <div class="tx_separador">Continúa con</div>
+            <div class="s2"></div>
+        </div>
+        <!-- fin separador -->
+
+
+        <!-- botones google y facebook -->
+        <div class="botones_login">
+            <button class="google">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M23.04 12.2615C23.04 11.446 22.9668 10.6619 22.8309 9.90918H12V14.3576H18.1891C17.9225 15.7951 17.1123 17.013 15.8943 17.8285V20.714H19.6109C21.7855 18.7119 23.04 15.7637 23.04 12.2615Z"
+                        fill="#4285F4" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 23.5001C15.105 23.5001 17.7081 22.4703 19.6109 20.7139L15.8943 17.8285C14.8645 18.5185 13.5472 18.9262 12 18.9262C9.00474 18.9262 6.46951 16.9032 5.56519 14.1851H1.72314V17.1646C3.61542 20.923 7.50451 23.5001 12 23.5001Z"
+                        fill="#34A853" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M5.56523 14.185C5.33523 13.495 5.20455 12.7579 5.20455 12C5.20455 11.242 5.33523 10.505 5.56523 9.81499V6.83545H1.72318C0.944318 8.38795 0.5 10.1443 0.5 12C0.5 13.8557 0.944318 15.612 1.72318 17.1645L5.56523 14.185Z"
+                        fill="#FBBC05" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 5.07386C13.6884 5.07386 15.2043 5.65409 16.3961 6.79364L19.6945 3.49523C17.7029 1.63955 15.0997 0.5 12 0.5C7.50451 0.5 3.61542 3.07705 1.72314 6.83545L5.56519 9.815C6.46951 7.09682 9.00474 5.07386 12 5.07386Z"
+                        fill="#EA4335" />
+                </svg>
+                Google
+            </button>
+            <button class="facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                    <rect width="24" height="24" transform="translate(0 0.5)" fill="#1877F2" />
+                    <path
+                        d="M23.5 12.5699C23.5 6.2186 18.3513 1.06988 12 1.06988C5.64872 1.06988 0.5 6.2186 0.5 12.5699C0.5 18.3099 4.70538 23.0674 10.2031 23.9302V15.8941H7.2832V12.5699H10.2031V10.0363C10.2031 7.1541 11.92 5.56207 14.5468 5.56207C15.805 5.56207 17.1211 5.78668 17.1211 5.78668V8.61675H15.671C14.2424 8.61675 13.7969 9.50322 13.7969 10.4127V12.5699H16.9863L16.4765 15.8941H13.7969V23.9302C19.2946 23.0674 23.5 18.3099 23.5 12.5699Z"
+                        fill="white" />
+                </svg>
+                Facebook
+            </button>
+
+        </div>
+
+
+    </div>
+    <!-- Poopup -->
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="#" class="footer-logo">Kopi</a>
+                <p>Tu rincón favorito para disfrutar del mejor café, postres artesanales y un ambiente acogedor. ¡Te
+                    esperamos!</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Menú</h4>
+                <ul>
+                    <li><a href="pages/menu.html">Cafés Calientes</a></li>
+                    <li><a href="pages/menu.html">Bebidas Frías</a></li>
+                    <li><a href="pages/menu.html">Postres</a></li>
+                    <li><a href="pages/menu.html">Bocadillos</a></li>
+                    <li><a href="pages/menu.html">Promociones</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Kopi</h4>
+                <ul>
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="#">Sucursales</a></li>
+                    <li><a href="#">Trabaja con Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Síguenos</h4>
+                <p>Entérate de nuestras novedades y promociones en redes sociales.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path
+                                d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V320H134.4V256h59.8V206.1c0-58.7 35.9-91.1 88.8-91.1 25.3 0 47 1.9 53.3 2.7v55.1h-32.9c-28.5 0-34 13.5-34 33.4V256h61.6l-8 64H269.4V504.5C381.3 476.8 464 376 464 256h48z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path
+                                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kopi Cafetería. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- User Menu Dropdown -->
+    <div class="user-menu-overlay" id="userMenuOverlay" onclick="closeUserMenu()"></div>
+    <div class="user-menu-dropdown" id="userMenuDropdown">
+        <div class="user-menu-header">
+            <div class="user-avatar">
+                <img src="../assets/img/user_testimonials/user1.png" alt="" class="foto-user">
+            </div>
+            <div class="user-info">
+                <h3 id="userMenuName">Usuario</h3>
+                <p>Miembro desde 2024</p>
+            </div>
+            <span class="material-symbols-outlined close-user-menu" onclick="closeUserMenu()">close</span>
+        </div>
+
+        <div class="user-menu-items">
+            <a href="usermenu.html" class="user-menu-item">
+                <span class="material-symbols-outlined">person</span>
+                Mi Perfil
+            </a>
+
+            <a href="pedidos.html" class="user-menu-item">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                Mis Pedidos
+            </a>
+
+            <a href="rewards.html" class="user-menu-item">
+                <span class="material-symbols-outlined">star</span>
+                Mis Recompensas
+            </a>
+
+            <a href="favorites.html" class="user-menu-item">
+                <span class="material-symbols-outlined">favorite</span>
+                Favoritos
+            </a>
+
+            <div class="user-menu-separator"></div>
+
+            <a href="settings.html" class="user-menu-item">
+                <span class="material-symbols-outlined">settings</span>
+                Configuración
+            </a>
+
+            <a href="#" class="user-menu-item logout" onclick="cerrarSesion()">
+                <span class="material-symbols-outlined">logout</span>
+                Cerrar Sesión
+            </a>
+        </div>
+    </div>
+    <div id="errorPopup" class="error-popup">
+        <div class="error-popup-content">
+            <span id="closePopup" class="close-popup">&times;</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+
+    <!-- PRIMERO: sesion.js que define showToast -->
+    <script src="../assets/js/sesion.js"></script>
+
+    <!-- SEGUNDO: los otros scripts -->
+    <script src="../assets/js/login_script.js"></script>
+    <script src="../assets/js/user-menu.js"></script>
+    <script src="../assets/js/carrito_script.js"></script>
+    <script src="../assets/js/menu_script.js"></script>
+
     <script>
         // Simple script to handle category selection
         document.querySelectorAll('.category-button').forEach(button => {
@@ -146,79 +344,27 @@
                     btn.classList.remove('active');
                 });
                 button.classList.add('active');
-
-
             });
         });
     </script>
 
-    <!-- Poopup -->
-    <div id="errorPopup">
-        <div id="background_popup">
-            <span id="closePopup">&times;</span>
+    <!-- REMOVER ESTE SCRIPT DE PRUEBA QUE ESTÁ CAUSANDO PROBLEMAS -->
+    <!-- 
+<script>
+    // Test del toast después de cargar la página
+    setTimeout(() => {
+        console.log('Probando toast...');
+        const container = document.getElementById('toastContainer');
+        console.log('Container encontrado:', container);
 
-     <script src="../assets/js/carrito_script.js"></script>
-            <p id="popupMessage"></p>
-        </div>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-column">
-                    <a href="#" class="footer-logo">Kopi</a>
-                    <p>Tu rincón favorito para disfrutar del mejor café, postres artesanales y un ambiente acogedor. ¡Te
-                        esperamos!</p>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Menú</h4>
-                    <ul>
-                        <li><a href="pages/menu.html">Cafés Calientes</a></li>
-                        <li><a href="pages/menu.html">Bebidas Frías</a></li>
-                        <li><a href="pages/menu.html">Postres</a></li>
-                        <li><a href="pages/menu.html">Bocadillos</a></li>
-                        <li><a href="pages/menu.html">Promociones</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Kopi</h4>
-                    <ul>
-                        <li><a href="#">Nuestra Historia</a></li>
-                        <li><a href="#">Sucursales</a></li>
-                        <li><a href="#">Trabaja con Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Síguenos</h4>
-                    <p>Entérate de nuestras novedades y promociones en redes sociales.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path
-                                    d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V320H134.4V256h59.8V206.1c0-58.7 35.9-91.1 88.8-91.1 25.3 0 47 1.9 53.3 2.7v55.1h-32.9c-28.5 0-34 13.5-34 33.4V256h61.6l-8 64H269.4V504.5C381.3 476.8 464 376 464 256h48z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path
-                                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Kopi Cafetería. Todos los derechos reservados.</p>
-            </div>
-        </footer>
-          <script src="../assets/js/carrito_script.js"></script>
+        if (typeof showToast === 'function') {
+            showToast('success', 'Prueba', 'Este es un toast de prueba');
+        } else {
+            console.error('showToast no está definida');
+        }
+    }, 2000);
+</script>
+-->
 </body>
 
 </html>
