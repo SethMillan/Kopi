@@ -337,3 +337,385 @@ a:visited {
 a {
   text-decoration: none;
 }
+
+
+/* Estilos para Sección de Dirección y Entrega */
+.delivery-section {
+  background: #160503;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.delivery-section h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.delivery-section h3 {
+  color: white;
+  margin: 20px 0 15px 0;
+  font-size: 16px;
+}
+
+/* Tipo de Entrega */
+.delivery-type {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.delivery-option {
+  flex: 1;
+}
+
+.delivery-option input[type="radio"] {
+  display: none;
+}
+
+.delivery-option label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 2px solid #362626;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #362626;
+}
+
+.delivery-option input[type="radio"]:checked+label {
+  border-color: #a6763e;
+  background-color: rgba(166, 118, 62, 0.1);
+}
+
+.delivery-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.delivery-option label div strong {
+  display: block;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.delivery-option label div p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.7;
+  color: #ccc;
+}
+
+/* Direcciones Guardadas */
+.saved-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.address-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 2px solid #362626;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #362626;
+}
+
+.address-item:hover {
+  border-color: #a6763e;
+}
+
+.address-item.selected {
+  border-color: #a6763e;
+  background-color: rgba(166, 118, 62, 0.1);
+}
+
+.address-item input[type="radio"] {
+  display: none;
+}
+
+.address-info {
+  flex: 1;
+}
+
+.address-alias {
+  font-weight: bold;
+  color: #a6763e;
+  margin-bottom: 4px;
+}
+
+.address-details {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.address-principal {
+  background-color: #a6763e;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+/* Botón Agregar Dirección */
+.add-address-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 15px;
+  border: 2px dashed #a6763e;
+  border-radius: 10px;
+  background: transparent;
+  color: #a6763e;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-address-btn:hover {
+  background-color: rgba(166, 118, 62, 0.1);
+  border-style: solid;
+}
+
+.add-address-btn span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Popup de Dirección */
+.address-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 999;
+}
+
+.address-popup-overlay.active {
+  display: block;
+}
+
+.address-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  background: #160503;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.address-popup.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.address-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid #362626;
+}
+
+.address-popup-header h3 {
+  margin: 0;
+  color: white;
+  font-size: 18px;
+}
+
+.address-popup-close {
+  font-size: 24px;
+  color: #a6763e;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.address-popup-close:hover {
+  color: white;
+}
+
+/* Formulario de Dirección */
+.address-form {
+  padding: 20px;
+}
+
+.address-input-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.address-input-group div {
+  flex: 1;
+}
+
+.address-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.address-form input,
+.address-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #362626;
+  color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.address-form input:focus,
+.address-form textarea:focus {
+  background-color: #643f3f;
+  outline: 2px solid #a6763e;
+}
+
+.address-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.address-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.address-checkbox input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.address-checkbox label {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.address-form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.cancel-btn {
+  background-color: #362626;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #643f3f;
+}
+
+.save-btn {
+  background-color: #a6763e;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #813b18;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .delivery-type {
+    flex-direction: column;
+  }
+
+  .address-input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .address-popup {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .address-form-buttons {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+  }
+}
+
+/* En styles_buy.css */
+.delivery-section {
+  background: #160503;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+  width: 45%;
+  /* Mismo ancho que payment-details */
+}
+
+/* Arreglo del layout del lado derecho */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  gap: 20px;
+}
+
+/* Ajuste para la sección de direcciones */
+.delivery-section {
+  width: 100%;
+  /* Tomar todo el ancho del contenedor padre */
+  box-sizing: border-box;
+}
+
+/* Ajuste para payment-details */
+.payment-details {
+  width: 100%;
+  /* Tomar todo el ancho del contenedor padre */
+  box-sizing: border-box;
+}

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasarela de Pagos</title>
     <link rel="stylesheet" href="../assets/styles/styles_buy.css"> <!-- Enlaza el archivo CSS -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <!-- Quitar o comentar mientras no tengas client-id real -->
+    <!-- <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script> -->
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -62,7 +63,9 @@
 
             <!-- Contenedor con scroll -->
             <div class="products-scroll" id="products-container">
-                <!-- Detalles del producto -->
+                <!-- Y agrega también este div que busca carrito_script.js -->
+                <!-- Contenedor que busca carrito_script.js -->
+                <div id="cart-container" style="display: none;"></div>
                 <div class="product-details">
                     <img src="../assets/img/buy/borrar-removebg-preview.png" alt="Ícono del producto"
                         class="product-icon">
@@ -118,92 +121,205 @@
                     </div>
                     <p class="price">$64.98</p>
                 </div>
-
             </div>
 
             <!-- Resumen de precios -->
             <div class="price-summary">
                 <p>Subtotal: $188</p>
-                <p>Taxes and Fees: $10</p>
+                <p>Impuestos Online: $10</p>
                 <h3>Total: $198</h3>
             </div>
         </div>
         <!-- Fin bloque izquierdo -->
 
-        <!-- Detalles de pago -->
-        <div class="payment-details">
-            <h2>Payment details</h2>
-            <div id="gt">
-                <form action="../php/registro.php" method="POST">
+        <!-- Inicio bloque derecho -->
+        <div class="right-side">
+            <!-- Sección de Dirección y Tipo de Entrega -->
+            <div class="delivery-section">
+                <h2>Dirección de Entrega</h2>
 
-                    <!-- Grupo para Country y Zip Code -->
-
-                    <div class="input-group">
-
-                        <div>
-                            <label for="country">Pais</label>
-                            <select id="country" name="country">
-                                <option>México</option>
-                                <option>USA</option>
-                                <option>Colombia</option>
-                            </select>
-
-                        </div>
-
-                        <div id="gg">
-                            <label for="zip">Zip Code</label>
-                            <input type="text" id="zip" required name="zip">
-                        </div>
+                <!-- Selector de Tipo de Entrega -->
+                <div class="delivery-type">
+                    <div class="delivery-option">
+                        <input type="radio" id="pickup" name="delivery_type" value="pickup">
+                        <label for="pickup">
+                            <span class="delivery-icon">🏪</span>
+                            <div>
+                                <strong>Recoger en tienda</strong>
+                                <p>Listo en 15-20 min</p>
+                            </div>
+                        </label>
                     </div>
 
-                    <!-- Campos restantes del formulario -->
-                    <label for="card-name">Titular</label>
-                    <input type="text" id="card-name" required name="titular">
+                    <div class="delivery-option">
+                        <input type="radio" id="delivery" name="delivery_type" value="delivery" checked>
+                        <label for="delivery">
+                            <span class="delivery-icon">🚗</span>
+                            <div>
+                                <strong>Delivery</strong>
+                                <p>Entrega en 30-45 min</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
 
-                    <label for="card-number">Numero de tarjeta</label>
-                    <input type="text" id="card-number" required name="numeroDeTarjeta">
+                <!-- Sección de Direcciones (solo visible si se selecciona delivery) -->
+                <div class="address-section" id="addressSection">
+                    <h3>Selecciona una dirección</h3>
 
-                    <!-- Grupo para Expiration Date y CVC/CVV -->
-                    <div class="input-group">
-                        <div>
-                            <label for="exp-date">Expiracion</label>
-                            <input type="text" id="exp-date" class="narrow-input" required name="expiracion">
-                        </div>
-                        <div>
-                            <label for="cvc">CVC/CVV</label>
-                            <input type="text" id="cvc" required name="cvc">
-                        </div>
+                    <!-- Lista de direcciones guardadas -->
+                    <div class="saved-addresses" id="savedAddresses">
+                        <!-- Se llenarán dinámicamente desde JavaScript -->
                     </div>
 
-                    <!-- Botón de pago -->
-                    <button type="submit">Pay</button>
-                </form>
-            </div>
-            <!-- Métodos de pago rápido -->
-            <div class="fast-pay">
-                <div id="paypal-button-container"></div>
-                <div class="a1">
-                    <button class="apple-pay-button" id="applePayBtn" type="button">
-                        <i class="fab fa-apple-pay"></i>
+                    <!-- Botón para agregar nueva dirección -->
+                    <button type="button" class="add-address-btn" onclick="openAddressPopup()">
+                        <span>+</span> Agregar nueva dirección
                     </button>
-
                 </div>
-                <div class="a2">
-                    <button class="paypal-button" id="paypalBtn" type="button">
-                        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal"
-                            style="height: 24px;" />
-                    </button>
-
-                </div>
-
             </div>
 
+            <!-- Detalles de pago -->
+            <div class="payment-details">
+                <h2>Payment details</h2>
+                <div id="gt">
+                    <form action="../php/registro.php" method="POST">
 
+                        <!-- Grupo para Country y Zip Code -->
+                        <div class="input-group">
+                            <div>
+                                <label for="country">Pais</label>
+                                <select id="country" name="country">
+                                    <option>México</option>
+                                    <option>USA</option>
+                                    <option>Colombia</option>
+                                </select>
+                            </div>
+
+                            <div id="gg">
+                                <label for="zip">Zip Code</label>
+                                <input type="text" id="zip" required name="zip">
+                            </div>
+                        </div>
+
+                        <!-- Campos restantes del formulario -->
+                        <label for="card-name">Titular</label>
+                        <input type="text" id="card-name" required name="titular">
+
+                        <label for="card-number">Numero de tarjeta</label>
+                        <input type="text" id="card-number" required name="numeroDeTarjeta">
+
+                        <!-- Grupo para Expiration Date y CVC/CVV -->
+                        <div class="input-group">
+                            <div>
+                                <label for="exp-date">Expiracion</label>
+                                <input type="text" id="exp-date" class="narrow-input" required name="expiracion">
+                            </div>
+                            <div>
+                                <label for="cvc">CVC/CVV</label>
+                                <input type="text" id="cvc" required name="cvc">
+                            </div>
+                        </div>
+
+                        <!-- Botón de pago -->
+                        <button type="submit">Pay</button>
+                    </form>
+                </div>
+                <!-- Métodos de pago rápido -->
+                <div class="fast-pay">
+                    <div id="paypal-button-container"></div>
+                    <div class="a1">
+                        <button class="apple-pay-button" id="applePayBtn" type="button">
+                            <i class="fab fa-apple-pay"></i>
+                        </button>
+                    </div>
+                    <div class="a2">
+                        <button class="paypal-button" id="paypalBtn" type="button">
+                            <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal"
+                                style="height: 24px;" />
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- Fin bloque derecho -->
     </div>
-    <!-- Fin del bloque derecho -->
 
+    <!-- Popup para Agregar Nueva Dirección -->
+    <div class="address-popup-overlay" id="addressPopupOverlay" onclick="closeAddressPopup()"></div>
+    <div class="address-popup" id="addressPopup">
+        <div class="address-popup-header">
+            <h3>Agregar Nueva Dirección</h3>
+            <span class="address-popup-close" onclick="closeAddressPopup()">&times;</span>
+        </div>
 
+        <form id="addressForm" class="address-form">
+            <div class="address-input-group">
+                <div>
+                    <label for="address_alias">Alias (Casa, Trabajo, etc.)</label>
+                    <input type="text" id="address_alias" name="alias" placeholder="Ej: Casa">
+                </div>
+            </div>
+
+            <div class="address-input-group">
+                <div>
+                    <label for="address_calle">Calle</label>
+                    <input type="text" id="address_calle" name="calle" placeholder="Nombre de la calle" required>
+                </div>
+            </div>
+
+            <div class="address-input-group">
+                <div>
+                    <label for="address_numero_ext">Número Exterior</label>
+                    <input type="text" id="address_numero_ext" name="numero_exterior" placeholder="123" required>
+                </div>
+                <div>
+                    <label for="address_numero_int">Número Interior</label>
+                    <input type="text" id="address_numero_int" name="numero_interior" placeholder="Depto 4B (opcional)">
+                </div>
+            </div>
+
+            <div class="address-input-group">
+                <div>
+                    <label for="address_colonia">Colonia</label>
+                    <input type="text" id="address_colonia" name="colonia" placeholder="Roma Norte" required>
+                </div>
+                <div>
+                    <label for="address_cp">Código Postal</label>
+                    <input type="text" id="address_cp" name="codigo_postal" placeholder="06700" required>
+                </div>
+            </div>
+
+            <div class="address-input-group">
+                <div>
+                    <label for="address_ciudad">Ciudad</label>
+                    <input type="text" id="address_ciudad" name="ciudad" placeholder="Ciudad de México" required>
+                </div>
+                <div>
+                    <label for="address_estado">Estado</label>
+                    <input type="text" id="address_estado" name="estado" placeholder="CDMX" required>
+                </div>
+            </div>
+
+            <div class="address-input-group">
+                <div>
+                    <label for="address_referencias">Referencias</label>
+                    <textarea id="address_referencias" name="referencias"
+                        placeholder="Edificio color azul, portón negro..." rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="address-checkbox">
+                <input type="checkbox" id="address_principal" name="es_principal">
+                <label for="address_principal">Establecer como dirección principal</label>
+            </div>
+
+            <div class="address-form-buttons">
+                <button type="button" onclick="closeAddressPopup()" class="cancel-btn">Cancelar</button>
+                <button type="submit" class="save-btn">Guardar Dirección</button>
+            </div>
+        </form>
+    </div>
 
     <!-- COPIAR EN LOS DEMAS DE AQUI PA ABAJO-->
     <div class="popup-overlay" id="overlay" onclick="closePopup()"></div>
@@ -225,7 +341,6 @@
         </div>
         <button type="button" class="btn" onclick="closePopup()" id="button_sing">Iniciar Sesión</button>
 
-
         <!-- separador -->
         <div class="box_separador">
             <div class="s1"></div>
@@ -233,7 +348,6 @@
             <div class="s2"></div>
         </div>
         <!-- fin separador -->
-
 
         <!-- botones google y facebook -->
         <div class="botones_login">
@@ -264,13 +378,9 @@
                 </svg>
                 Facebook
             </button>
-
         </div>
-
-
     </div>
     <!-- Poopup -->
-
 
     <footer>
         <div class="footer-container">
@@ -388,44 +498,44 @@
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
 
-
-
-
-
     <!-- Scripts -->
-
-
-    <!-- Scripts -->
-    <script src="../assets/js/buy_script.js"></script>
-
-    <!-- PRIMERO: sesion.js para navbar y toasts -->
-    <script src="../assets/js/sesion.js"></script>
-
-    <!-- SEGUNDO: login_script.js para que funcione el login -->
-    <script src="../assets/js/login_script.js"></script>
-
-    <!-- TERCERO: carrito_script.js -->
-    <script src="../assets/js/carrito_script.js"></script>
-
-
-
-    <script>
-        document.querySelector('.paypal-button').addEventListener('click', () => {
-            window.location.href = 'paypal.html';  // Asegúrate que el archivo exista y ruta sea correcta
-        });
-    </script>
-    <script>
-        document.getElementById("applePayBtn").addEventListener("click", function (event) {
-            event.preventDefault(); // Evita comportamiento por defecto
-            event.stopPropagation(); // Evita que el clic se propague a otros botones
-            window.open("https://buy.stripe.com/test_5kA6oG2sc5sCaiY288", "_blank");
-        });
-    </script>
-    <script src="../assets/js/carrito_script.js"></script>
-    <script src="../assets/js/menu_script.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=MXN"></script>
     <script
         src="https://www.paypal.com/sdk/js?client-id=AQgX9tKpLfd4nhy_aBhwba0Iypx0U5wrS900gzWRWfeoYrhVPiD_Tip3eDYFNFmphPZTtF3g8KR5hQEy"></script>
+
+</body>
+
+</html>/js/buy_script.js"></script>
+
+<!-- PRIMERO: sesion.js para navbar y toasts -->
+<script src="../assets/js/sesion.js"></script>
+
+<!-- SEGUNDO: login_script.js para que funcione el login -->
+<script src="../assets/js/login_script.js"></script>
+
+<!-- TERCERO: carrito_script.js -->
+<script src="../assets/js/carrito_script.js"></script>
+
+<!-- PARA LO DE LAS DIRECCIONES GG-->
+<script src="../assets/js/address_script.js"></script>
+<script src="../assets/js/buy_products_script.js"></script>
+<script>
+    document.querySelector('.paypal-button').addEventListener('click', () => {
+        window.location.href = 'paypal.html';  // Asegúrate que el archivo exista y ruta sea correcta
+    });
+</script>
+<script>
+    document.getElementById("applePayBtn").addEventListener("click", function (event) {
+        event.preventDefault(); // Evita comportamiento por defecto
+        event.stopPropagation(); // Evita que el clic se propague a otros botones
+        window.open("https://buy.stripe.com/test_5kA6oG2sc5sCaiY288", "_blank");
+    });
+</script>
+<script src="../assets/js/carrito_script.js"></script>
+<script src="../assets/js/menu_script.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=MXN"></script>
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AQgX9tKpLfd4nhy_aBhwba0Iypx0U5wrS900gzWRWfeoYrhVPiD_Tip3eDYFNFmphPZTtF3g8KR5hQEy"></script>
 
 
 </body>

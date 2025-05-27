@@ -1,8 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Solo ejecutar si estamos en una página que tiene carrito
-    const cartElement = document.getElementById('cart-container'); // o el elemento del carrito
-    if (!cartElement) {
-        console.log('No estamos en la página del carrito, saltando carrito_script');
+    const cartElement = document.getElementById('cart-container');
+    const menuElement = document.querySelector('.menu-items');
+    const buyElement = document.querySelector('.products-scroll');
+
+    // Solo ejecutar en páginas de carrito, menú, o buy
+    if (!cartElement && !menuElement && !buyElement) {
+        console.log('No estamos en carrito, menú, ni buy - saltando carrito_script');
+        return;
+    }
+
+    // Si estamos en buy.html, no ejecutar el resto del código del carrito
+    if (window.location.pathname.includes('buy.html')) {
+        console.log('Estamos en buy.html, saltando lógica del carrito');
         return;
     }
     const orderSummary = document.querySelector('.order-summary');
