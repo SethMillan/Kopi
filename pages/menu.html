@@ -66,6 +66,7 @@
         </div>
 
     </nav> <!-- Fin de barra de navegacion superior-->
+
     <!-- AQUI EMPIEZA EL CONTENIDO DEL MENU -->
     <main class="menu-content">
         <h1 class="menu-title">Nuestro Menu</h1>
@@ -78,68 +79,192 @@
             <button class="category-button">Bolsas</button>
         </div>
 
+        <!-- CONTENEDOR DE TARJETAS - ESTE ES EL CAMBIO IMPORTANTE -->
         <div class="menu-items">
-            <!-- Sample Menu Item -->
-            <div class="menu-item">
-                <img src="../assets/img/menu/dalgona-coffee.jpg" alt="Coffee" class="menu-item-image">
+
+            <!-- Ejemplo de cómo deben verse las nuevas tarjetas de productos -->
+            <div class="menu-item" data-product-id="1">
+                <img src="../assets/img/menu/dalgona-coffee.jpg" alt="Cappuccino" class="menu-item-image">
+
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">Cappuccino</h3>
                     <p class="menu-item-description">Espresso with steamed milk and a deep layer of foam.</p>
-                    <p class="menu-item-price">$54.99</p>
-                    <!-- <a href="carrito.html">-->
-                    <button class="add-to-cart">
+
+                    <div class="menu-item-info">
+                        <p class="menu-item-price">$54.99</p>
+                        <span class="stock-badge low-stock">Solo 5 disponibles</span>
+                    </div>
+
+                    <!-- NUEVO: Selector de cantidad -->
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" data-action="decrease" type="button">
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="quantity-display">1</span>
+                        <button class="quantity-btn" data-action="increase" type="button">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+
+                    <button class="add-to-cart" data-product-id="1" data-product-name="Cappuccino"
+                        data-product-price="54.99">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Comprar
+                        Agregar al Carrito
                     </button>
-                    </a>
                 </div>
             </div>
 
-            <div class="menu-item">
-                <img src="../assets/img/menu/cafe_2.webp" alt="Coffee" class="menu-item-image">
+            <!-- Más ejemplos de tarjetas -->
+            <div class="menu-item" data-product-id="2">
+                <img src="../assets/img/menu/cafe_2.webp" alt="Flat White" class="menu-item-image">
+
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">Flat White</h3>
                     <p class="menu-item-description">Rich espresso with velvety steamed milk.</p>
-                    <p class="menu-item-price">$62</p>
-                    <!--  <a href="carrito.html">>-->
-                    <button class="add-to-cart">
+
+                    <div class="menu-item-info">
+                        <p class="menu-item-price">$62.00</p>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" data-action="decrease" type="button">
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="quantity-display">1</span>
+                        <button class="quantity-btn" data-action="increase" type="button">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+
+                    <button class="add-to-cart" data-product-id="2" data-product-name="Flat White"
+                        data-product-price="62.00">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Comprar
+                        Agregar al Carrito
                     </button>
-                    </a>
                 </div>
             </div>
 
-            <div class="menu-item">
-                <img src="../assets/img/menu/cafe.jpg" alt="Coffee" class="menu-item-image">
+            <div class="menu-item" data-product-id="3">
+                <img src="../assets/img/menu/cafe.jpg" alt="Cold Brew" class="menu-item-image">
+
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">Cold Brew</h3>
                     <p class="menu-item-description">Slow-steeped coffee served cold for a smooth finish.</p>
-                    <p class="menu-item-price">78.99</p>
-                    <!--  <a href="carrito.html">>-->
-                    <button class="add-to-cart">
+
+                    <div class="menu-item-info">
+                        <p class="menu-item-price">$78.99</p>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" data-action="decrease" type="button">
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="quantity-display">1</span>
+                        <button class="quantity-btn" data-action="increase" type="button">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+
+                    <button class="add-to-cart" data-product-id="3" data-product-name="Cold Brew"
+                        data-product-price="78.99">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Comprar
+                        Agregar al Carrito
                     </button>
-                    </a>
                 </div>
             </div>
 
-            <div class="menu-item">
-                <img src="../assets/img/menu/cafe_3.avif" alt="Pastry" class="menu-item-image">
+            <!-- Ejemplo de producto sin stock -->
+            <div class="menu-item" data-product-id="4">
+                <img src="../assets/img/menu/cafe_3.avif" alt="Chocolate Croissant" class="menu-item-image">
+
                 <div class="menu-item-content">
                     <h3 class="menu-item-title">Chocolate Croissant</h3>
                     <p class="menu-item-description">Buttery croissant filled with rich chocolate.</p>
-                    <p class="menu-item-price">49.99</p>
-                    <!--<a href="carrito.html">>-->
-                    <button class="add-to-cart">
-                        <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Comprar
+
+                    <div class="menu-item-info">
+                        <p class="menu-item-price">$49.99</p>
+                    </div>
+
+                    <!-- Selector de cantidad deshabilitado para productos sin stock -->
+                    <div class="quantity-selector" style="opacity: 0.5;">
+                        <button class="quantity-btn" data-action="decrease" type="button" disabled>
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="quantity-display">0</span>
+                        <button class="quantity-btn" data-action="increase" type="button" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+
+                    <button class="add-to-cart disabled" disabled>
+                        <span class="material-symbols-outlined">block</span>
+                        Sin Stock
                     </button>
-                    </a>
                 </div>
             </div>
+
+            <!-- Agregar más productos para probar el grid -->
+            <div class="menu-item" data-product-id="5">
+                <img src="../assets/img/menu/cafe.jpg" alt="Espresso" class="menu-item-image">
+
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Espresso</h3>
+                    <p class="menu-item-description">Strong and bold coffee shot.</p>
+
+                    <div class="menu-item-info">
+                        <p class="menu-item-price">$45.00</p>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" data-action="decrease" type="button">
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="quantity-display">1</span>
+                        <button class="quantity-btn" data-action="increase" type="button">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+
+                    <button class="add-to-cart" data-product-id="5" data-product-name="Espresso"
+                        data-product-price="45.00">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item" data-product-id="6">
+                <img src="../assets/img/menu/cafe_2.webp" alt="Latte" class="menu-item-image">
+
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Latte</h3>
+                    <p class="menu-item-description">Smooth espresso with steamed milk and light foam.</p>
+
+                    <div class="menu-item-info">
+                        <p class="menu-item-price">$58.00</p>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" data-action="decrease" type="button">
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="quantity-display">1</span>
+                        <button class="quantity-btn" data-action="increase" type="button">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+
+                    <button class="add-to-cart" data-product-id="6" data-product-name="Latte"
+                        data-product-price="58.00">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
         </div>
+        <!-- FIN del contenedor menu-items -->
+
     </main>
 
 
@@ -328,7 +453,7 @@
     <!-- Agregar esto en menu.html, DESPUÉS del popup de login existente -->
 
     <!-- Popup Login Required -->
-    <div class="login-required-overlay" id="loginRequiredOverlay" onclick="closeLoginRequiredPopup()"></div>
+    <div class="login-required-overlay" id="loginRequiredOverlay" onclick="closeAndReloadLoginRequiredPopup()"></div>
     <div class="login-required-popup" id="loginRequiredPopup">
         <div class="login-required-content">
             <div class="login-required-icon">
@@ -337,7 +462,7 @@
             <h3>¡Woops!</h3>
             <p>Necesitas iniciar sesión primero para agregar productos al carrito</p>
             <div class="login-required-buttons">
-                <button class="login-required-btn cancel" onclick="closeLoginRequiredPopup()">
+                <button class="login-required-btn cancel" onclick="closeAndReloadLoginRequiredPopup()">
                     Después
                 </button>
                 <button class="login-required-btn primary" onclick="openLoginFromRequired()">
@@ -367,24 +492,6 @@
             });
         });
     </script>
-
-    <!-- REMOVER ESTE SCRIPT DE PRUEBA QUE ESTÁ CAUSANDO PROBLEMAS -->
-    <!-- 
-<script>
-    // Test del toast después de cargar la página
-    setTimeout(() => {
-        console.log('Probando toast...');
-        const container = document.getElementById('toastContainer');
-        console.log('Container encontrado:', container);
-
-        if (typeof showToast === 'function') {
-            showToast('success', 'Prueba', 'Este es un toast de prueba');
-        } else {
-            console.error('showToast no está definida');
-        }
-    }, 2000);
-</script>
--->
 </body>
 
 </html>

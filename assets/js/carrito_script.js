@@ -1,3 +1,5 @@
+/* carrito_script.js */
+
 document.addEventListener('DOMContentLoaded', function () {
     // Solo ejecutar si estamos en una página que tiene carrito
     const cartElement = document.getElementById('cart-container');

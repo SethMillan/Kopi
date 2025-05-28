@@ -9,7 +9,8 @@ try {
     exit;
 }
 
-function secion($conn) {
+function secion($conn)
+{
     if (isset($_SESSION['cliente_id'])) {
         $nombre = $_SESSION['cliente_nombre'] ?? 'Usuario';
         echo json_encode([
@@ -21,7 +22,8 @@ function secion($conn) {
     }
 }
 
-function verCarrito($conn) {
+function verCarrito($conn)
+{
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
@@ -62,7 +64,8 @@ function verCarrito($conn) {
 }
 
 // Buscar el ID del producto por su nombre
-function encontrarID($productoNombre, $conn) {
+function encontrarID($productoNombre, $conn)
+{
     $sql = "SELECT id FROM producto WHERE nombre = $1";
     $result = pg_query_params($conn, $sql, [$productoNombre]);
 
@@ -75,51 +78,10 @@ function encontrarID($productoNombre, $conn) {
 }
 
 // Función mejorada para agregar al carrito con validación de stock
-function AgregarCarrito($producto_id, $conn) {
+function AgregarCarrito($producto_id, $conn)
+{
     if (!isset($_SESSION['cliente_id'])) {
-        // Si no hay sesión, usar carrito temporal en sesión
-        if (!isset($_SESSION['carrito_temporal'])) {
-            $_SESSION['carrito_temporal'] = [];
-        }
-        
-        // Verificar stock antes de agregar
-        $sql_stock = "SELECT stock, nombre, precio FROM producto WHERE id = $1";
-        $result_stock = pg_query_params($conn, $sql_stock, [$producto_id]);
-        
-        if (!$result_stock || pg_num_rows($result_stock) == 0) {
-            return ['success' => false, 'message' => 'Producto no encontrado'];
-        }
-        
-        $producto = pg_fetch_assoc($result_stock);
-        $stock_disponible = intval($producto['stock']);
-        
-        if ($stock_disponible <= 0) {
-            return ['success' => false, 'message' => 'Producto sin stock disponible'];
-        }
-        
-        // Verificar cantidad en carrito temporal
-        $cantidad_en_carrito = 0;
-        if (isset($_SESSION['carrito_temporal'][$producto_id])) {
-            $cantidad_en_carrito = $_SESSION['carrito_temporal'][$producto_id]['cantidad'];
-        }
-        
-        if ($cantidad_en_carrito + 1 > $stock_disponible) {
-            return ['success' => false, 'message' => "Solo hay $stock_disponible unidades disponibles"];
-        }
-        
-        // Agregar al carrito temporal
-        if (isset($_SESSION['carrito_temporal'][$producto_id])) {
-            $_SESSION['carrito_temporal'][$producto_id]['cantidad']++;
-        } else {
-            $_SESSION['carrito_temporal'][$producto_id] = [
-                'nombre' => $producto['nombre'],
-                'precio' => $producto['precio'],
-                'cantidad' => 1
-            ];
-        }
-        
-        $total_items = array_sum(array_column($_SESSION['carrito_temporal'], 'cantidad'));
-        return ['success' => true, 'message' => 'Producto agregado al carrito temporal', 'total_items' => $total_items];
+        return ['success' => false, 'message' => 'Usuario no tiene sesión activa'];
     }
 
     $clienteid = $_SESSION['cliente_id'];
@@ -128,24 +90,24 @@ function AgregarCarrito($producto_id, $conn) {
     // Verificar stock disponible
     $sql_stock = "SELECT stock FROM producto WHERE id = $1";
     $result_stock = pg_query_params($conn, $sql_stock, [$producto_id]);
-    
+
     if (!$result_stock || pg_num_rows($result_stock) == 0) {
         return ['success' => false, 'message' => 'Producto no encontrado'];
     }
-    
+
     $producto_db = pg_fetch_assoc($result_stock);
     $stock_disponible = intval($producto_db['stock']);
-    
+
     // Verificar cantidad actual en carrito
     $sql_check = "SELECT cantidad FROM carrito WHERE cliente_id = $1 AND producto_id = $2 AND estado = 'carrito'";
     $result_check = pg_query_params($conn, $sql_check, [$clienteid, $producto_id]);
-    
+
     $cantidad_actual = 0;
     if ($result_check && pg_num_rows($result_check) > 0) {
         $row = pg_fetch_assoc($result_check);
         $cantidad_actual = intval($row['cantidad']);
     }
-    
+
     if ($cantidad_actual + $cantidad > $stock_disponible) {
         return ['success' => false, 'message' => "Solo hay $stock_disponible unidades disponibles. Ya tienes $cantidad_actual en tu carrito."];
     }
@@ -181,7 +143,8 @@ function AgregarCarrito($producto_id, $conn) {
     return ['success' => true, 'message' => 'Producto agregado al carrito', 'total_items' => $total_items];
 }
 
-function eliminarProducto($datos, $conn) {
+function eliminarProducto($datos, $conn)
+{
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
@@ -215,24 +178,25 @@ function eliminarProducto($datos, $conn) {
     }
 }
 
-function actualizarCantidad($producto_id, $cantidad, $conn) {
+function actualizarCantidad($producto_id, $cantidad, $conn)
+{
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
 
     $clienteid = $_SESSION['cliente_id'];
-    
+
     // Verificar stock antes de actualizar
     $sql_stock = "SELECT stock FROM producto WHERE id = $1";
     $result_stock = pg_query_params($conn, $sql_stock, [$producto_id]);
-    
+
     if (!$result_stock || pg_num_rows($result_stock) == 0) {
         return ['success' => false, 'message' => 'Producto no encontrado'];
     }
-    
+
     $producto_db = pg_fetch_assoc($result_stock);
     $stock_disponible = intval($producto_db['stock']);
-    
+
     if ($cantidad > $stock_disponible) {
         return ['success' => false, 'message' => "Solo hay $stock_disponible unidades disponibles"];
     }
@@ -248,7 +212,8 @@ function actualizarCantidad($producto_id, $cantidad, $conn) {
     return ['success' => true, 'message' => 'Cantidad actualizada en el carrito'];
 }
 
-function guardar($datos, $conn) {
+function guardar($datos, $conn)
+{
     if (!isset($_SESSION['cliente_id'])) {
         return ['success' => false, 'message' => 'No hay sesión iniciada'];
     }
@@ -267,11 +232,11 @@ function guardar($datos, $conn) {
     $producto_id = $producto['id'];
 
     $res2 = pg_query_params($conn, "SELECT estado FROM carrito WHERE cliente_id = $1 AND producto_id = $2", [$clienteid, $producto_id]);
-   
+
     $producto2 = pg_fetch_assoc($res2);
     $producto_estado = $producto2['estado'];
 
-    if($producto_estado == 'carrito') {
+    if ($producto_estado == 'carrito') {
         // Mover a guardado
         $sql_update = "UPDATE carrito SET estado = $1 WHERE cliente_id = $2 AND producto_id = $3";
         $result_update = pg_query_params($conn, $sql_update, ['guardado', $clienteid, $producto_id]);
@@ -306,7 +271,7 @@ switch ($input['accion']) {
     case 'ver':
         $respuesta = verCarrito($conn);
         break;
-        
+
     case 'agg':
         // Manejar tanto producto_nombre como producto_id
         if (isset($input['producto_id'])) {
@@ -323,7 +288,7 @@ switch ($input['accion']) {
             $respuesta = ['success' => false, 'message' => 'Identificador del producto no recibido'];
         }
         break;
-        
+
     case 'eliminar':
         $respuesta = eliminarProducto($input, $conn);
         break;
@@ -341,11 +306,11 @@ switch ($input['accion']) {
             $respuesta = ['success' => false, 'message' => 'Datos incompletos para actualizar'];
         }
         break;
-        
+
     case 'secion':
-        secion($conn); 
+        secion($conn);
         exit;
-        
+
     case 'guardar':
         if (isset($input['nombre'])) {
             $respuesta = guardar($input, $conn);
@@ -353,10 +318,9 @@ switch ($input['accion']) {
             $respuesta = ['success' => false, 'message' => 'Nombre del producto no recibido'];
         }
         break;
-        
+
     default:
         $respuesta = ['success' => false, 'message' => 'Acción no válida'];
 }
 
 echo json_encode($respuesta);
-?>
