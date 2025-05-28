@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,21 @@
     <link rel="stylesheet" href="../assets/styles/styles_findkopy.css">
     <script src="https://js.stripe.com/v3/"></script>
     <script src="../assets/js/carrito_script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap&libraries=marker" async defer></script>
-        <link
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap&libraries=marker" async
+        defer></script>
+    <link
         href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet"/>
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/granos-de-cafe.png">
+
     <title>Encuentranos | Kopi</title>
 </head>
+
 <body>
-      <nav class="encabezado">
+    <nav class="encabezado">
         <a href="/" class="home">Kopi</a>
         <div class="btnMenu">
             <div class="linea"></div>
@@ -55,10 +60,10 @@
         <span class="material-symbols-outlined" id="menu">menu</span>
     </nav>> <!-- Fin de barra de navegacion superior-->
 
-   <div class="container">
-    
-        <div class="left-panel">   
-           
+    <div class="container">
+
+        <div class="left-panel">
+
             <div class="search-section">
                 <div class="search-bar">
                     <input type="text" class="search-input" placeholder="Find your Kopi">
@@ -66,7 +71,7 @@
                 </div>
                 <div class="location-marker"></div>
             </div>
-            
+
             <div class="places-list">
                 <div class="place-card">
                     <div class="place-rating">4.8★</div>
@@ -80,7 +85,7 @@
                     </div>
                     <div class="place-decorative"></div>
                 </div>
-                
+
                 <div class="place-card">
                     <div class="place-rating">4.6★</div>
                     <div class="place-title">Plaza U</div>
@@ -93,7 +98,7 @@
                     </div>
                     <div class="place-decorative"></div>
                 </div>
-                
+
                 <div class="place-card">
                     <div class="place-rating">4.7★</div>
                     <div class="place-title">Plaza Andador</div>
@@ -108,25 +113,26 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="right-panel">
             <div id="map"></div>
         </div>
         <script src="../assets/js/findkopy_script.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
     </div>
 
     <script>
 
         // Funcionalidad de búsqueda
-        document.querySelector('.search-input').addEventListener('input', function(e) {
+        document.querySelector('.search-input').addEventListener('input', function (e) {
             const searchTerm = e.target.value.toLowerCase();
             const cards = document.querySelectorAll('.place-card');
-            
+
             cards.forEach(card => {
                 const title = card.querySelector('.place-title').textContent.toLowerCase();
                 const address = card.querySelector('.place-address').textContent.toLowerCase();
-                
+
                 if (title.includes(searchTerm) || address.includes(searchTerm)) {
                     card.style.display = 'block';
                 } else {
@@ -135,6 +141,7 @@
             });
         });
     </script>
-     
+
 </body>
+
 </html>
