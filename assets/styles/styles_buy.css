@@ -1,176 +1,721 @@
-/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #2c1b10;
-    color: white;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #cacdd4;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
+/* Inicio de barra superior */
+
+#contenedor1 {
+  background-color: #160503;
+  width: 100%;
+  height: 7.5rem;
+}
+
+.contComun {
+  color: #ddd;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.contIzq {
+  float: left;
+  left: 3rem;
+  /*Espacio entre borde izquierdo*/
+}
+
+.contDer {
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  float: right;
+  width: 10%;
+  right: 5rem;
+  /*Espacio entre borde derecho*/
+}
+
+#find {
+  width: 20%;
+}
+
+#kopi {
+  font-family: "Fredoka", sans-serif;
+  font-size: 4rem;
+
+  width: 10%;
+}
+
+#menu {
+  font-size: medium;
+
+  text-decoration-line: overline underline;
+  width: 10%;
+}
+
+/* Fin barra superior */
+
+/* /////////////////////////////////////////////////////////////////////////////////// */
 .container {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
 }
 
 /* Estilos para el resumen del pedido */
 .order-summary {
-    background: #612f0e;
-    padding: 20px;
-    border-radius: 8px;
-    width: 45%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 45%;
 }
 
-/* Estilos para los detalles del producto */
+#og {
+  color: #160503;
+  border-bottom: 0.150rem solid #0c1624;
+  padding-bottom: 1.05rem;
+}
+
+
 .product-details {
-    background-color: #271509;
-    padding: 15px; 
-    border-radius: 10px; 
-    margin-bottom: 10px; 
-    display: flex;
-    align-items: center;
-    gap: 15px; 
+  background-color: rgb(255, 255, 255);
+  color: rgb(39, 21, 9);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .product-icon {
-    width: 50px; 
-    height: auto; 
+  width: 50px;
+  height: auto;
 }
 
 .product-info {
-    flex: 1; 
+  flex: 1;
 }
 
 .product-info p {
-    margin: 5px 0; 
-    font-size: 14px; 
-    opacity: 0.9; 
+  margin: 5px 0;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 .price {
-    font-weight: bold;
-    font-size: 16px; 
+  font-weight: bold;
+  font-size: 16px;
 }
 
-/* precios */
 .price-summary {
-    background-color: #271509; 
-    padding: 15px; 
-    border-radius: 10px; 
-    margin-top: 20px; 
-    color: white; 
-    font-family: Arial, sans-serif; 
+  background-color: #322218;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 .price-summary p {
-    margin: 5px 0; 
-    font-size: 14px; 
-    opacity: 0.9;
+  margin: 5px 0;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 .price-summary h3 {
-    margin: 10px 0 0; 
-    font-size: 18px; 
-    color: #ffffff; 
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ffffff;
 }
 
-/* detalles de pago */
-.payment-details {
-    background: #160503;
+.products-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #47220f #f1f1f1;
+}
+
+.products-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.products-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.products-scroll::-webkit-scrollbar-thumb {
+  background-color: #47220f;
+  border-radius: 10px;
+}
+
+
+/* .payment-details {
+    background: #ffffff;
     padding: 20px;
     border-radius: 8px;
     width: 45%;
+    color: #271509;
+} */
+
+.payment-details {
+  background: #160503;
+  padding: 20px;
+  border-radius: 8px;
+  width: 45%;
 }
 
 form label {
-    display: block;
-    margin: 10px 0 5px;
-    opacity: 0.7; 
-    font-size: 10px; 
+  display: block;
+  margin: 10px 0 5px;
+  opacity: 0.7;
+  font-size: 10px;
 }
 
-/* Estilos para las casillas (inputs y select) */
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: none; 
-    background-color: #362626; 
-    color: white; 
-    font-size: 16px;
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #362626;
+  color: #fff;
+  font-size: 16px;
 }
 
-/* color del placeholder */
+
 input::placeholder {
-    color: #a6763e; 
+  color: #a6763e;
 }
 
-/* Estilo cuando el input está enfocado */
-input:focus, select:focus {
-    background-color: #643f3f; 
-    outline: none; 
+
+input:focus,
+select:focus {
+  background-color: #643f3f;
+  outline: none;
 }
 
-/* Estilo para el botón */
+
 button {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 15px;
-    border: none;
-    background-color: #47220f; 
-    color: white; 
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 auto; 
-    display: block; 
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: none;
+  background-color: #47220f;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
 }
 
 button:hover {
-    background-color: #813b18; 
+  background-color: #813b18;
 }
 
-/* Country + Zip Code, Exp Date + CVC  */
+
 .input-group {
-    display: flex;
-    gap: 10px; 
+  display: flex;
+  gap: 10px;
 }
 
 .input-group div {
-    flex: 1; 
+  flex: 1;
 }
+
 
 .narrow-input {
-    width: 215px !important; 
+  width: 215px !important;
 }
 
-/* apple pay */
+
 .fast-pay {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  gap: 7rem;
 }
 
-/* Estilo para el botón de Apple Pay */
-#apple-pay-button {
-    background-color: white; 
-    color: black; 
-    border: none; 
-    border-radius: 15px; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    cursor: pointer; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; 
+.apple-pay-button {
+  background-color: rgb(232, 232, 232);
+  color: black;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  min-width: 10rem;
+  height: auto;
+  max-height: 2rem;
+  position: relative;
+  left: 2.5rem;
 }
 
-#apple-pay-button:hover {
-    background-color: #f0f0f0; 
+.apple-pay-button:hover {
+  background-color: #a3a3a3;
 }
 
-#apple-pay-button .fab.fa-apple-pay {
-    font-size: 24px; 
+.apple-pay-button .fab.fa-apple-pay {
+  font-size: 24px;
+}
+
+.paypal-button {
+  background-color: rgb(232, 232, 232);
+  color: black;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  min-width: 10rem;
+  height: auto;
+  max-height: 2rem;
+  position: relative;
+  right: 2.2rem;
+}
+
+.paypal-button:hover {
+  background-color: #006996;
+}
+
+.paypal-button .fab.fa-apple-pay {
+  font-size: 24px;
+}
+
+#gt {
+  width: 97%;
+}
+
+.a1 {
+  width: 50%;
+
+}
+
+.a2 {
+  width: 50%;
+
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* Estilos para Sección de Dirección y Entrega */
+.delivery-section {
+  background: #160503;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.delivery-section h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.delivery-section h3 {
+  color: white;
+  margin: 20px 0 15px 0;
+  font-size: 16px;
+}
+
+/* Tipo de Entrega */
+.delivery-type {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.delivery-option {
+  flex: 1;
+}
+
+.delivery-option input[type="radio"] {
+  display: none;
+}
+
+.delivery-option label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 2px solid #362626;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #362626;
+}
+
+.delivery-option input[type="radio"]:checked+label {
+  border-color: #a6763e;
+  background-color: rgba(166, 118, 62, 0.1);
+}
+
+.delivery-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.delivery-option label div strong {
+  display: block;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.delivery-option label div p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.7;
+  color: #ccc;
+}
+
+/* Direcciones Guardadas */
+.saved-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.address-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 2px solid #362626;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #362626;
+}
+
+.address-item:hover {
+  border-color: #a6763e;
+}
+
+.address-item.selected {
+  border-color: #a6763e;
+  background-color: rgba(166, 118, 62, 0.1);
+}
+
+.address-item input[type="radio"] {
+  display: none;
+}
+
+.address-info {
+  flex: 1;
+}
+
+.address-alias {
+  font-weight: bold;
+  color: #a6763e;
+  margin-bottom: 4px;
+}
+
+.address-details {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.address-principal {
+  background-color: #a6763e;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+/* Botón Agregar Dirección */
+.add-address-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 15px;
+  border: 2px dashed #a6763e;
+  border-radius: 10px;
+  background: transparent;
+  color: #a6763e;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-address-btn:hover {
+  background-color: rgba(166, 118, 62, 0.1);
+  border-style: solid;
+}
+
+.add-address-btn span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Popup de Dirección */
+.address-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 999;
+}
+
+.address-popup-overlay.active {
+  display: block;
+}
+
+.address-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  background: #160503;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.address-popup.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.address-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid #362626;
+}
+
+.address-popup-header h3 {
+  margin: 0;
+  color: white;
+  font-size: 18px;
+}
+
+.address-popup-close {
+  font-size: 24px;
+  color: #a6763e;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.address-popup-close:hover {
+  color: white;
+}
+
+/* Formulario de Dirección */
+.address-form {
+  padding: 20px;
+}
+
+.address-input-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.address-input-group div {
+  flex: 1;
+}
+
+.address-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.address-form input,
+.address-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #362626;
+  color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.address-form input:focus,
+.address-form textarea:focus {
+  background-color: #643f3f;
+  outline: 2px solid #a6763e;
+}
+
+.address-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.address-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.address-checkbox input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.address-checkbox label {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.address-form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.cancel-btn {
+  background-color: #362626;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #643f3f;
+}
+
+.save-btn {
+  background-color: #a6763e;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #813b18;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .delivery-type {
+    flex-direction: column;
+  }
+
+  .address-input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .address-popup {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .address-form-buttons {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+  }
+}
+
+/* En styles_buy.css */
+.delivery-section {
+  background: #160503;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+  width: 45%;
+  /* Mismo ancho que payment-details */
+}
+
+/* Arreglo del layout del lado derecho */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  gap: 20px;
+}
+
+/* Ajuste para la sección de direcciones */
+.delivery-section {
+  width: 100%;
+  /* Tomar todo el ancho del contenedor padre */
+  box-sizing: border-box;
+}
+
+/* Ajuste para payment-details */
+.payment-details {
+  width: 100%;
+  /* Tomar todo el ancho del contenedor padre */
+  box-sizing: border-box;
 }

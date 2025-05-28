@@ -19,571 +19,858 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/toast.css">
 
-    <script src="../assets/js/login_script.js"></script>
+    <link rel="stylesheet" href="assets/styles/sesion.css">
 </head>
 
 <body>
-    <!-- Principal -->
-    <div class="kopi">
-        <div class="difuminado"></div>
+    <main>
+        <!-- Principal -->
+        <div class="kopi">
+            <div class="difuminado"></div>
 
-        <nav class="encabezado">
-            <a href="/" class="home">Kopi</a>
-            <div class="btnMenu">
-                <div class="linea"></div>
-                <a href="pages/menu.html">
-                    <p>MENU</p>
-                </a>
-                <div class="linea"></div>
-            </div>
-            <div class="btnFindKopi">
-                <span class="material-symbols-outlined">location_on</span>
-                <p>Encuentra tu Kopi</p>
-            </div>
-
-            <div type="submit" class="btnLogin" onclick="openPopup()">Entrar</div>
-
-            <!-- Popup -->
-
-
-
-            <div class="btnRegister"><a href="pages/login.html?show=register">
-                    <p>Registrate</p>
-                </a></div>
-
-            <div class="btnCart">
-                <a href="pages/carrito.html">
-                    <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
-                </a>
-            </div>
-
-            <span class="material-symbols-outlined" id="menu">menu</span>
-        </nav>
-
-        <div class="contenido">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="card-coffe">
-                            <div class="card-1">
-                                <div class="bubles1"></div>
-                                <div class="bubles2"></div>
-                                <div class="bubles3"></div>
-                                <div class="bubles4"></div>
-                                <p>Magic <br>Thai</p>
-                                <img src="assets/img/swiper-media/bubble_tea.png" alt="magic_thai">
-                            </div>
-                            <div class="btn_buy">
-                                <p>Buy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card-coffe">
-                            <div class="card-2">
-                                <div class="bubles1"></div>
-                                <div class="bubles2"></div>
-                                <p>Caramel<br>Kiss</p>
-                                <img id="imagen1" src="assets/img/swiper-media/caramel-kiss-2.png" alt="magic_thai">
-                                <img id="imagen2" src="assets/img/swiper-media/caramel-kiss-1.png" alt="magic_thai">
-
-                            </div>
-                            <div class="btn_buy">
-                                <p>Buy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card-coffe">
-                            <div class="card-3">
-                                <div class="bubles1"></div>
-                                <div class="bubles2"></div>
-                                <p>Always<br>Franky</p>
-                                <img id="af2" src="assets/img/swiper-media/always_franky_2.png" alt="magic_thai">
-                                <img id="af1" src="assets/img/swiper-media/always_franky_1.png" alt="magic_thai">
-                            </div>
-                            <div class="btn_buy">
-                                <p>Buy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card-coffe">
-                            <div class="card-1">
-                                <div class="bubles1"></div>
-                                <div class="bubles2"></div>
-                                <div class="bubles3"></div>
-                                <div class="bubles4"></div>
-                                <p>Magic <br>Thai</p>
-                                <img src="assets/img/swiper-media/bubble_tea.png" alt="magic_thai">
-                            </div>
-                            <div class="btn_buy">
-                                <p>Buy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card-coffe">
-                            <div class="card-2">
-                                <div class="bubles1"></div>
-                                <div class="bubles2"></div>
-                                <p>Caramel<br>Kiss</p>
-                                <img id="imagen1" src="assets/img/swiper-media/caramel-kiss-2.png" alt="magic_thai">
-                                <img id="imagen2" src="assets/img/swiper-media/caramel-kiss-1.png" alt="magic_thai">
-
-                            </div>
-                            <div class="btn_buy">
-                                <p>Buy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card-coffe">
-                            <div class="card-3">
-                                <div class="bubles1"></div>
-                                <div class="bubles2"></div>
-                                <p>Always<br>Franky</p>
-                                <img id="af2" src="assets/img/swiper-media/always_franky_2.png" alt="magic_thai">
-                                <img id="af1" src="assets/img/swiper-media/always_franky_1.png" alt="magic_thai">
-                            </div>
-                            <div class="btn_buy">
-                                <p>Buy</p>
-                            </div>
-                        </div>
-                    </div>
+            <nav class="encabezado">
+                <a href="/" class="home">Kopi</a>
+                <div class="btnMenu">
+                    <div class="linea"></div>
+                    <a href="pages/menu.html">
+                        <p>MENU</p>
+                    </a>
+                    <div class="linea"></div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="btnFindKopi">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <p>Encuentra tu Kopi</p>
+                </div>
+
+                <div type="submit" class="btnLogin" id="btnLogin" onclick="openPopup()">Entrar</div>
+
+                <!-- Popup -->
+                <div class="btnRegister"><a href="pages/login.html?show=register">
+                        <p>Registrate</p>
+                    </a></div>
+
+                <div class="usuario" id="usuario" style="display: none;">
+                    <a href="#" onclick="toggleUserMenu(event)">
+                        <div class="user-icon"><span class="material-symbols-outlined person" id="person">
+                                person
+                            </span></div>
+                        <p id="nombreUsuario">Usuario</p>
+                    </a>
+                </div>
+
+                <div class="btnCart">
+                    <a href="pages/carrito.html">
+                        <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+                    </a>
+                </div>
+
+                <span class="material-symbols-outlined" id="menu">menu</span>
+            </nav>
+
+            <div class="contenido">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card-coffe">
+                                <div class="card-1">
+                                    <div class="bubles1"></div>
+                                    <div class="bubles2"></div>
+                                    <div class="bubles3"></div>
+                                    <div class="bubles4"></div>
+                                    <p>Magic <br>Thai</p>
+                                    <img src="assets/img/swiper-media/bubble_tea.png" alt="magic_thai">
+                                </div>
+                                <div class="btn_buy">
+                                    <p>Buy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card-coffe">
+                                <div class="card-2">
+                                    <div class="bubles1"></div>
+                                    <div class="bubles2"></div>
+                                    <p>Caramel<br>Kiss</p>
+                                    <img id="imagen1" src="assets/img/swiper-media/caramel-kiss-2.png" alt="magic_thai">
+                                    <img id="imagen2" src="assets/img/swiper-media/caramel-kiss-1.png" alt="magic_thai">
+
+                                </div>
+                                <div class="btn_buy">
+                                    <p>Buy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card-coffe">
+                                <div class="card-3">
+                                    <div class="bubles1"></div>
+                                    <div class="bubles2"></div>
+                                    <p>Always<br>Franky</p>
+                                    <img id="af2" src="assets/img/swiper-media/always_franky_2.png" alt="magic_thai">
+                                    <img id="af1" src="assets/img/swiper-media/always_franky_1.png" alt="magic_thai">
+                                </div>
+                                <div class="btn_buy">
+                                    <p>Buy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card-coffe">
+                                <div class="card-1">
+                                    <div class="bubles1"></div>
+                                    <div class="bubles2"></div>
+                                    <div class="bubles3"></div>
+                                    <div class="bubles4"></div>
+                                    <p>Magic <br>Thai</p>
+                                    <img src="assets/img/swiper-media/bubble_tea.png" alt="magic_thai">
+                                </div>
+                                <div class="btn_buy">
+                                    <p>Buy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card-coffe">
+                                <div class="card-2">
+                                    <div class="bubles1"></div>
+                                    <div class="bubles2"></div>
+                                    <p>Caramel<br>Kiss</p>
+                                    <img id="imagen1" src="assets/img/swiper-media/caramel-kiss-2.png" alt="magic_thai">
+                                    <img id="imagen2" src="assets/img/swiper-media/caramel-kiss-1.png" alt="magic_thai">
+
+                                </div>
+                                <div class="btn_buy">
+                                    <p>Buy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card-coffe">
+                                <div class="card-3">
+                                    <div class="bubles1"></div>
+                                    <div class="bubles2"></div>
+                                    <p>Always<br>Franky</p>
+                                    <img id="af2" src="assets/img/swiper-media/always_franky_2.png" alt="magic_thai">
+                                    <img id="af1" src="assets/img/swiper-media/always_franky_1.png" alt="magic_thai">
+                                </div>
+                                <div class="btn_buy">
+                                    <p>Buy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+
+
+
             </div>
 
+            <div class="rewards" href="pages/rewards.html">
+                <div class="bebida">
+                    <img src="assets/img/rewards_bebida.png" alt="rewards_drink">
+                </div>
+                <div class="rewards-text">
+                    <img src="assets/img/crown.png" alt="">
+                    <a href="pages/rewards.html">
+                        <p>Rewards</p>
+                    </a>
 
+                </div>
+            </div>
 
         </div>
 
-        <div class="rewards">
-            <div class="bebida">
-                <img src="assets/img/rewards_bebida.png" alt="rewards_drink">
-            </div>
-            <div class="rewards-text">
-                <img src="assets/img/crown.png" alt="">
-                <p>Rewards</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Tueste_TextoResumido -->
-    <div class="content">
-        <img id="bean1" class="bean" src="assets/img/bean.png" alt="bean">
-        <img id="bean2" class="bean" src="assets/img/bean.png" alt="bean">
-        <div class="contact-view">
-            <p class="txt_destacado">
-                La vida es muy corta para<br>disfrutar solo un sabor.
-            </p>
-            <p class="txt_secundario">
-                Disfruta de nuestra variedad de productos.
-            </p>
-            <img src="assets/img/coffe_bag.png" alt="coffe bag jeje">
-            <div class="social_media">
-                <span>
-                    <div class="circle">
-                        <img src="assets/img/social_media/instagram.png" alt="instagra,">
-                    </div>
-                </span>
-                <span>
-                    <div class="circle">
-                        <img src="assets/img/social_media/facebook.png" alt="facebook">
-                    </div>
-                </span>
-                <span>
-                    <div class="circle">
-                        <img src="assets/img/social_media/x.png" alt="twitter">
-                    </div>
-                </span>
-            </div>
-        </div>
-
-        <div class="news-view">
-            <div class="txt-content">
-                <p class="title">Update News</p>
-                <p class="description">Descubre las últimas tendencias en café, desde granos de origen especial hasta
-                    nuevas formas de prepararlo.
-                    <br>¡Sumérgete en el mundo del café!
+        <!-- Tueste_TextoResumido -->
+        <div class="content">
+            <img id="bean1" class="bean" src="assets/img/bean.png" alt="bean">
+            <img id="bean2" class="bean" src="assets/img/bean.png" alt="bean">
+            <div class="contact-view">
+                <p class="txt_destacado">
+                    La vida es muy corta para<br>disfrutar solo un sabor.
                 </p>
+                <p class="txt_secundario">
+                    Disfruta de nuestra variedad de productos.
+                </p>
+                <img src="assets/img/coffe_bag.png" alt="coffe bag jeje">
+                <div class="social_media">
+                    <span>
+                        <div class="circle">
+                            <img src="assets/img/social_media/instagram.png" alt="instagra,">
+                        </div>
+                    </span>
+                    <span>
+                        <div class="circle">
+                            <img src="assets/img/social_media/facebook.png" alt="facebook">
+                        </div>
+                    </span>
+                    <span>
+                        <div class="circle">
+                            <img src="assets/img/social_media/x.png" alt="twitter">
+                        </div>
+                    </span>
+                </div>
             </div>
-            <div class="card-group">
-                <div class="new-card">
-                    <img src="assets/img/update_news/coffe_beans.jpg" alt="">
-                    <div class="texto">
-                        <p class="title">
-                            Coffe beens
-                        </p>
-                        <p class="description">
-                            Please add your content here. Keep it short and simple. And smile :)
-                        </p>
+
+            <div class="news-view">
+                <div class="txt-content">
+                    <p class="title">Ultimas Noticias</p>
+                    <p class="description">Descubre las últimas tendencias en café, desde granos de origen especial
+                        hasta
+                        nuevas formas de prepararlo.
+                        <br>¡Sumérgete en el mundo del café!
+                    </p>
+                </div>
+                <div class="card-group">
+                    <div class="new-card">
+                        <img src="assets/img/update_news/coffe_beans.jpg" alt="">
+                        <div class="texto">
+                            <p class="title">
+                                Granos de café!
+                            </p>
+                            <p class="description">
+                                Sabias que los granos de cafe son de color cafer? Sorprendente wow 
+                            </p>
+                        </div>
+                        <div class="btn-Learn-More">
+                            <p>Saber más ></p>
+                        </div>
                     </div>
-                    <div class="btn-Learn-More">
-                        <p>Learn More ></p>
+                    <div class="new-card">
+                        <img src="assets/img/update_news/coffe_cup.jpg" alt="">
+                        <div class="texto">
+                            <p class="title">
+                                Una taza de café al dia
+                            </p>
+                            <p class="description">
+                                ¿Te sientes mas activo cuando tomas café? ¡Cuidado! Podrias ser adicto al café
+                            </p>
+                        </div>
+                        <div class="btn-Learn-More">
+                            <p>Saber más ></p>
+                        </div>
+                    </div>
+                    <div class="new-card">
+                        <img src="assets/img/update_news/coffe_cute.png" alt="">
+                        <div class="texto">
+                            <p class="title">
+                                Más café?
+                            </p>
+                            <p class="description">
+                                Ya no se que mas decir, ponganme 100
+                            </p>
+                        </div>
+                        <div class="btn-Learn-More">
+                            <p>Saber más ></p>
+                        </div>
                     </div>
                 </div>
-                <div class="new-card">
-                    <img src="assets/img/update_news/coffe_cup.jpg" alt="">
-                    <div class="texto">
-                        <p class="title">
-                            Coffe beens
-                        </p>
-                        <p class="description">
-                            Please add your content here. Keep it short and simple. And smile :)
-                        </p>
-                    </div>
-                    <div class="btn-Learn-More">
-                        <p>Learn More ></p>
+            </div>
+            <div class="testimonials-view">
+                <div class="text">
+                    <p class="title">Testimonios</p>
+                    <p class="description">Nuestros clientes nos respaldan. <br>
+                        Descubre lo que dicen sobre su experiencia con nuestro café y cómo hemos mejorado su día a día
+                        con
+                        cada taza</p>
+                </div>
+                <div class="carrusel">
+                    <div class="testimonial-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testimonial-card-white">
+                                    <div class="testimonial-content">
+                                        Understanding customer health, commitments, and resource allocation is something
+                                        I'm
+                                        always chasing to improve. Cardinal is great at that in my mind.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Tom Mayblum</div>
+                                            <div class="author-position">Product Group Lead<br>Airmis</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        The platform has transformed how we manage our client relationships. It's
+                                        intuitive
+                                        and provides insights we never had access to before.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Sarah Johnson</div>
+                                            <div class="author-position">Customer Success Manager<br>TechWave</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card-white">
+                                    <div class="testimonial-content">
+                                        Having all our customer data in one place has streamlined our operations and
+                                        helped
+                                        us identify growth opportunities we were missing before.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">David Chen</div>
+                                            <div class="author-position">VP of Sales<br>Nexus Solutions</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user3.png" alt="David Chen">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        Understanding customer health, commitments, and resource allocation is something
+                                        I'm
+                                        always chasing to improve. Cardinal is great at that in my mind.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Tom Mayblum</div>
+                                            <div class="author-position">Product Group Lead<br>Airmis</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card-white">
+                                    <div class="testimonial-content">
+                                        The platform has transformed how we manage our client relationships. It's
+                                        intuitive
+                                        and provides insights we never had access to before.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Sarah Johnson</div>
+                                            <div class="author-position">Customer Success Manager<br>TechWave</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        Understanding customer health, commitments, and resource allocation is something
+                                        I'm
+                                        always chasing to improve. Cardinal is great at that in my mind.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Tom Mayblum</div>
+                                            <div class="author-position">Product Group Lead<br>Airmis</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
-                <div class="new-card">
-                    <img src="assets/img/update_news/coffe_cute.png" alt="">
-                    <div class="texto">
-                        <p class="title">
-                            Coffe beens
-                        </p>
-                        <p class="description">
-                            Please add your content here. Keep it short and simple. And smile :)
-                        </p>
-                    </div>
-                    <div class="btn-Learn-More">
-                        <p>Learn More ></p>
+                <div class="carrusel-reverse">
+                    <div class="testimonial-swiper-reverse">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testimonial-card-white">
+                                    <div class="testimonial-content">
+                                        Understanding customer health, commitments, and resource allocation is something
+                                        I'm
+                                        always chasing to improve. Cardinal is great at that in my mind.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Tom Mayblum</div>
+                                            <div class="author-position">Product Group Lead<br>Airmis</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        The platform has transformed how we manage our client relationships. It's
+                                        intuitive
+                                        and provides insights we never had access to before.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Sarah Johnson</div>
+                                            <div class="author-position">Customer Success Manager<br>TechWave</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card-white">
+                                    <div class="testimonial-content">
+                                        Having all our customer data in one place has streamlined our operations and
+                                        helped
+                                        us identify growth opportunities we were missing before.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">David Chen</div>
+                                            <div class="author-position">VP of Sales<br>Nexus Solutions</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user3.png" alt="David Chen">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        Understanding customer health, commitments, and resource allocation is something
+                                        I'm
+                                        always chasing to improve. Cardinal is great at that in my mind.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Tom Mayblum</div>
+                                            <div class="author-position">Product Group Lead<br>Airmis</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card-white">
+                                    <div class="testimonial-content">
+                                        The platform has transformed how we manage our client relationships. It's
+                                        intuitive
+                                        and provides insights we never had access to before.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Sarah Johnson</div>
+                                            <div class="author-position">Customer Success Manager<br>TechWave</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        Understanding customer health, commitments, and resource allocation is something
+                                        I'm
+                                        always chasing to improve. Cardinal is great at that in my mind.
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-details">
+                                            <div class="author-name">Tom Mayblum</div>
+                                            <div class="author-position">Product Group Lead<br>Airmis</div>
+                                        </div>
+                                        <div class="author-image">
+                                            <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="testimonials-view">
-            <div class="text">
-                <p class="title">Testimonials</p>
-                <p class="description">Nuestros clientes nos respaldan. <br>
-                    Descubre lo que dicen sobre su experiencia con nuestro café y cómo hemos mejorado su día a día con
-                    cada taza</p>
-            </div>
-            <div class="carrusel">
-                <div class="testimonial-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-card-white">
-                                <div class="testimonial-content">
-                                    Understanding customer health, commitments, and resource allocation is something I'm
-                                    always chasing to improve. Cardinal is great at that in my mind.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Tom Mayblum</div>
-                                        <div class="author-position">Product Group Lead<br>Airmis</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    The platform has transformed how we manage our client relationships. It's intuitive
-                                    and provides insights we never had access to before.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Sarah Johnson</div>
-                                        <div class="author-position">Customer Success Manager<br>TechWave</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card-white">
-                                <div class="testimonial-content">
-                                    Having all our customer data in one place has streamlined our operations and helped
-                                    us identify growth opportunities we were missing before.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">David Chen</div>
-                                        <div class="author-position">VP of Sales<br>Nexus Solutions</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user3.png" alt="David Chen">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    Understanding customer health, commitments, and resource allocation is something I'm
-                                    always chasing to improve. Cardinal is great at that in my mind.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Tom Mayblum</div>
-                                        <div class="author-position">Product Group Lead<br>Airmis</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card-white">
-                                <div class="testimonial-content">
-                                    The platform has transformed how we manage our client relationships. It's intuitive
-                                    and provides insights we never had access to before.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Sarah Johnson</div>
-                                        <div class="author-position">Customer Success Manager<br>TechWave</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    Understanding customer health, commitments, and resource allocation is something I'm
-                                    always chasing to improve. Cardinal is great at that in my mind.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Tom Mayblum</div>
-                                        <div class="author-position">Product Group Lead<br>Airmis</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">Kopi</a>
+                    <p>Tu rincón favorito para disfrutar del mejor café, postres artesanales y un ambiente acogedor. ¡Te
+                        esperamos!</p>
                 </div>
-            </div>
-            <div class="carrusel-reverse">
-                <div class="testimonial-swiper-reverse">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-card-white">
-                                <div class="testimonial-content">
-                                    Understanding customer health, commitments, and resource allocation is something I'm
-                                    always chasing to improve. Cardinal is great at that in my mind.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Tom Mayblum</div>
-                                        <div class="author-position">Product Group Lead<br>Airmis</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    The platform has transformed how we manage our client relationships. It's intuitive
-                                    and provides insights we never had access to before.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Sarah Johnson</div>
-                                        <div class="author-position">Customer Success Manager<br>TechWave</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="footer-column">
+                    <h4>Menú</h4>
+                    <ul>
+                        <li><a href="pages/menu.html">Cafés Calientes</a></li>
+                        <li><a href="pages/menu.html">Bebidas Frías</a></li>
+                        <li><a href="pages/menu.html">Postres</a></li>
+                        <li><a href="pages/menu.html">Bocadillos</a></li>
+                        <li><a href="pages/menu.html">Promociones</a></li>
+                    </ul>
+                </div>
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-card-white">
-                                <div class="testimonial-content">
-                                    Having all our customer data in one place has streamlined our operations and helped
-                                    us identify growth opportunities we were missing before.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">David Chen</div>
-                                        <div class="author-position">VP of Sales<br>Nexus Solutions</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user3.png" alt="David Chen">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="footer-column">
+                    <h4>Kopi</h4>
+                    <ul>
+                        <li><a href="#">Nuestra Historia</a></li>
+                        <li><a href="#">Sucursales</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    Understanding customer health, commitments, and resource allocation is something I'm
-                                    always chasing to improve. Cardinal is great at that in my mind.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Tom Mayblum</div>
-                                        <div class="author-position">Product Group Lead<br>Airmis</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card-white">
-                                <div class="testimonial-content">
-                                    The platform has transformed how we manage our client relationships. It's intuitive
-                                    and provides insights we never had access to before.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Sarah Johnson</div>
-                                        <div class="author-position">Customer Success Manager<br>TechWave</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user2.png" alt="Sarah Johnson">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-content">
-                                    Understanding customer health, commitments, and resource allocation is something I'm
-                                    always chasing to improve. Cardinal is great at that in my mind.
-                                </div>
-                                <div class="author-info">
-                                    <div class="author-details">
-                                        <div class="author-name">Tom Mayblum</div>
-                                        <div class="author-position">Product Group Lead<br>Airmis</div>
-                                    </div>
-                                    <div class="author-image">
-                                        <img src="assets/img/user_testimonials/user1.png" alt="Tom Mayblum">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <p>Entérate de nuestras novedades y promociones en redes sociales.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V320H134.4V256h59.8V206.1c0-58.7 35.9-91.1 88.8-91.1 25.3 0 47 1.9 53.3 2.7v55.1h-32.9c-28.5 0-34 13.5-34 33.4V256h61.6l-8 64H269.4V504.5C381.3 476.8 464 376 464 256h48z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <footer>
-
-
-    </footer>
-
-
-
-    <!-- AQUI TA EL POPOP-->
-    <div class="popup-overlay" id="overlay" onclick="closePopup()"></div>
-    <div class="popup" id="popup">
-        <h1 class="Login">Inicia Sesión</h1>
-        <a href="/pages/login.html?show=register" class="text_count">¿No tienes una cuenta?</a>
-        <div class="div_campos">
-            <div class="div_username">
-                <h3 class="username_email">Usuario / Correo</h3>
-                <input placeholder="" type="text" class="placeholder_1" id="lg_email" />
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kopi Cafetería. Todos los derechos reservados.</p>
             </div>
-            <div class="div_password">
-                <div class="div_pas">
-                    <h3 class="pw">Contraseña</h3>
-                    <h3 class="pw2">¿La olvidaste?</h3>
+        </footer>
+
+
+
+        <!-- AQUI TA EL POPOP-->
+        <div class="popup-overlay" id="overlay" onclick="closePopup()"></div>
+        <div class="popup" id="popup">
+            <h1 class="Login">Inicia Sesión</h1>
+            <a href="/pages/login.html?show=register" class="text_count">¿No tienes una cuenta?</a>
+            <div class="div_campos">
+                <div class="div_username">
+                    <h3 class="username_email">Usuario / Correo</h3>
+                    <input placeholder="" type="text" class="placeholder_1" id="lg_email" />
                 </div>
-                <Input placeholder="" type="password" class="placeholder_2" id="lg_ps" />
+                <div class="div_password">
+                    <div class="div_pas">
+                        <h3 class="pw">Contraseña</h3>
+                        <h3 class="pw2">¿La olvidaste?</h3>
+                    </div>
+                    <Input placeholder="" type="password" class="placeholder_2" id="lg_ps" />
+                </div>
+            </div>
+            <button type="button" class="btn" onclick="closePopup()" id="button_sing">Iniciar Sesión</button>
+
+
+            <!-- separador -->
+            <div class="box_separador">
+                <div class="s1"></div>
+                <div class="tx_separador">Continúa con</div>
+                <div class="s2"></div>
+            </div>
+            <!-- fin separador -->
+
+
+            <!-- botones google y facebook -->
+            <div class="botones_login">
+                <button class="google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect width="24" height="24" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M23.04 12.2615C23.04 11.446 22.9668 10.6619 22.8309 9.90918H12V14.3576H18.1891C17.9225 15.7951 17.1123 17.013 15.8943 17.8285V20.714H19.6109C21.7855 18.7119 23.04 15.7637 23.04 12.2615Z"
+                            fill="#4285F4" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 23.5001C15.105 23.5001 17.7081 22.4703 19.6109 20.7139L15.8943 17.8285C14.8645 18.5185 13.5472 18.9262 12 18.9262C9.00474 18.9262 6.46951 16.9032 5.56519 14.1851H1.72314V17.1646C3.61542 20.923 7.50451 23.5001 12 23.5001Z"
+                            fill="#34A853" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.56523 14.185C5.33523 13.495 5.20455 12.7579 5.20455 12C5.20455 11.242 5.33523 10.505 5.56523 9.81499V6.83545H1.72318C0.944318 8.38795 0.5 10.1443 0.5 12C0.5 13.8557 0.944318 15.612 1.72318 17.1645L5.56523 14.185Z"
+                            fill="#FBBC05" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 5.07386C13.6884 5.07386 15.2043 5.65409 16.3961 6.79364L19.6945 3.49523C17.7029 1.63955 15.0997 0.5 12 0.5C7.50451 0.5 3.61542 3.07705 1.72314 6.83545L5.56519 9.815C6.46951 7.09682 9.00474 5.07386 12 5.07386Z"
+                            fill="#EA4335" />
+                    </svg>
+                    Google
+                </button>
+                <button class="facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <rect width="24" height="24" transform="translate(0 0.5)" fill="#1877F2" />
+                        <path
+                            d="M23.5 12.5699C23.5 6.2186 18.3513 1.06988 12 1.06988C5.64872 1.06988 0.5 6.2186 0.5 12.5699C0.5 18.3099 4.70538 23.0674 10.2031 23.9302V15.8941H7.2832V12.5699H10.2031V10.0363C10.2031 7.1541 11.92 5.56207 14.5468 5.56207C15.805 5.56207 17.1211 5.78668 17.1211 5.78668V8.61675H15.671C14.2424 8.61675 13.7969 9.50322 13.7969 10.4127V12.5699H16.9863L16.4765 15.8941H13.7969V23.9302C19.2946 23.0674 23.5 18.3099 23.5 12.5699Z"
+                            fill="white" />
+                    </svg>
+                    Facebook
+                </button>
+
+            </div>
+
+
+        </div>
+        <!-- Chatbot Bubble -->
+        <div class="chatbot-container">
+            <div class="chatbot-bubble" id="chatbotBubble">
+                <span class="material-symbols-outlined">chat</span>
+            </div>
+
+            <div class="chatbot-window" id="chatbotWindow">
+                <div class="chatbot-header">
+                    <h3>Kopi Assistant</h3>
+                    <span class="material-symbols-outlined close-chatbot">close</span>
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages">
+                    <div class="chatbot-message bot-message">
+                        ¡Hola! Soy tu asistente de café. ¿En qué puedo ayudarte hoy? 😊
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatbotInput" placeholder="Pregunta algo sobre café...">
+                    <button id="sendMessageBtn">
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </div>
             </div>
         </div>
-        <button type="button" class="btn" onclick="closePopup()" id="button_sing">Iniciar Sesión</button>
+        <!-- User Menu Dropdown -->
+        <div class="user-menu-overlay" id="userMenuOverlay" onclick="closeUserMenu()"></div>
+        <div class="user-menu-dropdown" id="userMenuDropdown">
+            <div class="user-menu-header">
+                <div class="user-avatar">
+                    <img src="assets/img/user_testimonials/user1.png" alt="" class="foto-user">
+                </div>
+                <div class="user-info">
+                    <h3 id="userMenuName">Usuario</h3>
+                    <p>Miembro desde 2024</p>
+                </div>
+                <span class="material-symbols-outlined close-user-menu" onclick="closeUserMenu()">close</span>
+            </div>
 
+            <div class="user-menu-items">
+                <a href="../pages/usermenu.html" class="user-menu-item">
+                    <span class="material-symbols-outlined">person</span>
+                    Mi Perfil
+                </a>
 
-        <!-- separador -->
-        <div class="box_separador">
-            <div class="s1"></div>
-            <div class="tx_separador">Continúa con</div>
-            <div class="s2"></div>
+                <a href="pages/pedidos.html" class="user-menu-item">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    Mis Pedidos
+                </a>
+
+                <a href="../pages/rewards.html" class="user-menu-item">
+                    <span class="material-symbols-outlined">star</span>
+                    Mis Recompensas
+                </a>
+
+                <a href="../pages/favorites.html" class="user-menu-item">
+                    <span class="material-symbols-outlined">favorite</span>
+                    Favoritos
+                </a>
+
+                <div class="user-menu-separator"></div>
+
+                <a href="../pages/settings.html" class="user-menu-item">
+                    <span class="material-symbols-outlined">settings</span>
+                    Configuración
+                </a>
+
+                <a href="#" class="user-menu-item logout" onclick="cerrarSesion()">
+                    <span class="material-symbols-outlined">logout</span>
+                    Cerrar Sesión
+                </a>
+            </div>
         </div>
-        <!-- fin separador -->
-
-
-        <!-- botones google y facebook -->
-        <div class="botones_login">
-            <button class="google">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <rect width="24" height="24" fill="white" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M23.04 12.2615C23.04 11.446 22.9668 10.6619 22.8309 9.90918H12V14.3576H18.1891C17.9225 15.7951 17.1123 17.013 15.8943 17.8285V20.714H19.6109C21.7855 18.7119 23.04 15.7637 23.04 12.2615Z"
-                        fill="#4285F4" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12 23.5001C15.105 23.5001 17.7081 22.4703 19.6109 20.7139L15.8943 17.8285C14.8645 18.5185 13.5472 18.9262 12 18.9262C9.00474 18.9262 6.46951 16.9032 5.56519 14.1851H1.72314V17.1646C3.61542 20.923 7.50451 23.5001 12 23.5001Z"
-                        fill="#34A853" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M5.56523 14.185C5.33523 13.495 5.20455 12.7579 5.20455 12C5.20455 11.242 5.33523 10.505 5.56523 9.81499V6.83545H1.72318C0.944318 8.38795 0.5 10.1443 0.5 12C0.5 13.8557 0.944318 15.612 1.72318 17.1645L5.56523 14.185Z"
-                        fill="#FBBC05" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12 5.07386C13.6884 5.07386 15.2043 5.65409 16.3961 6.79364L19.6945 3.49523C17.7029 1.63955 15.0997 0.5 12 0.5C7.50451 0.5 3.61542 3.07705 1.72314 6.83545L5.56519 9.815C6.46951 7.09682 9.00474 5.07386 12 5.07386Z"
-                        fill="#EA4335" />
-                </svg>
-                Google
-            </button>
-            <button class="facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                    <rect width="24" height="24" transform="translate(0 0.5)" fill="#1877F2" />
-                    <path
-                        d="M23.5 12.5699C23.5 6.2186 18.3513 1.06988 12 1.06988C5.64872 1.06988 0.5 6.2186 0.5 12.5699C0.5 18.3099 4.70538 23.0674 10.2031 23.9302V15.8941H7.2832V12.5699H10.2031V10.0363C10.2031 7.1541 11.92 5.56207 14.5468 5.56207C15.805 5.56207 17.1211 5.78668 17.1211 5.78668V8.61675H15.671C14.2424 8.61675 13.7969 9.50322 13.7969 10.4127V12.5699H16.9863L16.4765 15.8941H13.7969V23.9302C19.2946 23.0674 23.5 18.3099 23.5 12.5699Z"
-                        fill="white" />
-                </svg>
-                Facebook
-            </button>
-
+        <div id="errorPopup" class="error-popup">
+            <div class="error-popup-content">
+                <span id="closePopup" class="close-popup">&times;</span>
+                <p id="popupMessage"></p>
+            </div>
         </div>
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+    </main>
 
 
-    </div>
-
-
+    <!-- Al final del body, ANTES de cualquier otro script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- PRIMERO cargar sesion.js que define showToast -->
+    <script src="assets/js/sesion.js"></script>
+
+    <!-- DESPUÉS cargar los otros scripts que usan showToast -->
+    <script src="assets/js/menu_script.js"></script>
+    <script src="assets/js/login_script.js"></script>
     <script src="assets/js/script.js"></script>
+
     <script>
-        // JavaScript para abrir y cerrar el popup
-        function openPopup() {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('popup').classList.add('open-popup');
-        }
-        function closePopup() {
-            document.getElementById('overlay').classList.remove('active');
-            document.getElementById('popup').classList.remove('open-popup');
-        }
+        // Chatbot functionality (mantener como está)
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatbotBubble = document.getElementById('chatbotBubble');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const sendMessageBtn = document.getElementById('sendMessageBtn');
+            const closeChatbot = document.querySelector('.close-chatbot');
+
+            // Toggle chatbot window
+            chatbotBubble.addEventListener('click', function () {
+                chatbotWindow.classList.toggle('active');
+            });
+
+            closeChatbot.addEventListener('click', function () {
+                chatbotWindow.classList.remove('active');
+            });
+
+            // Send message function
+            function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message === '') return;
+
+                // Add user message to chat
+                addMessage(message, 'user');
+                chatbotInput.value = '';
+
+                // Show typing indicator
+                showTypingIndicator();
+
+                // Simulate bot response (in a real implementation, you would call an API here)
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    getBotResponse(message);
+                }, 1000);
+            }
+
+            // Event listeners for sending messages
+            sendMessageBtn.addEventListener('click', sendMessage);
+
+            chatbotInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Add message to chat
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chatbot-message', `${sender}-message`);
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            // Show typing indicator
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.classList.add('typing-indicator');
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+      `;
+                chatbotMessages.appendChild(typingDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            // Remove typing indicator
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            // Get bot response (this is where you would integrate with an actual API)
+            async function getBotResponse(userMessage) {
+                try {
+                    // Respuesta local temporal para testing
+                    const response = getSimpleBotResponse(userMessage);
+                    addMessage(response, 'bot');
+                    // Para producción, descomentar esto y eliminar las 2 líneas anteriores
+                    // const response = await fetch('php/chatbot.php', {
+                    //   method: 'POST',
+                    //   headers: {'Content-Type': 'application/json'},
+                    //   body: JSON.stringify({ message: userMessage })
+                    // });
+                    // const data = await response.json();
+                    // addMessage(data.reply, 'bot');
+                } catch (error) {
+                    console.error('Error:', error);
+                    addMessage("⚠️ Estoy teniendo problemas para responder. ¿Podrías intentar con otra pregunta?", 'bot');
+                }
+            }
+
+            // Predefined responses for demo purposes
+            const predefinedResponses = {
+                "hola": "¡Hola! ¿En qué puedo ayudarte con tu experiencia de café hoy? 😊",
+                "tipo": "Ofrecemos espresso, americano, latte, cappuccino, mocha y más. 🌱 ¿Te gustaría saber sobre granos especiales?",
+                "recomienda": "¡Claro! Si te gusta fuerte: espresso ☕. Suave: latte 🥛. Dulce: mocha con chocolate.",
+                "preparar": "Tips: 1) Agua fresca 🚰 2) Muele granos recién 3) Proporción 2 cucharadas/180ml 4) Temperatura 90-96°C 🌡",
+                "especial": "¡Nuestro secreto es selección de granos premium 🌟, tueste artesanal 🔥 y pasión en cada preparación!",
+                "default": "Soy experto en café ☕. Pregúntame sobre tipos, preparación o recomendaciones 😊"
+            };
+
+            // Simple response function for demo (replace with actual API call in production)
+            function getSimpleBotResponse(userMessage) {
+                const lowerMessage = userMessage.toLowerCase();
+
+                // Verificar coincidencias en orden de prioridad
+                const keywords = [
+                    'hola',
+                    'tipo', 'variedad', 'clases',
+                    'recomienda', 'sugiere', 'mejor',
+                    'preparar', 'hacer', 'preparación',
+                    'especial', 'diferente', 'único'
+                ];
+
+                for (const keyword of keywords) {
+                    if (lowerMessage.includes(keyword)) {
+                        return predefinedResponses[keyword] || predefinedResponses.default;
+                    }
+                }
+
+                return predefinedResponses.default;
+            }
+        });
     </script>
-
-
 </body>
 
 </html>

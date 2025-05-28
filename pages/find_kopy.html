@@ -3,9 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/styles/styles_findkopy.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="../assets/js/carrito_script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap&libraries=marker" async defer></script>
+        <link
+        href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>Encuentranos | Kopi</title>
 </head>
 <body>
+      <nav class="encabezado">
+        <a href="/" class="home">Kopi</a>
+        <div class="btnMenu">
+            <div class="linea"></div>
+            <a href="menu.html">
+                <p class="menu-text">MENU</p>
+            </a>
+            <div class="linea"></div>
+        </div>
+        <div class="btnFindKopi">
+            <span class="material-symbols-outlined">location_on</span>
+            <a href="find_kopy.html">
+                <p>Encuentra tu kopi</p>
+            </a>
+        </div>
+        <div class="btnLogin" id="btnlogin">
+            <a href="login.html">
+                <p>Login</p>
+            </a>
+        </div>
+        <div class="btnRegister" id="btnregister">
+            <a href="login.html?show=register">
+                <p>Join</p>
+            </a>
+        </div>
+        <div class="usuario" id="usuario">
+            <a href="../pages/usermenu.html">
+                <p id="nombreUsuario">Usuario</p>
+            </a>
+        </div>
+        <a href="../pages/carrito.html">
+            <span class="material-symbols-outlined" id="shopping_cart">shopping_cart</span>
+        </a>
+
+        <span class="material-symbols-outlined" id="menu">menu</span>
+    </nav>> <!-- Fin de barra de navegacion superior-->
+
+   <div class="container">
     
+        <div class="left-panel">   
+           
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Find your Kopi">
+                    <span class="search-icon"></span>
+                </div>
+                <div class="location-marker"></div>
+            </div>
+            
+            <div class="places-list">
+                <div class="place-card">
+                    <div class="place-rating">4.8★</div>
+                    <div class="place-title">Plaza las Américas</div>
+                    <div class="place-address">Av. Lázaro Cárdenas</div>
+                    <div class="place-address">Col. Centro 58000</div>
+                    <div class="place-phone">+716 666 3021</div>
+                    <div class="place-hours">
+                        <div class="time-icon"></div>
+                        <span>7:00 AM a 15:00</span>
+                    </div>
+                    <div class="place-decorative"></div>
+                </div>
+                
+                <div class="place-card">
+                    <div class="place-rating">4.6★</div>
+                    <div class="place-title">Plaza U</div>
+                    <div class="place-address">Av. Lázaro Cárdenas</div>
+                    <div class="place-address">Col. Centro 58000</div>
+                    <div class="place-phone">+716 666 3021</div>
+                    <div class="place-hours">
+                        <div class="time-icon"></div>
+                        <span>7:00 AM a 15:00</span>
+                    </div>
+                    <div class="place-decorative"></div>
+                </div>
+                
+                <div class="place-card">
+                    <div class="place-rating">4.7★</div>
+                    <div class="place-title">Plaza Andador</div>
+                    <div class="place-address">Av. Lázaro Crisanto</div>
+                    <div class="place-address">Col. Centro 58001</div>
+                    <div class="place-phone">+716 666 6021</div>
+                    <div class="place-hours">
+                        <div class="time-icon"></div>
+                        <span>7:00 AM a 15:00</span>
+                    </div>
+                    <div class="place-decorative"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div id="map"></div>
+        </div>
+        <script src="../assets/js/findkopy_script.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+    </div>
+
+    <script>
+
+        // Funcionalidad de búsqueda
+        document.querySelector('.search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.place-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.place-title').textContent.toLowerCase();
+                const address = card.querySelector('.place-address').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || address.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = searchTerm === '' ? 'block' : 'none';
+                }
+            });
+        });
+    </script>
+     
 </body>
 </html>

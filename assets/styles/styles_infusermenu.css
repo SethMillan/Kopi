@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra superior */
+
+#contenedor1 {
+    background-color: #160503;
+    width: 100%;
+    height: 7.5rem;
+}
+
+.contComun {
+    color: #ddd;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+.contIzq {
+    float: left;
+    left: 3rem;
+    /*Espacio entre borde izquierdo*/
+}
+
+.contDer {
+    font-family: "Open Sans", sans-serif;
+    font-size: 100%;
+    float: right;
+    width: 10%;
+    right: 5rem;
+    /*Espacio entre borde derecho*/
+}
+
+#find {
+    width: 20%;
+}
+
+#kopi {
+    font-family: "Fredoka", sans-serif;
+    font-size: 4rem;
+    width: 10%;
+}
+
+#menu {
+    font-size: medium;
+
+    text-decoration-line: overline underline;
+    width: 10%;
+}
+
+/* Fin de barra superior  */
+
+/* 777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777 */
+
+/* Contenedor de columnas */
+#contenido {
+    display: flex;
+    height: calc(100vh - 7.5rem);
+
+}
+
+/* Columnas */
+#izquierdo,
+#derecho {
+    width: 50%;
+    height: 100%;
+}
+
+#izquierdo {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    box-shadow: 10px 0 15px -10px rgba(106, 58, 10, 0.3);
+    z-index: 1;
+}
+
+#derecho {
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    margin-left: -1px;
+}
+
+/* Estilos de texto */
+#t1 {
+    font-weight: 700;
+    font-size: 3rem;
+    color: #160503;
+    font-family: "Fredoka", sans-serif;
+
+}
+
+#t2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: rgb(142, 142, 142);
+    transition: font-size 0.3s ease;
+}
+
+#t2:hover {
+    font-size: 1.7rem;
+}
+
+
+#w1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #160503;
+}
+
+.raspa {
+    font-family: Helvetica;
+    font-size: 0.9rem;
+    color: rgb(102, 102, 102);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.raspa:hover {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #160503;
+}
+
+
+.jh {
+    font-family: Helvetica;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+
+#fe {
+    font-size: 1.2rem;
+    color: rgb(170, 170, 170);
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+ul li label {
+    transition: font-size 0.3s ease;
+}
+
+ul li label:hover {
+    color: #160503;
+    cursor: pointer;
+    border-bottom: 4px solid #8B4513;
+    font-size: 1.4rem;
+}
+
+#t2:hover {
+    color: #160503;
+    cursor: pointer;
+    border-bottom: 4px solid #8B4513;
+    transition: all 0.2s ease-in-out;
+}
+
+#df {
+    font-family: "Fredoka", sans-serif;
+    text-align: center;
+    width: 100%;
+    font-size: 15rem;
+}
+
+#df:hover {
+    font-size: 16rem;
+    text-shadow: #8B4513;
+}
+
+
+.subrayado {
+    display: inline-block;
+    border-bottom: 1.65px solid #8B4513;
+    padding-bottom: 4px;
+    min-width: 20rem;
+    text-align: left;
+}
+
+.centro {
+    margin-top: -2rem;
+}
+
+.menu-link {
+    font-size: 1.2rem;
+    color: rgb(170, 170, 170);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.menu-link:hover {
+    color: #160503;
+    cursor: pointer;
+    border-bottom: 4px solid #8B4513;
+    font-size: 1.4rem;
+}
+nav.encabezado {
+  background-color: #160503;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 35px 40px;
+  gap: 20px;
+}
+
+nav.encabezado .home {
+  text-align: center;
+  font-family: Fredoka, sans-serif;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.35px;
+  margin-top: -28px;
+  text-decoration: none;
+  color: #FFF;
+}
+
+nav.encabezado .btnMenu {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 55px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+}
+
+nav.encabezado .btnMenu .linea {
+  width: 53px;
+  height: 2px;
+  margin-bottom: -20px;
+  margin-top: -20px;
+  background-color: #FFF;
+}
+
+@media (max-width: 670px) {
+  nav.encabezado .btnMenu {
+    display: none;
+  }
+}
+
+nav.encabezado .btnFindKopi {
+  user-select: none;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  padding-right: 70px;
+  margin-top: -24px;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado .btnFindKopi {
+    padding-right: 0px;
+  }
+}
+
+nav.encabezado .btnLogin {
+  user-select: none;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  border: #FFF solid;
+  padding: 7px;
+  border-radius: 64px;
+  margin-left: 20px;
+  width: 92px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+
+nav.encabezado .btnLogin a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado .btnLogin {
+    display: none;
+  }
+}
+
+nav.encabezado .btnRegister {
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  letter-spacing: 0.09px;
+  border-radius: 64px;
+  border: 1px solid #FFF;
+  background: #FFF;
+  margin-left: 20px;
+  color: #160503;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 92px;
+  height: 39px;
+  padding: 7px;
+  margin-top: -20px;
+}
+
+nav.encabezado .btnRegister a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado .btnRegister {
+    display: none;
+  }
+}
+
+nav.encabezado .material-symbols-outlined {
+  user-select: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+nav.encabezado #shopping_cart {
+  margin-top: -25px;
+}
+
+@media (max-width: 960px) {
+  nav.encabezado #shopping_cart {
+    display: none;
+  }
+}
+
+nav.encabezado #menu {
+  user-select: none;
+}
+
+@media (min-width: 961px) {
+  nav.encabezado #menu {
+    display: none;
+  }
+}
+
+.usuario {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0.09px;
+  width: 53px;
+  height: 2px;
+  margin-right: 40px;
+  margin-top: -80px;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kopi nav.encabezado {
+    background-color: #160503;
+    color: #FFF;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 35px 40px;
+    gap: 20px;
+}
+.kopi nav.encabezado .home {
+    text-align: center;
+    font-family: Fredoka, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    margin-top: -28px;
+    text-decoration: none;
+    color: #FFF;
+}
+.kopi nav.encabezado .btnMenu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+}
+
+.kopi nav.encabezado .btnMenu .linea {
+    width: 53px;
+    height: 2px;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    flex-shrink: 0;
+    stroke-width: 2px;
+    background-color: #FFF;
+}
+
+@media (max-width: 670px) {
+    .kopi nav.encabezado .btnMenu {
+      display: none;
+    }
+}
+.kopi nav.encabezado .btnFindKopi {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    padding-right: 70px;
+    margin-top: -24px;
+}
+
+@media (max-width: 960px) {
+    .kopi nav.encabezado .btnFindKopi {
+      padding-right: 0px;
+    }
+}
+.kopi nav.encabezado .btnLogin {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    border: #FFF solid;
+    padding: 7px;
+    border-radius: 64px;
+    margin-left: 20px;
+    width: 92px;
+    height: 39px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+}
+
+.kopi nav.encabezado .btnLogin a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 960px) {
+    .kopi nav.encabezado .btnLogin {
+      display: none;
+    }
+}
+.kopi nav.encabezado .btnRegister {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    border-radius: 64px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    margin-left: 20px;
+    color: #160503;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 92px;
+    height: 39px;
+    padding: 7px;
+    margin-top: -20px;
+}
+
+.kopi nav.encabezado .btnRegister a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 960px) {
+    .kopi nav.encabezado .btnRegister {
+      display: none;
+    }
+}
+.usuario {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.09px;
+    width: 53px;
+    height: 2px;
+    margin-right: 40px;
+    margin-top: -80px;
+}
+.kopi nav.encabezado .material-symbols-outlined {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 960px) {
+    .kopi nav.encabezado #shopping_cart {
+      display: none;
+    }
+}
+
+#shopping_cart {
+    margin-top: -25px;
+}
+
+.kopi nav.encabezado #menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 961px) {
+    .kopi nav.encabezado #menu {
+      display: none;
+    }
+}
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
