@@ -72,10 +72,10 @@
 
         <div class="menu-categories">
             <button class="category-button active">Todo</button>
-            <button class="category-button">Coffee</button>
-            <button class="category-button">Tea</button>
-            <button class="category-button">Pastries</button>
-            <button class="category-button">Bags</button>
+            <button class="category-button">Café</button>
+            <button class="category-button">Té</button>
+            <button class="category-button">Pasteleria</button>
+            <button class="category-button">Bolsas</button>
         </div>
 
         <div class="menu-items">
@@ -89,7 +89,7 @@
                     <!-- <a href="carrito.html">-->
                     <button class="add-to-cart">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
+                        Comprar
                     </button>
                     </a>
                 </div>
@@ -104,7 +104,7 @@
                     <!--  <a href="carrito.html">>-->
                     <button class="add-to-cart">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
+                        Comprar
                     </button>
                     </a>
                 </div>
@@ -119,7 +119,7 @@
                     <!--  <a href="carrito.html">>-->
                     <button class="add-to-cart">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
+                        Comprar
                     </button>
                     </a>
                 </div>
@@ -134,7 +134,7 @@
                     <!--<a href="carrito.html">>-->
                     <button class="add-to-cart">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
+                        Comprar
                     </button>
                     </a>
                 </div>
@@ -325,7 +325,27 @@
     </div>
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
+    <!-- Agregar esto en menu.html, DESPUÉS del popup de login existente -->
 
+    <!-- Popup Login Required -->
+    <div class="login-required-overlay" id="loginRequiredOverlay" onclick="closeLoginRequiredPopup()"></div>
+    <div class="login-required-popup" id="loginRequiredPopup">
+        <div class="login-required-content">
+            <div class="login-required-icon">
+                <span class="material-symbols-outlined">person_off</span>
+            </div>
+            <h3>¡Woops!</h3>
+            <p>Necesitas iniciar sesión primero para agregar productos al carrito</p>
+            <div class="login-required-buttons">
+                <button class="login-required-btn cancel" onclick="closeLoginRequiredPopup()">
+                    Después
+                </button>
+                <button class="login-required-btn primary" onclick="openLoginFromRequired()">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- PRIMERO: sesion.js que define showToast -->
     <script src="../assets/js/sesion.js"></script>

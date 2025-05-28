@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Variables globales
-    let currentCategory = 'all';
+    let currentCategory = 'todo';
     let allProducts = [];
 
     function verificarSesion() {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createProductHTML(product) {
         const stockBadge = product.stock < 10 && product.stock > 0 ? `<span class="stock-badge low-stock">Solo ${product.stock} disponibles</span>` : '';
         const disabledClass = product.stock === 0 ? 'disabled' : '';
-        const buttonText = product.stock === 0 ? 'Sin Stock' : 'Add to Cart';
+        const buttonText = product.stock === 0 ? 'Sin Stock' : 'Comprar';
         const buttonIcon = product.stock === 0 ? 'block' : 'add_shopping_cart';
 
         return `
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuItemsContainer.innerHTML = '';
 
         if (products.length === 0) {
-            menuItemsContainer.innerHTML = '<p class="no-products">No products found in this category.</p>';
+            menuItemsContainer.innerHTML = '<p class="no-products">Sin productos en esta categoria.</p>';
             return;
         }
 
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Filtrar productos
-        if (currentCategory === 'all') {
+        if (currentCategory === 'todo') {
             renderProducts(allProducts);
         } else {
             const filteredProducts = allProducts.filter(product =>
@@ -208,11 +208,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productName = button.getAttribute('data-product-name');
                 const productPrice = button.getAttribute('data-product-price');
 
-                console.log(`Adding to cart: ${productName} (ID: ${productId})`);
+                console.log(`Agregando al carrito: ${productName} (ID: ${productId})`);
 
                 // Deshabilitar el botón temporalmente
                 button.disabled = true;
-                button.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Adding...';
+                button.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Agregando...';
 
                 try {
                     const response = await fetch('../php/carrito.php', {
@@ -243,14 +243,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Restaurar el botón después de 2 segundos
                         setTimeout(() => {
                             button.disabled = false;
-                            button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Add to Cart';
+                            button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Comprar';
                             button.classList.remove('success');
                         }, 2000);
                     } else {
-                        throw new Error(data.message || 'Failed to add to cart');
+                        throw new Error(data.message || 'Fallo al agregar al carrito');
                     }
                 } catch (error) {
-                    console.error('Error adding to cart:', error);
+                    console.error('Error agregando al carrito en:', error);
 
                     // Error - mostrar mensaje específico
                     let errorMessage = 'Error';
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         errorMessage = 'Sin stock';
                         showAlert = true;
                     } else if (error.message.includes('sesión')) {
-                        errorMessage = 'Login needed';
+                        errorMessage = 'Login necesitado';
                         // Opcionalmente, redirigir al login
                         if (confirm('Necesitas iniciar sesión para agregar productos al carrito. ¿Deseas ir a la página de login?')) {
                             window.location.href = 'login.html';
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Restaurar el botón después de 3 segundos
                     setTimeout(() => {
                         button.disabled = false;
-                        button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Add to Cart';
+                        button.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span> Comprar';
                         button.classList.remove('error');
                     }, 3000);
                 }
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCartCounter(data.total_items);
             }
         } catch (error) {
-            console.error('Error loading cart counter:', error);
+            console.error('Error cargando el contador de carrito:', error);
         }
     }
 

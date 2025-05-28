@@ -43,7 +43,7 @@ a {
 
 /* Menu content styles - Add specific styles for your menu page here */
 .menu-content {
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -264,4 +264,138 @@ a {
   font-size: 13px;
   font-weight: 100;
   color: #9F5524;
+}
+
+
+/* Popup Login Required */
+.login-required-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 9998;
+}
+
+.login-required-overlay.active {
+  display: block;
+}
+
+.login-required-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  background: #160503;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 9999;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-required-popup.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.login-required-content {
+  padding: 40px 30px 30px 30px;
+  text-align: center;
+  color: white;
+}
+
+.login-required-icon {
+  margin-bottom: 20px;
+}
+
+.login-required-icon .material-symbols-outlined {
+  font-size: 60px;
+  color: #a6763e;
+  opacity: 0.8;
+}
+
+.login-required-content h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.login-required-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #ccc;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login-required-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.login-required-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Open Sans', sans-serif;
+  min-width: 120px;
+}
+
+.login-required-btn.cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-required-btn.cancel:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.login-required-btn.primary {
+  background: linear-gradient(135deg, #a6763e, #9F5524);
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(166, 118, 62, 0.3);
+}
+
+.login-required-btn.primary:hover {
+  background: linear-gradient(135deg, #9F5524, #813b18);
+  box-shadow: 0 6px 20px rgba(166, 118, 62, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-required-popup {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .login-required-content {
+    padding: 30px 20px;
+  }
+
+  .login-required-buttons {
+    flex-direction: column;
+  }
+
+  .login-required-btn {
+    width: 100%;
+  }
 }
