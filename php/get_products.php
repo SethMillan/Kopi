@@ -19,7 +19,7 @@ try {
     require_once 'db.php';
     
     // Obtener el filtro de categoría si existe
-    $category = isset($_GET['category']) ? $_GET['category'] : 'all';
+    $category = isset($_GET['category']) ? $_GET['category'] : 'todo';
     
     // Construir la consulta SQL con JOIN para obtener el nombre de la categoría
     $sql = "SELECT 
@@ -36,14 +36,14 @@ try {
             WHERE p.stock > 0";
     
     // Agregar filtro de categoría si no es 'all'
-    if ($category !== 'all') {
+    if ($category !== 'todo') {
         $sql .= " AND LOWER(c.name) = LOWER($1)";
     }
     
     $sql .= " ORDER BY c.name, p.nombre";
     
     // Ejecutar la consulta
-    if ($category !== 'all') {
+    if ($category !== 'todo') {
         $result = pg_query_params($conn, $sql, array($category));
     } else {
         $result = pg_query($conn, $sql);
@@ -109,7 +109,7 @@ try {
         throw new Exception('Error al obtener categorías: ' . pg_last_error($conn));
     }
     
-    $categories = array('All'); // Siempre incluir 'All' como primera opción
+    $categories = array('Todo'); // Siempre incluir 'All' como primera opción
     while ($catRow = pg_fetch_assoc($categoriesResult)) {
         $categories[] = ucfirst(strtolower($catRow['name']));
     }

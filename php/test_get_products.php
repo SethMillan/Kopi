@@ -14,7 +14,7 @@ echo "=== PRUEBA DE GET_PRODUCTS.PHP ===\n\n";
 echo "1. Verificando archivo db.php...\n";
 if (file_exists('db.php')) {
     echo "✓ db.php existe\n";
-    
+
     try {
         require_once 'db.php';
         echo "✓ db.php incluido correctamente\n";
@@ -99,9 +99,9 @@ try {
             FROM producto p
             INNER JOIN categoria c ON p.categoria_id = c.id
             WHERE p.stock > 0";
-    
+
     $result = pg_query($conn, $sql);
-    
+
     while ($row = pg_fetch_assoc($result)) {
         $product = array(
             'id' => $row['id'],
@@ -116,14 +116,14 @@ try {
         );
         $products[] = $product;
     }
-    
+
     $response = array(
         'success' => true,
         'products' => $products,
-        'categories' => ['All', 'Coffee', 'Tea', 'Pastries', 'Bags'],
+        'categories' => ['Todo', 'Café', 'Té', 'Pasteleria', 'Bolsas'],
         'total_products' => count($products)
     );
-    
+
     echo "✓ Respuesta JSON creada correctamente\n";
     echo "Total de productos: " . count($products) . "\n";
     echo "\nJSON de ejemplo (primeros 2 productos):\n";
@@ -133,7 +133,6 @@ try {
         'total_products' => count($products)
     );
     echo json_encode($sample, JSON_PRETTY_PRINT);
-    
 } catch (Exception $e) {
     echo "✗ Error al crear JSON: " . $e->getMessage() . "\n";
 }

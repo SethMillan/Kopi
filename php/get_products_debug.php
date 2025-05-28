@@ -48,7 +48,7 @@ try {
     header('Content-Type: application/json');
     
     // Obtener el filtro de categoría si existe
-    $category = isset($_GET['category']) ? $_GET['category'] : 'all';
+    $category = isset($_GET['category']) ? $_GET['category'] : 'todo';
     
     // Consulta simple primero
     $sql = "SELECT 
@@ -64,15 +64,15 @@ try {
             INNER JOIN categoria c ON p.categoria_id = c.id
             WHERE p.stock > 0";
     
-    // Agregar filtro de categoría si no es 'all'
-    if ($category !== 'all') {
+    // Agregar filtro de categoría si no es 'todo'
+    if ($category !== 'todo') {
         $sql .= " AND LOWER(c.name) = LOWER($1)";
     }
     
     $sql .= " ORDER BY c.name, p.nombre";
     
     // Ejecutar la consulta
-    if ($category !== 'all') {
+    if ($category !== 'todo') {
         $result = pg_query_params($conn, $sql, array($category));
     } else {
         $result = pg_query($conn, $sql);
@@ -107,7 +107,7 @@ try {
     }
     
     // Obtener categorías
-    $categories = array('All');
+    $categories = array('Todo');
     $categoriesQuery = "SELECT DISTINCT c.name 
                         FROM categoria c
                         INNER JOIN producto p ON c.id = p.categoria_id
